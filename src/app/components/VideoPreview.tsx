@@ -1,17 +1,6 @@
 import { gsap } from "gsap";
 import { useEffect, useRef, useState } from "react";
 
-/**
- * A function component that renders a section with a parallax effect.
- * When the user hovers over the section, it will move slightly in the
- * direction of the cursor, and the inner content will move in the opposite
- * direction for a parallax effect.
- *
- * @param {{ children: React.ReactNode }} props - An object with a single
- *   property, `children`, which is a React node.
- * @returns {React.ReactElement} A React element representing the section with
- *   the parallax effect.
- */
 export const VideoPreview = ({
 	children,
 }: { children: React.ReactNode }): React.ReactElement => {

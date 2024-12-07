@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "./components/Navbar";
 
 const zentry = localFont({
 	src: "./fonts/zentry-regular.woff2",
@@ -40,8 +41,13 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${zentry.variable} ${general.variable} ${robertMedium.variable} ${robertRegular.variable} ${circularwebBook.variable} antialiased`}
+				className={`${zentry.variable} ${general.variable} ${robertMedium.variable} ${robertRegular.variable} ${circularwebBook.variable} relative min-h-screen w-screen overflow-x-hidden antialiased`}
 			>
+				<Navbar
+					productButtonTitle="Download"
+					logoSrc="/logo.svg"
+					audioSrc="/audio/loop.mp3"
+				/>
 				{children}
 			</body>
 		</html>

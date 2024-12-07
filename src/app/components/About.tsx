@@ -1,9 +1,9 @@
 "use client";
 
 import { useGSAP } from "@gsap/react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import Image from "next/image";
 import AnimatedTitle from "./AnimatedTitle";
 
 gsap.registerPlugin(ScrollTrigger);
