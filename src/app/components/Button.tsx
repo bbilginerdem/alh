@@ -7,16 +7,14 @@ interface ButtonProps {
 	leftIcon: React.ReactNode;
 	containerClass: string;
 }
-/**
- * @returns {JSX.Element}
- */
+
 const Button = ({
 	id,
 	title,
 	rightIcon,
 	leftIcon,
 	containerClass,
-}: ButtonProps): JSX.Element => {
+}: ButtonProps) => {
 	return (
 		<button
 			id={id}
