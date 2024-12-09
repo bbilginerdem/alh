@@ -1,10 +1,9 @@
-"use client";
-
-import { useGSAP } from "@gsap/react";
-import Image from "next/image";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
+
 import AnimatedTitle from "./AnimatedTitle";
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,7 +22,7 @@ const About = () => {
 
 		clipAnimation.to(".mask-clip-path", {
 			width: "100vw",
-			height: "100vw",
+			height: "100vh",
 			borderRadius: 0,
 		});
 	});
@@ -31,18 +30,21 @@ const About = () => {
 	return (
 		<div id="about" className="min-h-screen w-screen">
 			<div className="relative mt-36 mb-8 flex flex-col items-center gap-5">
-				<h2 className="font-general text-sm uppercase md:text-[10px]">
-					Welcome To Ankara Lindy Hop
-				</h2>
+				<p className="font-general text-sm uppercase md:text-[10px]">
+					Welcome to Zentry
+				</p>
 
 				<AnimatedTitle
-					title={"Discover the magic of Ankara Lindy Hop"}
-					containerClass={"mt-5 !text-black text-center"}
+					title="Disc<b>o</b>ver the world's <br /> largest shared <b>a</b>dventure"
+					containerClass="mt-5 !text-black text-center"
 				/>
 
 				<div className="about-subtext">
-					<p>Dancing is what we do.</p>
-					<p>What we do is what we dance.</p>
+					<p>The Game of Games begins—your life, now an epic MMORPG</p>
+					<p className="text-gray-500">
+						Zentry unites every player from countless games and platforms, both
+						digital and physical, into a unified Play Economy
+					</p>
 				</div>
 			</div>
 
