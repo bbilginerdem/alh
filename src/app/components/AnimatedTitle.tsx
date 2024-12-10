@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
