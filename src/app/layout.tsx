@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Contact";
+import Contact from "./components/Footer";
 
 const zentry = localFont({
 	src: "./fonts/zentry-regular.woff2",
@@ -49,6 +51,8 @@ export default function RootLayout({
 					audioSrc="/audio/loop.mp3"
 				/>
 				{children}
+				<Contact />
+				<Footer />
 			</body>
 		</html>
 	);

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 interface ButtonProps {
-	id: string;
+	id?: string;
 	title: string;
 	rightIcon?: React.ReactNode;
 	leftIcon?: React.ReactNode;
