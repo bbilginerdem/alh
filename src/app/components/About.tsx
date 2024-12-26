@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
+import Image from "next/image";
 import AnimatedTitle from "./AnimatedTitle";
-import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,6 +55,7 @@ const About = () => {
 					<Image
 						src="/img/about.webp"
 						alt="about"
+						// TODO: find alternative for fill to get rid of the warning
 						fill
 						className="absolute top-0 left-0"
 						objectFit="cover"

@@ -11,18 +11,17 @@ import VideoPreview from "./VideoPreview";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Hero = () => {
-	const [currentIndex, setCurrentIndex] = useState(1);
-	const [hasClicked, setHasClicked] = useState(false);
+const Hero: React.FC = () => {
+	const [currentIndex, setCurrentIndex] = useState<number>(1);
+	const [hasClicked, setHasClicked] = useState<boolean>(false);
+	const [loading, setLoading] = useState<boolean>(true);
+	const [loadedVideos, setLoadedVideos] = useState<number>(0);
 
-	const [loading, setLoading] = useState(true);
-	const [loadedVideos, setLoadedVideos] = useState(0);
+	const totalVideos: number = 4;
+	const nextVdRef = useRef<HTMLVideoElement | null>(null);
 
-	const totalVideos = 4;
-	const nextVideoRef = useRef<HTMLVideoElement | null>(null); // Use HTMLVideoElement
-
-	const handleVideoLoad = () => {
-		setLoadedVideos((prev) => prev + 1);
+	const handleVideoLoad = (): void => {
+		setLoadedVideos((prev: number) => prev + 1);
 	};
 
 	useEffect(() => {
@@ -31,16 +30,17 @@ const Hero = () => {
 		}
 	}, [loadedVideos]);
 
-	const handleMiniVdClick = () => {
+	const handleMiniVdClick = (): void => {
 		setHasClicked(true);
-
-		setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
+		setCurrentIndex((prevIndex: number) => (prevIndex % totalVideos) + 1);
 	};
 
 	useGSAP(
 		() => {
 			if (hasClicked) {
-				gsap.set("#next-video", { visibility: "visible" });
+				gsap.set("#next-video", {
+					visibility: "visible",
+				});
 				gsap.to("#next-video", {
 					transformOrigin: "center center",
 					scale: 1,
@@ -49,7 +49,7 @@ const Hero = () => {
 					duration: 1,
 					ease: "power1.inOut",
 					onStart: () => {
-						nextVideoRef.current?.play();
+						nextVdRef.current?.play();
 					},
 				});
 				gsap.from("#current-video", {
@@ -84,13 +84,12 @@ const Hero = () => {
 		});
 	});
 
-	const getVideoSrc = (index: number) => `videos/hero-${index}.webm`;
+	const getVideoSrc = (index: number): string => `videos/hero-${index}.webm`;
 
 	return (
 		<div className="relative h-dvh w-screen overflow-x-hidden">
 			{loading && (
 				<div className="absolute z-[100] h-dvh w-screen flex-center overflow-hidden bg-violet-50">
-					{/* https://uiverse.io/G4b413l/tidy-walrus-92 */}
 					<div className="three-body">
 						<div className="three-body__dot" />
 						<div className="three-body__dot" />
@@ -104,15 +103,15 @@ const Hero = () => {
 				className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
 			>
 				<div>
-					<div className="mask-clip-path absolute-center absolute z-40 size-64 cursor-pointer overflow-hidden rounded-lg">
+					<div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
 						<VideoPreview>
-							<button
-								type="button"
+							{/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+							<div
 								onClick={handleMiniVdClick}
 								className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
 							>
 								<video
-									ref={nextVideoRef}
+									ref={nextVdRef}
 									src={getVideoSrc((currentIndex % totalVideos) + 1)}
 									loop
 									muted
@@ -120,12 +119,12 @@ const Hero = () => {
 									className="size-64 origin-center scale-150 object-cover object-center"
 									onLoadedData={handleVideoLoad}
 								/>
-							</button>
+							</div>
 						</VideoPreview>
 					</div>
 
 					<video
-						ref={nextVideoRef}
+						ref={nextVdRef}
 						src={getVideoSrc(currentIndex)}
 						loop
 						muted
@@ -146,13 +145,7 @@ const Hero = () => {
 				</div>
 
 				<h1 className="special-font hero-heading absolute right-5 bottom-5 z-40 text-blue-75">
-					<b>L</b>
-					<b>I</b>
-					<b>N</b>
-					<b>D</b>
-					<b>Y</b> <b>H</b>
-					<b>O</b>
-					<b>P</b>
+					G<b>A</b>MING
 				</h1>
 
 				<div className="absolute top-0 left-0 z-40 size-full">
@@ -163,7 +156,7 @@ const Hero = () => {
 						</h1>
 
 						<p className="mb-5 max-w-64 font-robert-regular text-blue-100">
-							Enter the Meta game Layer <br /> Unleash the Play Economy
+							Enter the Metagame Layer <br /> Unleash the Play Economy
 						</p>
 
 						<Button
@@ -177,7 +170,13 @@ const Hero = () => {
 			</div>
 
 			<h1 className="special-font hero-heading absolute right-5 bottom-5 text-black">
-				G<b>A</b>MING
+				<b>L</b>
+				<b>I</b>
+				<b>N</b>
+				<b>D</b>
+				<b>Y</b> <b>H</b>
+				<b>O</b>
+				<b>P</b>
 			</h1>
 		</div>
 	);

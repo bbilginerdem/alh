@@ -1,58 +1,42 @@
-import AnimatedTitle from "./AnimatedTitle";
-import Button from "./Button";
+import { Instagram, Youtube } from "lucide-react";
+import { v4 as uuidv4 } from "uuid";
 
-interface ImageClipBoxProps {
-	src: string;
-	clipClass: string;
-}
+const socialLinks = [
+	{ href: "https://www.instagram.com/ankaralindyhop/", icon: <Instagram /> },
+	{ href: "https://www.youtube.com/@AnkaraLindyHop", icon: <Youtube /> },
+];
 
-const ImageClipBox: React.FC<ImageClipBoxProps> = ({ src, clipClass }) => (
-	<div className={clipClass}>
-		<img src={src} alt="Clip" />
-	</div>
-);
-
-const Contact = () => {
+const Footer = () => {
 	return (
-		<div id="contact" className="my-20 min-h-96 w-screen px-10">
-			<div className="relative rounded-lg bg-black py-24 text-blue-50 sm:overflow-hidden">
-				<div className="-left-20 absolute top-0 hidden h-full w-72 overflow-hidden sm:block lg:left-20 lg:w-96">
-					<ImageClipBox
-						src="/img/contact-1.webp"
-						clipClass="contact-clip-path-1"
-					/>
-					<ImageClipBox
-						src="/img/contact-2.webp"
-						clipClass="contact-clip-path-2 lg:translate-y-40 translate-y-60"
-					/>
+		<footer className="w-screen bg-[#5542ff] py-4 text-black">
+			<div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 md:flex-row">
+				<p className="text-center font-light text-sm md:text-left">
+					Ankara Lindy Hop
+				</p>
+
+				<div className="flex justify-center gap-4 md:justify-start">
+					{socialLinks.map((link) => (
+						<a
+							key={uuidv4()}
+							href={link.href}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-black transition-colors duration-500 ease-in-out hover:text-white"
+						>
+							{link.icon}
+						</a>
+					))}
 				</div>
 
-				<div className="-top-40 absolute left-20 w-60 sm:top-1/2 md:right-10 md:left-auto lg:top-20 lg:w-80">
-					<ImageClipBox
-						src="/img/swordman-partial.webp"
-						clipClass="absolute md:scale-125"
-					/>
-					<ImageClipBox
-						src="/img/swordman.webp"
-						clipClass="sword-man-clip-path md:scale-125"
-					/>
-				</div>
-
-				<div className="flex flex-col items-center text-center">
-					<p className="mb-10 font-general text-[10px] uppercase">
-						Join Zentry
-					</p>
-
-					<AnimatedTitle
-						title="let&#39;s b<b>u</b>ild the <br /> new era of <br /> g<b>a</b>ming t<b>o</b>gether."
-						containerClass="special-font !text-5xl !font-black !leading-[.9] w-full font-zentry !md:text-[6.2rem]"
-					/>
-
-					<Button title="contact us" containerClass="mt-10 cursor-pointer" />
-				</div>
+				<a
+					href="#privacy-policy"
+					className="text-center font-light text-sm hover:underline md:text-right"
+				>
+					Privacy Policy
+				</a>
 			</div>
-		</div>
+		</footer>
 	);
 };
 
-export default Contact;
+export default Footer;

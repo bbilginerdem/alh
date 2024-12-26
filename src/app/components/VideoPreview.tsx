@@ -1,20 +1,28 @@
 import { gsap } from "gsap";
-import { useEffect, useRef, useState } from "react";
+import {
+	type MouseEvent,
+	type ReactNode,
+	useEffect,
+	useRef,
+	useState,
+} from "react";
 
-export const VideoPreview = ({
-	children,
-}: { children: React.ReactNode }): React.ReactElement => {
+interface VideoPreviewProps {
+	children: ReactNode;
+}
+
+export const VideoPreview: React.FC<VideoPreviewProps> = ({ children }) => {
 	const [isHovering, setIsHovering] = useState(false);
 
-	const sectionRef = useRef<HTMLElement | null>(null); // Reference for the container section
-	const contentRef = useRef<HTMLDivElement | null>(null); // Reference for the inner content
+	const sectionRef = useRef<HTMLDivElement>(null); // Reference for the container section
+	const contentRef = useRef<HTMLDivElement>(null); // Reference for the inner content
 
 	// Handles mouse movement over the container
 	const handleMouseMove = ({
 		clientX,
 		clientY,
 		currentTarget,
-	}: React.MouseEvent<HTMLElement>) => {
+	}: MouseEvent<HTMLDivElement>) => {
 		const rect = currentTarget.getBoundingClientRect(); // Get dimensions of the container
 
 		const xOffset = clientX - (rect.left + rect.width / 2); // Calculate X offset
@@ -69,7 +77,7 @@ export const VideoPreview = ({
 			onMouseMove={handleMouseMove}
 			onMouseEnter={() => setIsHovering(true)}
 			onMouseLeave={() => setIsHovering(false)}
-			className="absolute z-40 size-full overflow-hidden rounded-lg"
+			className="absolute z-50 size-full overflow-hidden rounded-lg"
 			style={{
 				perspective: "500px",
 			}}

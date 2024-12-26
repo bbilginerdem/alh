@@ -3,8 +3,8 @@
 import gsap from "gsap";
 import { useRef } from "react";
 
-import Button from "./Button";
 import AnimatedTitle from "./AnimatedTitle";
+import Button from "./Button";
 
 const Story: React.FC = () => {
 	const frameRef = useRef<HTMLImageElement | null>(null);
