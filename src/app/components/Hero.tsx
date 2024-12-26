@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { Navigation } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Button from "./Button";
 import VideoPreview from "./VideoPreview";
@@ -12,25 +12,24 @@ import VideoPreview from "./VideoPreview";
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-	// let audio = new Audio("/audio.mp3");
 	const [currentIndex, setCurrentIndex] = useState(1);
 	const [hasClicked, setHasClicked] = useState(false);
 
-	// const [loading, setLoading] = useState(true);
-	// const [loadedVideos, setLoadedVideos] = useState(0);
+	const [loading, setLoading] = useState(true);
+	const [loadedVideos, setLoadedVideos] = useState(0);
 
 	const totalVideos = 4;
 	const nextVideoRef = useRef<HTMLVideoElement | null>(null); // Use HTMLVideoElement
 
-	// const handleVideoLoad = () => {
-	//   setLoadedVideos((prev) => prev + 1);
-	// };
+	const handleVideoLoad = () => {
+		setLoadedVideos((prev) => prev + 1);
+	};
 
-	// useEffect(() => {
-	//   if (loadedVideos === totalVideos - 1) {
-	//     setLoading(false);
-	//   }
-	// }, [loadedVideos]);
+	useEffect(() => {
+		if (loadedVideos === totalVideos - 1) {
+			setLoading(false);
+		}
+	}, [loadedVideos]);
 
 	const handleMiniVdClick = () => {
 		setHasClicked(true);
@@ -85,16 +84,27 @@ const Hero = () => {
 		});
 	});
 
-	const getVideoSrc = (index: number) => `videos/hero-${index}.mp4`;
+	const getVideoSrc = (index: number) => `videos/hero-${index}.webm`;
 
 	return (
 		<div className="relative h-dvh w-screen overflow-x-hidden">
+			{loading && (
+				<div className="absolute z-[100] h-dvh w-screen flex-center overflow-hidden bg-violet-50">
+					{/* https://uiverse.io/G4b413l/tidy-walrus-92 */}
+					<div className="three-body">
+						<div className="three-body__dot" />
+						<div className="three-body__dot" />
+						<div className="three-body__dot" />
+					</div>
+				</div>
+			)}
+
 			<div
 				id="video-frame"
 				className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
 			>
 				<div>
-					<div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
+					<div className="mask-clip-path absolute-center absolute z-40 size-64 cursor-pointer overflow-hidden rounded-lg">
 						<VideoPreview>
 							<button
 								type="button"
@@ -108,7 +118,7 @@ const Hero = () => {
 									muted
 									id="current-video"
 									className="size-64 origin-center scale-150 object-cover object-center"
-									// onLoadedData={handleVideoLoad}
+									onLoadedData={handleVideoLoad}
 								/>
 							</button>
 						</VideoPreview>
@@ -121,7 +131,7 @@ const Hero = () => {
 						muted
 						id="next-video"
 						className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
-						// onLoadedData={handleVideoLoad}
+						onLoadedData={handleVideoLoad}
 					/>
 					<video
 						src={getVideoSrc(
@@ -131,18 +141,25 @@ const Hero = () => {
 						loop
 						muted
 						className="absolute top-0 left-0 size-full object-cover object-center"
-						// onLoadedData={handleVideoLoad}
+						onLoadedData={handleVideoLoad}
 					/>
 				</div>
 
 				<h1 className="special-font hero-heading absolute right-5 bottom-5 z-40 text-blue-75">
-					G<b>A</b>MING
+					<b>L</b>
+					<b>I</b>
+					<b>N</b>
+					<b>D</b>
+					<b>Y</b> <b>H</b>
+					<b>O</b>
+					<b>P</b>
 				</h1>
 
 				<div className="absolute top-0 left-0 z-40 size-full">
 					<div className="mt-24 px-5 sm:px-10">
 						<h1 className="special-font hero-heading text-blue-100">
-							redefi<b>n</b>e
+							<b>A</b>
+							<b>N</b>K<b>A</b>R<b>A</b>
 						</h1>
 
 						<p className="mb-5 max-w-64 font-robert-regular text-blue-100">

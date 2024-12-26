@@ -69,7 +69,7 @@ export const VideoPreview = ({
 			onMouseMove={handleMouseMove}
 			onMouseEnter={() => setIsHovering(true)}
 			onMouseLeave={() => setIsHovering(false)}
-			className="absolute z-50 size-full overflow-hidden rounded-lg"
+			className="absolute z-40 size-full overflow-hidden rounded-lg"
 			style={{
 				perspective: "500px",
 			}}
