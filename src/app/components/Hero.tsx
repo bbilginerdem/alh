@@ -145,7 +145,13 @@ const Hero: React.FC = () => {
 				</div>
 
 				<h1 className="special-font hero-heading absolute right-5 bottom-5 z-40 text-blue-75">
-					G<b>A</b>MING
+					<b>L</b>
+					<b>I</b>
+					<b>N</b>
+					<b>D</b>
+					<b>Y</b> <b>H</b>
+					<b>O</b>
+					<b>P</b>
 				</h1>
 
 				<div className="absolute top-0 left-0 z-40 size-full">
