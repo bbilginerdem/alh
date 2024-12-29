@@ -44,9 +44,11 @@ export default function RootLayout({
 			<body
 				className={`${zentry.variable} ${general.variable} ${robertMedium.variable} ${robertRegular.variable} ${circularwebBook.variable} antialiased`}
 			>
-				<Navbar />
-				{children}
-				<Footer />
+				<main className="relative min-h-screen w-screen overflow-x-hidden">
+					<Navbar />
+					{children}
+					<Footer />
+				</main>
 			</body>
 		</html>
 	);

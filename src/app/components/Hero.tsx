@@ -11,7 +11,7 @@ import VideoPreview from "./VideoPreview";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Hero: React.FC = () => {
+const Hero = () => {
 	const [currentIndex, setCurrentIndex] = useState<number>(1);
 	const [hasClicked, setHasClicked] = useState<boolean>(false);
 	const [loading, setLoading] = useState<boolean>(true);
@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
 	const totalVideos: number = 4;
 	const nextVdRef = useRef<HTMLVideoElement | null>(null);
 
-	const handleVideoLoad = (): void => {
+	const handleVideoLoad = () => {
 		setLoadedVideos((prev: number) => prev + 1);
 	};
 
@@ -28,9 +28,10 @@ const Hero: React.FC = () => {
 		if (loadedVideos === totalVideos - 1) {
 			setLoading(false);
 		}
+		console.log("loadedVideos", loadedVideos);
 	}, [loadedVideos]);
 
-	const handleMiniVdClick = (): void => {
+	const handleMiniVdClick = () => {
 		setHasClicked(true);
 		setCurrentIndex((prevIndex: number) => (prevIndex % totalVideos) + 1);
 	};
