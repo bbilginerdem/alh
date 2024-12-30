@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { Navigation } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import Button from "./Button";
 import VideoPreview from "./VideoPreview";
@@ -14,22 +14,23 @@ gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
 	const [currentIndex, setCurrentIndex] = useState<number>(1);
 	const [hasClicked, setHasClicked] = useState<boolean>(false);
-	const [loading, setLoading] = useState<boolean>(true);
-	const [loadedVideos, setLoadedVideos] = useState<number>(0);
+
+	// const [loading, setLoading] = useState<boolean>(true);
+	// const [loadedVideos, setLoadedVideos] = useState<number>(0);
 
 	const totalVideos: number = 4;
 	const nextVdRef = useRef<HTMLVideoElement | null>(null);
 
-	const handleVideoLoad = () => {
-		setLoadedVideos((prev: number) => prev + 1);
-	};
+	// const handleVideoLoad = () => {
+	// 	setLoadedVideos((prev: number) => prev + 1);
+	// };
 
-	useEffect(() => {
-		if (loadedVideos === totalVideos - 1) {
-			setLoading(false);
-		}
-		console.log("loadedVideos", loadedVideos);
-	}, [loadedVideos]);
+	// useEffect(() => {
+	// 	if (loadedVideos === totalVideos - 1) {
+	// 		setLoading(false);
+	// 	}
+	// 	console.log("loadedVideos", loadedVideos);
+	// }, [loadedVideos]);
 
 	const handleMiniVdClick = () => {
 		setHasClicked(true);
@@ -87,9 +88,17 @@ const Hero = () => {
 
 	const getVideoSrc = (index: number): string => `videos/hero-${index}.webm`;
 
+	// useEffect(() => {
+	// 	setIsClient(true);
+	// }, []);
+
+	// if (!isClient) {
+	// 	return null;
+	// }
+
 	return (
 		<div className="relative h-dvh w-screen overflow-x-hidden">
-			{loading && (
+			{/* {loading && (
 				<div className="absolute z-[100] h-dvh w-screen flex-center overflow-hidden bg-violet-50">
 					<div className="three-body">
 						<div className="three-body__dot" />
@@ -97,7 +106,7 @@ const Hero = () => {
 						<div className="three-body__dot" />
 					</div>
 				</div>
-			)}
+			)} */}
 
 			<div
 				id="video-frame"
@@ -118,7 +127,7 @@ const Hero = () => {
 									muted
 									id="current-video"
 									className="size-64 origin-center scale-150 object-cover object-center"
-									onLoadedData={handleVideoLoad}
+									// onLoadedData={handleVideoLoad}
 								/>
 							</div>
 						</VideoPreview>
@@ -131,7 +140,7 @@ const Hero = () => {
 						muted
 						id="next-video"
 						className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
-						onLoadedData={handleVideoLoad}
+						// onLoadedData={handleVideoLoad}
 					/>
 					<video
 						src={getVideoSrc(
@@ -141,7 +150,7 @@ const Hero = () => {
 						loop
 						muted
 						className="absolute top-0 left-0 size-full object-cover object-center"
-						onLoadedData={handleVideoLoad}
+						// onLoadedData={handleVideoLoad}
 					/>
 				</div>
 
