@@ -4,9 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { Navigation } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
-import { setLoading } from "../lib/features/loadingSlice";
+import { useRef, useState } from "react";
 
 import Button from "./Button";
 import VideoPreview from "./VideoPreview";
@@ -14,30 +12,11 @@ import VideoPreview from "./VideoPreview";
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-	const dispatch = useDispatch();
-
 	const [currentIndex, setCurrentIndex] = useState<number>(1);
 	const [hasClicked, setHasClicked] = useState<boolean>(false);
-	const [loadedVideos, setLoadedVideos] = useState<number>(0);
 
 	const totalVideos: number = 4;
 	const nextVdRef = useRef<HTMLVideoElement | null>(null);
-
-	const handleVideoLoad = () => {
-		setLoadedVideos((prev: number) => prev + 1);
-	};
-
-	useEffect(() => {
-		if (loadedVideos === totalVideos - 1) {
-			dispatch(setLoading(false));
-		}
-
-		const timer = setTimeout(() => {
-			dispatch(setLoading(false));
-		}, 2000); //
-
-		return () => clearTimeout(timer);
-	}, [loadedVideos, dispatch]);
 
 	const handleMiniVdClick = () => {
 		setHasClicked(true);
@@ -121,7 +100,6 @@ const Hero = () => {
 									muted
 									id="current-video"
 									className="size-64 origin-center scale-150 object-cover object-center"
-									onLoadedData={handleVideoLoad}
 								/>
 							</div>
 						</VideoPreview>
@@ -134,7 +112,6 @@ const Hero = () => {
 						muted
 						id="next-video"
 						className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
-						onLoadedData={handleVideoLoad}
 					/>
 					<video
 						src={getVideoSrc(
@@ -144,7 +121,6 @@ const Hero = () => {
 						loop
 						muted
 						className="absolute top-0 left-0 size-full object-cover object-center"
-						onLoadedData={handleVideoLoad}
 					/>
 				</div>
 
