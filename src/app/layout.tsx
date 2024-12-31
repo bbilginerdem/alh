@@ -4,7 +4,6 @@ import "./globals.css";
 import StoreProvider from "./StoreProvider";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-// import Loading from "./components/Loading";
 
 const zentry = localFont({
 	src: "./fonts/zentry-regular.woff2",

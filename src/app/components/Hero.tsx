@@ -31,7 +31,12 @@ const Hero = () => {
 		if (loadedVideos === totalVideos - 1) {
 			dispatch(setLoading(false));
 		}
-		console.log("loadedVideos", loadedVideos, loadedVideos === totalVideos - 3);
+
+		const timer = setTimeout(() => {
+			dispatch(setLoading(false));
+		}, 2000); //
+
+		return () => clearTimeout(timer);
 	}, [loadedVideos, dispatch]);
 
 	const handleMiniVdClick = () => {

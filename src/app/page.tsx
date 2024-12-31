@@ -13,8 +13,6 @@ export default function Home() {
 		(state: { loading: { loading: boolean } }) => state.loading.loading,
 	);
 
-	console.log("xd", loading);
-
 	return (
 		<>
 			{loading && <Loading />}
