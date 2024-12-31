@@ -4,11 +4,9 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
+				inter: ["var(--font-inter)"],
 				general: ["var(--font-general)"],
 				zentry: ["var(--font-zentry)"],
-				"circular-web": ["var(--font-circularweb-book)"],
-				"robert-medium": ["var(--font-robert-medium)"],
-				"robert-regular": ["var(--font-robert-regular)"],
 			},
 			colors: {
 				blue: {

@@ -141,7 +141,7 @@ const Hero = () => {
 							<b>N</b>K<b>A</b>R<b>A</b>
 						</h1>
 
-						<p className="mb-5 max-w-64 font-robert-regular text-blue-100">
+						<p className="mb-5 max-w-64 text-blue-100">
 							Enter the Metagame Layer <br /> Unleash the Play Economy
 						</p>
 

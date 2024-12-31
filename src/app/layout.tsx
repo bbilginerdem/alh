@@ -3,30 +3,22 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+	subsets: ["latin"],
+	variable: "--font-inter",
+	display: "swap",
+});
 
 const zentry = localFont({
-	src: "./fonts/zentry-regular.woff2",
+	src: "../../public/fonts/zentry-regular.woff2",
 	variable: "--font-zentry",
 });
 
 const general = localFont({
-	src: "./fonts/general.woff2",
+	src: "../../public/fonts/general.woff2",
 	variable: "--font-general",
-});
-
-const circularwebBook = localFont({
-	src: "./fonts/circularweb-book.woff2",
-	variable: "--font-circularweb-book",
-});
-
-const robertMedium = localFont({
-	src: "./fonts/robert-medium.woff2",
-	variable: "--font-robert-medium",
-});
-
-const robertRegular = localFont({
-	src: "./fonts/robert-regular.woff2",
-	variable: "--font-robert-regular",
 });
 
 export const metadata: Metadata = {
@@ -43,9 +35,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${zentry.variable} ${general.variable} ${robertMedium.variable} ${robertRegular.variable} ${circularwebBook.variable} antialiased`}
+				className={`${inter.variable} ${zentry.variable} ${general.variable} antialiased`}
 			>
-				<main className="relative min-h-screen w-screen overflow-x-hidden">
+				<main className="relative min-h-screen w-screen overflow-x-hidden bg-black">
 					{children}
 					<Navbar />
 					<Footer />

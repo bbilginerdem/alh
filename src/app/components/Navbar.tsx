@@ -8,7 +8,7 @@ import { useWindowScroll } from "react-use";
 import { v4 as uuidv4 } from "uuid";
 import Button from "./Button";
 
-const navItems: string[] = ["Nexus", "Vault", "Prologue", "About", "Contact"];
+const navItems: string[] = ["Etkİnlİkler", "Blog", "Fotoğraflar", "İletİşİm"];
 
 const NavBar = () => {
 	// State for toggling audio and visual indicator
@@ -90,7 +90,7 @@ const NavBar = () => {
 							{navItems.map((item: string) => (
 								<a
 									key={uuidv4()}
-									href={`#${item.toLowerCase()}`}
+									href={`/${item.toLowerCase()}`}
 									className="nav-hover-btn"
 								>
 									{item}
