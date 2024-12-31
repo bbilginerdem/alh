@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import StoreProvider from "./StoreProvider";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import StoreProvider from "./StoreProvider";
 // import Loading from "./components/Loading";
 
 const zentry = localFont({
