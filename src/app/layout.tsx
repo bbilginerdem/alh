@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import StoreProvider from "./StoreProvider";
+// import Loading from "./components/Loading";
 
 const zentry = localFont({
 	src: "./fonts/zentry-regular.woff2",
@@ -44,11 +46,13 @@ export default function RootLayout({
 			<body
 				className={`${zentry.variable} ${general.variable} ${robertMedium.variable} ${robertRegular.variable} ${circularwebBook.variable} antialiased`}
 			>
-				<main className="relative min-h-screen w-screen overflow-x-hidden">
-					<Navbar />
-					{children}
-					<Footer />
-				</main>
+				<StoreProvider>
+					<main className="relative min-h-screen w-screen overflow-x-hidden">
+						<Navbar />
+						{children}
+						<Footer />
+					</main>
+				</StoreProvider>
 			</body>
 		</html>
 	);

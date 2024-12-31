@@ -4,7 +4,9 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { Navigation } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setLoading } from "../lib/features/loadingSlice";
 
 import Button from "./Button";
 import VideoPreview from "./VideoPreview";
@@ -12,25 +14,25 @@ import VideoPreview from "./VideoPreview";
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
+	const dispatch = useDispatch();
+
 	const [currentIndex, setCurrentIndex] = useState<number>(1);
 	const [hasClicked, setHasClicked] = useState<boolean>(false);
-
-	// const [loading, setLoading] = useState<boolean>(true);
-	// const [loadedVideos, setLoadedVideos] = useState<number>(0);
+	const [loadedVideos, setLoadedVideos] = useState<number>(0);
 
 	const totalVideos: number = 4;
 	const nextVdRef = useRef<HTMLVideoElement | null>(null);
 
-	// const handleVideoLoad = () => {
-	// 	setLoadedVideos((prev: number) => prev + 1);
-	// };
+	const handleVideoLoad = () => {
+		setLoadedVideos((prev: number) => prev + 1);
+	};
 
-	// useEffect(() => {
-	// 	if (loadedVideos === totalVideos - 1) {
-	// 		setLoading(false);
-	// 	}
-	// 	console.log("loadedVideos", loadedVideos);
-	// }, [loadedVideos]);
+	useEffect(() => {
+		if (loadedVideos === totalVideos - 1) {
+			dispatch(setLoading(false));
+		}
+		console.log("loadedVideos", loadedVideos, loadedVideos === totalVideos - 3);
+	}, [loadedVideos, dispatch]);
 
 	const handleMiniVdClick = () => {
 		setHasClicked(true);
@@ -51,7 +53,12 @@ const Hero = () => {
 					duration: 1,
 					ease: "power1.inOut",
 					onStart: () => {
-						nextVdRef.current?.play();
+						const video = nextVdRef.current;
+						if (video) {
+							video.play().catch((error) => {
+								console.error("Error playing video:", error);
+							});
+						}
 					},
 				});
 				gsap.from("#current-video", {
@@ -88,32 +95,14 @@ const Hero = () => {
 
 	const getVideoSrc = (index: number): string => `videos/hero-${index}.webm`;
 
-	// useEffect(() => {
-	// 	setIsClient(true);
-	// }, []);
-
-	// if (!isClient) {
-	// 	return null;
-	// }
-
 	return (
 		<div className="relative h-dvh w-screen overflow-x-hidden">
-			{/* {loading && (
-				<div className="absolute z-[100] h-dvh w-screen flex-center overflow-hidden bg-violet-50">
-					<div className="three-body">
-						<div className="three-body__dot" />
-						<div className="three-body__dot" />
-						<div className="three-body__dot" />
-					</div>
-				</div>
-			)} */}
-
 			<div
 				id="video-frame"
 				className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
 			>
 				<div>
-					<div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
+					<div className="mask-clip-path absolute-center absolute z-40 size-64 cursor-pointer overflow-hidden rounded-lg">
 						<VideoPreview>
 							{/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
 							<div
@@ -127,7 +116,7 @@ const Hero = () => {
 									muted
 									id="current-video"
 									className="size-64 origin-center scale-150 object-cover object-center"
-									// onLoadedData={handleVideoLoad}
+									onLoadedData={handleVideoLoad}
 								/>
 							</div>
 						</VideoPreview>
@@ -140,7 +129,7 @@ const Hero = () => {
 						muted
 						id="next-video"
 						className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
-						// onLoadedData={handleVideoLoad}
+						onLoadedData={handleVideoLoad}
 					/>
 					<video
 						src={getVideoSrc(
@@ -150,11 +139,11 @@ const Hero = () => {
 						loop
 						muted
 						className="absolute top-0 left-0 size-full object-cover object-center"
-						// onLoadedData={handleVideoLoad}
+						onLoadedData={handleVideoLoad}
 					/>
 				</div>
 
-				<h1 className="special-font hero-heading absolute right-5 bottom-5 z-40 text-blue-75">
+				<h1 className="special-font hero-heading absolute right-5 bottom-5 z-30 text-blue-75">
 					<b>L</b>
 					<b>I</b>
 					<b>N</b>
@@ -164,7 +153,7 @@ const Hero = () => {
 					<b>P</b>
 				</h1>
 
-				<div className="absolute top-0 left-0 z-40 size-full">
+				<div className="absolute top-0 left-0 z-30 size-full">
 					<div className="mt-24 px-5 sm:px-10">
 						<h1 className="special-font hero-heading text-blue-100">
 							<b>A</b>

@@ -1,8 +1,16 @@
-import { Instagram, Youtube } from "lucide-react";
+// import { Instagram, Youtube } from "lucide-react";
+import Link from "next/link";
+import Facebook from "../social/facebook";
+import Instagram from "../social/instagram";
+import Youtube from "../social/youtube";
 import { v4 as uuidv4 } from "uuid";
 
 const socialLinks = [
 	{ href: "https://www.instagram.com/ankaralindyhop/", icon: <Instagram /> },
+	{
+		href: "https://www.facebook.com/ankaralindyhop/",
+		icon: <Facebook />,
+	},
 	{ href: "https://www.youtube.com/@AnkaraLindyHop", icon: <Youtube /> },
 ];
 
@@ -14,9 +22,9 @@ const Footer = () => {
 					Ankara Lindy Hop
 				</p>
 
-				<div className="flex justify-center gap-4 md:justify-start">
+				<div className="flex justify-center gap-6 md:justify-start">
 					{socialLinks.map((link) => (
-						<a
+						<Link
 							key={uuidv4()}
 							href={link.href}
 							target="_blank"
@@ -24,7 +32,7 @@ const Footer = () => {
 							className="text-black transition-colors duration-500 ease-in-out hover:text-white"
 						>
 							{link.icon}
-						</a>
+						</Link>
 					))}
 				</div>
 

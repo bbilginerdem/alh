@@ -55,10 +55,11 @@ const About = () => {
 					<Image
 						src="/img/about.webp"
 						alt="about"
-						// TODO: find alternative for fill to get rid of the warning
 						fill
+						priority
+						sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 90vw"
 						className="absolute top-0 left-0"
-						objectFit="cover"
+						style={{ objectFit: "cover" }}
 					/>
 				</div>
 			</div>
