@@ -1,9 +1,9 @@
 // import { Instagram, Youtube } from "lucide-react";
 import Link from "next/link";
 import { v4 as uuidv4 } from "uuid";
-import Facebook from "../social/facebook";
-import Instagram from "../social/instagram";
-import Youtube from "../social/youtube";
+import Facebook from "./social/facebook";
+import Instagram from "./social/instagram";
+import Youtube from "./social/youtube";
 
 const socialLinks = [
 	{ href: "https://www.instagram.com/ankaralindyhop/", icon: <Instagram /> },
