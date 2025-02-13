@@ -37,7 +37,7 @@ export default function RootLayout({
 			<body
 				className={`${inter.variable} ${zentry.variable} ${general.variable} antialiased`}
 			>
-				<main className="relative min-h-screen w-screen overflow-x-hidden bg-black">
+				<main className="relative min-h-screen w-screen overflow-x-hidden">
 					{children}
 					<Navbar />
 					<Footer />

@@ -2,13 +2,15 @@
 
 import clsx from "clsx";
 import gsap from "gsap";
-import { Navigation } from "lucide-react";
+import Link from "next/link";
+// import { Navigation } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useWindowScroll } from "react-use";
 import { v4 as uuidv4 } from "uuid";
-import Button from "./Button";
+import { turkishToEnglish } from "../utils/turkishToEnglish";
+// import Button from "./Button";
 
-const navItems: string[] = ["Etkİnlİkler", "Blog", "Fotoğraflar", "İletİşİm"];
+const navItems: string[] = ["etkİnlİkler", "blog", "fotoğraflar", "İletİşİm"];
 
 const NavBar = () => {
 	// State for toggling audio and visual indicator
@@ -75,22 +77,22 @@ const NavBar = () => {
 			<header className="-translate-y-1/2 absolute top-1/2 w-full">
 				<nav className="flex size-full items-center justify-between p-4">
 					{/* Logo and Product button */}
-					<div className="flex items-center gap-7">
+					<Link className="flex items-center gap-7" href="/">
 						<img src="/img/logo.png" alt="logo" className="w-10" />
-						<Button
+						{/* <Button
 							id="product-button"
 							title="Products"
 							rightIcon={<Navigation />}
 							containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
-						/>
-					</div>
+						/> */}
+					</Link>
 					{/* Navigation Links and Audio Button */}
 					<div className="flex h-full items-center">
 						<div className="hidden md:block">
 							{navItems.map((item: string) => (
 								<a
 									key={uuidv4()}
-									href={`/${item.toLowerCase()}`}
+									href={`/${turkishToEnglish(item).toLowerCase()}`}
 									className="nav-hover-btn"
 								>
 									{item}
