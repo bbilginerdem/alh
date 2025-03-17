@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useWindowScroll } from "react-use";
 import { v4 as uuidv4 } from "uuid";
-import { turkishToEnglish } from "../utils/turkishToEnglish";
+import { turkishToEnglish } from "../lib/turkishToEnglish";
 // import Button from "./Button";
 
 const navItems: string[] = ["etkİnlİkler", "blog", "fotoğraflar", "İletİşİm"];
