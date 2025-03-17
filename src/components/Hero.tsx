@@ -142,15 +142,18 @@ const Hero = () => {
 						</h1>
 
 						<p className="mb-5 max-w-64 text-blue-100">
-							Enter the Metagame Layer <br /> Unleash the Play Economy
+							Her carsamba 20:00-00:00 arasi <br /> Ucretsiz sosyal dans icin
+							rasa cafe resterountdayiz.
 						</p>
 
-						<Button
-							id="watch-trailer"
-							title="Watch trailer"
-							leftIcon={<Navigation />}
-							containerClass="bg-yellow-300 flex-center gap-1"
-						/>
+						<a href='https://www.youtube.com/watch?v=5qap5aO4i9A' target='_blank' rel='noopener noreferrer'>
+							<Button
+								id="watch-trailer"
+								title="Watch trailer"
+								leftIcon={<Navigation />}
+								containerClass="bg-yellow-300 flex-center gap-1"
+							/>
+						</a>
 					</div>
 				</div>
 			</div>
