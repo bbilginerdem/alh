@@ -3,21 +3,19 @@
 import clsx from "clsx";
 import gsap from "gsap";
 import Link from "next/link";
-// import { Navigation } from "lucide-react";
+import { Menu, X } from "lucide-react"; // Import hamburger and close icons
 import { useEffect, useRef, useState } from "react";
 import { useWindowScroll } from "react-use";
 import { v4 as uuidv4 } from "uuid";
 import { turkishToEnglish } from "../lib/turkishToEnglish";
-// import Button from "./Button";
 
 const navItems: string[] = ["etkİnlİkler", "blog", "fotoğraflar", "İletİşİm"];
 
 const NavBar = () => {
-	// State for toggling audio and visual indicator
 	const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
 	const [isIndicatorActive, setIsIndicatorActive] = useState<boolean>(false);
+	const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false); // State for dropdown
 
-	// Refs for audio and navigation container
 	const audioElementRef = useRef<HTMLAudioElement | null>(null);
 	const navContainerRef = useRef<HTMLDivElement | null>(null);
 
@@ -25,13 +23,11 @@ const NavBar = () => {
 	const [isNavVisible, setIsNavVisible] = useState<boolean>(true);
 	const [lastScrollY, setLastScrollY] = useState<number>(0);
 
-	// Toggle audio and visual indicator
 	const toggleAudioIndicator = (): void => {
 		setIsAudioPlaying((prev: boolean) => !prev);
 		setIsIndicatorActive((prev: boolean) => !prev);
 	};
 
-	// Manage audio playback
 	useEffect(() => {
 		if (isAudioPlaying) {
 			audioElementRef.current?.play();
@@ -44,15 +40,12 @@ const NavBar = () => {
 		if (!navContainerRef.current) return;
 
 		if (currentScrollY === 0) {
-			// Topmost position: show navbar without floating-nav
 			setIsNavVisible(true);
 			navContainerRef.current.classList.remove("floating-nav");
 		} else if (currentScrollY > lastScrollY) {
-			// Scrolling down: hide navbar and apply floating-nav
 			setIsNavVisible(false);
 			navContainerRef.current.classList.add("floating-nav");
 		} else if (currentScrollY < lastScrollY) {
-			// Scrolling up: show navbar with floating-nav
 			setIsNavVisible(true);
 			navContainerRef.current.classList.add("floating-nav");
 		}
@@ -79,15 +72,19 @@ const NavBar = () => {
 					{/* Logo and Product button */}
 					<Link className="flex items-center gap-7" href="/">
 						<img src="/img/logo.png" alt="logo" className="w-10" />
-						{/* <Button
-							id="product-button"
-							title="Products"
-							rightIcon={<Navigation />}
-							containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
-						/> */}
 					</Link>
+
 					{/* Navigation Links and Audio Button */}
 					<div className="flex h-full items-center">
+						{/* Hamburger Menu for Small Screens */}
+						<button
+							onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+							className="md:hidden"
+						>
+							{isDropdownOpen ? <X size={24} /> : <Menu size={24} />}
+						</button>
+
+						{/* Navigation Links (Desktop) */}
 						<div className="hidden md:block">
 							{navItems.map((item: string) => (
 								<a
@@ -99,12 +96,12 @@ const NavBar = () => {
 								</a>
 							))}
 						</div>
-						{/* biome-ignore lint/a11y/useButtonType: <explanation> */}
+
+						{/* Audio Button */}
 						<button
 							onClick={toggleAudioIndicator}
 							className="ml-10 flex items-center space-x-0.5"
 						>
-							{/* biome-ignore lint/a11y/useMediaCaption: <explanation> */}
 							<audio
 								ref={audioElementRef}
 								className="hidden"
@@ -125,6 +122,21 @@ const NavBar = () => {
 						</button>
 					</div>
 				</nav>
+
+				{/* Dropdown Menu for Small Screens */}
+				{isDropdownOpen && (
+					<div className="md:hidden absolute left-0 w-full bg-white shadow-lg">
+						{navItems.map((item: string) => (
+							<a
+								key={uuidv4()}
+								href={`/${turkishToEnglish(item).toLowerCase()}`}
+								className="block p-4 hover:bg-gray-100"
+							>
+								{item.toUpperCase()}
+							</a>
+						))}
+					</div>
+				)}
 			</header>
 		</div>
 	);
