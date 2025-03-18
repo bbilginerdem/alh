@@ -129,9 +129,7 @@ const Features = () => (
 	<section className="bg-black pb-52">
 		<div className="container mx-auto px-3 md:px-10">
 			<div className="px-5 py-32">
-				<p className="text-blue-50 text-lg">
-					Into the Metagame Layer
-				</p>
+				<p className="text-blue-50 text-lg">Into the Metagame Layer</p>
 				<p className="max-w-md text-blue-50 text-lg opacity-50">
 					Immerse yourself in a rich and ever-expanding universe where a vibrant
 					array of products converge into an interconnected overlay experience

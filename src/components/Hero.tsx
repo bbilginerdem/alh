@@ -146,7 +146,11 @@ const Hero = () => {
 							rasa cafe resterountdayiz.
 						</p>
 
-						<a href='https://www.youtube.com/watch?v=5qap5aO4i9A' target='_blank' rel='noopener noreferrer'>
+						<a
+							href="https://www.youtube.com/watch?v=5qap5aO4i9A"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
 							<Button
 								id="watch-trailer"
 								title="Watch trailer"

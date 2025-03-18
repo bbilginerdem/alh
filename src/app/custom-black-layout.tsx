@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { motion } from "motion/react";
 
 export default function CustomBlackLayout({
 	children,
@@ -16,7 +16,7 @@ export default function CustomBlackLayout({
 				// 	duration: 0.8,
 				// 	ease: "easeInOut",
 				// }}
-				className="min-h-screen bg-black pt-20 text-white z-30"
+				className="z-30 min-h-screen bg-black pt-20 text-white"
 			>
 				{children}
 			</motion.div>

@@ -1,9 +1,14 @@
+import { posts } from "@/data/posts";
 // app/blog/[slug]/page.tsx
 import { notFound } from "next/navigation";
-import { posts } from "@/data/posts";
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-	const post = posts.find((post) => post.slug === params.slug);
+export default async function BlogPost({
+	params,
+}: {
+	params: Promise<{ slug: string }>;
+}) {
+	const { slug } = await params;
+	const post = posts.find((post) => post.slug === slug);
 
 	if (!post) {
 		notFound();

@@ -2,8 +2,8 @@
 
 import clsx from "clsx";
 import gsap from "gsap";
-import Link from "next/link";
 import { Menu, X } from "lucide-react"; // Import hamburger and close icons
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useWindowScroll } from "react-use";
 import { v4 as uuidv4 } from "uuid";
@@ -80,6 +80,7 @@ const NavBar = () => {
 						<button
 							onClick={() => setIsDropdownOpen(!isDropdownOpen)}
 							className="md:hidden"
+							type={undefined}
 						>
 							{isDropdownOpen ? <X size={24} /> : <Menu size={24} />}
 						</button>
@@ -101,11 +102,14 @@ const NavBar = () => {
 						<button
 							onClick={toggleAudioIndicator}
 							className="ml-10 flex items-center space-x-0.5"
+							type="button"
 						>
+							{/* biome-ignore lint/a11y/useMediaCaption: <explanation> */}
 							<audio
 								ref={audioElementRef}
 								className="hidden"
 								src="/audio/loop.mp3"
+								autoPlay
 								loop
 							/>
 							{[1, 2, 3, 4].map((bar: number) => (
@@ -125,7 +129,7 @@ const NavBar = () => {
 
 				{/* Dropdown Menu for Small Screens */}
 				{isDropdownOpen && (
-					<div className="md:hidden absolute left-0 w-full bg-white shadow-lg">
+					<div className="absolute left-0 w-full bg-white shadow-lg md:hidden">
 						{navItems.map((item: string) => (
 							<a
 								key={uuidv4()}

@@ -1,5 +1,5 @@
-import EventsList from '@/components/EventsList';
-import CustomBlackLayout from '../custom-black-layout';
+import EventsList from "@/components/EventsList";
+import CustomBlackLayout from "../custom-black-layout";
 
 const EventsPage: React.FC = () => {
 	return (
