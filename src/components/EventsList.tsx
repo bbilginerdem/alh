@@ -1,3 +1,16 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+const SPREADSHEET_ID = "1ZiWU6a-0B4DFT4D91-KYt83-59HV7zsV";
+const API_KEY = "AIzaSyA5CjgkyyOAt4gi7j6UUa1OXJs2CinhJw0";
+const RANGE = "Sheet1!A1:D10"; // Adjust range as needed
+
+// Define the expected type for Google Sheets API response
+interface GoogleSheetsResponse {
+	values: string[][];
+}
+
 interface Event {
 	id: string;
 	title: string;
@@ -8,6 +21,34 @@ interface Event {
 }
 
 const EventsList: React.FC = () => {
+	const [data, setData] = useState<string[][]>([]);
+	const [error, setError] = useState<string | null>(null);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`;
+				const response = await fetch(url);
+
+				if (!response.ok) {
+					throw new Error(`Error fetching data: ${response.statusText}`);
+				}
+
+				const result: GoogleSheetsResponse = await response.json();
+
+				if (result.values) {
+					setData(result.values);
+				} else {
+					throw new Error("No data found in the spreadsheet.");
+				}
+			} catch (err) {
+				setError((err as Error).message);
+			}
+		};
+
+		fetchData();
+	});
+
 	// Hardcoded events data
 	const events: Event[] = [
 		{
@@ -30,9 +71,23 @@ const EventsList: React.FC = () => {
 
 	return (
 		<div className="mx-auto max-w-4xl px-4 py-8">
-			<h1 className="mb-8 text-center font-bold text-3xl text-gray-800">
-				Upcoming Lindy Hop Events
+			<h1 className="mb-8 text-center font-bold text-3xl text-white">
+				Gelecek Etkinlikler
 			</h1>
+			<div>
+				<h2>Google Sheets Data</h2>
+				{error ? (
+					<p className="text-red-500">Error: {error}</p>
+				) : (
+					<ul>
+						{data.map((row, index) => (
+							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+							<li key={index}>{row.join(", ")}</li>
+						))}
+					</ul>
+				)}
+			</div>
+
 			{events.length > 0 ? (
 				<ul className="space-y-6">
 					{events.map((event) => (

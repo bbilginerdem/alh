@@ -141,19 +141,20 @@ const Hero = () => {
 							<b>N</b>K<b>A</b>R<b>A</b>
 						</h1>
 
-						<p className="mb-5 max-w-64 text-blue-100">
-							Her carsamba 20:00-00:00 arasi <br /> Ucretsiz sosyal dans icin
-							rasa cafe resterountdayiz.
-						</p>
+						<div className="relative my-3 max-w-fit rounded-md bg-black/50 px-3 py-2 shadow-inner backdrop-blur-sm">
+							<p className="text-base text-blue-100">
+								Her çarşamba 20:00-00:00 arası <br /> Ücretsiz sosyal dans için
+								rasa cafe restaurantdayız.
+							</p>
+						</div>
 
 						<a
-							href="https://www.youtube.com/watch?v=5qap5aO4i9A"
+							href="https://drive.google.com/file/d/1uodTF9fP6MYnU0Vb_9Sup-2TxRPHnXk9/view"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
 							<Button
-								id="watch-trailer"
-								title="Watch trailer"
+								title="Topluluk Ilkeleri"
 								leftIcon={<Navigation />}
 								containerClass="bg-yellow-300 flex-center gap-1"
 							/>
