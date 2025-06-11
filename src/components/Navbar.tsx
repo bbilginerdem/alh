@@ -2,14 +2,14 @@
 
 import clsx from "clsx";
 import gsap from "gsap";
-import { Menu, X } from "lucide-react"; // Import hamburger and close icons
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useWindowScroll } from "react-use";
 import { v4 as uuidv4 } from "uuid";
 import { turkishToEnglish } from "../lib/turkishToEnglish";
 
-const navItems: string[] = ["etkİnlİkler", "blog", "fotoğraflar", "İletİşİm"];
+const navItems: string[] = ["etkİnlİkler", "blog", "İletİşİm"];
 
 const NavBar = () => {
 	const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
@@ -82,7 +82,11 @@ const NavBar = () => {
 							className="md:hidden"
 							type={undefined}
 						>
-							{isDropdownOpen ? <X size={24} /> : <Menu size={24} />}
+							{isDropdownOpen ? (
+								<X size={24} color="#fdba74" />
+							) : (
+								<Menu size={24} color="#fdba74" />
+							)}
 						</button>
 
 						{/* Navigation Links (Desktop) */}
@@ -134,7 +138,7 @@ const NavBar = () => {
 							<a
 								key={uuidv4()}
 								href={`/${turkishToEnglish(item).toLowerCase()}`}
-								className="block p-4 hover:bg-gray-100"
+								className="block p-4 hover:bg-orange-100"
 							>
 								{item.toUpperCase()}
 							</a>

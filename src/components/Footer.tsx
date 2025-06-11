@@ -16,7 +16,7 @@ const socialLinks = [
 
 const Footer = () => {
 	return (
-		<footer className="w-screen bg-[#5542ff] py-4 text-black">
+		<footer className="w-screen bg-orange-300 py-4 text-black">
 			<div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 md:flex-row">
 				<p className="text-center font-light text-sm md:text-left">
 					Ankara Lindy Hop
@@ -35,13 +35,6 @@ const Footer = () => {
 						</Link>
 					))}
 				</div>
-
-				<a
-					href="#privacy-policy"
-					className="text-center font-light text-sm hover:underline md:text-right"
-				>
-					Privacy Policy
-				</a>
 			</div>
 		</footer>
 	);

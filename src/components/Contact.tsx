@@ -1,3 +1,4 @@
+import Link from "next/link";
 import AnimatedTitle from "./AnimatedTitle";
 import Button from "./Button";
 
@@ -40,15 +41,17 @@ const Contact = () => {
 
 				<div className="flex flex-col items-center text-center">
 					<p className="mb-10 font-general text-[10px] uppercase">
-						Join Zentry
+						Bize Ulaşın
 					</p>
 
 					<AnimatedTitle
-						title="let&#39;s b<b>u</b>ild the <br /> new era of <br /> g<b>a</b>ming t<b>o</b>gether."
+						title="Hemen Dansın Keyfine Katılın!"
 						containerClass="special-font !text-5xl !font-black !leading-[.9] w-full font-zentry !md:text-[6.2rem]"
 					/>
 
-					<Button title="contact us" containerClass="mt-10 cursor-pointer" />
+					<Link href="/iletisim" passHref>
+						<Button title="İletişim" containerClass="mt-10 cursor-pointer" />
+					</Link>
 				</div>
 			</div>
 		</div>

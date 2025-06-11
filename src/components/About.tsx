@@ -32,20 +32,23 @@ const About = () => {
 	return (
 		<div id="about" className="min-h-screen w-screen">
 			<div className="relative mt-36 mb-8 flex flex-col items-center gap-5">
-				<p className="font-inter text-sm uppercase md:text-[10px]">
-					Hoş geldiniz,
+				<p className="font-inter text-sm uppercase max-md:text-[10px]">
+					Ankara Lindy Hop
 				</p>
-
+				{/* asf */}
 				<AnimatedTitle
-					title="Ankara'nın en büyük <br /> lindy hop komünitesi"
+					title="Ankara'nın en muazzam <br /> lindy hop Kitlesi"
 					containerClass="mt-5 !text-black text-center"
 				/>
 
 				<div className="about-subtext">
-					<p>The Game of Games begins—your life, now an epic MMORPG</p>
+					<p>
+						Bu coşkulu dansı yaymak ve keyifli bir topluluk oluşturmak için
+						buradayız.
+					</p>
 					<p className="text-gray-500">
-						Zentry unites every player from countless games and platforms, both
-						digital and physical, into a unified Play Economy
+						Dans geçmişiniz ne olursa olsun, kapımız herkese açık! Canlı müzikli
+						dans geceleri ve unutulmaz swing etkinlikleri sizi bekliyor.
 					</p>
 				</div>
 			</div>

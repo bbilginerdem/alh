@@ -17,7 +17,8 @@ interface BentoCardProps {
 	src: string;
 	title: ReactNode;
 	description?: string;
-	isComingSoon: boolean;
+	isComingSoon?: string;
+	link?: string;
 }
 
 export const BentoTilt: React.FC<BentoTiltProps> = ({
@@ -65,6 +66,7 @@ export const BentoCard: React.FC<BentoCardProps> = ({
 	title,
 	description,
 	isComingSoon,
+	link,
 }) => {
 	const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 	const [hoverOpacity, setHoverOpacity] = useState(0);
@@ -92,7 +94,7 @@ export const BentoCard: React.FC<BentoCardProps> = ({
 				autoPlay
 				className="absolute top-0 left-0 size-full object-cover object-center"
 			/>
-			<div className="relative z-10 flex size-full flex-col justify-between p-5 text-blue-50">
+			<div className="relative z-10 flex size-full flex-col justify-between p-10 text-blue-50">
 				<div>
 					<h1 className="bento-title special-font">{title}</h1>
 					{description && (
@@ -101,24 +103,31 @@ export const BentoCard: React.FC<BentoCardProps> = ({
 				</div>
 
 				{isComingSoon && (
-					<div
-						ref={hoverButtonRef}
-						onMouseMove={handleMouseMove}
-						onMouseEnter={handleMouseEnter}
-						onMouseLeave={handleMouseLeave}
-						className="relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full border-hsla bg-black px-5 py-2 text-white/20 text-xs uppercase"
+					<a
+						href={link || "#"}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="w-fit"
 					>
-						{/* Radial gradient hover effect */}
 						<div
-							className="-inset-px pointer-events-none absolute opacity-0 transition duration-300"
-							style={{
-								opacity: hoverOpacity,
-								background: `radial-gradient(100px circle at ${cursorPosition.x}px ${cursorPosition.y}px, #656fe288, #00000026)`,
-							}}
-						/>
-						<Navigation className="relative z-20" />
-						<p className="relative z-20">coming soon</p>
-					</div>
+							ref={hoverButtonRef}
+							onMouseMove={handleMouseMove}
+							onMouseEnter={handleMouseEnter}
+							onMouseLeave={handleMouseLeave}
+							className="relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full border-hsla bg-black px-5 py-2 text-base text-white/60 tracking-wide"
+						>
+							{/* Radial gradient hover effect */}
+							<div
+								className="-inset-px pointer-events-none absolute opacity-0 transition duration-300"
+								style={{
+									opacity: hoverOpacity,
+									background: `radial-gradient(100px circle at ${cursorPosition.x}px ${cursorPosition.y}px, #656fe288, #00000026)`,
+								}}
+							/>
+							<Navigation className="relative z-20" />
+							<p className="relative z-20">{isComingSoon}</p>
+						</div>
+					</a>
 				)}
 			</div>
 		</div>
@@ -126,71 +135,55 @@ export const BentoCard: React.FC<BentoCardProps> = ({
 };
 
 const Features = () => (
-	<section className="bg-black pb-52">
+	<section className="bg-black">
 		<div className="container mx-auto px-3 md:px-10">
 			<div className="px-5 py-32">
-				<p className="text-blue-50 text-lg">Into the Metagame Layer</p>
+				<p className="text-blue-50 text-lg">Neden Lindy Hop?</p>
 				<p className="max-w-md text-blue-50 text-lg opacity-50">
-					Immerse yourself in a rich and ever-expanding universe where a vibrant
-					array of products converge into an interconnected overlay experience
-					on your world.
+					Lindy Hop, 1920’lerin Harlem’inden doğan, neşe ve özgürlük dolu bir
+					swing dansı. Jazz müziğinin ritmiyle hareket eden bu dans, hem sosyal
+					hem de fiziksel olarak hayatınıza renk katıyor!
 				</p>
 			</div>
 
-			<BentoTilt className="relative mb-7 h-96 w-full overflow-hidden rounded-md border-hsla md:h-[65vh]">
+			<BentoTilt className="relative mb-7 h-96 w-full overflow-hidden rounded-md border-hsla transition-transform duration-300 ease-out md:h-[65vh]">
 				<BentoCard
 					src="videos/feature-1.mp4"
-					title={
-						<>
-							radia<b>n</b>t
-						</>
-					}
-					description="A cross-platform metagame app, turning your activities across Web2 and Web3 games into a rewarding adventure."
-					isComingSoon
+					title={<b>Stres Atmanın En Keyifli Yolu</b>}
+					description="Günlük koşuşturmadan uzaklaş, dansın enerjisiyle yenilen!"
+					isComingSoon="Ankara Etkinlik Takvimi"
+					link="https://docs.google.com/spreadsheets/d/1ZiWU6a-0B4DFT4D91-KYt83-59HV7zsV/edit#gid=164835843"
 				/>
 			</BentoTilt>
 
-			<div className="grid h-[135vh] w-full grid-cols-2 grid-rows-3 gap-7">
+			<div className="grid w-full grid-cols-2 grid-rows-3 gap-7">
 				<BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
 					<BentoCard
 						src="videos/feature-2.mp4"
-						title={
-							<>
-								zig<b>m</b>a
-							</>
-						}
-						description="An anime and gaming-inspired NFT collection - the IP primed for expansion."
-						isComingSoon
+						title={<b>Eğlenceli ve Sosyal</b>}
+						description="Yeni insanlarla tanış, müziğin ritmine bırak kendini!"
+						isComingSoon="Parti Fotografları"
+						link="https://photos.app.goo.gl/EhKdqcuNAFyosLiYA"
 					/>
 				</BentoTilt>
 
 				<BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
 					<BentoCard
-						src="videos/feature-3.mp4"
-						title={
-							<>
-								n<b>e</b>xus
-							</>
-						}
-						description="A gamified social hub, adding a new dimension of play to social interaction for Web3 communities."
-						isComingSoon
+						src="videos/feature-1.mp4"
+						title={<b>Sıcak bir topluluk</b>}
+						description="Jazz, blues ve swing tutkunu yeni insanlarla tanışın."
 					/>
 				</BentoTilt>
 
 				<BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
 					<BentoCard
-						src="videos/feature-4.mp4"
-						title={
-							<>
-								az<b>u</b>l
-							</>
-						}
-						description="A cross-world AI Agent - elevating your gameplay to be more fun and productive."
-						isComingSoon
+						src="videos/feature-1.mp4"
+						title={<b>Nerede?</b>}
+						description="Rasa Kafe, Ankara'nın en güzel mekanlarından biri!"
 					/>
 				</BentoTilt>
 
-				<BentoTilt className="bento-tilt_2">
+				{/* <BentoTilt className="bento-tilt_2">
 					<div className="flex size-full flex-col justify-between bg-violet-300 p-5">
 						<h1 className="bento-title special-font max-w-64 text-black">
 							M<b>o</b>re co<b>m</b>ing s<b>o</b>on.
@@ -208,7 +201,7 @@ const Features = () => (
 						autoPlay
 						className="size-full object-cover object-center"
 					/>
-				</BentoTilt>
+				</BentoTilt> */}
 			</div>
 		</div>
 	</section>

@@ -143,8 +143,9 @@ const Hero = () => {
 
 						<div className="relative my-3 max-w-fit rounded-md bg-black/50 px-3 py-2 shadow-inner backdrop-blur-sm">
 							<p className="text-base text-blue-100">
-								Her çarşamba 20:00-00:00 arası <br /> Ücretsiz sosyal dans için
-								rasa cafe restaurantdayız.
+								Her çarşamba 20:00-00:00 arası <br /> Ücretsiz pratik alanı ve
+								sosyal dans için <br />
+								Rasa kafe & restaurantdayız.
 							</p>
 						</div>
 

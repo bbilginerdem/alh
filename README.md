@@ -21,3 +21,8 @@ npx biome check --write
 # or
 pnpm biome check --write
 ```
+
+## Color Schema
+
+orange-300 text some
+zinc-950 background most
