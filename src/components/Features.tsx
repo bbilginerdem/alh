@@ -138,11 +138,26 @@ const Features = () => (
 	<section className="bg-black">
 		<div className="container mx-auto px-3 md:px-10">
 			<div className="px-5 py-32">
-				<p className="text-blue-50 text-lg">Neden Lindy Hop?</p>
-				<p className="max-w-md text-blue-50 text-lg opacity-50">
-					Lindy Hop, 1920’lerin Harlem’inden doğan, neşe ve özgürlük dolu bir
-					swing dansı. Jazz müziğinin ritmiyle hareket eden bu dans, hem sosyal
-					hem de fiziksel olarak hayatınıza renk katıyor!
+				<p className="text-blue-50 text-lg">Ankara Lindy Hop nedir?</p>
+				<p className=" text-blue-50 text-lg opacity-50">
+					Evet, Ankara'nın sokakları denize çıkmadığı doğrudur... Çünkü Ankara'da
+					sokaklar Ankara Lindy Hop'a çıkar. Ankara Lindy Hop, Ankara'nın
+					sokaklarında, parklarında ve bahçelerinde ortaya çıkmış, jazz müziğin
+					din, dil, ırk ve cinsiyet farkı gözetmeyen özgürlükçü temel
+					felsefesini merkezine koymuş; başta lindyhop, solo jazz, blues ve
+					swing dansı türevlerini Ankara'ya kar amacı gütmeden  kazandırmaya
+					çabalamış, hayatın olağan akışı içerisinde 2018 yılında bir araya
+					gelmiş bir arkadaş grubudur. Başta, 2018 yılında küçük bir arkadaş
+					grubu olan Ankaralindyhop, yıllar içerisinde kendisine önce onlarca,
+					sonra yüzlerce yeni arkadaş edinip, ilk günkü felsefesini koruyarak
+					amacına ulaşmıştır; Ankara'da sokağı, jazz müziği, jazz danslarını ve
+					dayanışmayı bir araya getirmiştir. Ankara'da ilk zamanlar sınırlı olan
+					swing dansları öğrenim kaynaklarını geliştirmisinde baş aktör olup,
+					bir çok park/pub/music hall ve türevlerinde onlarca pratik/sosyal dans
+					geceleri düzenlemiştir. Başlarda öğretici kaynak sıkıntısı çekerken,
+					kendi içerisinden öğretmen seviyesinde danscılar çıkarmış, sosyal dans
+					gecelerinde eşlikci olarak çalacak jazz bandların kurulmasına
+					vesile olmuştur.
 				</p>
 			</div>
 

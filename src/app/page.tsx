@@ -5,7 +5,6 @@ import About from "../components/About";
 import Contact from "../components/Contact";
 import Features from "../components/Features";
 import Hero from "../components/Hero";
-// import Story from "../components/Story";
 import Loading from "./loading";
 
 export default function Home() {
@@ -27,7 +26,6 @@ export default function Home() {
 					<Hero />
 					<About />
 					<Features />
-					{/* <Story /> */}
 					<Contact />
 				</>
 			)}
