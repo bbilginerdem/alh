@@ -1,17 +1,7 @@
 import Link from "next/link";
 import AnimatedTitle from "./AnimatedTitle";
 import Button from "./Button";
-
-interface ImageClipBoxProps {
-	src: string;
-	clipClass: string;
-}
-
-const ImageClipBox: React.FC<ImageClipBoxProps> = ({ src, clipClass }) => (
-	<div className={clipClass}>
-		<img src={src} alt="Clip" />
-	</div>
-);
+import Image from "next/image";
 
 const Contact = () => {
 	return (
@@ -20,14 +10,19 @@ const Contact = () => {
 			className="relative my-32 min-h-[30rem] w-full px-4 sm:px-8 lg:my-40"
 		>
 			<div className="relative mx-auto max-w-7xl rounded-2xl bg-gradient-to-br from-gray-900 to-black py-24 text-blue-50 shadow-2xl shadow-blue-900/20 sm:overflow-hidden">
-				<div className="absolute inset-0 bg-[url('/img/noise.png')] opacity-10 mix-blend-soft-light" />
-
-				<div className="-top-32 absolute left-1/4 w-56 sm:top-1/2 md:right-16 md:left-auto lg:top-24 lg:w-72 xl:right-24">
-					<ImageClipBox
+				<div className="absolute inset-0 overflow-hidden rounded-2xl">
+					<Image
 						src="/img/contact-right.jpg"
-						clipClass="contact-clip-path md:scale-125 hover:rotate-2 hover:scale-[1.35] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+						alt="Contact Image"
+						className="h-full w-full object-cover brightness-95 contrast-110 saturate-110"
+						fill
+						loading="lazy"
+						style={{ objectPosition: "right center" }}
 					/>
+					<div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/70 to-transparent" />
 				</div>
+
+				<div className="absolute inset-0 bg-[url('/img/noise.png')] opacity-10 mix-blend-soft-light" />
 
 				<div className="relative z-10 flex flex-col items-center px-6 text-center sm:px-8">
 					<div className="mb-12 flex flex-col items-center">
@@ -45,7 +40,7 @@ const Contact = () => {
 					<Link href="/iletisim" passHref>
 						<Button
 							title="İletişim"
-							containerClass="mt-12 group relative overflow-hidden rounded-lg px-8 py-3 font-medium transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30"
+							containerClass="group relative mt-12 overflow-hidden rounded-lg px-8 py-3 font-medium transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30"
 						/>
 					</Link>
 
