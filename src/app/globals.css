@@ -105,6 +105,10 @@ body {
 		@apply absolute w-full md:h-dvh h-[50dvh] opacity-100 left-10 top-16 md:left-0 md:top-10 lg:left-[-300px] lg:top-[-100px];
 		transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0) scale(1);
 	}
+
+	.image-shadow {
+		@apply bg-gradient-to-br from-gray-900 to-black shadow-2xl shadow-blue-900/20;
+	}
 }
 
 .indicator-line {
@@ -131,8 +135,6 @@ body {
 	}
 }
 
-/* From Uiverse.io by G4b413l */
-/* https://uiverse.io/G4b413l/tidy-walrus-92 */
 .three-body {
 	--uib-size: 35px;
 	--uib-speed: 0.8s;

@@ -9,7 +9,8 @@ const Contact = () => {
 			id="contact"
 			className="relative my-32 min-h-[30rem] w-full px-4 sm:px-8 lg:my-40"
 		>
-			<div className="relative mx-auto max-w-7xl rounded-2xl bg-gradient-to-br from-gray-900 to-black py-24 text-blue-50 shadow-2xl shadow-blue-900/20 sm:overflow-hidden">
+			{/* bg-gradient-to-br from-gray-900 to-black shadow-2xl shadow-blue-900/20 */}
+			<div className="image-shadow relative mx-auto max-w-7xl rounded-2xl py-24 text-blue-50 sm:overflow-hidden">
 				<div className="absolute inset-0 overflow-hidden rounded-2xl">
 					<Image
 						src="/img/contact-right.jpg"
@@ -21,8 +22,6 @@ const Contact = () => {
 					/>
 					<div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/70 to-transparent" />
 				</div>
-
-				<div className="absolute inset-0 bg-[url('/img/noise.png')] opacity-10 mix-blend-soft-light" />
 
 				<div className="relative z-10 flex flex-col items-center px-6 text-center sm:px-8">
 					<div className="mb-12 flex flex-col items-center">
