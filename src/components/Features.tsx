@@ -1,13 +1,13 @@
 "use client";
 
 import { Navigation } from "lucide-react";
+import Image from "next/image";
 import {
 	type MouseEventHandler,
 	type ReactNode,
 	useRef,
 	useState,
 } from "react";
-import Image from "next/image";
 
 interface BentoTiltProps {
 	children: React.ReactNode;

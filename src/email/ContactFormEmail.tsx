@@ -3,8 +3,8 @@
 import { sendEmail } from "@/actions/sendEmail";
 import toast from "react-hot-toast";
 
-import SectionHeading from "@/components/SectionHeader";
 import SubmitBtn from "@/components/SectionBtn";
+import SectionHeading from "@/components/SectionHeader";
 
 export default function Contact() {
 	return (

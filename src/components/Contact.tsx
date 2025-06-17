@@ -1,7 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import AnimatedTitle from "./AnimatedTitle";
 import Button from "./Button";
-import Image from "next/image";
 
 const Contact = () => {
 	return (

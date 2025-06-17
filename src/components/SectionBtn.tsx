@@ -1,5 +1,5 @@
-import { useFormStatus } from "react-dom";
 import { Send } from "lucide-react";
+import { useFormStatus } from "react-dom";
 
 export default function SubmitBtn() {
 	const { pending } = useFormStatus();
