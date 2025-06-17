@@ -7,9 +7,9 @@ const Contact = () => {
 	return (
 		<section
 			id="contact"
-			className="relative my-32 min-h-[30rem] w-full px-4 sm:px-8 lg:my-40"
+			className="relative my-32 min-h-120 w-full px-4 sm:px-8 lg:my-40"
 		>
-			{/* bg-gradient-to-br from-gray-900 to-black shadow-2xl shadow-blue-900/20 */}
+			{/* bg-linear-to-br from-gray-900 to-black shadow-2xl shadow-blue-900/20 */}
 			<div className="image-shadow relative mx-auto max-w-7xl rounded-2xl py-24 text-blue-50 sm:overflow-hidden">
 				<div className="absolute inset-0 overflow-hidden rounded-2xl">
 					<Image
@@ -20,7 +20,7 @@ const Contact = () => {
 						loading="lazy"
 						style={{ objectPosition: "right center" }}
 					/>
-					<div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/70 to-transparent" />
+					<div className="absolute inset-0 bg-linear-to-r from-gray-900 via-gray-900/70 to-transparent" />
 				</div>
 
 				<div className="relative z-10 flex flex-col items-center px-6 text-center sm:px-8">
@@ -28,12 +28,12 @@ const Contact = () => {
 						<p className="font-general text-blue-300/80 text-xs uppercase tracking-[0.3em]">
 							Bize Ulaşın
 						</p>
-						<div className="mt-3 h-[2px] w-16 bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
+						<div className="mt-3 h-[2px] w-16 bg-linear-to-r from-transparent via-blue-400 to-transparent" />
 					</div>
 
 					<AnimatedTitle
 						title="Hemen Dansın Keyfine Katılın!"
-						containerClass="special-font !text-4xl !font-black !leading-tight w-full max-w-2xl font-zentry !md:text-[5rem] bg-gradient-to-r from-blue-200 via-blue-100 to-blue-300 bg-clip-text text-transparent"
+						containerClass="special-font text-4xl! font-black! leading-tight! w-full max-w-2xl font-zentry !md:text-[5rem] bg-linear-to-r from-blue-200 via-blue-100 to-blue-300 bg-clip-text text-transparent"
 					/>
 
 					<Link href="/iletisim" passHref>

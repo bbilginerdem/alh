@@ -141,7 +141,7 @@ const Hero = () => {
 							<b>N</b>K<b>A</b>R<b>A</b>
 						</h1>
 
-						<div className="relative my-3 max-w-fit rounded-md bg-black/50 px-3 py-2 shadow-inner backdrop-blur-sm">
+						<div className="relative my-3 max-w-fit rounded-md bg-black/50 px-3 py-2 shadow-inner backdrop-blur-xs">
 							<p className="text-base text-blue-100">
 								Her çarşamba 20:00-00:00 arası <br /> Ücretsiz pratik alanı ve
 								sosyal dans için <br />

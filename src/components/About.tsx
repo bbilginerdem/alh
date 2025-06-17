@@ -38,7 +38,7 @@ const About = () => {
 				{/* asf */}
 				<AnimatedTitle
 					title="Ankara'nın en muazzam <br /> lindy hop Kitlesi"
-					containerClass="mt-5 !text-black text-center"
+					containerClass="mt-5 text-black! text-center"
 				/>
 
 				<div className="about-subtext">
