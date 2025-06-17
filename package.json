@@ -11,26 +11,26 @@
 	"dependencies": {
 		"@gsap/react": "^2.1.2",
 		"clsx": "^2.1.1",
-		"gsap": "^3.12.7",
-		"lucide-react": "^0.482.0",
-		"next": "15.2.3",
-		"react": "19.0.0",
-		"react-dom": "19.0.0",
+		"gsap": "^3.13.0",
+		"lucide-react": "^0.516.0",
+		"next": "15.3.3",
+		"react": "19.1.0",
+		"react-dom": "19.1.0",
 		"react-hot-toast": "^2.5.2",
 		"react-use": "^17.6.0",
-		"resend": "^4.5.1",
-		"tailwind-merge": "^3.0.2",
+		"resend": "^4.6.0",
+		"tailwind-merge": "^3.3.1",
 		"uuid": "^11.1.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"@tailwindcss/postcss": "^4.1.10",
-		"@types/node": "^22",
+		"@types/node": "^24",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
 		"postcss": "^8",
 		"tailwindcss": "^4.1.10",
 		"typescript": "^5"
 	},
-	"packageManager": "pnpm@10.6.4"
+	"packageManager": "pnpm@10.12.1"
 }
