@@ -1,6 +1,7 @@
 "use client";
 
 import { Send } from "lucide-react";
+import { useId } from "react";
 import { useFormStatus } from "react-dom";
 import toast from "react-hot-toast";
 import { sendEmail } from "@/actions/sendEmail";
@@ -8,11 +9,12 @@ import CustomBlackLayout from "../custom-black-layout";
 
 export default function Contact() {
 	const { pending } = useFormStatus();
+	const id = useId();
 
 	return (
 		<CustomBlackLayout>
 			<section
-				id="contact"
+				id={id}
 				className="mb-20 w-[min(100%,38rem)] text-center sm:mb-28"
 			>
 				<p className="-mt-6 text-gray-700 dark:text-white/80">
@@ -43,6 +45,7 @@ export default function Contact() {
 						required
 						maxLength={500}
 						placeholder="Your email"
+						id={`${id}-email`}
 					/>
 					<textarea
 						className="borderBlack my-3 h-52 rounded-lg p-4 transition-all dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
@@ -50,6 +53,7 @@ export default function Contact() {
 						placeholder="Your message"
 						required
 						maxLength={5000}
+						id={`${id}-message`}
 					/>
 					<div className="mx-auto">
 						<button

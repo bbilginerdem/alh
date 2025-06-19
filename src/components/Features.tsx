@@ -2,6 +2,7 @@
 
 import { Navigation } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import {
 	type MouseEventHandler,
 	type ReactNode,
@@ -18,7 +19,7 @@ interface BentoCardProps {
 	src: string;
 	title: ReactNode;
 	description?: string;
-	isComingSoon?: string;
+	isComingSoon?: ReactNode;
 	link?: string;
 }
 
@@ -105,15 +106,17 @@ export const BentoCard: React.FC<BentoCardProps> = ({
 				</div>
 
 				{isComingSoon && (
-					<a
+					<Link
 						href={link || "#"}
-						target="_blank"
-						rel="noopener noreferrer"
+						target={link ? "_blank" : undefined}
+						rel={link ? "noopener noreferrer" : undefined}
 						className="w-fit"
+						aria-disabled={!link}
+						aria-label={!link ? "Coming soon" : undefined}
+						onClick={(e) => !link && e.preventDefault()}
 					>
 						<div
 							role="none"
-							aria-hidden="true"
 							ref={hoverButtonRef}
 							onMouseMove={handleMouseMove}
 							onMouseEnter={handleMouseEnter}
@@ -129,9 +132,12 @@ export const BentoCard: React.FC<BentoCardProps> = ({
 								}}
 							/>
 							<Navigation className="relative z-20" />
-							<p className="relative z-20">{isComingSoon}</p>
+							<span className="relative z-20">
+								{isComingSoon}
+								{!link && " (Coming Soon)"}
+							</span>
 						</div>
-					</a>
+					</Link>
 				)}
 			</div>
 		</div>
@@ -142,8 +148,9 @@ const Features = () => (
 	<section className="bg-black">
 		<div className="container mx-auto px-3 md:px-10">
 			<div className="px-5 py-32">
+				<h2 className="sr-only">Ankara Lindy Hop Features</h2>
 				<p className="text-blue-50 text-lg">Ankara Lindy Hop nedir?</p>
-				<p className=" text-blue-50 text-lg opacity-50">
+				<p className="text-blue-50 text-lg opacity-50">
 					Evet, Ankara'nın sokakları denize çıkmadığı doğrudur... Çünkü
 					Ankara'da sokaklar Ankara Lindy Hop'a çıkar. Ankara Lindy Hop,
 					Ankara'nın sokaklarında, parklarında ve bahçelerinde ortaya çıkmış,
@@ -151,17 +158,7 @@ const Features = () => (
 					temel felsefesini merkezine koymuş; başta lindyhop, solo jazz, blues
 					ve swing dansı türevlerini Ankara'ya kar amacı gütmeden kazandırmaya
 					çabalamış, hayatın olağan akışı içerisinde 2018 yılında bir araya
-					gelmiş bir arkadaş grubudur. Başta, 2018 yılında küçük bir arkadaş
-					grubu olan Ankaralindyhop, yıllar içerisinde kendisine önce onlarca,
-					sonra yüzlerce yeni arkadaş edinip, ilk günkü felsefesini koruyarak
-					amacına ulaşmıştır; Ankara'da sokağı, jazz müziği, jazz danslarını ve
-					dayanışmayı bir araya getirmiştir. Ankara'da ilk zamanlar sınırlı olan
-					swing dansları öğrenim kaynaklarını geliştirmisinde baş aktör olup,
-					bir çok park/pub/music hall ve türevlerinde onlarca pratik/sosyal dans
-					geceleri düzenlemiştir. Başlarda öğretici kaynak sıkıntısı çekerken,
-					kendi içerisinden öğretmen seviyesinde danscılar çıkarmış, sosyal dans
-					gecelerinde eşlikci olarak çalacak jazz bandların kurulmasına
-					vesile olmuştur.
+					gelmiş bir arkadaş grubudur.
 				</p>
 			</div>
 
@@ -181,7 +178,12 @@ const Features = () => (
 						src="/img/85.jpg"
 						title={<b>Eğlenceli ve Sosyal</b>}
 						description="Yeni insanlarla tanış, müziğin ritmine bırak kendini!"
-						isComingSoon="Parti Fotografları"
+						isComingSoon={
+							<>
+								<span aria-hidden="true">Parti Fotografları</span>
+								<span className="sr-only">View party photos gallery</span>
+							</>
+						}
 						link="https://photos.app.goo.gl/EhKdqcuNAFyosLiYA"
 					/>
 				</BentoTilt>
@@ -199,6 +201,13 @@ const Features = () => (
 						src="/img/85.jpg"
 						title={<b>Nerede?</b>}
 						description="Rasa Kafe, Ankara'nın en güzel mekanlarından biri!"
+						isComingSoon={
+							<>
+								<span aria-hidden="true">Konum</span>
+								<span className="sr-only">View location on map</span>
+							</>
+						}
+						link="https://maps.app.goo.gl/example"
 					/>
 				</BentoTilt>
 			</div>
