@@ -143,16 +143,11 @@ const NavBar = () => {
 							{[1, 2, 3, 4].map((bar: number) => (
 								<div
 									key={bar}
-									className={clsx(
-										"h-4 w-0.5 bg-orange-300 transition-all duration-300",
-										{
-											"h-6": isIndicatorActive,
-										},
-									)}
+									className={clsx("indicator-line", {
+										active: isIndicatorActive,
+									})}
 									style={{
-										animation: isIndicatorActive
-											? `pulse 0.5s ease-in-out ${bar * 0.1}s infinite alternate`
-											: "none",
+										animationDelay: `${bar * 0.1}s`,
 									}}
 								/>
 							))}
