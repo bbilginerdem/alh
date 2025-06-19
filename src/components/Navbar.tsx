@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import gsap from "gsap";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useWindowScroll } from "react-use";
@@ -14,7 +15,7 @@ const navItems: string[] = ["etkİnlİkler", "blog", "İletİşİm"];
 const NavBar = () => {
 	const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
 	const [isIndicatorActive, setIsIndicatorActive] = useState<boolean>(false);
-	const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false); // State for dropdown
+	const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
 
 	const audioElementRef = useRef<HTMLAudioElement | null>(null);
 	const navContainerRef = useRef<HTMLDivElement | null>(null);
@@ -69,9 +70,16 @@ const NavBar = () => {
 		>
 			<header className="-translate-y-1/2 absolute top-1/2 w-full">
 				<nav className="flex size-full items-center justify-between p-4">
-					{/* Logo and Product button */}
+					{/* Logo and Home link */}
 					<Link className="flex items-center gap-7" href="/">
-						<img src="/img/logo.png" alt="logo" className="w-10" />
+						<Image
+							src="/img/logo.png"
+							alt="Ankara Lindy Hop Logo"
+							width={40}
+							height={40}
+							className="w-10"
+							priority
+						/>
 					</Link>
 
 					{/* Navigation Links and Audio Button */}
@@ -80,7 +88,9 @@ const NavBar = () => {
 						<button
 							onClick={() => setIsDropdownOpen(!isDropdownOpen)}
 							className="md:hidden"
-							type={undefined}
+							aria-label={isDropdownOpen ? "Close menu" : "Open menu"}
+							aria-expanded={isDropdownOpen}
+							type="button"
 						>
 							{isDropdownOpen ? (
 								<X size={24} color="#fdba74" />
@@ -90,15 +100,15 @@ const NavBar = () => {
 						</button>
 
 						{/* Navigation Links (Desktop) */}
-						<div className="hidden md:block">
+						<div className="hidden md:flex md:items-center md:gap-6">
 							{navItems.map((item: string) => (
-								<a
+								<Link
 									key={uuidv4()}
 									href={`/${turkishToEnglish(item).toLowerCase()}`}
-									className="nav-hover-btn"
+									className="nav-hover-btn font-medium text-sm transition-colors hover:text-orange-300"
 								>
 									{item}
-								</a>
+								</Link>
 							))}
 						</div>
 
@@ -106,9 +116,9 @@ const NavBar = () => {
 						<button
 							onClick={toggleAudioIndicator}
 							className="ml-10 flex items-center space-x-0.5"
+							aria-label={isAudioPlaying ? "Pause audio" : "Play audio"}
 							type="button"
 						>
-							{/* biome-ignore lint/a11y/useMediaCaption: <explanation> */}
 							<audio
 								ref={audioElementRef}
 								className="hidden"
@@ -119,11 +129,16 @@ const NavBar = () => {
 							{[1, 2, 3, 4].map((bar: number) => (
 								<div
 									key={bar}
-									className={clsx("indicator-line", {
-										active: isIndicatorActive,
-									})}
+									className={clsx(
+										"h-4 w-0.5 bg-orange-300 transition-all duration-300",
+										{
+											"h-6": isIndicatorActive,
+										},
+									)}
 									style={{
-										animationDelay: `${bar * 0.1}s`,
+										animation: isIndicatorActive
+											? `pulse 0.5s ease-in-out ${bar * 0.1}s infinite alternate`
+											: "none",
 									}}
 								/>
 							))}
@@ -133,15 +148,16 @@ const NavBar = () => {
 
 				{/* Dropdown Menu for Small Screens */}
 				{isDropdownOpen && (
-					<div className="absolute left-0 w-full bg-white shadow-lg md:hidden">
+					<div className="absolute right-0 left-0 z-50 w-full bg-white shadow-lg md:hidden">
 						{navItems.map((item: string) => (
-							<a
+							<Link
 								key={uuidv4()}
 								href={`/${turkishToEnglish(item).toLowerCase()}`}
-								className="block p-4 hover:bg-orange-100"
+								className="block p-4 font-medium text-sm hover:bg-orange-50"
+								onClick={() => setIsDropdownOpen(false)}
 							>
 								{item.toUpperCase()}
-							</a>
+							</Link>
 						))}
 					</div>
 				)}

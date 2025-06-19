@@ -3,17 +3,21 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-
 import Image from "next/image";
+import { useId } from "react";
 import AnimatedTitle from "./AnimatedTitle";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+	// Generate unique IDs
+	const clipId = useId();
+	const aboutSectionId = useId();
+
 	useGSAP(() => {
 		const clipAnimation = gsap.timeline({
 			scrollTrigger: {
-				trigger: "#clip",
+				trigger: `#${clipId}`,
 				start: "center center",
 				end: "+=800 center",
 				scrub: 0.5,
@@ -27,15 +31,14 @@ const About = () => {
 			height: "100vh",
 			borderRadius: 0,
 		});
-	});
+	}, [clipId]); // Add clipId as dependency
 
 	return (
-		<div id="about" className="min-h-screen w-screen">
+		<section id={aboutSectionId} className="min-h-screen w-screen">
 			<div className="relative mt-36 mb-8 flex flex-col items-center gap-5">
 				<p className="font-inter text-sm uppercase max-md:text-[10px]">
 					Ankara Lindy Hop
 				</p>
-				{/* asf */}
 				<AnimatedTitle
 					title="Ankara'nın en muazzam <br /> lindy hop Kitlesi"
 					containerClass="mt-5 text-black! text-center"
@@ -53,11 +56,11 @@ const About = () => {
 				</div>
 			</div>
 
-			<div className="h-dvh w-screen" id="clip">
+			<div className="h-dvh w-screen" id={clipId}>
 				<div className="mask-clip-path about-image">
 					<Image
 						src="/img/about.jpg"
-						alt="about"
+						alt="Ankara Lindy Hop community dancing"
 						fill
 						priority
 						sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 90vw"
@@ -66,7 +69,7 @@ const About = () => {
 					/>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

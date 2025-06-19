@@ -53,7 +53,6 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
 						<span
 							key={uuidv4()}
 							className="animated-word"
-							// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
 							dangerouslySetInnerHTML={{ __html: word }}
 						/>
 					))}

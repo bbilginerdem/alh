@@ -5,12 +5,8 @@ import Button from "./Button";
 
 const Contact = () => {
 	return (
-		<section
-			id="contact"
-			className="relative my-32 min-h-120 w-full px-4 sm:px-8 lg:my-40"
-		>
-			{/* bg-linear-to-br from-gray-900 to-black shadow-2xl shadow-blue-900/20 */}
-			<div className="image-shadow relative mx-auto max-w-7xl rounded-2xl py-24 text-blue-50 sm:overflow-hidden">
+		<section className="relative my-32 min-h-120 w-full px-4 sm:px-8 lg:my-40">
+			<div className="image-shadow -z-20 relative mx-auto max-w-7xl rounded-2xl py-24 text-blue-50 sm:overflow-hidden">
 				<div className="absolute inset-0 overflow-hidden rounded-2xl">
 					<Image
 						src="/img/contact-right.jpg"

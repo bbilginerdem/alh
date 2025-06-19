@@ -1,12 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const SPREADSHEET_ID = "1ZiWU6a-0B4DFT4D91-KYt83-59HV7zsV";
 const API_KEY = "AIzaSyA5CjgkyyOAt4gi7j6UUa1OXJs2CinhJw0";
-const RANGE = "Sheet1!A1:D10"; // Adjust range as needed
+const RANGE = "Sheet1!A1:D10";
 
-// Define the expected type for Google Sheets API response
 interface GoogleSheetsResponse {
 	values: string[][];
 }
@@ -35,21 +35,15 @@ const EventsList: React.FC = () => {
 				}
 
 				const result: GoogleSheetsResponse = await response.json();
-
-				if (result.values) {
-					setData(result.values);
-				} else {
-					throw new Error("No data found in the spreadsheet.");
-				}
+				setData(result.values || []);
 			} catch (err) {
 				setError((err as Error).message);
 			}
 		};
 
 		fetchData();
-	});
+	}, []);
 
-	// Hardcoded events data
 	const events: Event[] = [
 		{
 			id: "1",
@@ -58,7 +52,7 @@ const EventsList: React.FC = () => {
 			location: "Swing Dance Studio, New York",
 			description:
 				"Join us for a fun-filled Lindy Hop workshop with live music!",
-			imageUrl: "https://via.placeholder.com/600x400", // Placeholder image
+			imageUrl: "/images/hero-1.webp", // Changed to local path
 		},
 		{
 			id: "2",
@@ -66,6 +60,7 @@ const EventsList: React.FC = () => {
 			date: "2023-12-20T20:00:00",
 			location: "The Jazz Club, Chicago",
 			description: "Come dance the night away with fellow swing enthusiasts!",
+			imageUrl: "/images/hero-2.webp", // Changed to local path
 		},
 	];
 
@@ -74,32 +69,44 @@ const EventsList: React.FC = () => {
 			<h1 className="mb-8 text-center font-bold text-3xl text-white">
 				Gelecek Etkinlikler
 			</h1>
-			<div>
-				<h2>Google Sheets Data</h2>
+
+			{/* Google Sheets Data Section */}
+			<div className="mb-8">
+				<h2 className="mb-4 font-semibold text-white text-xl">
+					Google Sheets Data
+				</h2>
 				{error ? (
 					<p className="text-red-500">Error: {error}</p>
 				) : (
-					<ul>
-						{data.map((row, index) => (
-							<li key={index}>{row.join(", ")}</li>
+					<ul className="space-y-2">
+						{data.map((row, i) => (
+							<li key={`row-${i}`} className="text-gray-300">
+								{row.join(", ")}
+							</li>
 						))}
 					</ul>
 				)}
 			</div>
 
+			{/* Events List Section */}
 			{events.length > 0 ? (
 				<ul className="space-y-6">
 					{events.map((event) => (
 						<li
 							key={event.id}
-							className="overflow-hidden rounded-lg bg-white shadow-lg"
+							className="overflow-hidden rounded-lg bg-white shadow-lg transition-transform hover:scale-[1.02]"
 						>
 							{event.imageUrl && (
-								<img
-									src={event.imageUrl}
-									alt={event.title}
-									className="h-48 w-full object-cover"
-								/>
+								<div className="relative h-48 w-full">
+									<Image
+										src={event.imageUrl}
+										alt={`${event.title} event cover`}
+										fill
+										className="object-cover"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+										priority={event.id === "1"} // Only prioritize first image
+									/>
+								</div>
 							)}
 							<div className="p-6">
 								<h2 className="mb-2 font-semibold text-2xl text-gray-800">
@@ -107,7 +114,13 @@ const EventsList: React.FC = () => {
 								</h2>
 								<p className="mb-2 text-gray-600">
 									<strong>Date:</strong>{" "}
-									{new Date(event.date).toLocaleDateString()}
+									{new Date(event.date).toLocaleDateString("en-US", {
+										year: "numeric",
+										month: "long",
+										day: "numeric",
+										hour: "2-digit",
+										minute: "2-digit",
+									})}
 								</p>
 								<p className="mb-2 text-gray-600">
 									<strong>Location:</strong> {event.location}
@@ -118,7 +131,7 @@ const EventsList: React.FC = () => {
 					))}
 				</ul>
 			) : (
-				<p className="text-center text-gray-600">No upcoming events.</p>
+				<p className="text-center text-gray-300">No upcoming events.</p>
 			)}
 		</div>
 	);
