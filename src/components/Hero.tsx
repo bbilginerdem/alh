@@ -100,6 +100,8 @@ const Hero = () => {
 					<div className="mask-clip-path absolute-center absolute z-40 size-64 cursor-pointer overflow-hidden rounded-lg">
 						<VideoPreview>
 							<div
+								role="none"
+								aria-hidden="true"
 								onClick={handleMiniVdClick}
 								className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
 							>

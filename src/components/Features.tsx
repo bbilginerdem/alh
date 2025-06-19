@@ -110,6 +110,8 @@ export const BentoCard: React.FC<BentoCardProps> = ({
 						className="w-fit"
 					>
 						<div
+							role="none"
+							aria-hidden="true"
 							ref={hoverButtonRef}
 							onMouseMove={handleMouseMove}
 							onMouseEnter={handleMouseEnter}
