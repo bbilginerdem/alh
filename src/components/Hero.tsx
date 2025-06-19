@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { Navigation } from "lucide-react";
-import { useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 
 import Button from "./Button";
 import VideoPreview from "./VideoPreview";
@@ -16,7 +16,14 @@ const Hero = () => {
 	const [hasClicked, setHasClicked] = useState<boolean>(false);
 
 	const totalVideos: number = 4;
-	const nextVdRef = useRef<HTMLVideoElement | null>(null);
+	const nextVdRef = useRef<HTMLVideoElement>(null);
+	const currentVideoRef = useRef<HTMLVideoElement>(null);
+	const videoFrameRef = useRef<HTMLDivElement>(null);
+
+	// Generate unique IDs
+	const videoFrameId = useId();
+	const nextVideoId = useId();
+	const currentVideoId = useId();
 
 	const handleMiniVdClick = () => {
 		setHasClicked(true);
@@ -25,11 +32,11 @@ const Hero = () => {
 
 	useGSAP(
 		() => {
-			if (hasClicked) {
-				gsap.set("#next-video", {
+			if (hasClicked && nextVdRef.current && currentVideoRef.current) {
+				gsap.set(nextVdRef.current, {
 					visibility: "visible",
 				});
-				gsap.to("#next-video", {
+				gsap.to(nextVdRef.current, {
 					transformOrigin: "center center",
 					scale: 1,
 					width: "100%",
@@ -45,7 +52,7 @@ const Hero = () => {
 						}
 					},
 				});
-				gsap.from("#current-video", {
+				gsap.from(currentVideoRef.current, {
 					transformOrigin: "center center",
 					scale: 0,
 					duration: 1.5,
@@ -60,16 +67,19 @@ const Hero = () => {
 	);
 
 	useGSAP(() => {
-		gsap.set("#video-frame", {
+		if (!videoFrameRef.current) return;
+
+		gsap.set(videoFrameRef.current, {
 			clipPath: "polygon(14% 0, 72% 0, 88% 90%, 0 95%)",
 			borderRadius: "0% 0% 40% 10%",
 		});
-		gsap.from("#video-frame", {
+
+		gsap.from(videoFrameRef.current, {
 			clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
 			borderRadius: "0% 0% 0% 0%",
 			ease: "power1.inOut",
 			scrollTrigger: {
-				trigger: "#video-frame",
+				trigger: videoFrameRef.current,
 				start: "center center",
 				end: "bottom center",
 				scrub: true,
@@ -82,23 +92,23 @@ const Hero = () => {
 	return (
 		<div className="relative h-dvh w-screen overflow-x-hidden">
 			<div
-				id="video-frame"
+				ref={videoFrameRef}
+				id={videoFrameId}
 				className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
 			>
 				<div>
 					<div className="mask-clip-path absolute-center absolute z-40 size-64 cursor-pointer overflow-hidden rounded-lg">
 						<VideoPreview>
-							{/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
 							<div
 								onClick={handleMiniVdClick}
 								className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
 							>
 								<video
-									ref={nextVdRef}
+									ref={currentVideoRef}
+									id={currentVideoId}
 									src={getVideoSrc((currentIndex % totalVideos) + 1)}
 									loop
 									muted
-									id="current-video"
 									className="size-64 origin-center scale-150 object-cover object-center"
 								/>
 							</div>
@@ -107,10 +117,10 @@ const Hero = () => {
 
 					<video
 						ref={nextVdRef}
+						id={nextVideoId}
 						src={getVideoSrc(currentIndex)}
 						loop
 						muted
-						id="next-video"
 						className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
 					/>
 					<video
@@ -145,7 +155,7 @@ const Hero = () => {
 							<p className="text-base text-blue-100">
 								Her çarşamba 20:00-00:00 arası <br /> Ücretsiz pratik alanı ve
 								sosyal dans için <br />
-								Rasa kafe & restaurantdayız.
+								Rasa kafe & restoranındayız.
 							</p>
 						</div>
 
@@ -155,7 +165,7 @@ const Hero = () => {
 							rel="noopener noreferrer"
 						>
 							<Button
-								title="Topluluk Ilkeleri"
+								title="Topluluk İlkeleri"
 								leftIcon={<Navigation />}
 								containerClass="bg-yellow-300 flex-center gap-1"
 							/>

@@ -81,7 +81,6 @@ const EventsList: React.FC = () => {
 				) : (
 					<ul>
 						{data.map((row, index) => (
-							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 							<li key={index}>{row.join(", ")}</li>
 						))}
 					</ul>

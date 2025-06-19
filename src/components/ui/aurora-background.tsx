@@ -1,9 +1,9 @@
 "use client";
-import { cn } from "@/lib/utils";
 import { gsap } from "gsap";
 import type React from "react";
-import { useEffect, useRef } from "react";
 import type { ReactNode } from "react";
+import { useEffect, useRef } from "react";
+import { cn } from "@/lib/utils";
 
 interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
 	children: ReactNode;

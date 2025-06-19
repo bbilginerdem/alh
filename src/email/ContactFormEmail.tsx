@@ -1,59 +1,42 @@
-"use client";
+import {
+	Body,
+	Container,
+	Head,
+	Heading,
+	Hr,
+	Html,
+	Preview,
+	Section,
+	Text,
+} from "@react-email/components";
+import { Tailwind } from "@react-email/tailwind";
 
-import { sendEmail } from "@/actions/sendEmail";
-import toast from "react-hot-toast";
+type ContactFormEmailProps = {
+	message: string;
+	senderEmail: string;
+};
 
-import SubmitBtn from "@/components/SectionBtn";
-import SectionHeading from "@/components/SectionHeader";
-
-export default function Contact() {
+const ContactFormEmail = ({ message, senderEmail }: ContactFormEmailProps) => {
 	return (
-		<section
-			id="contact"
-			className="mb-20 w-[min(100%,38rem)] text-center sm:mb-28"
-		>
-			<SectionHeading mb="mb8">Contact me</SectionHeading>
-
-			<p className="-mt-6 text-gray-700 dark:text-white/80">
-				You can contact me through this from or directly at{" "}
-				<a className="underline" href="mailto:bbilgin.erdem@gmail.com">
-					my e-mail
-				</a>
-				.
-			</p>
-
-			<form
-				className="mt-10 flex flex-col gap-1 dark:text-black"
-				action={async (formData) => {
-					const { error } = await sendEmail(formData);
-
-					if (error) {
-						toast.error(error);
-						return;
-					}
-
-					toast.success("Email sent successfully!");
-				}}
-			>
-				<input
-					className="borderBlack h-14 rounded-lg px-4 transition-all dark:bg-white dark:bg-opacity-80 dark:outline-hidden dark:focus:bg-opacity-100"
-					name="senderEmail"
-					type="email"
-					required
-					maxLength={500}
-					placeholder="Your email"
-				/>
-				<textarea
-					className="borderBlack my-3 h-52 rounded-lg p-4 transition-all dark:bg-white dark:bg-opacity-80 dark:outline-hidden dark:focus:bg-opacity-100"
-					name="message"
-					placeholder="Your message"
-					required
-					maxLength={5000}
-				/>
-				<div className="mx-auto">
-					<SubmitBtn />
-				</div>
-			</form>
-		</section>
+		<Html>
+			<Head />
+			<Preview>New message from your website</Preview>
+			<Tailwind>
+				<Body className="bg-gray-100 text-black">
+					<Container>
+						<Section className="borderBlack my-10 rounded-md bg-white px-10 py-4">
+							<Heading className="leading-tight">
+								You received the following message from the contact form.
+							</Heading>
+							<Text>{message}</Text>
+							<Hr />
+							<Text>The sender&apos;s email is: {senderEmail}</Text>
+						</Section>
+					</Container>
+				</Body>
+			</Tailwind>
+		</Html>
 	);
-}
+};
+
+export default ContactFormEmail;

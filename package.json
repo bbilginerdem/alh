@@ -10,9 +10,11 @@
 	},
 	"dependencies": {
 		"@gsap/react": "^2.1.2",
+		"@react-email/components": "^0.1.0",
+		"@react-email/tailwind": "^1.0.5",
 		"clsx": "^2.1.1",
 		"gsap": "^3.13.0",
-		"lucide-react": "^0.516.0",
+		"lucide-react": "^0.517.0",
 		"next": "15.3.3",
 		"react": "19.1.0",
 		"react-dom": "19.1.0",
@@ -23,12 +25,13 @@
 		"uuid": "^11.1.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
+		"@biomejs/biome": "2.0.0",
 		"@tailwindcss/postcss": "^4.1.10",
 		"@types/node": "^24",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
 		"postcss": "^8",
+		"prettier": "^3.5.3",
 		"tailwindcss": "^4.1.10",
 		"typescript": "^5.8.3"
 	},

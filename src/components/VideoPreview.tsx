@@ -73,6 +73,8 @@ export const VideoPreview: React.FC<VideoPreviewProps> = ({ children }) => {
 
 	return (
 		<section
+			role="none"
+			aria-hidden="true"
 			ref={sectionRef}
 			onMouseMove={handleMouseMove}
 			onMouseEnter={() => setIsHovering(true)}

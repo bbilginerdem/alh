@@ -1,6 +1,6 @@
-import { posts } from "@/data/posts";
 // app/blog/[slug]/page.tsx
 import { notFound } from "next/navigation";
+import { posts } from "@/data/posts";
 
 export default async function BlogPost({
 	params,
