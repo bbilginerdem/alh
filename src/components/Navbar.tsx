@@ -116,7 +116,11 @@ const NavBar = () => {
 						<button
 							onClick={toggleAudioIndicator}
 							className="ml-10 flex items-center space-x-0.5"
-							aria-label={isAudioPlaying ? "Pause audio" : "Play audio"}
+							aria-label={
+								isAudioPlaying
+									? "Pause background music"
+									: "Play background music"
+							}
 							type="button"
 						>
 							<audio
@@ -125,7 +129,17 @@ const NavBar = () => {
 								src="/audio/loop.mp3"
 								autoPlay
 								loop
-							/>
+							>
+								{/* Captions track for accessibility */}
+								<track
+									kind="captions"
+									src="/audio/captions.vtt"
+									srcLang="en"
+									label="English"
+									default
+								/>
+								Your browser does not support the audio element.
+							</audio>
 							{[1, 2, 3, 4].map((bar: number) => (
 								<div
 									key={bar}
