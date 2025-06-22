@@ -5,7 +5,7 @@ import { useId } from "react";
 import { useFormStatus } from "react-dom";
 import toast from "react-hot-toast";
 import { sendEmail } from "@/actions/sendEmail";
-import CustomBlackLayout from "../custom-black-layout";
+import CustomBlackLayout from "../../components/CustomBlackLayout";
 
 export default function Contact() {
 	const { pending } = useFormStatus();
