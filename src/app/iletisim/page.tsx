@@ -4,7 +4,7 @@ import { Send } from "lucide-react";
 import { useId } from "react";
 import { useFormStatus } from "react-dom";
 import toast from "react-hot-toast";
-import { sendEmail } from "@/lib/api/sendEmail";
+import { sendEmail } from "@/email/sendEmail";
 import CustomBlackLayout from "../../components/CustomBlackLayout";
 
 export default function Contact() {

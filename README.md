@@ -17,12 +17,12 @@ bun dev
 before committing changes don't forget to do and resolve issue:
 
 ```bash
-npx biome check --write
-# or
-pnpm biome check --write
+pnpm run lint
+# and then
+npm run lint
 ```
 
-## Color Schema
+## Color Schemas
 
 orange-300 text some
 zinc-950 background most

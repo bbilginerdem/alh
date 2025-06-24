@@ -5,7 +5,7 @@ import { Resend } from "resend";
 
 import { getErrorMessage, validateString } from "@/lib/utils";
 
-import ContactFormEmail from "../../email/ContactFormEmail";
+import ContactFormEmail from "./ContactFormEmail";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
