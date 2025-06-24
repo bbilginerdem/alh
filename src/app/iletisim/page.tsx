@@ -8,71 +8,94 @@ import { sendEmail } from "@/email/sendEmail";
 import CustomBlackLayout from "../../components/CustomBlackLayout";
 
 export default function Contact() {
-	const { pending } = useFormStatus();
-	const id = useId();
+  const { pending } = useFormStatus();
+  const id = useId();
 
-	return (
-		<CustomBlackLayout>
-			<section
-				id={id}
-				className="mb-20 w-[min(100%,38rem)] text-center sm:mb-28"
-			>
-				<p className="-mt-6 text-gray-700 dark:text-white/80">
-					You can contact me through this from or directly at{" "}
-					<a className="underline" href="mailto:bbilgin.erdem@gmail.com">
-						my e-mail
-					</a>
-					.
-				</p>
+  return (
+    <CustomBlackLayout>
+      <section className="flex min-h-[calc(100vh-10rem)] flex-col items-center justify-center px-4">
+        <div className="w-full max-w-md space-y-6 rounded-xl p-8 backdrop-blur-sm sm:max-w-lg md:max-w-2xl">
+          <h1 className="text-center text-3xl font-bold text-gray-100">
+            Contact Me
+          </h1>
 
-				<form
-					className="mt-10 flex flex-col gap-1 dark:text-black"
-					action={async (formData) => {
-						const { error } = await sendEmail(formData);
+          <p className="text-center text-gray-300">
+            You can contact me through this form or directly at{" "}
+            <a
+              className="font-medium text-orange-300 underline hover:text-orange-200"
+              href="mailto:bbilgin.erdem@gmail.com"
+            >
+              my e-mail
+            </a>
+            .
+          </p>
 
-						if (error) {
-							toast.error(error);
-							return;
-						}
+          <form
+            className="mt-6 flex flex-col gap-4"
+            action={async (formData) => {
+              const { error } = await sendEmail(formData);
 
-						toast.success("Email sent successfully!");
-					}}
-				>
-					<input
-						className="borderBlack h-14 rounded-lg px-4 transition-all dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
-						name="senderEmail"
-						type="email"
-						required
-						maxLength={500}
-						placeholder="Your email"
-						id={`${id}-email`}
-					/>
-					<textarea
-						className="borderBlack my-3 h-52 rounded-lg p-4 transition-all dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
-						name="message"
-						placeholder="Your message"
-						required
-						maxLength={5000}
-						id={`${id}-message`}
-					/>
-					<div className="mx-auto">
-						<button
-							type="submit"
-							className="group flex h-[3rem] w-[12rem] items-center justify-center gap-4 rounded-full bg-gray-900 text-white outline-none transition-all hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105 disabled:scale-100 disabled:bg-opacity-65 dark:bg-white dark:bg-opacity-10"
-							disabled={pending}
-						>
-							{pending ? (
-								<div className="h-5 w-5 animate-spin rounded-full border-white border-b-2" />
-							) : (
-								<>
-									Submit{" "}
-									<Send className="group-hover:-translate-y-1 text-xs opacity-70 transition-all group-hover:translate-x-1" />{" "}
-								</>
-							)}
-						</button>
-					</div>
-				</form>
-			</section>
-		</CustomBlackLayout>
-	);
+              if (error) {
+                toast.error(error);
+                return;
+              }
+
+              toast.success("Email sent successfully!");
+            }}
+          >
+            <div className="space-y-2">
+              <label
+                htmlFor={`${id}-email`}
+                className="block text-sm font-medium text-gray-200"
+              >
+                Your email
+              </label>
+              <input
+                className="w-full rounded-lg border border-gray-600 bg-gray-800 px-4 py-3 text-gray-100 transition-all focus:border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-300/30 placeholder:text-gray-400"
+                name="senderEmail"
+                type="email"
+                required
+                maxLength={500}
+                placeholder="you@example.com"
+                id={`${id}-email`}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label
+                htmlFor={`${id}-message`}
+                className="block text-sm font-medium text-gray-200"
+              >
+                Your message
+              </label>
+              <textarea
+                className="w-full rounded-lg border border-gray-600 bg-gray-800 px-4 py-3 text-gray-100 transition-all focus:border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-300/30 placeholder:text-gray-400"
+                name="message"
+                placeholder="How can I help you?"
+                required
+                maxLength={5000}
+                rows={6}
+                id={`${id}-message`}
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-orange-300 px-6 py-3 font-medium text-gray-900 transition-all hover:bg-orange-400 focus:outline-none focus:ring-4 focus:ring-orange-300/50 disabled:opacity-70"
+              disabled={pending}
+            >
+              {pending ? (
+                <div className="h-5 w-5 animate-spin rounded-full border-2 border-gray-900 border-t-transparent" />
+              ) : (
+                <>
+                  Send Message
+                  <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </>
+              )}
+            </button>
+          </form>
+        </div>
+      </section>
+    </CustomBlackLayout>
+  );
 }
