@@ -10,8 +10,7 @@ import { useWindowScroll } from "react-use";
 import { v4 as uuidv4 } from "uuid";
 import { turkishToEnglish } from "@/lib/utils";
 
-// const navItems: string[] = ["etkinlikler", "blog", "iletişim"];
-const navItems: string[] = ["iletişim"];
+const navItems: string[] = ["etkinlikler", "blog", "iletişim"];
 
 const NavBar = () => {
 	const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
