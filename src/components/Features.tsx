@@ -97,11 +97,15 @@ export const BentoCard: React.FC<BentoCardProps> = ({
 				alt={typeof title === "string" ? title : "Bento Card Image"}
 				className="absolute top-0 left-0 size-full object-cover object-center"
 			/>
-			<div className="relative z-10 flex size-full flex-col justify-between p-10 text-blue-50">
+			<div className="relative z-10 flex size-full flex-col justify-between p-10 text-zinc-50">
 				<div>
 					<h1 className="bento-title special-font">{title}</h1>
 					{description && (
-						<p className="mt-3 max-w-64 text-xs md:text-base">{description}</p>
+						<div className="relative my-3 max-w-fit rounded-md bg-black/30 px-3 py-2 shadow-inner backdrop-blur-xs">
+							<p className="max-w-64 text-xs text-zinc-100 md:text-base">
+								{description}
+							</p>
+						</div>
 					)}
 				</div>
 
@@ -149,8 +153,8 @@ const Features = () => (
 		<div className="container mx-auto px-3 md:px-10">
 			<div className="px-5 py-32">
 				<h2 className="sr-only">Ankara Lindy Hop Features</h2>
-				<p className="text-blue-50 text-lg">Ankara Lindy Hop nedir?</p>
-				<p className="text-blue-50 text-lg opacity-50">
+				<p className="text-lg text-zinc-50">Ankara Lindy Hop nedir?</p>
+				<p className="text-lg text-zinc-50 opacity-50">
 					Evet, Ankara'nın sokakları denize çıkmadığı doğrudur... Çünkü
 					Ankara'da sokaklar Ankara Lindy Hop'a çıkar. Ankara Lindy Hop,
 					Ankara'nın sokaklarında, parklarında ve bahçelerinde ortaya çıkmış,

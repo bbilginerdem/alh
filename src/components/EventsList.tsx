@@ -1,15 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
-
-const SPREADSHEET_ID = "1ZiWU6a-0B4DFT4D91-KYt83-59HV7zsV";
-const API_KEY = "AIzaSyA5CjgkyyOAt4gi7j6UUa1OXJs2CinhJw0";
-const RANGE = "Sheet1!A1:D10";
-
-interface GoogleSheetsResponse {
-	values: string[][];
-}
+import { useMemo } from "react";
 
 interface Event {
 	id: string;
@@ -21,10 +13,6 @@ interface Event {
 }
 
 const EventsList: React.FC = () => {
-	const [sheetData, setSheetData] = useState<string[][]>([]);
-	const [error, setError] = useState<string | null>(null);
-	const [isLoading, setIsLoading] = useState(true);
-
 	// Static events data with proper unique IDs
 	const staticEvents: Event[] = useMemo(
 		() => [
@@ -48,42 +36,6 @@ const EventsList: React.FC = () => {
 		],
 		[],
 	);
-
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`;
-				const response = await fetch(url);
-
-				if (!response.ok) {
-					throw new Error(`Error fetching data: ${response.statusText}`);
-				}
-
-				const result: GoogleSheetsResponse = await response.json();
-				setSheetData(result.values || []);
-			} catch (err) {
-				setError((err as Error).message);
-			} finally {
-				setIsLoading(false);
-			}
-		};
-
-		fetchData();
-	}, []);
-
-	// Transform sheet data into events if needed
-	const sheetEvents = useMemo(() => {
-		if (!sheetData.length || sheetData.length <= 1) return []; // Skip header row
-		return sheetData.slice(1).map((row, index) => ({
-			id: `sheet-event-${index}-${row[0]?.substring(0, 5) || ""}`,
-			title: row[0] || "No title",
-			date: row[1] || "",
-			location: row[2] || "",
-			description: row[3] || "",
-		}));
-	}, [sheetData]);
-
-	const allEvents = [...staticEvents, ...sheetEvents];
 
 	const renderEventItem = (event: Event) => (
 		<li
@@ -132,31 +84,10 @@ const EventsList: React.FC = () => {
 				Gelecek Etkinlikler
 			</h1>
 
-			{/* Google Sheets Data Section */}
-			{isLoading ? (
-				<div className="mb-8 text-center text-gray-300">Loading data...</div>
-			) : error ? (
-				<div className="mb-8">
-					<h2 className="mb-4 font-semibold text-white text-xl">
-						Google Sheets Data
-					</h2>
-					<p className="text-red-500">Error: {error}</p>
-				</div>
-			) : (
-				sheetEvents.length > 0 && (
-					<div className="mb-8">
-						<h2 className="mb-4 font-semibold text-white text-xl">
-							Google Sheets Data
-						</h2>
-						<ul className="space-y-4">{sheetEvents.map(renderEventItem)}</ul>
-					</div>
-				)
-			)}
-
 			{/* Events List Section */}
 			<h2 className="mb-4 font-semibold text-white text-xl">Upcoming Events</h2>
-			{allEvents.length > 0 ? (
-				<ul className="space-y-6">{allEvents.map(renderEventItem)}</ul>
+			{staticEvents.length > 0 ? (
+				<ul className="space-y-6">{staticEvents.map(renderEventItem)}</ul>
 			) : (
 				<p className="text-center text-gray-300">No upcoming events.</p>
 			)}
