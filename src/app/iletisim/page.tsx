@@ -45,7 +45,7 @@ export default function Contact() {
 						Bu form aracılığıyla veya doğrudan{" "}
 						<a
 							className="font-medium text-orange-300 underline hover:text-orange-200"
-							href="mailto:bbilgin.erdem@gmail.com"
+							href="mailto:ankaralindyhop2018@gmail.com"
 						>
 							e-posta adresimden
 						</a>{" "}
