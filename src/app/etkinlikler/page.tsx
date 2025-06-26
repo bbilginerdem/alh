@@ -1,10 +1,11 @@
-import EventsList from "@/components/EventsList";
+import { EventsList } from "@/components/EventsList";
+import { events } from "@/lib/data";
 import CustomBlackLayout from "../../components/CustomBlackLayout";
 
 const EventsPage: React.FC = () => {
 	return (
 		<CustomBlackLayout>
-			<EventsList />
+			<EventsList events={events} />
 		</CustomBlackLayout>
 	);
 };
