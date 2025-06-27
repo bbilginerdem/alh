@@ -1,23 +1,25 @@
+import { FrankieManningArticle } from "@/components/blog-posts/FrankieManningArticle";
+
 export const posts = [
 	{
 		id: 1,
-		title: "Introduction to Next.js",
-		slug: "introduction-to-nextjs",
-		content: "Next.js is a React framework for production...",
-		image: "/images/posts/1",
+		title: "Frankie Manning: Lindy Hop'un Efsanevi Öncüsü",
+		slug: "frankie-manning-lindy-hop",
+		Content: FrankieManningArticle,
+		image: "/images/posts/1.jpg",
 	},
 	{
 		id: 2,
 		title: "Building a Blog with Tailwind CSS",
 		slug: "building-a-blog-with-tailwind",
-		content: "Tailwind CSS is a utility-first CSS framework...",
+		Content: FrankieManningArticle,
 		image: "/images/posts/2",
 	},
 	{
 		id: 3,
 		title: "Getting Started with TypeScript",
 		slug: "getting-started-with-typescript",
-		content: "TypeScript is a typed superset of JavaScript...",
+		Content: FrankieManningArticle,
 		image: "/images/posts/3",
 	},
 ];

@@ -9,6 +9,7 @@ interface Post {
 	id: number;
 	title: string;
 	slug: string;
+	Content: React.ComponentType;
 	image?: string;
 }
 

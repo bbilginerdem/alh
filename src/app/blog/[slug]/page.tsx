@@ -1,13 +1,15 @@
-// app/blog/[slug]/page.tsx
+"use client";
+
 import { notFound } from "next/navigation";
+import { use } from "react";
 import { posts } from "@/lib/data";
 
-export default async function BlogPost({
+export default function BlogPost({
 	params,
 }: {
 	params: Promise<{ slug: string }>;
 }) {
-	const { slug } = await params;
+	const { slug } = use(params);
 	const post = posts.find((post) => post.slug === slug);
 
 	if (!post) {
@@ -16,8 +18,7 @@ export default async function BlogPost({
 
 	return (
 		<div className="container mx-auto p-4">
-			<h1 className="mb-4 font-bold text-3xl">{post.title}</h1>
-			<p className="text-gray-700">{post.content}</p>
+			<div className="text-gray-700">{post.Content()}</div>
 		</div>
 	);
 }
