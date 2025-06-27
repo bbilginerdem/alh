@@ -25,11 +25,11 @@ export function EventsList({ events }: EventListProps) {
 				<div className="relative h-48 w-full">
 					<Image
 						src={event.imageUrl}
-						alt={`${event.title} event cover`}
+						alt={`${event.title} etkinlik görseli`}
 						fill
 						className="object-cover"
 						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-						priority={event.id === "event-1"} // Only prioritize first static image
+						priority={event.id === "event-1"} // Sadece ilk statik görsele öncelik ver
 					/>
 					<div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
 				</div>
@@ -39,20 +39,20 @@ export function EventsList({ events }: EventListProps) {
 					{event.title}
 				</h2>
 				<p className="mb-2 text-zinc-300">
-					<strong className="text-orange-300">Date:</strong>{" "}
+					<strong className="text-orange-300">Tarih:</strong>{" "}
 					{event.date
-						? new Date(event.date).toLocaleDateString("en-US", {
+						? new Date(event.date).toLocaleDateString("tr-TR", {
 								year: "numeric",
 								month: "long",
 								day: "numeric",
 								hour: "2-digit",
 								minute: "2-digit",
 							})
-						: "TBD"}
+						: "Belirlenecek"}
 				</p>
 				<p className="mb-2 text-zinc-300">
-					<strong className="text-orange-300">Location:</strong>{" "}
-					{event.location || "To be announced"}
+					<strong className="text-orange-300">Konum:</strong>{" "}
+					{event.location || "Duyurulacak"}
 				</p>
 				<p className="text-zinc-200">{event.description}</p>
 			</div>
@@ -62,17 +62,19 @@ export function EventsList({ events }: EventListProps) {
 	return (
 		<div className="mx-auto max-w-4xl px-4 py-8">
 			<h1 className="mb-8 text-center font-bold text-3xl text-zinc-100">
-				Gelecek Etkinlikler
+				Yaklaşan Etkinlikler
 			</h1>
 
-			{/* Events List Section */}
+			{/* Etkinlik Listesi Bölümü */}
 			<h2 className="mb-4 font-semibold text-xl text-zinc-100">
-				Upcoming Events
+				Yaklaşan Etkinlikler
 			</h2>
 			{events.length > 0 ? (
 				<ul className="space-y-6">{events.map(renderEventItem)}</ul>
 			) : (
-				<p className="text-center text-zinc-300">No upcoming events.</p>
+				<p className="text-center text-zinc-300">
+					Yaklaşan etkinlik bulunmamaktadır.
+				</p>
 			)}
 		</div>
 	);
