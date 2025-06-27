@@ -5,38 +5,38 @@ import Instagram from "./social/instagram";
 import Youtube from "./social/youtube";
 
 const socialLinks = [
-	{ href: "https://www.instagram.com/ankaralindyhop/", icon: <Instagram /> },
-	{
-		href: "https://www.facebook.com/ankaralindyhop/",
-		icon: <Facebook />,
-	},
-	{ href: "https://www.youtube.com/@AnkaraLindyHop", icon: <Youtube /> },
+  { href: "https://www.instagram.com/ankaralindyhop/", icon: <Instagram /> },
+  {
+    href: "https://www.facebook.com/ankaralindyhop/",
+    icon: <Facebook />,
+  },
+  { href: "https://www.youtube.com/@AnkaraLindyHop", icon: <Youtube /> },
 ];
 
 const Footer = () => {
-	return (
-		<footer className="w-screen bg-orange-300 py-4 text-black 2xl:fixed 2xl:right-0 2xl:bottom-0 2xl:left-0">
-			<div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 md:flex-row">
-				<p className="text-center font-light text-sm md:text-left">
-					Ankara Lindy Hop
-				</p>
+  return (
+    <footer className="w-screen bg-orange-300 py-4 text-black">
+      <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 md:flex-row">
+        <p className="text-center font-light text-sm md:text-left">
+          Ankara Lindy Hop
+        </p>
 
-				<div className="flex justify-center gap-6 md:justify-start">
-					{socialLinks.map((link) => (
-						<Link
-							key={uuidv4()}
-							href={link.href}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="text-black transition-colors duration-500 ease-in-out hover:text-white"
-						>
-							{link.icon}
-						</Link>
-					))}
-				</div>
-			</div>
-		</footer>
-	);
+        <div className="flex justify-center gap-6 md:justify-start">
+          {socialLinks.map((link) => (
+            <Link
+              key={uuidv4()}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black transition-colors duration-500 ease-in-out hover:text-white"
+            >
+              {link.icon}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
