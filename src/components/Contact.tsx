@@ -8,7 +8,7 @@ const Contact = () => {
 			<div className="relative mx-auto max-w-7xl rounded-2xl py-24 text-zinc-50 sm:overflow-hidden">
 				<div className="image-shadow absolute inset-0 overflow-hidden rounded-2xl">
 					<Image
-						src="/img/contact.jpg"
+						src="/images/contact.jpg"
 						alt="Contact Image"
 						className="h-full w-full object-cover brightness-95 contrast-110 saturate-110"
 						fill

@@ -59,7 +59,7 @@ const About = () => {
 			<div className="h-dvh w-screen" id={clipId}>
 				<div className="mask-clip-path about-image">
 					<Image
-						src="/img/about.jpg"
+						src="/images/about.jpg"
 						alt="Ankara Lindy Hop community dancing"
 						fill
 						priority

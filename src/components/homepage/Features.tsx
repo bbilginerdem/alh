@@ -168,7 +168,7 @@ const Features = () => (
 
 			<BentoTilt className="relative mb-7 h-96 w-full overflow-hidden rounded-md border-hsla transition-transform duration-300 ease-out md:h-[65vh]">
 				<BentoCard
-					src="/img/features-1.jpg"
+					src="/images/features-1.jpg"
 					title={<b>Stres Atmanın En Keyifli Yolu</b>}
 					description="Günlük koşuşturmadan uzaklaş, dansın enerjisiyle yenilen!"
 					isComingSoon="Ankara Etkinlik Takvimi"
@@ -179,7 +179,7 @@ const Features = () => (
 			<div className="grid w-full grid-cols-2 grid-rows-3 gap-7">
 				<BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
 					<BentoCard
-						src="/img/features-2.jpg"
+						src="/images/features-2.jpg"
 						title={<b>Eğlenceli ve Sosyal</b>}
 						description="Yeni insanlarla tanış, müziğin ritmine bırak kendini!"
 						isComingSoon={
@@ -194,7 +194,7 @@ const Features = () => (
 
 				<BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
 					<BentoCard
-						src="/img/features-3.jpg"
+						src="/images/features-3.jpg"
 						title={<b>Sıcak bir topluluk</b>}
 						description="Jazz, blues ve swing tutkunu yeni insanlarla tanışın."
 					/>
@@ -202,7 +202,7 @@ const Features = () => (
 
 				<BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
 					<BentoCard
-						src="/img/features-4.jpg"
+						src="/images/features-4.jpg"
 						title={<b>Nerede?</b>}
 						description="Rasa Kafe, Ankara'nın en güzel mekanlarından biri!"
 					/>

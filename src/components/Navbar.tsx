@@ -73,11 +73,11 @@ const NavBar = () => {
 					{/* Logo and Home link */}
 					<Link className="flex items-center gap-7" href="/">
 						<Image
-							src="/img/logo.png"
+							src="/images/logo.png"
 							alt="Ankara Lindy Hop Logo"
-							width={40}
-							height={40}
-							className="w-10"
+							width={50}
+							height={50}
+							className="h-12 w-12 rounded-full"
 							priority
 						/>
 					</Link>
