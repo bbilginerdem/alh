@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/all";
 import { Navigation } from "lucide-react";
 import { useId, useRef, useState } from "react";
 
-import Button from "./Button";
+import Button from "../ui/Button";
 import VideoPreview from "./VideoPreview";
 
 gsap.registerPlugin(ScrollTrigger);

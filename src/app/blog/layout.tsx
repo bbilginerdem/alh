@@ -1,4 +1,4 @@
-import CustomBlackLayout from "@/components/CustomBlackLayout";
+import CustomBlackLayout from "@/components/ui/CustomBlackLayout";
 
 export default function BlogLayout({
 	children,

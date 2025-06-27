@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import About from "../components/About";
 import Contact from "../components/Contact";
-import Features from "../components/Features";
-import Hero from "../components/Hero";
+import About from "../components/homepage/About";
+import Features from "../components/homepage/Features";
+import Hero from "../components/homepage/Hero";
 import Loading from "./loading";
 
 export default function Home() {

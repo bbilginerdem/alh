@@ -1,4 +1,3 @@
-// import { Instagram, Youtube } from "lucide-react";
 import Link from "next/link";
 import { v4 as uuidv4 } from "uuid";
 import Facebook from "./social/facebook";
@@ -16,7 +15,7 @@ const socialLinks = [
 
 const Footer = () => {
 	return (
-		<footer className="w-screen bg-orange-300 py-4 text-black">
+		<footer className="w-screen bg-orange-300 py-4 text-black 2xl:fixed 2xl:right-0 2xl:bottom-0 2xl:left-0">
 			<div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 md:flex-row">
 				<p className="text-center font-light text-sm md:text-left">
 					Ankara Lindy Hop

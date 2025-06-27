@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import AnimatedTitle from "./AnimatedTitle";
+import AnimatedTitle from "./homepage/AnimatedTitle";
 
 const Contact = () => {
 	return (

@@ -4,7 +4,7 @@ import { Send } from "lucide-react";
 import { useId, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { sendEmail } from "@/email/sendEmail";
-import CustomBlackLayout from "../../components/CustomBlackLayout";
+import CustomBlackLayout from "../../components/ui/CustomBlackLayout";
 
 export default function Contact() {
 	const [isPending, setIsPending] = useState(false);
