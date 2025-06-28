@@ -21,12 +21,12 @@ export const posts = [
 export const events = [
 	{
 		id: "event-1",
-		title: "Lindy Hop Atölyesi",
+		title: "Lindy Hop Partisi",
 		date: "2023-12-15T18:00:00",
 		location: "Swing Dans Stüdyosu, Ankara",
 		description:
-			"Canlı müzik eşliğinde eğlenceli bir Lindy Hop atölyesine katılın!",
-		imageUrl: "/images/events/1",
+			"Canlı müzik eşliğinde eğlenceli bir Lindy Hop partisine katılın!",
+		imageUrl: "/images/events/1.jpg",
 	},
 	{
 		id: "event-2",
@@ -34,6 +34,6 @@ export const events = [
 		date: "2023-12-20T20:00:00",
 		location: "Caz Kulübü, Ankara",
 		description: "Swing severlerle birlikte gece boyunca dans etmeye gelin!",
-		imageUrl: "/images/events/2",
+		imageUrl: "/images/events/2.jpg",
 	},
 ];

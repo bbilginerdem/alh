@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 interface Event {
 	id: string;
@@ -16,6 +17,16 @@ interface EventListProps {
 }
 
 export function EventsList({ events }: EventListProps) {
+	const [currentDate, setCurrentDate] = useState(new Date());
+
+	// Update current date every minute to handle event status changes
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setCurrentDate(new Date());
+		}, 60000);
+		return () => clearInterval(interval);
+	}, []);
+
 	const renderEventItem = (event: Event) => (
 		<li
 			key={event.id}
@@ -29,7 +40,7 @@ export function EventsList({ events }: EventListProps) {
 						fill
 						className="object-cover"
 						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-						priority={event.id === "event-1"} // Sadece ilk statik görsele öncelik ver
+						priority={event.id === "event-1"}
 					/>
 					<div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
 				</div>
@@ -59,21 +70,37 @@ export function EventsList({ events }: EventListProps) {
 		</li>
 	);
 
+	// Separate events into upcoming and past
+	const upcomingEvents = events.filter(
+		(event) => new Date(event.date) > currentDate,
+	);
+	const pastEvents = events.filter(
+		(event) => new Date(event.date) <= currentDate,
+	);
+
 	return (
 		<div className="mx-auto max-w-4xl px-4 py-8">
+			{/* Upcoming Events Section */}
 			<h1 className="mb-8 text-center font-bold text-3xl text-zinc-100">
 				Yaklaşan Etkinlikler
 			</h1>
+			{upcomingEvents.length > 0 ? (
+				<ul className="space-y-6">{upcomingEvents.map(renderEventItem)}</ul>
+			) : (
+				<p className="mb-12 text-center text-zinc-300">
+					Yaklaşan etkinlik bulunmamaktadır.
+				</p>
+			)}
 
-			{/* Etkinlik Listesi Bölümü */}
-			<h2 className="mb-4 font-semibold text-xl text-zinc-100">
-				Yaklaşan Etkinlikler
-			</h2>
-			{events.length > 0 ? (
-				<ul className="space-y-6">{events.map(renderEventItem)}</ul>
+			{/* Past Events Section */}
+			<h1 className="mb-8 text-center font-bold text-3xl text-zinc-100">
+				Geçmiş Etkinlikler
+			</h1>
+			{pastEvents.length > 0 ? (
+				<ul className="space-y-6">{pastEvents.map(renderEventItem)}</ul>
 			) : (
 				<p className="text-center text-zinc-300">
-					Yaklaşan etkinlik bulunmamaktadır.
+					Geçmiş etkinlik bulunmamaktadır.
 				</p>
 			)}
 		</div>
