@@ -6,6 +6,7 @@ interface ButtonProps {
   rightIcon?: React.ReactNode;
   leftIcon?: React.ReactNode;
   containerClass: string;
+  type?: "button" | "submit" | "reset";
 }
 
 const Button = ({
@@ -14,6 +15,7 @@ const Button = ({
   rightIcon,
   leftIcon,
   containerClass,
+  type = "button", // Default type to "button"
 }: ButtonProps) => {
   return (
     <button
@@ -22,7 +24,7 @@ const Button = ({
         "group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-orange-300 px-7 py-3 text-black grip-1 shadow-md transition-all duration-500 hover:bg-orange-200 hover:shadow-lg",
         containerClass,
       )}
-      type="button"
+      type={type}
     >
       {leftIcon}
 
