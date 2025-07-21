@@ -60,10 +60,10 @@ const About = () => {
 				<div className="mask-clip-path about-image">
 					<Image
 						src="/images/about.jpg"
-						alt="Ankara Lindy Hop community dancing"
+						alt="ALH parti sonu"
 						fill
 						priority
-						sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 90vw"
+						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 85vw, 75vw"
 						className="absolute top-0 left-0"
 						style={{ objectFit: "cover" }}
 					/>
