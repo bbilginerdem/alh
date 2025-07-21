@@ -63,9 +63,12 @@ const About = () => {
 						alt="ALH parti sonu"
 						fill
 						priority
-						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 85vw, 75vw"
+						quality={100}
+						sizes="100vw"
 						className="absolute top-0 left-0"
-						style={{ objectFit: "cover" }}
+						style={{
+							objectFit: "cover",
+						}}
 					/>
 				</div>
 			</div>

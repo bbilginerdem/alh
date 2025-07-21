@@ -85,7 +85,7 @@ export function BlogList({ posts }: BlogListProps) {
 								{post.title}
 							</h2>
 							<span className="mt-2 inline-flex items-center font-medium text-orange-300/80 text-sm transition-colors duration-300 group-hover:text-orange-300">
-								Read more →
+								Daha fazlası için →
 							</span>
 						</div>
 

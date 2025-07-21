@@ -167,10 +167,10 @@ const NavBar = () => {
 							<Link
 								key={uuidv4()}
 								href={`/${navbarDirection(item).toLowerCase()}`}
-								className="block p-4 font-medium text-sm hover:bg-orange-50"
+								className="block p-4 font-medium text-orange-600 text-sm hover:bg-zinc-100"
 								onClick={() => setIsDropdownOpen(false)}
 							>
-								{navbarDirection(item).toLowerCase()}
+								{item}
 							</Link>
 						))}
 					</div>

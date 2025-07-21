@@ -101,7 +101,7 @@ export const BentoCard: React.FC<BentoCardProps> = ({
 				<div>
 					<h1 className="bento-title special-font">{title}</h1>
 					{description && (
-						<div className="relative my-3 max-w-fit rounded-md bg-black/30 px-3 py-2 shadow-inner backdrop-blur-xs">
+						<div className="relative my-3 max-w-fit rounded-xl bg-black/20 px-3 py-2 shadow-inner backdrop-blur-xs">
 							<p className="max-w-64 text-xs text-zinc-100 md:text-base">
 								{description}
 							</p>
@@ -176,8 +176,10 @@ const Features = () => (
 				/>
 			</BentoTilt>
 
-			<div className="grid w-full grid-cols-2 grid-rows-3 gap-7">
-				<BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
+			{/* Updated grid container */}
+			<div className="grid w-full grid-cols-1 gap-7 pb-10 sm:grid-cols-2 sm:grid-rows-2">
+				{/* First card - spans two rows on desktop */}
+				<BentoTilt className="bento-tilt sm:row-span-2">
 					<BentoCard
 						src="/images/features-2.jpg"
 						title={<b>Eğlenceli ve Sosyal</b>}
@@ -192,7 +194,8 @@ const Features = () => (
 					/>
 				</BentoTilt>
 
-				<BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
+				{/* Second card - now properly aligned */}
+				<BentoTilt className="bento-tilt">
 					<BentoCard
 						src="/images/features-3.jpg"
 						title={<b>Sıcak bir topluluk</b>}
@@ -200,7 +203,8 @@ const Features = () => (
 					/>
 				</BentoTilt>
 
-				<BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+				{/* Third card */}
+				<BentoTilt className="bento-tilt">
 					<BentoCard
 						src="/images/features-4.jpg"
 						title={<b>Nerede?</b>}
