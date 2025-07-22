@@ -161,7 +161,7 @@ const Hero = () => {
 							</p>
 						</div>
 
-						<Link href="/topluluk-ilkeleri" passHref>
+						<Link href="/topluluk-ilkeleri" passHref className="z-50">
 							<Button
 								title="Topluluk İlkeleri"
 								leftIcon={<Navigation />}
