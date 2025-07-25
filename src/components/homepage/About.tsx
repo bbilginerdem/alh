@@ -40,7 +40,7 @@ const About = () => {
 					Ankara Lindy Hop
 				</p>
 				<AnimatedTitle
-					title="Ankara'nın en muazzam <br /> lindy hop Kitlesi"
+					title="Ankara’nın ilk <br /> Lindy Hop Topluluğu"
 					containerClass="mt-5 text-black! text-center"
 				/>
 
