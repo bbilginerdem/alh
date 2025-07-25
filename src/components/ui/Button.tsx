@@ -7,6 +7,7 @@ interface ButtonProps {
 	leftIcon?: React.ReactNode;
 	containerClass: string;
 	type?: "button" | "submit" | "reset";
+	onClick?: () => void; // Add this line
 }
 
 const Button = ({
@@ -15,16 +16,18 @@ const Button = ({
 	rightIcon,
 	leftIcon,
 	containerClass,
-	type = "button", // Default type to "button"
+	type = "button",
+	onClick, // Add this line
 }: ButtonProps) => {
 	return (
 		<button
 			id={id}
 			className={clsx(
-				"group grip-1 relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-orange-300 px-7 py-3 text-black shadow-md transition-all duration-500 hover:bg-orange-200 hover:shadow-lg",
+				"group grip-1 relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-orange-300 px-7 py-3 text-zinc-950 shadow-md transition-all duration-500 hover:bg-orange-200 hover:shadow-lg",
 				containerClass,
 			)}
 			type={type}
+			onClick={onClick} // Add this line
 		>
 			{leftIcon}
 

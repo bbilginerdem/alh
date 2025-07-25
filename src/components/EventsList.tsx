@@ -30,7 +30,8 @@ export function EventsList({ events }: EventListProps) {
 				id: `weekly-${nextWednesday.toISOString()}`,
 				title: "Haftalık Lindy Hop Buluşması",
 				date: nextWednesday.toISOString(),
-				location: "Rasa Kafe, Ankara",
+				location:
+					"Rasa Brasserie, Meşrutiyet, Selanik Caddesi, Raymar Hotel No:74, 06420 Çankaya/Ankara",
 				description:
 					"Ankara Lindy Hop haftalık dans buluşması. Yeni başlayanlar ve tüm seviyeler davetlidir!",
 				imageUrl: "/images/events/weekly-event.png",

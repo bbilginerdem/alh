@@ -1,21 +1,8 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme {
 	--font-inter: var(--font-inter);
-	--font-zentry: var(--font-zentry);
-
-	--color-blue-50: #dfdff0;
-	--color-blue-75: #dfdff2;
-	--color-blue-100: #f0f2fa;
-	--color-blue-200: #010101;
-	--color-blue-300: #4fb7dd;
-
-	--color-violet-300: #5724ff;
-
-	--color-yellow-100: #8e983f;
-	--color-yellow-300: #edff66;
+	--font-almendra-sc: var(--font-almendra-sc);
 
 	--animate-aurora: aurora 60s linear infinite;
 
@@ -31,16 +18,6 @@
 				350% 50%,
 				350% 50%;
 		}
-	}
-}
-
-@layer base {
-	*,
-	::after,
-	::before,
-	::backdrop,
-	::file-selector-button {
-		border-color: var(--color-gray-200, currentcolor);
 	}
 }
 
@@ -70,13 +47,13 @@
 
 @utility special-font {
 	& b {
-		font-family: "Zentry", sans-serif;
-		font-feature-settings: "ss01" on;
+		font-family: var(--font-almendra-sc), sans-serif;
+		text-shadow: 2px 4px 6px rgba(0, 0, 0.1, 0.3);
 	}
 }
 
 @utility hero-heading {
-	@apply uppercase font-zentry font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem];
+	@apply uppercase text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem];
 }
 
 @utility about-subtext {
@@ -89,10 +66,12 @@
 
 @utility animated-title {
 	@apply flex flex-col gap-1 text-7xl uppercase leading-[.8] text-white sm:px-32 md:text-[6rem];
+	font-family: var(--font-almendra-sc), sans-serif;
+	font-weight: 900;
 }
 
 @utility animated-word {
-	@apply special-font font-zentry font-black opacity-0;
+	@apply special-font opacity-0;
 	transform: translate3d(10px, 51px, -60px) rotateY(60deg) rotateX(-40deg);
 	transform-origin: 50% 50% -150px !important;
 	will-change: opacity, transform;
@@ -103,7 +82,7 @@
 }
 
 @utility bento-title {
-	@apply uppercase md:text-6xl text-4xl font-black font-zentry;
+	@apply hero-heading font-almendra-sc uppercase md:text-6xl text-4xl;
 }
 
 @utility story-img-container {
@@ -134,13 +113,6 @@
 		width: 100dvw;
 		overflow-x: hidden;
 		background-color: #dfdff0;
-	}
-}
-
-@layer base {
-	@font-face {
-		font-family: "zentry";
-		src: url("/fonts/zentry-regular.woff2") format("woff2");
 	}
 }
 

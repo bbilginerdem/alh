@@ -20,17 +20,17 @@ const ContactFormEmail = ({ message, senderEmail }: ContactFormEmailProps) => {
 	return (
 		<Html>
 			<Head />
-			<Preview>New message from your website</Preview>
+			<Preview>ALH Web sitesinden yeni mesaj</Preview>
 			<Tailwind>
 				<Body className="bg-gray-100 text-black">
 					<Container>
 						<Section className="borderBlack my-10 rounded-md bg-white px-10 py-4">
 							<Heading className="leading-tight">
-								You received the following message from the contact form.
+								İletişim formundan aşağıdaki mesajı aldınız:
 							</Heading>
 							<Text>{message}</Text>
 							<Hr />
-							<Text>The sender&apos;s email is: {senderEmail}</Text>
+							<Text>Gönderenin e-posta adresi: {senderEmail}</Text>
 						</Section>
 					</Container>
 				</Body>

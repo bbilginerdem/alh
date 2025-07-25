@@ -190,7 +190,7 @@ const Features = () => (
 								<span className="sr-only">View location on map</span>
 							</>
 						}
-						link="https://g.co/kgs/hEpMUuf"
+						link="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d34fabe83d28ad:0xebd21f53deab4a4a"
 					/>
 				</BentoTilt>
 

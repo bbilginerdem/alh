@@ -29,7 +29,7 @@ const Contact = () => {
 
 					<AnimatedTitle
 						title="Hemen Dansın Keyfine Katılın!"
-						containerClass="special-font text-4xl! font-black! leading-tight! w-full max-w-2xl font-zentry !md:text-[5rem] bg-linear-to-r from-orange-100 via-white to-orange-200 bg-clip-text text-transparent"
+						containerClass="special-font text-4xl! w-full max-w-2xl !md:text-[5rem] bg-linear-to-r from-orange-100 via-white to-orange-200 bg-clip-text text-transparent"
 					/>
 
 					<Link href="/iletisim" passHref className="pt-5">

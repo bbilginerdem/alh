@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Inter } from "next/font/google";
+import { Almendra_SC, Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -13,9 +12,11 @@ const inter = Inter({
 	display: "swap",
 });
 
-const zentry = localFont({
-	src: "../../public/fonts/zentry-regular.woff2",
-	variable: "--font-zentry",
+const almendraSC = Almendra_SC({
+	subsets: ["latin"],
+	variable: "--font-almendra-sc",
+	weight: "400",
+	display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -31,7 +32,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${inter.variable} ${zentry.variable} antialiased`}>
+			<body className={`${inter.variable} ${almendraSC.variable} antialiased`}>
 				<main className="min-h-screen w-screen overflow-x-hidden">
 					{children}
 					<Navbar />

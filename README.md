@@ -67,8 +67,6 @@ Pratik foto/video linki: https://photos.app.goo.gl/SCEpp4X2wzMSbFhz8
 
 ## TODO
 
-instead of zentry use https://fonts.google.com/specimen/Titillium+Web this font maybe or sth similar
-
 sitemap for web crawlers and search seo to make it better
 
 gecmisteki bazı etkinlikler yada buyuk fotoğraflı, gelecek etkinliklere rasa haftalık ve aralarda yapılacak etkinlikler koyulabilir

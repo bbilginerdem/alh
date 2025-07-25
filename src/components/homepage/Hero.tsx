@@ -94,7 +94,7 @@ const Hero = () => {
 			<div
 				ref={videoFrameRef}
 				id={videoFrameId}
-				className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
+				className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-zinc-50"
 			>
 				<div>
 					<div className="mask-clip-path absolute-center absolute z-40 size-64 cursor-pointer overflow-hidden rounded-lg">
@@ -136,21 +136,14 @@ const Hero = () => {
 					/>
 				</div>
 
-				<h1 className="special-font hero-heading absolute right-5 bottom-5 z-30 text-zinc-100">
-					<b>L</b>
-					<b>I</b>
-					<b>N</b>
-					<b>D</b>
-					<b>Y</b> <b>H</b>
-					<b>O</b>
-					<b>P</b>
+				<h1 className="hero-heading absolute right-5 bottom-5 z-30 font-almendra-sc text-zinc-100">
+					<b>LINDY HOP</b>
 				</h1>
 
 				<div className="absolute top-0 left-0 z-30 size-full">
 					<div className="mt-24 px-5 sm:px-10">
-						<h1 className="special-font hero-heading text-zinc-100">
-							<b>A</b>
-							<b>N</b>K<b>A</b>R<b>A</b>
+						<h1 className="hero-heading font-almendra-sc text-zinc-100">
+							<b>ANKARA</b>
 						</h1>
 
 						<div className="relative my-3 max-w-fit rounded-md bg-black/40 px-3 py-2 shadow-inner backdrop-blur-xs">
@@ -160,26 +153,23 @@ const Hero = () => {
 								Rasa kafe & restoranındayız.
 							</p>
 						</div>
-
-						<Link href="/topluluk-ilkeleri" passHref className="z-50">
+						<Link
+							href="/topluluk-ilkeleri"
+							passHref
+							className="z-50 inline-flex"
+						>
 							<Button
 								title="Topluluk İlkeleri"
 								leftIcon={<Navigation />}
-								containerClass="flex-center gap-1"
+								containerClass="flex-center mt-5"
 							/>
 						</Link>
 					</div>
 				</div>
 			</div>
 
-			<h1 className="special-font hero-heading absolute right-5 bottom-5 text-black">
-				<b>L</b>
-				<b>I</b>
-				<b>N</b>
-				<b>D</b>
-				<b>Y</b> <b>H</b>
-				<b>O</b>
-				<b>P</b>
+			<h1 className="hero-heading absolute right-5 bottom-5 font-almendra-sc text-black">
+				<b>LINDY HOP</b>
 			</h1>
 		</div>
 	);

@@ -62,7 +62,7 @@ export default function Contact() {
 						<div className="space-y-2">
 							<label
 								htmlFor={`${id}-email`}
-								className="block font-medium text-gray-200 text-sm"
+								className="block font-medium text-sm text-zinc-200"
 							>
 								E-posta adresiniz
 							</label>
@@ -80,7 +80,7 @@ export default function Contact() {
 						<div className="space-y-2">
 							<label
 								htmlFor={`${id}-message`}
-								className="block font-medium text-gray-200 text-sm"
+								className="block font-medium text-sm text-zinc-200"
 							>
 								Mesajınız
 							</label>
@@ -96,7 +96,7 @@ export default function Contact() {
 						</div>
 
 						<Button
-							title={isPending ? "Gönderiliyor..." : "Mesajı Gönder"}
+							title={isPending ? "Gönderiliyor..." : "Gönder"}
 							rightIcon={
 								!isPending && (
 									<Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -104,13 +104,13 @@ export default function Contact() {
 							}
 							leftIcon={
 								isPending && (
-									<div className="h-5 w-5 animate-[spin_1s_linear_infinite] rounded-full border-2 border-zinc-950 border-t-transparent" />
+									<div className="h-5 w-5 animate-[spin_1s_linear_infinite] rounded-full border-1 border-zinc-100 border-t-transparent" />
 								)
 							}
 							containerClass={clsx(
 								"mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-lg px-6 py-3 font-medium focus:outline-none focus:ring-4",
 								isPending
-									? "cursor-not-allowed bg-orange-300/90 text-zinc-950"
+									? "cursor-not-allowed bg-orange-300/90 text-zinc-100"
 									: "",
 							)}
 							type="submit"
