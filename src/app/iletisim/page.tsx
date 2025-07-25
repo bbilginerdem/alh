@@ -22,7 +22,7 @@ export default function Contact() {
 			const { error } = await sendEmail(formData);
 			if (error) throw new Error(error);
 
-			toast.success("Email sent successfully!");
+			toast.success("E-posta başarıyla gönderildi.");
 			formRef.current?.reset(); // Safely reset using ref
 		} catch (error) {
 			toast.error(

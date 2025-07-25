@@ -37,7 +37,27 @@ export default function RootLayout({
 					{children}
 					<Navbar />
 					<Footer />
-					<Toaster position="top-center" />
+					<Toaster
+						position="top-center"
+						toastOptions={{
+							success: {
+								style: {
+									background: "#fdba74", // orange-300
+									color: "#18181b", // zinc-900 for text
+								},
+								iconTheme: {
+									primary: "#18181b", // zinc-900
+									secondary: "#fdba74", // orange-300
+								},
+							},
+							error: {
+								style: {
+									background: "#f87171", // red-400 (optional - keep error red)
+									color: "#18181b",
+								},
+							},
+						}}
+					/>
 				</main>
 			</body>
 			<GoogleAnalytics gaId="G-VNQXR1K0BE" />

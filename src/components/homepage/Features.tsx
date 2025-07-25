@@ -172,7 +172,7 @@ const Features = () => (
 					title={<b>Stres Atmanın En Keyifli Yolu</b>}
 					description="Günlük koşuşturmadan uzaklaş, dansın enerjisiyle yenilen!"
 					isComingSoon="Ankara Etkinlik Takvimi"
-					link="https://docs.google.com/spreadsheets/d/1ZiWU6a-0B4DFT4D91-KYt83-59HV7zsV/edit#gid=164835843"
+					link="https://www.swing-out.com/turkiye/ankara"
 				/>
 			</BentoTilt>
 
