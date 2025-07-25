@@ -6,7 +6,7 @@ import CustomBlackLayout from "@/components/ui/CustomBlackLayout";
 export default function Toplulukİlkeleri() {
 	const handleButtonClick = () => {
 		window.open(
-			"https://docs.google.com/forms/d/e/1FAIpQLScyrPGGqRb-dUQBOj4VGtpmOHd-SbuoWspXjTCSPb0Fc3_MUA/viewform",
+			"https://docs.google.com/forms/d/e/1FAIpQLScyrPGGqRb-dUQBOj4VGtpmOHd-SbuoWspXjTCSPb0Fc3_MUA/viewform  ",
 			"_blank",
 		);
 	};
@@ -39,7 +39,7 @@ export default function Toplulukİlkeleri() {
 							<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
 								{" "}
 								{/* Responsive heading */}
-								Topluluk Politikaları
+								Topluluğun Politikaları
 							</h2>
 							<ul className="mb-4 list-disc space-y-2 pl-5 text-base md:space-y-3 md:text-lg">
 								{" "}
@@ -186,10 +186,10 @@ export default function Toplulukİlkeleri() {
 							</li>
 						</ul>
 					</section>
-					<section className="rounded-lg bg-white/10 p-4 backdrop-blur-sm md:p-6">
-						<h3 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+					<section className="mb-8">
+						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
 							Etkinlik Mekanı Kuralları
-						</h3>
+						</h2>
 						<ul className="list-disc space-y-2 pl-5 text-base md:space-y-3 md:text-lg">
 							<li>
 								Topluluk üyelerinin sağlığı, mekan açısından da benzer
@@ -233,13 +233,23 @@ export default function Toplulukİlkeleri() {
 							</p>
 						</div>
 					</section>
-					<section className="mt-12 text-center">
+					{/* Care Team Section */}
+					<section className="my-12 rounded-lg border border-orange-300/30 bg-orange-300/5 p-6 text-center">
+						<p className="font-medium text-lg text-orange-300">
+							Bu ilkeler topluluğumuzun refahı ve güvenliği için özenle
+							hazırlanmıştır
+						</p>
+						<p className="mt-2 text-sm text-zinc-300">
+							ALH Care Team tarafından ❤️ ile yazıldı
+						</p>
+					</section>
+					<section className="text-center">
 						<Button
 							title="İhlal Bildirimi Yap"
-							containerClass="mx-auto"
+							containerClass="mx-auto my-4"
 							onClick={handleButtonClick}
 						/>
-						<p className="mt-4 text-sm text-zinc-400">
+						<p className="my-3 text-sm text-zinc-400">
 							Topluluk ilkelerini ihlal eden bir durumla karşılaştıysanız, bu
 							buton aracılığıyla bildirimde bulunabilirsiniz.
 						</p>
