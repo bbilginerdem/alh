@@ -5,66 +5,21 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { Navigation } from "lucide-react";
 import Link from "next/link";
-import { useId, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "../ui/Button";
-import VideoPreview from "./VideoPreview";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-	const [currentIndex, setCurrentIndex] = useState<number>(1);
-	const [hasClicked, setHasClicked] = useState<boolean>(false);
-
-	const totalVideos: number = 4;
-	const nextVdRef = useRef<HTMLVideoElement>(null);
-	const currentVideoRef = useRef<HTMLVideoElement>(null);
+	const [currentVideoIndex, setCurrentVideoIndex] = useState<number>(1);
+	const videoRef = useRef<HTMLVideoElement>(null);
 	const videoFrameRef = useRef<HTMLDivElement>(null);
 
-	// Generate unique IDs
-	const videoFrameId = useId();
-	const nextVideoId = useId();
-	const currentVideoId = useId();
-
-	const handleMiniVdClick = () => {
-		setHasClicked(true);
-		setCurrentIndex((prevIndex: number) => (prevIndex % totalVideos) + 1);
-	};
-
-	useGSAP(
-		() => {
-			if (hasClicked && nextVdRef.current && currentVideoRef.current) {
-				gsap.set(nextVdRef.current, {
-					visibility: "visible",
-				});
-				gsap.to(nextVdRef.current, {
-					transformOrigin: "center center",
-					scale: 1,
-					width: "100%",
-					height: "100%",
-					duration: 1,
-					ease: "power1.inOut",
-					onStart: () => {
-						const video = nextVdRef.current;
-						if (video) {
-							video.play().catch((error) => {
-								console.error("Error playing video:", error);
-							});
-						}
-					},
-				});
-				gsap.from(currentVideoRef.current, {
-					transformOrigin: "center center",
-					scale: 0,
-					duration: 1.5,
-					ease: "power1.inOut",
-				});
-			}
-		},
-		{
-			dependencies: [currentIndex],
-			revertOnUpdate: true,
-		},
-	);
+	// Generate random video index on component mount
+	useEffect(() => {
+		const randomIndex = Math.floor(Math.random() * 4) + 1; // 1-4
+		setCurrentVideoIndex(randomIndex);
+	}, []);
 
 	useGSAP(() => {
 		if (!videoFrameRef.current) return;
@@ -93,46 +48,24 @@ const Hero = () => {
 		<div className="relative h-dvh w-screen overflow-x-hidden">
 			<div
 				ref={videoFrameRef}
-				id={videoFrameId}
 				className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-zinc-50"
 			>
 				<div>
-					<div className="mask-clip-path absolute-center absolute z-40 size-64 cursor-pointer overflow-hidden rounded-lg">
-						<VideoPreview>
-							<div
-								role="none"
-								aria-hidden="true"
-								onClick={handleMiniVdClick}
-								className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
-							>
-								<video
-									ref={currentVideoRef}
-									id={currentVideoId}
-									src={getVideoSrc((currentIndex % totalVideos) + 1)}
-									loop
-									muted
-									className="size-64 origin-center scale-150 object-cover object-center"
-								/>
-							</div>
-						</VideoPreview>
-					</div>
-
 					<video
-						ref={nextVdRef}
-						id={nextVideoId}
-						src={getVideoSrc(currentIndex)}
-						loop
-						muted
-						className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
-					/>
-					<video
-						src={getVideoSrc(
-							currentIndex === totalVideos - 1 ? 1 : currentIndex,
-						)}
+						ref={videoRef}
+						src={getVideoSrc(currentVideoIndex)}
 						autoPlay
 						loop
 						muted
 						className="absolute top-0 left-0 size-full object-cover object-center"
+						onLoadedData={() => {
+							// Play video when loaded
+							if (videoRef.current) {
+								videoRef.current.play().catch((error) => {
+									console.error("Error playing video:", error);
+								});
+							}
+						}}
 					/>
 				</div>
 

@@ -8,27 +8,27 @@ import Hero from "../components/homepage/Hero";
 import Loading from "./loading";
 
 export default function Home() {
-	const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setLoading(false);
-		}, 2500);
-		return () => clearTimeout(timer);
-	}, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2200);
+    return () => clearTimeout(timer);
+  }, []);
 
-	return (
-		<section className="relative">
-			{loading ? (
-				<Loading />
-			) : (
-				<>
-					<Hero />
-					<About />
-					<Features />
-					<Contact />
-				</>
-			)}
-		</section>
-	);
+  return (
+    <section className="relative">
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <Hero />
+          <About />
+          <Features />
+          <Contact />
+        </>
+      )}
+    </section>
+  );
 }
