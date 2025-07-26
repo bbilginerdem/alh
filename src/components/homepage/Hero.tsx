@@ -10,12 +10,16 @@ import Button from "../ui/Button";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Hero = () => {
+interface HeroProps {
+	onVideoLoaded: () => void;
+}
+
+const Hero = ({ onVideoLoaded }: HeroProps) => {
 	const [currentVideoIndex, setCurrentVideoIndex] = useState<number>(1);
 	const videoRef = useRef<HTMLVideoElement>(null);
 	const videoFrameRef = useRef<HTMLDivElement>(null);
+	const hasNotified = useRef(false);
 
-	// Generate random video index on component mount
 	useEffect(() => {
 		const randomIndex = Math.floor(Math.random() * 4) + 1; // 1-4
 		setCurrentVideoIndex(randomIndex);
@@ -44,6 +48,13 @@ const Hero = () => {
 
 	const getVideoSrc = (index: number): string => `videos/hero-${index}.webm`;
 
+	const notifyVideoLoaded = () => {
+		if (!hasNotified.current) {
+			hasNotified.current = true;
+			onVideoLoaded();
+		}
+	};
+
 	return (
 		<div className="relative h-dvh w-screen overflow-x-hidden">
 			<div
@@ -61,10 +72,20 @@ const Hero = () => {
 						onLoadedData={() => {
 							// Play video when loaded
 							if (videoRef.current) {
-								videoRef.current.play().catch((error) => {
-									console.error("Error playing video:", error);
-								});
+								videoRef.current
+									.play()
+									.catch((error) => {
+										console.error("Error playing video:", error);
+									})
+									.finally(() => {
+										// Notify that video is ready
+										notifyVideoLoaded();
+									});
 							}
+						}}
+						onCanPlay={() => {
+							// Alternative ready state - notify immediately
+							notifyVideoLoaded();
 						}}
 					/>
 				</div>

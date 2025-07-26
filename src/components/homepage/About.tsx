@@ -46,12 +46,13 @@ const About = () => {
 
 				<div className="about-subtext">
 					<p>
-						Bu coşkulu dansı yaymak ve keyifli bir topluluk oluşturmak için
-						buradayız.
+						2018'den beri Ankara’da swing ritmini paylaşan ve birlikte büyüyen
+						güçlü bir topluluğuz.
 					</p>
 					<p className="text-gray-500">
-						Dans geçmişiniz ne olursa olsun, kapımız herkese açık! Canlı müzikli
-						dans geceleri ve unutulmaz swing etkinlikleri sizi bekliyor.
+						Her seviyeden dansçıyı kucaklayan atölyelerimiz, sosyal dans
+						gecelerimiz ve özel etkinliklerimizle Lindy Hop tutkusunu yaymaya
+						devam ediyoruz.
 					</p>
 				</div>
 			</div>

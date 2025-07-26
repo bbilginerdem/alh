@@ -57,18 +57,32 @@ Neden Lindy Hop?
 
 Siz de deneyin!
 
-## Possible links - EGITIM Videoları
-
-Doruk link
-https://drive.google.com/drive/folders/14kMnAWyOno1l2IRtqwR8pbSxXqL543e8?usp=sharinghttps://hola.pixieset.com/alh2025ylbapartisi/
-Organize işler bunlar😎
-Workshop foto/videoları linki: https://photos.app.goo.gl/A3a7EnZwqQaDJbYd6
-Pratik foto/video linki: https://photos.app.goo.gl/SCEpp4X2wzMSbFhz8
-
 ## TODO
-
 sitemap for web crawlers and search seo to make it better
 
 gecmisteki bazı etkinlikler yada buyuk fotoğraflı, gelecek etkinliklere rasa haftalık ve aralarda yapılacak etkinlikler koyulabilir
 
+Link'deki partilerin tum fotoğraflarını koy
 
+Yeni sayfa, “ekibimiz” çalışanların ne yaptığına ve gönüllük esasıyla çalıştığını yazalım, para gelir giderin şeffaf bir sekilde yürütüldüğü ve gonullu ol butonu koyalım yeni sayfaya
+
+add proper video loading thingy to hero for whole page
+
+yaklasan etkinlikleri yaz, visnelik ve Radaran
+
+farklı tarayıcılara bak, edge ve safari yeterli olur, düzgün çalışmayan bir şey varsa düzelt
+
+
+2018 beri Ankara’da swing ritmini paylaşan ve birlikte büyüyen güçlü bir topluluğuz.
+Her seviyeden dansçıyı kucaklayan atölyelerimiz, sosyal dans gecelerimiz ve özel etkinliklerimizle Lindy Hop tutkusunu yaymaya devam ediyoruz. Yeni başlayanlardan profesyonellere kadar herkesin kendine yer bulduğu, öğrenirken eğlendiği ve birlikte geliştiği bir ortamı paylaşıyoruz.
+Sen de bu enerjinin parçası olmak, ritmi hissetmek ve dansla yeni arkadaşlıklar kurmak istiyorsan, aramıza katılmaya davetlisin!
+
+muazzamin altina
+
+kirmizi yaziyi kaldir 2018
+
+nerede basinca konum,
+
+sicak bir topluluga basincada sosyal dans ve pratik aciklanan metin
+
+ihlal bildirimi yap ->

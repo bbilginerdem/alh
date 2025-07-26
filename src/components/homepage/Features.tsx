@@ -161,12 +161,12 @@ const Features = () => (
 					ırk ve cinsiyet gibi hiçbir ayrım gözetmeyen özgürlükçü felsefesini
 					merkezine koymuş bir topluluktur. Başta Lindy Hop, Solo Jazz, Blues ve
 					Swing dansı türlerini, Ankara’ya kar amacı gütmeden kazandırmayı
-					amaçlayan bu dost grubu, 2018 (tarih doğru mu bak) yılında hayatın
-					akışı içinde bir araya gelmiştir. O günden itibaren, kar amacı
-					gütmeden ve Lindy Hop ruhunu yansıtmak amacıyla, dansı yaymak ve
-					topluluğu büyütmek için çeşitli etkinlikler düzenlemeye devam
-					etmiştir. Bir grup insanla başlayan bu yolculuk, bugün 470 üyeye
-					ulaşan geniş ve dinamik bir topluluğa dönüşmüştür.
+					amaçlayan bu dost grubu, 2018 yılında hayatın akışı içinde bir araya
+					gelmiştir. O günden itibaren, kar amacı gütmeden ve Lindy Hop ruhunu
+					yansıtmak amacıyla, dansı yaymak ve topluluğu büyütmek için çeşitli
+					etkinlikler düzenlemeye devam etmiştir. Bir grup insanla başlayan bu
+					yolculuk, bugün 470 üyeye ulaşan geniş ve dinamik bir topluluğa
+					dönüşmüştür.
 				</p>
 			</div>
 
