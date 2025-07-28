@@ -1,5 +1,5 @@
-import FrankieManning from "@/components/blog-posts/FrankieManning";
-import NormaMiller from "@/components/blog-posts/NormaMiller";
+import FrankieManning from "@/components/blog/FrankieManning";
+import NormaMiller from "@/components/blog/NormaMiller";
 
 export const posts = [
 	{

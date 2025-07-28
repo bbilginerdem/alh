@@ -11,6 +11,7 @@ import { v4 as uuidv4 } from "uuid";
 import { navbarDirection } from "@/lib/utils";
 
 const navItems: string[] = [
+	"gönüllü ol",
 	"topluluk ilkeleri",
 	"etkinlikler",
 	"blog",
