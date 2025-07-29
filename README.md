@@ -110,12 +110,8 @@ Hadi dansıyla ve giyim tarzıyla akıllara kazınan lindy hop öncülerinden bi
 ## TODO
 gecmisteki bazı etkinlikler yada buyuk fotoğraflı, gelecek etkinliklere rasa haftalık ve aralarda yapılacak etkinlikler koyulabilir
 
-Link'deki partilerin tum fotoğraflarını koy
+Link'deki partilerin tum fotoğraflarını koyup bir card yapisi ekle her biri icin
 
 yaklasan etkinlikleri yaz, visnelik ve Radaran
 
-farklı tarayıcılara bak, edge ve safari yeterli olur, düzgün çalışmayan bir şey varsa düzelt
-
-nerede basınca konum,
-
-sıcak bir topluluga basıncaya sosyal dans ve pratik açıklanan metin
+blog yazilarini koy ve belki biraz prompte vibing xd

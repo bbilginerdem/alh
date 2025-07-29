@@ -35,7 +35,7 @@ export default function Toplulukİlkeleri() {
 							ortam yarattığına inanıyoruz.
 						</p>
 
-						<div className="mb-8 ">
+						<div className="mb-8">
 							<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
 								{" "}
 								{/* Responsive heading */}

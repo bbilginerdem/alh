@@ -186,8 +186,8 @@ const Features = () => (
 				<BentoTilt className="bento-tilt sm:row-span-2">
 					<BentoCard
 						src="/images/features-2.jpg"
-						title={<b>Eğlenceli ve Sosyal</b>}
-						description="Yeni insanlarla tanış, müziğin ritmine bırak kendini!"
+						title={<b>Nerede?</b>}
+						description="Her Çarşamba Ankara Lindy Hop topluluğu olarak bir araya geliyoruz. Bu buluşmalarda iki birbiriyle bağlantılı etkinlik oluyor: pratik ve sosyal dans."
 						isComingSoon={
 							<>
 								<span aria-hidden="true">Konum</span>
@@ -211,8 +211,8 @@ const Features = () => (
 				<BentoTilt className="bento-tilt">
 					<BentoCard
 						src="/images/features-4.jpg"
-						title={<b>Nerede?</b>}
-						description="Her Çarşamba Ankara Lindy Hop topluluğu olarak bir araya geliyoruz. Bu buluşmalarda iki birbiriyle bağlantılı etkinlik oluyor: pratik ve sosyal dans."
+						title={<b>Eğlenceli ve Sosyal</b>}
+						description="Yeni insanlarla tanış, müziğin ritmine bırak kendini!"
 					/>
 				</BentoTilt>
 			</div>
