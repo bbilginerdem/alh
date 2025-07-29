@@ -112,10 +112,6 @@ gecmisteki bazı etkinlikler yada buyuk fotoğraflı, gelecek etkinliklere rasa 
 
 Link'deki partilerin tum fotoğraflarını koy
 
-Yeni sayfa, “ekibimiz” çalışanların ne yaptığına ve gönüllük esasıyla çalıştığını yazalım, para gelir giderin şeffaf bir sekilde yürütüldüğü ve gonullu ol butonu koyalım yeni sayfaya
-
-add proper video loading thingy to hero for whole page
-
 yaklasan etkinlikleri yaz, visnelik ve Radaran
 
 farklı tarayıcılara bak, edge ve safari yeterli olur, düzgün çalışmayan bir şey varsa düzelt
@@ -123,5 +119,3 @@ farklı tarayıcılara bak, edge ve safari yeterli olur, düzgün çalışmayan 
 nerede basınca konum,
 
 sıcak bir topluluga basıncaya sosyal dans ve pratik açıklanan metin
-
-ihlal bildirimi yap ->

@@ -72,18 +72,18 @@ const NavBar = () => {
 	return (
 		<div
 			ref={navContainerRef}
-			className="fixed inset-x-0 top-4 z-40 h-16 border-none transition-all duration-700 sm:inset-x-6"
+			className="fixed inset-x-0 top-2 z-40 h-16 border-none transition-all duration-700 sm:inset-x-5"
 		>
 			<header className="-translate-y-1/2 absolute top-1/2 w-full">
-				<nav className="flex size-full items-center justify-between p-4">
+				<nav className="flex size-full items-center justify-between px-2 py-2 md:px-4 lg:px-8">
 					{/* Logo and Home link */}
-					<Link className="flex items-center gap-7" href="/">
+					<Link className="gap- flex items-center" href="/">
 						<Image
 							src="/images/logo.png"
 							alt="Ankara Lindy Hop Logo"
 							width={50}
 							height={50}
-							className="h-12 w-12 rounded-full"
+							className="h-14 w-14 rounded-full"
 							priority
 						/>
 					</Link>
@@ -106,7 +106,7 @@ const NavBar = () => {
 						</button>
 
 						{/* Navigation Links (Desktop) */}
-						<div className="hidden md:flex md:items-center md:gap-6">
+						<div className="hidden md:flex md:items-center md:gap-3">
 							{navItems.map((item: string) => (
 								<Link
 									key={uuidv4()}
@@ -121,7 +121,7 @@ const NavBar = () => {
 						{/* Audio Button */}
 						<button
 							onClick={toggleAudioIndicator}
-							className="ml-10 flex items-center space-x-0.5"
+							className="ml-8 flex items-center space-x-0.5"
 							aria-label={
 								isAudioPlaying
 									? "Pause background music"
@@ -168,7 +168,7 @@ const NavBar = () => {
 							<Link
 								key={uuidv4()}
 								href={`/${navbarDirection(item).toLowerCase()}`}
-								className="block p-4 font-medium text-orange-600 text-sm hover:bg-zinc-100"
+								className="block px-3 py-4 font-medium text-orange-600 text-sm hover:bg-zinc-100"
 								onClick={() => setIsDropdownOpen(false)}
 							>
 								{item}
