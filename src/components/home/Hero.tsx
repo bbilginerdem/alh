@@ -57,14 +57,6 @@ const Hero = () => {
             loop
             muted
             className="absolute top-0 left-0 size-full object-cover object-center"
-            onLoadedData={() => {
-              // Play video when loaded
-              if (videoRef.current) {
-                videoRef.current.play().catch((error) => {
-                  console.error("Error playing video:", error);
-                });
-              }
-            }}
           />
         </div>
 
