@@ -1,119 +1,167 @@
 "use client";
 
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 
+// Register GSAP plugin
+gsap.registerPlugin(ScrollTrigger);
+
 interface Post {
-	id: number;
-	title: string;
-	slug: string;
-	Content: React.ComponentType;
-	image?: string;
+  id: number;
+  title: string;
+  slug: string;
+  Content: React.ComponentType;
+  image?: string;
 }
 
 interface BlogListProps {
-	posts: Post[];
+  posts: Post[];
 }
 
 export function BlogList({ posts }: BlogListProps) {
-	const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-	useEffect(() => {
-		// Reset ref array length to match posts
-		cardsRef.current = posts.map((_, i) => cardsRef.current[i] || null);
+  useEffect(() => {
+    // Sync ref array with current posts
+    cardsRef.current = posts.map((_, i) => cardsRef.current[i] || null);
 
-		// Animate in when mounted and on scroll
-		cardsRef.current.forEach((card) => {
-			if (!card) return;
+    // Filter out null values and animate only valid elements
+    const validCards = cardsRef.current.filter(
+      (card): card is HTMLDivElement => card !== null,
+    );
 
-			gsap.set(card, { y: 20, opacity: 0 });
-			gsap.to(card, {
-				y: 0,
-				opacity: 1,
-				duration: 0.5,
-				ease: "power2.out",
-				scrollTrigger: {
-					trigger: card,
-					start: "top 80%",
-					toggleActions: "play none none none",
-				},
-			});
+    const animations = validCards.map((card) => {
+      gsap.set(card, { y: 20, opacity: 0 });
 
-			const hoverTL = gsap.timeline({ paused: true });
-			hoverTL.to(card, {
-				y: -5,
-				duration: 0.3,
-				ease: "power2.out",
-			});
+      const fadeIn = gsap.to(card, {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      });
 
-			const onMouseEnter = () => hoverTL.play();
-			const onMouseLeave = () => hoverTL.reverse();
+      const hoverTl = gsap.timeline({ paused: true });
+      hoverTl.to(card, {
+        y: -8,
+        duration: 0.4,
+        ease: "power2.out",
+      });
 
-			card.addEventListener("mouseenter", onMouseEnter);
-			card.addEventListener("mouseleave", onMouseLeave);
+      const enter = () => hoverTl.play();
+      const leave = () => hoverTl.reverse();
 
-			// Cleanup
-			return () => {
-				card.removeEventListener("mouseenter", onMouseEnter);
-				card.removeEventListener("mouseleave", onMouseLeave);
-			};
-		});
+      card.addEventListener("mouseenter", enter);
+      card.addEventListener("mouseleave", leave);
 
-		// Cleanup ScrollTrigger to prevent memory leaks
-		return () => {
-			if (typeof window !== "undefined" && window.ScrollTrigger) {
-				window.ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-			}
-		};
-	}, [posts]); // 🔁 Add `posts` as dependency since list can change
+      return {
+        trigger: fadeIn,
+        cleanup: () => {
+          card.removeEventListener("mouseenter", enter);
+          card.removeEventListener("mouseleave", leave);
+          fadeIn.kill();
+        },
+      };
+    });
 
-	return (
-		<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-			{posts.map((post, index) => {
-				// ✅ Use a stable callback ref function
-				const setRef = (el: HTMLDivElement | null) => {
-					cardsRef.current[index] = el;
-				};
+    return () => {
+      animations.forEach((anim) => anim.cleanup());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, [posts]);
 
-				return (
-					<Link key={post.id} href={`/blog/${post.slug}`} passHref>
-						<div
-							ref={setRef}
-							className="group relative h-64 cursor-pointer overflow-hidden rounded-lg border border-orange-300/20 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-orange-300/40 hover:bg-white/10"
-						>
-							{post.image && (
-								<div className="absolute inset-0">
-									<Image
-										src={post.image}
-										alt={post.title}
-										fill
-										className="object-cover transition-transform duration-500 group-hover:scale-105"
-										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-									/>
-									<div className="absolute inset-0 bg-gradient-to-t from-zinc-900/70 via-zinc-900/30 to-transparent" />
-								</div>
-							)}
+  // Render a single blog card
+  const BlogCard = ({ post, index }: { post: Post; index: number }) => {
+    const setRef = (el: HTMLDivElement | null) => {
+      cardsRef.current[index] = el;
+    };
 
-							<div className="relative flex h-full flex-col justify-end p-6">
-								<h2 className="font-medium text-xl text-zinc-100 transition-colors duration-300 group-hover:text-orange-300">
-									{post.title}
-								</h2>
-								<span className="mt-2 inline-flex items-center font-medium text-orange-300/80 text-sm transition-colors duration-300 group-hover:text-orange-300">
-									Daha fazlası için →
-								</span>
-							</div>
+    return (
+      <Link
+        href={`/blog/${post.slug}`}
+        key={post.id}
+        className="group block rounded-lg transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-orange-400/50"
+        prefetch={true}
+        aria-label={`Read article: ${post.title}`}
+      >
+        <div
+          ref={setRef}
+          className="relative h-64 overflow-hidden rounded-lg border border-orange-300/20 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:translate-y-[-2px] hover:border-orange-300/40 hover:bg-white/10"
+        >
+          {/* Image with gradient overlay */}
+          {post.image ? (
+            <div className="absolute inset-0">
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-900/70 via-zinc-900/20 to-transparent" />
+            </div>
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center bg-zinc-800/60">
+              <span className="text-sm text-zinc-400">No image</span>
+            </div>
+          )}
 
-							{/* Decorative elements */}
-							<div className="pointer-events-none absolute inset-0 overflow-hidden rounded-lg">
-								<div className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-orange-400 to-orange-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-								<div className="absolute top-3 right-3 h-2 w-2 rounded-full bg-orange-300 opacity-0 transition-opacity delay-100 duration-700 group-hover:opacity-100" />
-							</div>
-						</div>
-					</Link>
-				);
-			})}
-		</div>
-	);
+          {/* Content */}
+          <div className="relative flex h-full flex-col justify-end p-5 sm:p-6">
+            <h2 className="line-clamp-2 font-medium text-lg text-zinc-100 transition-colors duration-300 group-hover:text-orange-300 sm:text-xl">
+              {post.title}
+            </h2>
+            <span className="mt-2 inline-flex items-center gap-1.5 font-medium text-orange-300/80 text-sm transition-colors duration-300 group-hover:text-orange-300">
+              Devamı
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                role="img"
+                aria-label="read more"
+                className="translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-2 group-hover:opacity-100"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </span>
+          </div>
+
+          {/* Decorative elements */}
+          <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-lg">
+            <div className="absolute bottom-0 left-0 h-0.5 w-full bg-gradient-to-r from-orange-400 to-orange-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="absolute top-3 right-3 h-2 w-2 rounded-full bg-orange-300 opacity-0 transition-opacity delay-150 duration-700 group-hover:opacity-100" />
+          </div>
+        </div>
+      </Link>
+    );
+  };
+
+  return (
+    <section aria-labelledby="blog-heading" className="py-6 sm:py-8">
+      <h2 id="blog-heading" className="sr-only">
+        Blog Articles
+      </h2>
+
+      <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-2 lg:grid-cols-3">
+        {posts.map((post, index) => (
+          <li key={post.id}>
+            <BlogCard post={post} index={index} />
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
 }
