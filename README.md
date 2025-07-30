@@ -29,5 +29,6 @@ zinc-950 background most
 
 ## Prompt to make blog posts from AI
 
-using these and adding more write me a blog about norma miller in turkish in jsx add a picture where it fits as well do text sizes good for all devices , use tailwind, it is in nextjs, make text colors to orange 300 and zinc 100
+similar to above styling write me tsx component about following text in turkish add a picture where it fits as well do text sizes good for all devices , use tailwind, it is in nextjs, make text colors to orange 300 and zinc 100
+
 
