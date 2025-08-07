@@ -1,11 +1,7 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-	experimental: {
-		optimizeCss: true,
-	},
-	images: {
-		formats: ["image/avif", "image/webp"],
-	},
+// next.config.ts
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
 };
 
-module.exports = nextConfig;
+export default nextConfig;
