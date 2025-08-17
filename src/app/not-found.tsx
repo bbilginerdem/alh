@@ -1,25 +1,28 @@
 // app/not-found.tsx
+
+import Link from "next/link";
 import CustomBlackLayout from "@/components/ui/CustomBlackLayout";
-import Link from 'next/link';
 
 export default function NotFound() {
-  return (
-    <CustomBlackLayout>
-      <div className="flex flex-col items-center justify-center min-h-screen">
-        <h1 className="font-bold text-4xl md:text-6xl text-orange-300 mb-4">404</h1>
-        <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-center">
-          Üzgünüz, aradığınız sayfa bulunamadı.
-        </h2>
-        <p className="text-lg mb-8 text-center max-w-md">
-          Adresi yanlış yazmış olabilirsiniz veya sayfa kaldırılmış olabilir.
-        </p>
-        <Link
-          href="/"
-          className="px-6 py-3 bg-orange-300 text-zinc-950 font-medium rounded-md hover:bg-orange-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-950 focus:ring-orange-300"
-        >
-          Ana Sayfaya Dön
-        </Link>
-      </div>
-    </CustomBlackLayout>
-  );
+	return (
+		<CustomBlackLayout>
+			<div className="flex min-h-screen flex-col items-center justify-center">
+				<h1 className="mb-4 font-bold text-4xl text-orange-300 md:text-6xl">
+					404
+				</h1>
+				<h2 className="mb-6 text-center font-semibold text-2xl md:text-3xl">
+					Üzgünüz, aradığınız sayfa bulunamadı.
+				</h2>
+				<p className="mb-8 max-w-md text-center text-lg">
+					Adresi yanlış yazmış olabilirsiniz veya sayfa kaldırılmış olabilir.
+				</p>
+				<Link
+					href="/"
+					className="rounded-md bg-orange-300 px-6 py-3 font-medium text-zinc-950 transition-colors duration-200 hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 focus:ring-offset-zinc-950"
+				>
+					Ana Sayfaya Dön
+				</Link>
+			</div>
+		</CustomBlackLayout>
+	);
 }

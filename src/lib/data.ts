@@ -1,4 +1,5 @@
 import DukeEllington from "@/components/blog/DukeEllington";
+import EarlHines from "@/components/blog/EarlHines";
 import FrankieManning from "@/components/blog/FrankieManning";
 import LindyHopHistory from "@/components/blog/LindyHopHistory";
 import NormaMiller from "@/components/blog/NormaMiller";
@@ -32,13 +33,20 @@ export const posts = [
 		Content: DukeEllington,
 		image: "/images/posts/4.jpg",
 	},
+	{
+		id: 5,
+		title: "Earl Hines: Cazın Yenilikçi Piyano Devi",
+		slug: "earl-hines",
+		Content: EarlHines,
+		image: "/images/posts/5.jpg",
+	},
 ];
 
 export const events = [
 	{
 		id: "event-7",
 		title: "Vişnelik Yaz Partisi",
-		date: "2025-08-23T20:00:00",
+		date: "2025-08-15T20:00:00",
 		location: "Vişnelik",
 		description:
 			"Yazın ışıltısını dansla kutluyoruz!✨💃 3 Ağustos Pazar akşamı, Rabarba Teras'ta yıldızların altında buluşuyoruz.",
