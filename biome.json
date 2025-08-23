@@ -1,5 +1,4 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.0.0-beta.6/schema.json",
 	"vcs": {
 		"enabled": false,
 		"clientKind": "git",
@@ -24,6 +23,9 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
+			"suspicious": {
+				"noUnknownAtRules": "off"
+			},
 			"nursery": {
 				"useSortedClasses": {
 					"level": "warn",
