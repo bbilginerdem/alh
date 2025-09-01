@@ -105,7 +105,6 @@ export default function RootLayout({
 			<body className={`${inter.variable} ${almendraSC.variable} antialiased`}>
 				<main className="min-h-screen w-screen overflow-x-hidden">
 					{children}
-					## TODO Delete one of the analytics components
 					<GoogleAnalytics gaId="G-VNQXR1K0BE" />
 					<SpeedInsights />
 					<Analytics />

@@ -6,7 +6,7 @@ import CustomBlackLayout from "@/components/ui/CustomBlackLayout";
 export default function Toplulukİlkeleri() {
 	const handleButtonClick = () => {
 		window.open(
-			"https://docs.google.com/forms/d/e/1FAIpQLScyrPGGqRb-dUQBOj4VGtpmOHd-SbuoWspXjTCSPb0Fc3_MUA/viewform  ",
+			"https://docs.google.com/forms/d/e/1FAIpQLScyrPGGqRb-dUQBOj4VGtpmOHd-SbuoWspXjTCSPb0Fc3_MUA/viewform",
 			"_blank",
 		);
 	};

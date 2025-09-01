@@ -6,7 +6,7 @@ import CustomBlackLayout from "@/components/ui/CustomBlackLayout";
 export default function Ekibimiz() {
 	const handleVolunteerClick = () => {
 		window.open(
-			"https://docs.google.com/forms/d/e/1FAIpQLScyrPGGqRb-dUQBOj4VGtpmOHd-SbuoWspXjTCSPb0Fc3_MUA/viewform  ",
+			"https://docs.google.com/forms/d/e/1FAIpQLScZCpPCAqFCMiYHmBwoodiSUHMsWAkXmkFLG8Z2qcgXfi3WFg/viewform?usp=dialog",
 			"_blank",
 		);
 	};
@@ -23,14 +23,14 @@ export default function Ekibimiz() {
 			id: "dancers",
 			role: "Lindy Hop Dansçıları",
 			description:
-				"Topluluğun kalbi olan deneyimli dansçılar, yeni üyeleri eğitir, dans teknikleri öğretir ve sosyal dans kültürü oluşturur. Pratik organizasyonlarında rehberlik ederler.",
+				"Gönüllü deneyimli dansçılar kimi zaman pratik sırasında diğer dansçılara destek olurken kimi zaman atölyelerle destek olurlar.",
 			icon: "💃",
 		},
 		{
 			id: "social-media",
 			role: "Sosyal Medya & Grafik Tasarım",
 			description:
-				"Instagram, Facebook gibi platformlarda topluluk tanıtımı yapar. Etkinlik afişleri, sosyal medya paylaşımları ve görsel içerikleri hazırlar. Marka bütünlüğünü korur.",
+				"Instagram, Facebook gibi platformlarda topluluk tanıtımı yapar. Etkinlik afişleri, sosyal medya paylaşımları ve görsel içerikleri hazırlar.",
 			icon: "📱",
 		},
 		{
@@ -39,13 +39,6 @@ export default function Ekibimiz() {
 			description:
 				"Haftalık pratikler, özel etkinlikler ve festivallerin planlanmasını, mekan rezervasyonlarını, davetiyeleri ve etkinlik akışını organize eder.",
 			icon: "🎉",
-		},
-		{
-			id: "finance",
-			role: "Finans ve Yönetim",
-			description:
-				"Topluluğun gelir-gider takibini şeffaf bir şekilde yürütür. Üye aidatları, etkinlik masrafları ve diğer finansal işlemleri yönetir.",
-			icon: "💰",
 		},
 	];
 
@@ -73,17 +66,6 @@ export default function Ekibimiz() {
 							Hiçbir üye maddi kazanç amacı gütmemektedir. Tüm çalışmalar sevgi,
 							paylaşma ve dans kültürü yayma motivasyonuyla gerçekleşmektedir.
 						</p>
-						<div className="mt-6 rounded-md bg-orange-300/10 p-4">
-							<h3 className="font-semibold text-lg text-orange-300">
-								Şeffaf Finans Yönetimi
-							</h3>
-							<p className="mt-2">
-								Tüm gelir ve giderler topluluk üyeleriyle şeffaf bir şekilde
-								paylaşılır. Üye aidatları, etkinlik masrafları ve diğer finansal
-								işlemler düzenli olarak raporlanır. Her üye finansal işlemler
-								hakkında bilgi sahibi olabilir.
-							</p>
-						</div>
 					</section>
 
 					<section className="mb-12">
@@ -123,12 +105,6 @@ export default function Ekibimiz() {
 								<h3 className="font-semibold text-orange-300">DJ Olarak</h3>
 								<p className="mt-2 text-sm text-zinc-300">
 									Swing ve caz müzikleriyle dans atmosferi oluştur
-								</p>
-							</div>
-							<div className="rounded-md bg-orange-300/5 p-4">
-								<h3 className="font-semibold text-orange-300">Dans Eğitmeni</h3>
-								<p className="mt-2 text-sm text-zinc-300">
-									Yeni üyelere dans teknikleri öğret
 								</p>
 							</div>
 							<div className="rounded-md bg-orange-300/5 p-4">

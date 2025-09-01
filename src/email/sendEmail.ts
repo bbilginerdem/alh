@@ -30,7 +30,6 @@ export const sendEmail = async (formData: FormData) => {
 	try {
 		data = await resend.emails.send({
 			from: "Ankara Lindy Hop <iletisim@ankaralindyhop.org>",
-			// TODO add email address to square space
 			to: "iletisim@ankaralindyhop.org",
 			subject: "Ankara Lindy Hop İletişim Formu",
 			replyTo: senderEmail as string,
