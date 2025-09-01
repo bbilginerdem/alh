@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Almendra_SC, Inter } from "next/font/google";
@@ -105,7 +104,6 @@ export default function RootLayout({
 			<body className={`${inter.variable} ${almendraSC.variable} antialiased`}>
 				<main className="min-h-screen w-screen overflow-x-hidden">
 					{children}
-					<GoogleAnalytics gaId="G-VNQXR1K0BE" />
 					<SpeedInsights />
 					<Analytics />
 					<Navbar />

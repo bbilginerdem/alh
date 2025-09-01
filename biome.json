@@ -26,6 +26,9 @@
 			"suspicious": {
 				"noUnknownAtRules": "off"
 			},
+			"a11y": {
+				"useMediaCaption": "off"
+			},
 			"nursery": {
 				"useSortedClasses": {
 					"level": "warn",

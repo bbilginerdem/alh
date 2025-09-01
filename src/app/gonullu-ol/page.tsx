@@ -13,6 +13,13 @@ export default function Ekibimiz() {
 
 	const teamMembers = [
 		{
+			id: "safety",
+			role: "Sahne Güvenliği",
+			description:
+				"Sahne Güvenliği ekibi, fiziksel ve duygusal güvenliği sağlamak için etkinlik alanlarında dikkatli gözlem yapar, olası sorunlara öncülük eder ve katılımcıların rahatça dans edebileceği destekleyici bir ortam oluşturur.",
+			icon: "🛡️",
+		},
+		{
 			id: "dj",
 			role: "DJler",
 			description:

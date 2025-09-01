@@ -136,14 +136,6 @@ const NavBar = () => {
 								autoPlay
 								loop
 							>
-								{/* Captions track for accessibility */}
-								<track
-									kind="captions"
-									src="/audio/captions.vtt"
-									srcLang="en"
-									label="English"
-									default
-								/>
 								Your browser does not support the audio element.
 							</audio>
 							{[1, 2, 3, 4].map((bar: number) => (

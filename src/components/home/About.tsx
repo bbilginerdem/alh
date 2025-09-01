@@ -31,14 +31,11 @@ const About = () => {
 			height: "100vh",
 			borderRadius: 0,
 		});
-	}, [clipId]); // Add clipId as dependency
+	}, [clipId]);
 
 	return (
 		<section id={aboutSectionId} className="min-h-screen w-screen">
 			<div className="relative mt-36 mb-8 flex flex-col items-center gap-5">
-				<p className="font-inter text-sm uppercase max-md:text-[10px]">
-					Ankara Lindy Hop
-				</p>
 				<AnimatedTitle
 					title="Ankara’nın ilk <br /> Lindy Hop Topluluğu"
 					containerClass="mt-5 text-black! text-center"
@@ -49,7 +46,7 @@ const About = () => {
 						2018'den beri Ankara’da swing ritmini paylaşan ve birlikte büyüyen
 						güçlü bir topluluğuz.
 					</p>
-					<p className="text-gray-500">
+					<p className="text-zinc-600">
 						Her seviyeden dansçıyı kucaklayan atölyelerimiz, sosyal dans
 						gecelerimiz ve özel etkinliklerimizle Lindy Hop tutkusunu yaymaya
 						devam ediyoruz.
