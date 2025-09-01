@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import AnimatedTitle from "./home/AnimatedTitle";
 import Button from "./ui/Button";
 
 const Contact = () => {
@@ -27,10 +26,10 @@ const Contact = () => {
 						<div className="mt-3 h-[2px] w-16 bg-linear-to-r from-transparent via-blue-400 to-transparent" />
 					</div>
 
-					<AnimatedTitle
-						title="Partilerimizin yer ve saat bilgileri için güncel etkinlik takvimimizi, Instagram sayfamızı ve web sitemizi takip etmeyi unutmayın. Böylece hiçbir dans gecesini kaçırmazsınız!"
-						containerClass="font-inter text-xl! !md:text-[5rem] bg-linear-to-r from-orange-100 via-white to-orange-200 bg-clip-text text-transparent"
-					/>
+					<div className="max-w-2xl font-inter font-normal text-2xl leading-tight tracking-wide md:text-xl">
+						Partilerimizin tarih ve saatleri için takvimimizi, instagram'ımızı
+						ve web sitemizi takip edin. dans gecelerini kaçırmayın!
+					</div>
 
 					<Link href="/iletisim" passHref className="pt-12">
 						<Button title="İletişim Formu" containerClass="flex-center gap-1" />

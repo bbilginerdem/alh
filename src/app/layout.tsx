@@ -98,9 +98,6 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="tr">
-			<head>
-				<link rel="preconnect" href="https://www.google-analytics.com" />
-			</head>
 			<body className={`${inter.variable} ${almendraSC.variable} antialiased`}>
 				<main className="min-h-screen w-screen overflow-x-hidden">
 					{children}

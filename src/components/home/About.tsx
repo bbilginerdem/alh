@@ -41,12 +41,9 @@ const About = () => {
 					containerClass="mt-5 text-black! text-center"
 				/>
 
-				<div className="about-subtext">
-					<p>
-						2018'den beri Ankara’da swing ritmini paylaşan ve birlikte büyüyen
-						güçlü bir topluluğuz.
-					</p>
-					<p className="text-zinc-600">
+				<div className="about-subtext pt-3">
+					<p>2018'den beri Ankara’da swing ritmini paylaşan bir topluluğuz</p>
+					<p className="pt-3 text-zinc-600">
 						Her seviyeden dansçıyı kucaklayan atölyelerimiz, sosyal dans
 						gecelerimiz ve özel etkinliklerimizle Lindy Hop tutkusunu yaymaya
 						devam ediyoruz.

@@ -1,15 +1,17 @@
 {
 	"name": "alh",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"private": true,
 	"scripts": {
 		"dev": "next dev --turbopack",
 		"build": "next build",
 		"start": "next start",
-		"lint": "npx @biomejs/biome check --write"
+		"lint": "npx @biomejs/biome check --write",
+		"lh": "lighthouse http://localhost:3001 --output=html --output-path='C:\\Users\\bbilg\\Downloads\\lighthouse-report.html' --chrome-flags=\"--headless=new\" --view"
 	},
 	"dependencies": {
 		"@gsap/react": "^2.1.2",
+		"@next/bundle-analyzer": "^15.5.2",
 		"@react-email/components": "^0.5.1",
 		"@react-email/tailwind": "^1.2.2",
 		"@vercel/analytics": "^1.5.0",
