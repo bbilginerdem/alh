@@ -69,26 +69,3 @@ and
 ### Prompt
 similar to above styling write me tsx component about following text in turkish add a picture where it fits as well do text sizes good for all devices , use tailwind, it is in nextjs, make text colors to orange 300 and zinc 100, add metadata for this specific blog at the top
 
-# Performance Improvements
-
-### Render-Blocking CSS
-
-Issue: CSS delays page loading
-Solution: Next.js handles this automatically - no action needed
-### Forced Reflow
-
-Issue: JavaScript causing layout delays
-Solution: Group DOM reading and writing operations
-### Preconnected Origins
-
-Issue: Missing early connections to external resources
-Solution: Add <link rel="preconnect" href="external-domain"> for external services
-### Bundle Size Optimization
-
-Issue: Large JavaScript bundles slow down loading
-Solution:
-
-- Remove unused dependencies
-- Use dynamic imports for heavy components
-- Code splitting for better performance
-

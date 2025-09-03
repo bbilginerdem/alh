@@ -56,6 +56,8 @@ const Hero = () => {
 						autoPlay
 						loop
 						muted
+						playsInline
+						preload="auto"
 						className="absolute top-0 left-0 size-full object-cover object-center"
 					/>
 				</div>

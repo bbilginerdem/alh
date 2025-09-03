@@ -10,6 +10,7 @@ export async function GET() {
 		"etkinlikler",
 		"iletisim",
 		"topluluk-ilkeleri",
+		"gonullu-ol",
 	];
 
 	// Blog posts
