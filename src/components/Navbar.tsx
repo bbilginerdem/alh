@@ -69,6 +69,36 @@ const NavBar = () => {
 		});
 	}, [isNavVisible]);
 
+	useEffect(() => {
+		const attemptPlay = () => {
+			if (audioElementRef.current) {
+				audioElementRef.current
+					.play()
+					.then(() => {
+						setIsAudioPlaying(true);
+						setIsIndicatorActive(true);
+					})
+					.catch((error) => {
+						console.warn("Audio autoplay was prevented:", error);
+						// Optionally show a prompt to click to unmute
+					});
+			}
+			// Remove listener after first attempt
+			document.removeEventListener("click", attemptPlay);
+			document.removeEventListener("touchstart", attemptPlay);
+		};
+
+		// Attach listeners
+		document.addEventListener("click", attemptPlay);
+		document.addEventListener("touchstart", attemptPlay);
+
+		// Cleanup
+		return () => {
+			document.removeEventListener("click", attemptPlay);
+			document.removeEventListener("touchstart", attemptPlay);
+		};
+	}, []);
+
 	return (
 		<div
 			ref={navContainerRef}
@@ -133,7 +163,6 @@ const NavBar = () => {
 								ref={audioElementRef}
 								className="hidden"
 								src="/audio/loop.mp3"
-								autoPlay
 								loop
 							>
 								Your browser does not support the audio element.
