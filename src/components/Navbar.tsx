@@ -102,12 +102,15 @@ const NavBar = () => {
 	return (
 		<div
 			ref={navContainerRef}
-			className="fixed inset-x-0 top-2 z-40 h-16 border-none transition-all duration-700 sm:inset-x-5"
+			// <div className="flex flex-col items-center justify-center bg-zinc-950/80 my-5 shadow-lg backdrop-blur-md">
+			className={`fixed inset-x-0 top-0 z-40 h-24 border-none ${
+				isDropdownOpen ? "bg-zinc-950/90" : ""
+			}`}
 		>
 			<header className="-translate-y-1/2 absolute top-1/2 w-full">
-				<nav className="flex size-full items-center justify-between px-2 py-2 md:px-4 lg:px-8">
+				<nav className="flex size-full items-center justify-between px-4 md:px-6 lg:px-10 xl:px-16">
 					{/* Logo and Home link */}
-					<Link className="gap- flex items-center" href="/">
+					<Link className="flex items-center" href="/">
 						<Image
 							src="/images/logo.png"
 							alt="Ankara Lindy Hop Logo"
@@ -120,7 +123,6 @@ const NavBar = () => {
 
 					{/* Navigation Links and Audio Button */}
 					<div className="flex h-full items-center">
-						{/* Hamburger Menu for Small Screens */}
 						<button
 							onClick={() => setIsDropdownOpen(!isDropdownOpen)}
 							className="md:hidden"
@@ -184,17 +186,19 @@ const NavBar = () => {
 
 				{/* Dropdown Menu for Small Screens */}
 				{isDropdownOpen && (
-					<div className="absolute right-0 left-0 z-50 w-full bg-white shadow-lg md:hidden">
-						{navItems.map((item: string) => (
-							<Link
-								key={uuidv4()}
-								href={`/${navbarDirection(item).toLowerCase()}`}
-								className="block px-3 py-4 font-medium text-orange-600 text-sm hover:bg-zinc-100"
-								onClick={() => setIsDropdownOpen(false)}
-							>
-								{item}
-							</Link>
-						))}
+					<div className="absolute z-50 w-full md:hidden">
+						<div className="my-5 flex flex-col items-center justify-center bg-zinc-950/90">
+							{navItems.map((item: string) => (
+								<Link
+									key={uuidv4()}
+									href={`/${navbarDirection(item).toLowerCase()}`}
+									className="block px-3 py-4 font-medium text-orange-300 text-sm hover:bg-zinc-800/50"
+									onClick={() => setIsDropdownOpen(false)}
+								>
+									{item}
+								</Link>
+							))}
+						</div>
 					</div>
 				)}
 			</header>
