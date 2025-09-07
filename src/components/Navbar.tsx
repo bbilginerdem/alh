@@ -102,13 +102,12 @@ const NavBar = () => {
 	return (
 		<div
 			ref={navContainerRef}
-			// <div className="flex flex-col items-center justify-center bg-zinc-950/80 my-5 shadow-lg backdrop-blur-md">
 			className={`fixed inset-x-0 top-0 z-40 h-24 border-none ${
 				isDropdownOpen ? "bg-zinc-950/90" : ""
 			}`}
 		>
-			<header className="-translate-y-1/2 absolute top-1/2 w-full">
-				<nav className="flex size-full items-center justify-between px-4 md:px-6 lg:px-10 xl:px-16">
+			<div className="-translate-y-1/2 absolute top-1/2 w-full">
+				<nav className="flex size-full items-center justify-between px-8 lg:px-10 xl:px-16">
 					{/* Logo and Home link */}
 					<Link className="flex items-center" href="/">
 						<Image
@@ -186,8 +185,8 @@ const NavBar = () => {
 
 				{/* Dropdown Menu for Small Screens */}
 				{isDropdownOpen && (
-					<div className="absolute z-50 w-full md:hidden">
-						<div className="my-5 flex flex-col items-center justify-center bg-zinc-950/90">
+					<div className="absolute z-50 w-full border-zinc-800/50 border-t bg-zinc-950/90 backdrop-blur-sm md:hidden">
+						<div className="flex flex-col items-center justify-center">
 							{navItems.map((item: string) => (
 								<Link
 									key={uuidv4()}
@@ -201,7 +200,7 @@ const NavBar = () => {
 						</div>
 					</div>
 				)}
-			</header>
+			</div>
 		</div>
 	);
 };
