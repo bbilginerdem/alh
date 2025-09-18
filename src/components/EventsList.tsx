@@ -15,7 +15,7 @@ interface EventsListProps {
 	events: Event[];
 }
 
-export function EventsList({ events }: EventsListProps) {
+export function EventsList({ events }: Readonly<EventsListProps>) {
 	// Generate next Wednesday event
 	const generateWeeklyEvent = (): Event => {
 		const nextWednesday = new Date();
@@ -107,7 +107,7 @@ export function EventsList({ events }: EventsListProps) {
 
 			<ul className="space-y-6">
 				{allFutureEvents
-					.sort(
+					.toSorted(
 						(a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
 					)
 					.map(renderEventItem)}

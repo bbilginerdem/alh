@@ -53,7 +53,6 @@ export const BentoTilt: React.FC<BentoTiltProps> = ({
 	return (
 		<div
 			role="none"
-			aria-hidden="true"
 			ref={itemRef}
 			className={className}
 			onMouseMove={handleMouseMove}

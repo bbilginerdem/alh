@@ -72,16 +72,14 @@ export default function DukeEllington() {
 								<span className="font-semibold text-orange-300">
 									Ben Webster
 								</span>
-								,
+								,{" "}
 								<span className="font-semibold text-orange-300">
-									{" "}
 									Johnny Hodges
 								</span>
-								,
+								,{" "}
 								<span className="font-semibold text-orange-300">
-									{" "}
 									Cootie Williams
-								</span>
+								</span>{" "}
 								gibi bir çok virtüöz müzisyeni etkileyerek, onlara özgü sololar
 								yazarak yeteneklerini vurgulamak için daha önlere çıkarmıştır.
 							</p>

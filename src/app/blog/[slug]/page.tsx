@@ -6,9 +6,9 @@ import { posts } from "@/lib/data";
 
 export default function BlogPost({
 	params,
-}: {
+}: Readonly<{
 	params: Promise<{ slug: string }>;
-}) {
+}>) {
 	const { slug } = use(params);
 	const post = posts.find((post) => post.slug === slug);
 
