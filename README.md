@@ -369,4 +369,13 @@ Hadi dansıyla ve giyim tarzıyla akıllara kazınan lindy hop öncülerinden bi
 1935’te Leon James’le birlikte ilk Harvest Moon Ball’u kazandı. Rol aldığı filmlerin ilki Marx Brothers’ın A Day at the Races filmidir. 1941’de Whitey’s Lindy Hoppers ile birlikte, Olsen ve Johnson’ın unutulmaz Hellzapoppin’ adlı müzikal komedisindeki ünlü Lindy Hop sekansında rol aldı. Fiziksel gücü ve aerial konusundaki yeteneği ile bilinir. Frankie Manning’e göre Willa Mae, bu yeteneği ile her dans partnerinin parlamasını sağlamıştır. Dans partnerleri Frankie Manning, Snookie Beasley, Leon James ve Al Minns gibi lindy hop’un öncü isimleridir. İkinci Dünya Savaşı sırasında, Whitey’nin Lindy Hopper’larının pek çoğu silahlı kuvvetlerde görev yaparken, Willa Mae, Whitey’nin en büyük grubu olarak kabul edilen Harlem Congeroos’u yönetti. Swing dönemi kıyafetlerine ba-yı-lı-yoruz. Willa Mae, dansının yanı sıra ışıltılı kemerleri, dikkat çekici etekleri ile lindy hopun sevdiğimiz stilini yaratanlardan biri oldu. Ellili yılların sonlarında Congaroos’un dağılmasının ardından kariyerine manken olarak devam etti. Her zaman modaya uygun giyinirdi ve bu konusundaki bilgisiyle moda alanında başarılı bir ikinci kariyer yapmayı başardı. İçerik: Ayşegül
 
 
+## TODOS
 
+* In big phones about section responsiveness bad
+* Add date to blogs, and search what could have added, in terms of seo or other ux related
+* Add more metadata to blogs
+* Add blogs weekly
+* In small screens, there is a gap in blogs white, something is overflowing
+* Solve SEO problems
+* Move from vercel analytics to google analytics
+* Add a wrapper for blog to show publish date and person who wrote it and main title and any other that could be componentized
