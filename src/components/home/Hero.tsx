@@ -12,16 +12,33 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
 	const [currentVideoIndex, setCurrentVideoIndex] = useState<number>(1);
+	const [isVideoLoaded, setIsVideoLoaded] = useState<boolean>(false);
+	const [hasError, setHasError] = useState<boolean>(false);
 	const videoRef = useRef<HTMLVideoElement>(null);
 	const videoFrameRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
+		// Generate random index and set immediately
 		const randomIndex = Math.floor(Math.random() * 4) + 1; // 1-4
 		setCurrentVideoIndex(randomIndex);
 	}, []);
 
+	const getVideoSrc = (index: number): string => `videos/hero-${index}.mp4`;
+
+	const handleVideoLoad = () => {
+		setIsVideoLoaded(true);
+	};
+
+	const handleVideoError = () => {
+		setHasError(true);
+		// Fallback to a default video if the current one fails
+		if (currentVideoIndex !== 1) {
+			setCurrentVideoIndex(1);
+		}
+	};
+
 	useGSAP(() => {
-		if (!videoFrameRef.current) return;
+		if (!videoFrameRef.current || !isVideoLoaded) return;
 
 		gsap.set(videoFrameRef.current, {
 			clipPath: "polygon(14% 0, 72% 0, 88% 90%, 0 95%)",
@@ -39,9 +56,7 @@ const Hero = () => {
 				scrub: true,
 			},
 		});
-	});
-
-	const getVideoSrc = (index: number): string => `videos/hero-${index}.mp4`;
+	}, [isVideoLoaded]);
 
 	return (
 		<div className="relative h-dvh w-screen overflow-x-hidden">
@@ -49,17 +64,46 @@ const Hero = () => {
 				ref={videoFrameRef}
 				className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-zinc-50"
 			>
-				<div>
-					<video
-						ref={videoRef}
-						src={getVideoSrc(currentVideoIndex)}
-						autoPlay
-						loop
-						muted
-						playsInline
-						preload="auto"
-						className="absolute top-0 left-0 size-full object-cover object-center"
-					/>
+				<div className="relative size-full">
+					{!isVideoLoaded && !hasError && (
+						<div className="absolute inset-0 flex items-center justify-center bg-zinc-900">
+							<div className="text-center">
+								{/* Turkish pattern inspired spinner */}
+								<div className="relative mx-auto mb-4">
+									<div className="three-body">
+										<div className="three-body__dot" />
+										<div className="three-body__dot" />
+										<div className="three-body__dot" />
+									</div>
+								</div>
+
+								<p className="mt-2 text-amber-200">Dans etmeye hazırlanın...</p>
+							</div>
+						</div>
+					)}
+
+					{!hasError && (
+						<video
+							ref={videoRef}
+							src={getVideoSrc(currentVideoIndex)}
+							autoPlay
+							loop
+							muted
+							playsInline
+							// Remove preload attribute and let browser handle it
+							onLoadStart={handleVideoLoad}
+							onCanPlay={handleVideoLoad}
+							onLoadedData={handleVideoLoad}
+							onError={handleVideoError}
+							className="absolute top-0 left-0 size-full object-cover object-center"
+						/>
+					)}
+
+					{hasError && (
+						<div className="absolute inset-0 flex items-center justify-center bg-gray-300">
+							<p className="text-gray-700">Video couldn't load</p>
+						</div>
+					)}
 				</div>
 
 				<h1 className="hero-heading absolute right-5 bottom-5 z-30 font-almendra-sc text-zinc-100">
