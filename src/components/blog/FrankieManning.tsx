@@ -27,7 +27,7 @@ export default function FrankieManning() {
 					<div className="mb-8 flex flex-col gap-6 md:flex-row">
 						<div className="md:w-1/2">
 							<Image
-								src="/images/posts/1.jpg"
+								src="/images/blogs/1.jpg"
 								alt="Frankie Manning Lindy Hop yaparken"
 								width={600}
 								height={400}

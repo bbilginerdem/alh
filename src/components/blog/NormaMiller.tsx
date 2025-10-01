@@ -29,7 +29,7 @@ export default function NormaMiller() {
 					<div className="mb-8 flex flex-col gap-6 md:flex-row">
 						<div className="md:w-1/2">
 							<Image
-								src="/images/posts/2.jpg"
+								src="/images/blogs/2.jpg"
 								alt="Norma Miller Lindy Hop yaparken"
 								width={600}
 								height={400}

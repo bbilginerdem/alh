@@ -371,11 +371,9 @@ Hadi dansıyla ve giyim tarzıyla akıllara kazınan lindy hop öncülerinden bi
 
 ## TODOS
 
-* In big phones about section responsiveness bad
-* Add date to blogs, and search what could have added, in terms of seo or other ux related
+* Add a wrapper for blog to show publish date and person who wrote it and main title and any other that could be component
+* Add date to blogs, and search what could have added, in terms of seo or other ux related, read time, ask gpt for best ways to do this
 * Add more metadata to blogs
 * Add blogs weekly
 * In small screens, there is a gap in blogs white, something is overflowing
-* Solve SEO problems
-* Move from vercel analytics to google analytics
-* Add a wrapper for blog to show publish date and person who wrote it and main title and any other that could be componentized
+* Solve SEO problems from gsc

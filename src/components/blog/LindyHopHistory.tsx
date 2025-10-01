@@ -17,7 +17,7 @@ export default function LindyHopHistory() {
 					<div className="mb-6 flex flex-col gap-6 md:flex-row">
 						<div className="md:w-1/2">
 							<Image
-								src="/images/posts/3.jpg"
+								src="/images/blogs/3.jpg"
 								alt="Lindy Hop dansçıları Savoy Ballroom'da"
 								width={600}
 								height={400}

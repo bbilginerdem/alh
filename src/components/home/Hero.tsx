@@ -28,24 +28,21 @@ const Hero = () => {
 
     tl.fromTo(
       [lindyTextRef.current, ankaraTextRef.current].filter(Boolean),
-      { color: "#09090b", opacity: 1, y: 30 },
+      { color: "#09090b", opacity: 1, y: 24 },
       {
         color: "#fdba74",
         opacity: 1,
-        y: 15,
+        y: 12,
         duration: 3,
-        ease: "power2.in",
+        ease: "power3.in",
       },
-    ).to(
-      [lindyTextRef.current, ankaraTextRef.current].filter(Boolean),
-      {
-        color: "#f4f4f5",
-        opacity: 1,
-        y: 0,
-        duration: 3,
-        ease: "power2.out",
-      },
-    );
+    ).to([lindyTextRef.current, ankaraTextRef.current].filter(Boolean), {
+      color: "#f4f4f5",
+      opacity: 1,
+      y: 0,
+      duration: 3,
+      ease: "power3.out",
+    });
   });
 
   gsap.set(videoFrameRef.current, {

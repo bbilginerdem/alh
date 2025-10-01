@@ -23,19 +23,20 @@ const About = () => {
 				scrub: 0.5,
 				pin: true,
 				pinSpacing: true,
+				invalidateOnRefresh: true,
 			},
 		});
 
 		clipAnimation.to(".mask-clip-path", {
 			width: "100vw",
-			height: "100vh",
+			height: "100dvh",
 			borderRadius: 0,
 		});
 	}, [clipId]);
 
 	return (
 		<section id={aboutSectionId} className="min-h-screen w-screen">
-			<div className="relative mt-36 mb-8 flex flex-col items-center gap-5">
+			<div className="relative mt-20 mb-3 items-center gap-5 sm:mt-36 sm:mb-5 sm:gap-6 md:mb-6 lg:mb-7 xl:mb-8">
 				<AnimatedTitle
 					title="Ankara’nın ilk <br /> Lindy Hop Topluluğu"
 					containerClass="mt-5 text-black! text-center"
