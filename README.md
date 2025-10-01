@@ -371,9 +371,14 @@ Hadi dansıyla ve giyim tarzıyla akıllara kazınan lindy hop öncülerinden bi
 
 ## TODOS
 
+# Blog Related
 * Add a wrapper for blog to show publish date and person who wrote it and main title and any other that could be component
 * Add date to blogs, and search what could have added, in terms of seo or other ux related, read time, ask gpt for best ways to do this
 * Add more metadata to blogs
 * Add blogs weekly
-* In small screens, there is a gap in blogs white, something is overflowing
 * Solve SEO problems from gsc
+
+# Other
+* In small screens, there is a gap in blogs white, something is overflowing
+* Loading design could be tweaked about
+* Contact us part at the bottom of home page doesn't look the best
