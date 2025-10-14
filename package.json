@@ -6,7 +6,7 @@
 		"dev": "next dev --turbopack",
 		"build": "next build",
 		"start": "next start",
-		"lint": "npx @biomejs/biome check --write",
+		"lint": "pnpm dlx @biomejs/biome check --write",
 		"lh": "lighthouse http://localhost:3001 --output=html --output-path='C:\\Users\\bbilg\\Downloads\\lighthouse-report.html' --chrome-flags=\"--headless=new\" --view"
 	},
 	"dependencies": {
@@ -18,17 +18,17 @@
 		"clsx": "^2.1.1",
 		"gsap": "^3.13.0",
 		"lucide-react": "^0.545.0",
-		"next": "15.5.4",
+		"next": "15.5.5",
 		"react": "19.2.0",
 		"react-dom": "19.2.0",
 		"react-hot-toast": "^2.6.0",
 		"react-use": "^17.6.0",
-		"resend": "^6.1.2",
+		"resend": "^6.1.3",
 		"tailwind-merge": "^3.3.1",
 		"uuid": "^13.0.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.2.5",
+		"@biomejs/biome": "2.2.6",
 		"@tailwindcss/postcss": "^4.1.14",
 		"@types/node": "^24",
 		"@types/react": "^19",
@@ -38,5 +38,5 @@
 		"tailwindcss": "^4.1.14",
 		"typescript": "^5.9.3"
 	},
-	"packageManager": "pnpm@10.18.1"
+	"packageManager": "pnpm@10.18.3"
 }
