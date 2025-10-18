@@ -23,7 +23,7 @@ export default function Toplulukİlkeleri() {
 					<div className="mx-auto h-1 w-24 bg-orange-300" />
 				</header>
 
-				<div className="prose prose-invert max-w-none text-base md:text-lg">
+				<div className="max-w-none text-base md:text-lg">
 					{" "}
 					{/* Responsive base text */}
 					<section className="mb-8">

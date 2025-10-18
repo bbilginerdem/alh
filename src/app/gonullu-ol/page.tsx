@@ -63,7 +63,7 @@ export default function Ekibimiz() {
 					</p>
 				</header>
 
-				<div className="prose prose-invert max-w-none text-base md:text-lg">
+				<div className="max-w-none text-base md:text-lg">
 					<section className="mb-12 rounded-lg bg-white/5 p-6 backdrop-blur-sm">
 						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
 							Gönüllülük Esası

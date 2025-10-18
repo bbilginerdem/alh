@@ -2,6 +2,10 @@
 
 import { notFound } from "next/navigation";
 import { use } from "react";
+import { BlogNavigation } from "@/components/blog/BlogNavigation";
+import { BlogSEO } from "@/components/blog/BlogSEO";
+import { BlogWrapper } from "@/components/blog/BlogWrapper";
+import { RelatedPosts } from "@/components/blog/RelatedPosts";
 import { posts } from "@/lib/data";
 
 export default function BlogPost({
@@ -17,8 +21,13 @@ export default function BlogPost({
 	}
 
 	return (
-		<div className="container mx-auto p-4">
-			<div className="text-gray-700">{post.Content()}</div>
-		</div>
+		<>
+			<BlogSEO post={post} />
+			<BlogWrapper metadata={post}>
+				<post.Content />
+				<BlogNavigation currentPost={post} allPosts={posts} />
+				<RelatedPosts posts={posts} currentPostId={post.id} />
+			</BlogWrapper>
+		</>
 	);
 }

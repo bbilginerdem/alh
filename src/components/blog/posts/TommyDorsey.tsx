@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 export default function TommyDorsey() {
 	return (
-		<article className="mx-auto max-w-4xl px-4 py-8 text-zinc-100">
+		<article className="mx-auto max-w-4xl text-zinc-100">
 			<header className="mb-8 text-center">
 				<h1 className="mb-4 font-bold text-3xl md:text-4xl">
 					Tommy Dorsey: Swing Döneminin Trombon Devi
@@ -41,7 +41,7 @@ export default function TommyDorsey() {
 				<div className="mx-auto h-1 w-24 bg-orange-300" />
 			</header>
 
-			<div className="prose prose-invert max-w-none">
+			<div className="max-w-none">
 				<section className="mb-8">
 					<p className="mb-6 text-base md:text-lg">
 						Yeni içeriğimiz ile karşınızdayız:{" "}

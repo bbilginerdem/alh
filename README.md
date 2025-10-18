@@ -77,7 +77,7 @@ export default function EarlHines() {
         <div className="mx-auto h-1 w-24 bg-orange-300" />
       </header>
 
-      <div className="prose prose-invert max-w-none">
+      <div className=" max-w-none">
         <section className="mb-8">
           <p className="mb-6 text-base md:text-lg">
             <span className="font-semibold text-orange-300">
@@ -371,14 +371,10 @@ Hadi dansıyla ve giyim tarzıyla akıllara kazınan lindy hop öncülerinden bi
 
 ## TODOS
 
-# Blog Related
-* Add a wrapper for blog to show publish date and person who wrote it and main title and any other that could be component
-* Add date to blogs, and search what could have added, in terms of seo or other ux related, read time, ask gpt for best ways to do this
-* Add more metadata to blogs
-* Add blogs weekly
-* Solve SEO problems from gsc
-
 # Other
+* Solve SEO problems from gsc
 * In small screens, there is a gap in blogs white, something is overflowing
-* Loading design could be tweaked about
-* Contact us part at the bottom of home page doesn't look the best
+* Contact us part at the bottom of home page doesn't look the best, ask kiro to change it text and styling to make it similar to overall design of the website or maybe you can add something from reactbits
+* If mobile, then don't play video choose an image to show
+* Delete audio and button in navbar
+* Fix reading time and author name and anything related to data

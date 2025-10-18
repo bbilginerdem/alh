@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function NormaMiller() {
 	return (
-		<article className="mx-auto max-w-4xl px-4 py-8 text-zinc-100">
+		<article className="mx-auto max-w-4xl text-zinc-100">
 			<header className="mb-8 text-center">
 				<h1 className="mb-4 font-bold text-4xl md:text-5xl">
 					Norma Miller: Lindy Hop'un Kraliçesi
@@ -15,7 +15,7 @@ export default function NormaMiller() {
 				<div className="mx-auto my-4 h-1 w-24 bg-orange-300" />
 			</header>
 
-			<div className="prose prose-invert max-w-none">
+			<div className="max-w-none">
 				<section className="mb-8">
 					<p className="mb-6 text-lg">
 						Dans tarihinin en karizmatik figürlerinden{" "}

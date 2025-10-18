@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function LindyHopHistory() {
 	return (
-		<article className="mx-auto max-w-4xl px-4 py-8 text-zinc-100">
+		<article className="mx-auto max-w-4xl text-zinc-100">
 			<header className="mb-8 text-center">
 				<h1 className="mb-4 font-bold text-4xl">
 					Lindy Hop: Swing'in Efsanevi Dansının Tarihi
@@ -12,7 +12,7 @@ export default function LindyHopHistory() {
 				<div className="mx-auto h-1 w-24 bg-orange-300" />
 			</header>
 
-			<div className="prose prose-invert max-w-none">
+			<div className="max-w-none">
 				<section className="mb-8">
 					<div className="mb-6 flex flex-col gap-6 md:flex-row">
 						<div className="md:w-1/2">
