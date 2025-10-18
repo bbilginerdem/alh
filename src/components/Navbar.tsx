@@ -1,6 +1,5 @@
 "use client";
 
-import clsx from "clsx";
 import gsap from "gsap";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
@@ -19,29 +18,13 @@ const navItems: string[] = [
 ];
 
 const NavBar = () => {
-	const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
-	const [isIndicatorActive, setIsIndicatorActive] = useState<boolean>(false);
 	const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
 
-	const audioElementRef = useRef<HTMLAudioElement | null>(null);
 	const navContainerRef = useRef<HTMLDivElement | null>(null);
 
 	const { y: currentScrollY } = useWindowScroll();
 	const [isNavVisible, setIsNavVisible] = useState<boolean>(true);
 	const [lastScrollY, setLastScrollY] = useState<number>(0);
-
-	const toggleAudioIndicator = (): void => {
-		setIsAudioPlaying((prev: boolean) => !prev);
-		setIsIndicatorActive((prev: boolean) => !prev);
-	};
-
-	useEffect(() => {
-		if (isAudioPlaying) {
-			audioElementRef.current?.play();
-		} else {
-			audioElementRef.current?.pause();
-		}
-	}, [isAudioPlaying]);
 
 	useEffect(() => {
 		if (!navContainerRef.current) return;
@@ -68,36 +51,6 @@ const NavBar = () => {
 			duration: 0.2,
 		});
 	}, [isNavVisible]);
-
-	useEffect(() => {
-		const attemptPlay = () => {
-			if (audioElementRef.current) {
-				audioElementRef.current
-					.play()
-					.then(() => {
-						setIsAudioPlaying(true);
-						setIsIndicatorActive(true);
-					})
-					.catch((error) => {
-						console.warn("Audio autoplay was prevented:", error);
-						// Optionally show a prompt to click to unmute
-					});
-			}
-			// Remove listener after first attempt
-			document.removeEventListener("click", attemptPlay);
-			document.removeEventListener("touchstart", attemptPlay);
-		};
-
-		// Attach listeners
-		document.addEventListener("click", attemptPlay);
-		document.addEventListener("touchstart", attemptPlay);
-
-		// Cleanup
-		return () => {
-			document.removeEventListener("click", attemptPlay);
-			document.removeEventListener("touchstart", attemptPlay);
-		};
-	}, []);
 
 	return (
 		<div
@@ -148,38 +101,6 @@ const NavBar = () => {
 								</Link>
 							))}
 						</div>
-
-						{/* Audio Button */}
-						<button
-							onClick={toggleAudioIndicator}
-							className="ml-8 flex items-center space-x-0.5"
-							aria-label={
-								isAudioPlaying
-									? "Pause background music"
-									: "Play background music"
-							}
-							type="button"
-						>
-							<audio
-								ref={audioElementRef}
-								className="hidden"
-								src="/audio/loop.mp3"
-								loop
-							>
-								Your browser does not support the audio element.
-							</audio>
-							{[1, 2, 3, 4].map((bar: number) => (
-								<div
-									key={bar}
-									className={clsx("indicator-line", {
-										active: isIndicatorActive,
-									})}
-									style={{
-										animationDelay: `${bar * 0.1}s`,
-									}}
-								/>
-							))}
-						</button>
 					</div>
 				</nav>
 

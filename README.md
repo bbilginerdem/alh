@@ -372,9 +372,9 @@ Hadi dansıyla ve giyim tarzıyla akıllara kazınan lindy hop öncülerinden bi
 ## TODOS
 
 # Other
-* Solve SEO problems from gsc
-* In small screens, there is a gap in blogs white, something is overflowing
-* Contact us part at the bottom of home page doesn't look the best, ask kiro to change it text and styling to make it similar to overall design of the website or maybe you can add something from reactbits
-* If mobile, then don't play video choose an image to show
-* Delete audio and button in navbar
 * Fix reading time and author name and anything related to data
+* Etkinlikleri duzenle, ve halloween ekle
+* In small screens, there is a gap in blogs white, something is overflowing
+* If mobile, then don't play video choose an image to show
+* Contact us part at the bottom of home page doesn't look the best, ask kiro to change it text and styling to make it similar to overall design of the website or maybe you can add something from reactbits
+* Solve SEO problems from gsc
