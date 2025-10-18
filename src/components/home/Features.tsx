@@ -115,7 +115,6 @@ export const BentoCard: React.FC<BentoCardProps> = ({
 						rel={link ? "noopener noreferrer" : undefined}
 						className="w-fit"
 						aria-disabled={!link}
-						aria-label={!link ? "Coming soon" : undefined}
 						onClick={(e) => !link && e.preventDefault()}
 					>
 						<div

@@ -38,11 +38,11 @@ const About = () => {
 		<section id={aboutSectionId} className="min-h-screen w-screen">
 			<div className="relative mt-20 mb-3 items-center gap-5 sm:mt-36 sm:mb-5 sm:gap-6 md:mb-6 lg:mb-7 xl:mb-8">
 				<AnimatedTitle
-					title="Ankara’nın ilk <br /> Lindy Hop Topluluğu"
+					title="Ankara’nın ilk <br /> Lindy Hop Komünitesi"
 					containerClass="mt-5 text-black! text-center"
 				/>
 
-				<div className="about-subtext pt-3">
+				<div className="about-subtext pt-3 max-lg:hidden">
 					<p>2018'den beri Ankara’da swing ritmini paylaşan bir topluluğuz</p>
 					<p className="pt-3 text-zinc-600">
 						Her seviyeden dansçıyı kucaklayan atölyelerimiz, sosyal dans
