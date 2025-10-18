@@ -12,10 +12,10 @@ export const posts: BlogMetadata[] = [
 		title: "Frankie Manning: Lindy Hop'un Efsanevi Öncüsü",
 		slug: "frankie-manning-lindy-hop",
 		publishDate: "2025-01-15T10:00:00Z",
-		author: "Ayça",
+		author: "Behzat Bilgin Erdem",
 		excerpt:
 			"Dans tarihinin en etkileyici figürlerinden Frankie Manning'in hikayesi ve Lindy Hop'a kattığı devrimci aerial hareketleri keşfedin.",
-		readingTime: 8,
+		readingTime: 2,
 		tags: [
 			"Frankie Manning",
 			"Lindy Hop",
@@ -49,10 +49,10 @@ export const posts: BlogMetadata[] = [
 		title: "Norma Miller: Lindy Hop'un Kraliçesi",
 		slug: "norma-miller-lindy-hop",
 		publishDate: "2025-01-20T09:00:00Z",
-		author: "Ankara Lindy Hop Ekibi",
+		author: "Behzat Bilgin Erdem",
 		excerpt:
 			"Lindy Hop'un kraliçesi Norma Miller'ın cesur kişiliği ve dans dünyasına kattığı yenilikçi yaklaşımı keşfedin.",
-		readingTime: 7,
+		readingTime: 3,
 		tags: [
 			"Norma Miller",
 			"Lindy Hop",
@@ -83,10 +83,10 @@ export const posts: BlogMetadata[] = [
 		title: "Lindy Hop: Swing'in Efsanevi Dansının Tarihi",
 		slug: "lindy-hop-tarihi",
 		publishDate: "2025-01-25T11:00:00Z",
-		author: "Ankara Lindy Hop Ekibi",
+		author: "Behzat Bilgin Erdem",
 		excerpt:
 			"Harlem'in sokaklarından dünyaya yayılan Lindy Hop'un büyüleyici tarihini ve kültürel etkisini keşfedin.",
-		readingTime: 10,
+		readingTime: 2,
 		tags: ["Lindy Hop", "Swing Tarihi", "Harlem", "Caz Müziği", "Dans Kültürü"],
 		category: "Dans Tarihi",
 		image: "/images/blogs/3.jpg",
@@ -112,10 +112,10 @@ export const posts: BlogMetadata[] = [
 		title: "Duke Ellington: Cazın Efsanevi Bestecisi ve Lideri",
 		slug: "duke-ellington",
 		publishDate: "2025-02-01T10:30:00Z",
-		author: "Ankara Lindy Hop Ekibi",
+		author: "Neval",
 		excerpt:
 			"Duke Ellington'ın caz müziğine kattığı eşsiz katkılar ve swing dansına etkisini keşfedin.",
-		readingTime: 9,
+		readingTime: 3,
 		tags: [
 			"Duke Ellington",
 			"Caz Müziği",
@@ -146,10 +146,10 @@ export const posts: BlogMetadata[] = [
 		title: "Earl Hines: Cazın Yenilikçi Piyano Devi",
 		slug: "earl-hines",
 		publishDate: "2025-02-05T09:15:00Z",
-		author: "Ankara Lindy Hop Ekibi",
+		author: "Ayça",
 		excerpt:
 			"Earl Hines'ın piyano tekniğindeki devrimci yaklaşımı ve swing müziğine kattığı yenilikler.",
-		readingTime: 6,
+		readingTime: 1,
 		tags: ["Earl Hines", "Piyano", "Caz Müziği", "Swing", "Müzik Tekniği"],
 		category: "Müzik",
 		image: "/images/blogs/5.jpg",
@@ -173,10 +173,10 @@ export const posts: BlogMetadata[] = [
 		title: "Tommy Dorsey: Swing Döneminin Trombon Devi",
 		slug: "tommy-dorsey",
 		publishDate: "2025-02-10T08:45:00Z",
-		author: "Ankara Lindy Hop Ekibi",
+		author: "Behzat Bilgin Erdem",
 		excerpt:
 			"Tommy Dorsey'nin trombon ustalığı ve swing orkestrasının dans müziğine kattığı büyüleyici melodiler.",
-		readingTime: 7,
+		readingTime: 2,
 		tags: [
 			"Tommy Dorsey",
 			"Trombon",
@@ -206,17 +206,26 @@ export const posts: BlogMetadata[] = [
 
 export const events = [
 	{
+		id: "event-8",
+		title: "Cadılar Bayramı 2025",
+		date: "2025-11-01T20:00:00",
+		location: "Rasa Brasserie Cafe & Restaurant",
+		description:
+			"Cadılar Bayramı partimize davetlisiniz!🎃👻 1 Kasım Cuma günü @dukesswingband eşliğinde unutulmaz bir gece için kostümlerinizi hazırlayın🙌",
+		imageUrl: "/images/events/halloween-2025.jpg",
+	},
+	{
 		id: "event-7",
 		title: "Vişnelik Yaz Partisi",
 		date: "2025-08-15T20:00:00",
 		location: "Vişnelik",
 		description:
 			"Yazın ışıltısını dansla kutluyoruz!✨💃 3 Ağustos Pazar akşamı, Rabarba Teras'ta yıldızların altında buluşuyoruz.",
-		imageUrl: "/images/events/visnelik-2025.jpg",
+		imageUrl: "/images/events/visnelik-2024.jpg",
 	},
 	{
 		id: "event-6",
-		title: "Rabarba Lindy Hop Partisi",
+		title: "Lindy Hop Partisi",
 		date: "2025-08-03T20:30:00",
 		location: "Tunus Cad. No:50, Rabarba Teras",
 		description:
@@ -227,7 +236,7 @@ export const events = [
 		id: "event-5",
 		title: "Sarı Tema & DJ Battle",
 		date: "2025-06-07T20:00:00",
-		location: "Rasa Brasserie",
+		location: "Rasa Brasserie Cafe & Restaurant",
 		description:
 			"Sevgili ALH dostları, yeni yıla müzik ve dans dolu bir başlangıç yakışır",
 		imageUrl: "/images/events/yilbasi-2025.jpg",
@@ -239,22 +248,22 @@ export const events = [
 		location: "Vişnelik",
 		description:
 			"Yazla vedalaşıp sezonu canlı müzikli parti ile açıyoruz!!! 🥳🥳",
-		imageUrl: "/images/events/visnelik-2025.jpg",
+		imageUrl: "/images/events/visnelik-2024.jpg",
 	},
 	{
 		id: "event-3",
 		title: "Sarı Tema & DJ Battle",
 		date: "2025-06-07T20:00:00",
-		location: "Rasa Brasserie",
+		location: "Rasa Brasserie Cafe & Restaurant",
 		description:
 			"Sevgili ALH ailesi, 7 Haziran Cuma günü Dj Battle ve SARI temalı partimiz ile karşınızdayız 💛🥳 🎶",
-		imageUrl: "/images/events/sari-2025.jpg",
+		imageUrl: "/images/events/sari-2024.jpg",
 	},
 	{
 		id: "event-2",
-		title: "Cadılar Bayramı Partisi",
+		title: "Cadılar Bayramı 2024",
 		date: "2023-11-03T20:00:00",
-		location: "Rasa Brasserie",
+		location: "Rasa Brasserie Cafe & Restaurant",
 		description:
 			"Ve Halloween Party zamanı🥳🥳 @dukesswingband eşliğinde harika bir partiye davetlisiniz😍 3 Kasım Cuma günü her zaman olduğu gibi yine @rasacaferestaurant ‘ta görüşmek üzere, kostümlerinizi hazırlamayı unutmayın🙌",
 		imageUrl: "/images/events/halloween-2023.jpg",
@@ -263,7 +272,7 @@ export const events = [
 		id: "event-1",
 		title: "Sonbahar Partisi",
 		date: "2023-09-16T20:00:00",
-		location: "Rasa Brasserie",
+		location: "Rasa Brasserie Cafe & Restaurant",
 		description:
 			"Yazla vedalaşıp sezonu canlı müzikli parti ile açıyoruz!!! 🥳🥳",
 		imageUrl: "/images/events/sonbahar-2023.jpg",
