@@ -208,7 +208,7 @@ export const events = [
 	{
 		id: "event-8",
 		title: "Cadılar Bayramı 2025",
-		date: "2025-11-01T20:00:00",
+		date: "2025-10-31T20:00:00",
 		location: "Rasa Brasserie Cafe & Restaurant",
 		description:
 			"Cadılar Bayramı partimize davetlisiniz!🎃👻 1 Kasım Cuma günü @dukesswingband eşliğinde unutulmaz bir gece için kostümlerinizi hazırlayın🙌",
