@@ -97,6 +97,8 @@ Hadi dansıyla ve giyim tarzıyla akıllara kazınan lindy hop öncülerinden bi
 
 * In small screens, there is a gap in blogs white, something is overflowing
 * Contact us part at the bottom of home page doesn't look the best, ask kiro to change it text and styling to make it similar to overall design of the website or maybe you can add something from reactbits.dev
+* Solve SEO problems from gsc
+
+
 * Find best way to create a blog and document it here
 * Add a blog
-* Solve SEO problems from gsc
