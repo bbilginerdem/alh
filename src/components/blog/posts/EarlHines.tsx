@@ -264,10 +264,6 @@ export default function EarlHines() {
 							, 04.07.2024, 18.40.
 						</li>
 					</ul>
-
-					<div className="mt-8">
-						<p className="mb-2 font-semibold text-orange-300">İçerik: Ayça</p>
-					</div>
 				</section>
 			</div>
 		</article>

@@ -1,3 +1,4 @@
+import CountBasie from "@/components/blog/posts/CountBasie";
 import DukeEllington from "@/components/blog/posts/DukeEllington";
 import EarlHines from "@/components/blog/posts/EarlHines";
 import FrankieManning from "@/components/blog/posts/FrankieManning";
@@ -38,7 +39,7 @@ export const posts: BlogMetadata[] = [
 				"dans tarihi",
 				"Whitey's Lindy Hoppers",
 			],
-			canonicalUrl: "https://ankaralindyhop.com/blog/frankie-manning-lindy-hop",
+			canonicalUrl: "https://ankaralindyhop.org/blog/frankie-manning-lindy-hop",
 		},
 		lastModified: "2025-02-10T14:30:00Z",
 		featured: true,
@@ -74,7 +75,7 @@ export const posts: BlogMetadata[] = [
 				"Harlem",
 				"dans tarihi",
 			],
-			canonicalUrl: "https://ankaralindyhop.com/blog/norma-miller-lindy-hop",
+			canonicalUrl: "https://ankaralindyhop.org/blog/norma-miller-lindy-hop",
 		},
 		Content: NormaMiller,
 	},
@@ -102,7 +103,7 @@ export const posts: BlogMetadata[] = [
 				"dans kültürü",
 				"swing era",
 			],
-			canonicalUrl: "https://ankaralindyhop.com/blog/lindy-hop-tarihi",
+			canonicalUrl: "https://ankaralindyhop.org/blog/lindy-hop-tarihi",
 		},
 		featured: true,
 		Content: LindyHopHistory,
@@ -137,7 +138,7 @@ export const posts: BlogMetadata[] = [
 				"besteci",
 				"piyano",
 			],
-			canonicalUrl: "https://ankaralindyhop.com/blog/duke-ellington",
+			canonicalUrl: "https://ankaralindyhop.org/blog/duke-ellington",
 		},
 		Content: DukeEllington,
 	},
@@ -164,7 +165,7 @@ export const posts: BlogMetadata[] = [
 				"piyano tekniği",
 				"müzik yeniliği",
 			],
-			canonicalUrl: "https://ankaralindyhop.com/blog/earl-hines",
+			canonicalUrl: "https://ankaralindyhop.org/blog/earl-hines",
 		},
 		Content: EarlHines,
 	},
@@ -198,9 +199,43 @@ export const posts: BlogMetadata[] = [
 				"dans müziği",
 				"swing era",
 			],
-			canonicalUrl: "https://ankaralindyhop.com/blog/tommy-dorsey",
+			canonicalUrl: "https://ankaralindyhop.org/blog/tommy-dorsey",
 		},
 		Content: TommyDorsey,
+	},
+	{
+		id: 7,
+		title: "Count Basie: Swing Kralı ve Jazze Damga Vuran Müzikal Dev",
+		slug: "count-basie",
+		publishDate: "2025-11-07T08:30:00Z",
+		author: "Neval",
+		excerpt:
+			"Count Basie'nin müzikal liderliği, orkestrasının özgün tarzı ve swing dansı kültürüne etkisi.",
+		readingTime: 3,
+		tags: [
+			"Count Basie",
+			"Swing Müzik",
+			"Big Band",
+			"Caz Efsanesi",
+			"Jazz Orkestrası",
+		],
+		category: "Müzik",
+		image: "/images/blogs/7.webp",
+		imageAlt: "Count Basie Orkestrası Performansı",
+		seo: {
+			metaDescription:
+				"Count Basie'nin müzik kariyeri, orkestrasının özgün tarzı ve swing döneminin gelişimindeki rolü. Swing dansı için unutulmaz melodiler.",
+			keywords: [
+				"Count Basie",
+				"swing müzik",
+				"Big Band",
+				"caz efsanesi",
+				"swing dansı",
+				"lindy hop müzik",
+			],
+			canonicalUrl: "https://ankaralindyhop.org/blog/count-basie",
+		},
+		Content: CountBasie,
 	},
 ];
 

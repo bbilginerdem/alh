@@ -1,7 +1,7 @@
 import { posts } from "@/lib/data";
 
 export async function GET() {
-	const baseUrl = "https://www.ankaralindyhop.com"; // Change to your real domain
+	const baseUrl = "https://www.ankaralindyhop.org"; // Change to your real domain
 
 	// Static pages
 	const staticPages = [

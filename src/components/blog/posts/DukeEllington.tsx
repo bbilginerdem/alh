@@ -151,11 +151,6 @@ export default function DukeEllington() {
 						"Müzik, kalpten kalbe akan bir dildir." <br />
 						<span className="text-orange-300">– Duke Ellington</span>
 					</blockquote>
-
-					<div className="mt-6">
-						<p className="mb-2 font-semibold text-orange-300">İçerik: Salih</p>
-						<p className="text-orange-300">Hazırlayan: Neval</p>
-					</div>
 				</section>
 			</div>
 		</article>

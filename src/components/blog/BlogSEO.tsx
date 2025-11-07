@@ -11,7 +11,7 @@ interface BlogSEOProps {
 export function BlogSEO({
 	post,
 	siteName = "Ankara Lindy Hop",
-	siteUrl = "https://ankaralindyhop.com",
+	siteUrl = "https://ankaralindyhop.org",
 }: Readonly<BlogSEOProps>) {
 	const structuredData = generateBlogStructuredData(post);
 	const fullImageUrl = post.image?.startsWith("http")

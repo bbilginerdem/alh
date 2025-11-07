@@ -64,7 +64,7 @@ export function generateBlogStructuredData(metadata: BlogMetadata) {
 			"@type": "WebPage",
 			"@id":
 				metadata.seo.canonicalUrl ||
-				`https://ankaralindyhop.com/blog/${metadata.slug}`,
+				`https://ankaralindyhop.org/blog/${metadata.slug}`,
 		},
 		keywords: metadata.seo.keywords.join(", "),
 		articleSection: metadata.category,

@@ -175,9 +175,6 @@ export default function TommyDorsey() {
 							Wikipedia - Tommy Dorsey
 						</Link>
 					</li>
-					<div className="mt-8">
-						<p className="mb-2 font-semibold text-orange-300">İçerik: Behzat</p>
-					</div>
 				</section>
 			</div>
 		</article>
