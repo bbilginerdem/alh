@@ -33,24 +33,13 @@ The website uses a consistent color scheme and a responsive design approach.
 
 ## Creating a Blog Post
 
-To create a new blog post, use the following .tsx component as a template. This template is designed to ensure a consistent look and feel across all posts. Remember to use Turkish for the content. Add a image related to topic inbetween text somewhere as you see fit
+To create a new blog post, use any file from blog components as a template. This template is designed to ensure a consistent look and feel across all posts. Remember to use Turkish for the content. Add a image related to topic in between text somewhere as you see fit. Add needed info to data.ts. Gemini is the best to generate for now.
 
 ### Prompt
 similar to above styling write me tsx component about following text in turkish add a picture where it fits as well do text sizes good for all devices , use tailwind, it is in nextjs, make text colors to orange 300 and zinc 100, add metadata for this specific blog at the top
 
 
 ## Blogs
-
-Count Basie - Part 1
-Bugün size daha yakından tanıtmak istediğimiz Count Basie gönderilerimizin ilki ile karşınızdayız. Asıl adı William James Basie olan Count Basie; Duke Ellington ile birlikte büyük caz orkestralarının şefliğini yapan önde gelen müzisyenlerden biri ve caz efsanesidir. Basie’nin orkestrası caz ve blues müziğini birleştirerek swing’i egemen bir hale getirmesi ile tanınır. Basie, caz dünyasını değiştirmiş ve 20. yüzyıl ortalarındaki popüler müziği şekillendirerek "Swing Kralı" unvanını hak etmiştir, çünkü dünyada dans etme arzusunu doğurmuştur. Basie'nin "Moten Swing" isimli şarkısı, Basie'ye atfedilen ve orkestral cazın daha özgür bir formuna ve swing müziğin gelişimine değerli bir katkı olan bir eser olarak kabul edilir.
-Basie’nin çocukluğunda kullandığı “*stride” (*sol elin kullanıldığı teknik) tarzı ile daha az nota kullanıp notalar arasında verdiği esler Basie’nin karakteristik tarzını oluşturmuştur. Basie akor değişiklikleri üzerine düzenlemeli bir yaklaşım olan comping stilini ilk başaran müzisyenlerden biridir. Basie’nin orkestrası çoğu orkestrada 1 tane bulunmasına rağmen 2 tane bölünmüş tenor saksafon kullandırma, şarkıların ritim bölümlerini vurgulama ve nakaratı tüm orkestra ile çalma ve farklı düzenlemeler kullanma gibi yeniliklerle tanınır.
-
----
-
-Count Basie- Part 2
-John Hammond ‘un Basie orkestrasını radyoda dinlemesiyle ilk kayıt anlaşması yapılmış ve Basie orkestrasının ünü giderek yayılmaya başlamıştır. Count Basie dönemin en ünlü müzisyen ve şarkıcılarıyla beraber çalışmıştır. Bir diğer efsane orkestra şefi ve müzisyen olan Chick Webb orkestrasının Ella Fitzgerald ile; Count Basie orkestrasının Billie Holiday ile katıldıkları düelloda Basie çok az farkla düelloyu kaybetse de orkestrasının başarısını kanıtlamıştır. Duke Ellington gibi isimlerin de katılımıyla Jazz tarihi için unutulmaz bir gece yaşatmıştır. Basie, Billie Holiday’in yanı sıra Ella Fitzgerald, Frank Sinatra, Tonny Bennett gibi birçok isimle unutulmaz şarkılara imza atmıştır.Basie, orkestrasının sesini geliştirmek için kadrosunu sık değiştirse de en önemli üyeleri uzun süre tutardı. Basie’nin orkestrası müzisyenlerin bir arada olmaktan keyif aldığı bir ortamdı. Basie müzisyenlere gelişebilecekleri bir ortam sağlayan aynı zamanda eğlenmeleri için de fırsat veren iyi bir liderdi. Gülmeyi çok seven Basie kendisinden her zaman bir centilmen olarak bahsettirmeyi başarmıştır. İlk Grammy ödülü alan afro-amerikan sanatçı olan caz efsanesinin “Jumpin at the Woodside" ve "One O'Clock Jump" gibi en ünlü şarkıları, tüm zamanların en iyi bilinen caz standartlarından bazıları olarak sonsuza kadar yaşamaya devam edecektir. Count Basie’nin 50 yılı aşkın süre şefliğini yaptığı Count Basie orkestrası günümüzde hala trompetçi Scotty Barnhart yönetiminde sahne alıyor ve Basie’nin müzikal mirası yaşamaya devam ediyor.
-
----
 
 Al Minns
 Bugün sizlere Lindy Hop’un en önemli dansçılarından birini tanıtıyoruz. 😊 Al Minns, yolculuğuna New York’ta bir sokak dansçısı olarak başladı. Dinmek bilmez dans aşkı onu hızlıca Savoy Ballroom’a taşıdı. Savoy Ballroom, Minns’in kariyerinin başlarında rakibi olan Leon James ile serüvenlerinin başlangıç noktası oldu. Zamanla yakın arkadaş olan bu ikili, uzun yıllar partner olarak dans edip, swing danslarını yurtdışında tanıtan ve popülerleştiren dansçılardan oldular. Al Minns, swing dansının en ünlü ve en etkileyici sahne gösterilerinden biri olarak kabul edilen "Hellzapoppin'" adlı sahne şovunda yer aldı. 1941 yılında, dansçılar Frankie Manning ve Willa Mae Ricker'ın da dahil olduğu Whitey's Lindy Hoppers, bu unutulmaz sahne şovunda gösteri yaptı. 1950'li yılların sonlarında swing dansları popülaritesini kaybetti ancak Al Minns ve diğer eski swing dansçıları, yeni nesil dansçılara eski dans stillerini öğreterek swing danslarının yaşayan hatırası olarak kalmasını sağladı. Al Minns, dansçı olarak sadece sahnede değil, aynı zamanda televizyon ve sinema için de performans sergiledi. Beyaz izleyicilere yönelik filmlerde ve televizyon programlarında dans ederek, swing danslarını afro-amerikan topluluğunun yanında, çok daha geniş bir kitleye tanıttı.Son olarak, Al Minns’in kızına söylediği sözle kendisini anıyoruz; “Whatever you do, don’t be common, please strive to be extraordinary.” “Ne yaparsan yap sıradan olma, lütfen sıra dışı olmaya çalış.”
@@ -80,8 +69,11 @@ Hadi dansıyla ve giyim tarzıyla akıllara kazınan lindy hop öncülerinden bi
 
 ## TODOS
 
+* Yeni blog eklendiginde yada etkinlik oldugunda son 1 hafta icinde yeni diye navbarda yazsin bunu kiroya yaptir
 * In small screens, there is a gap in blogs white, something is overflowing
 * Contact us part at the bottom of home page doesn't look the best, ask kiro to change it text and styling to make it similar to overall design of the website or maybe you can add something from reactbits.dev
 * Solve SEO problems from gsc
-* Find best way to create a blog and document it here
-* Add a blog
+* Image with src "/images/blogs/7.webp" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+* The resource at “http://localhost:3000/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2” preloaded with link preload was not used within a few seconds. Make sure all attributes of the preload tag are set correctly.
+* GSAP target null not found. https://gsap.com 2 forward-logs-shared.ts:95:22 GSAP target  not found. https://gsap.com forward-logs-shared.ts:95:22
+

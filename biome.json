@@ -23,13 +23,6 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"suspicious": {
-				"noUnknownAtRules": "off"
-			},
-			"a11y": {
-				"useMediaCaption": "off",
-				"noSvgWithoutTitle": "off"
-			},
 			"nursery": {
 				"useSortedClasses": {
 					"level": "warn",
