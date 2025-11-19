@@ -205,7 +205,7 @@ export const posts: BlogMetadata[] = [
 	},
 	{
 		id: 7,
-		title: "Count Basie: Swing Kralı ve Jazze Damga Vuran Müzikal Dev",
+		title: "Count Basie: Swing Kralı ve Caza Damga Vuran Müzikal Dev",
 		slug: "count-basie",
 		publishDate: "2025-11-07T08:30:00Z",
 		author: "Neval",
@@ -217,7 +217,7 @@ export const posts: BlogMetadata[] = [
 			"Swing Müzik",
 			"Big Band",
 			"Caz Efsanesi",
-			"Jazz Orkestrası",
+			"Caz Orkestrası",
 		],
 		category: "Müzik",
 		image: "/images/blogs/7.webp",

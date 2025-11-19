@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-	title: "Count Basie: Swing Kralı ve Jazze Damga Vuran Müzikal Dev",
+	title: "Count Basie: Swing Kralı ve Caza Damga Vuran Müzikal Dev",
 	description:
 		"Count Basie'nin müzik kariyeri, orkestrasının özgün tarzı, swing'in gelişimindeki rolü ve efsane müzisyenlerle iş birlikleri hakkında detaylı bilgiler.",
 	keywords: [
@@ -19,13 +19,15 @@ export const metadata: Metadata = {
 		"Jumpin at the Woodside",
 		"One O'Clock Jump",
 		"Jazz tarihi",
+		"Caz tarihi",
+		"1930'lar caz",
 		"stride piano",
 		"comping",
 		"swing dansı",
 		"lindy hop müzik",
 	],
 	openGraph: {
-		title: "Count Basie: Swing Kralı ve Jazze Damga Vuran Müzikal Dev",
+		title: "Count Basie: Swing Kralı ve Caza Damga Vuran Müzikal Dev",
 		description:
 			"Count Basie'nin müzik kariyeri, orkestrasının özgün tarzı, swing'in gelişimindeki rolü ve efsane müzisyenlerle iş birlikleri hakkında detaylı bilgiler.",
 		url: "https://ankaralindyhop.org/blog/count-basie",
@@ -40,7 +42,7 @@ export default function CountBasie() {
 		<article className="mx-auto max-w-4xl text-zinc-100">
 			<header className="mb-8 text-center">
 				<h1 className="mb-4 font-bold text-3xl md:text-4xl">
-					Count Basie: Swing Kralı ve Jazze Damga Vuran Müzikal Dev
+					Count Basie: Swing Kralı ve Caza Damga Vuran Müzikal Dev
 				</h1>
 				<div className="mx-auto h-1 w-24 bg-orange-300" />
 			</header>
@@ -155,7 +157,7 @@ export default function CountBasie() {
 						katıldıkları <span className="font-semibold">düelloda</span> Basie
 						çok az farkla düelloyu kaybetse de orkestrasının başarısını
 						kanıtlamıştır. <span className="font-semibold">Duke Ellington</span>{" "}
-						gibi isimlerin de katılımıyla Jazz tarihi için unutulmaz bir gece
+						gibi isimlerin de katılımıyla caz tarihi için unutulmaz bir gece
 						yaşatmıştır.
 					</p>
 					<p className="text-base md:text-lg">
@@ -259,9 +261,6 @@ export default function CountBasie() {
 							</Link>
 						</li>
 					</ul>
-					<div className="mt-8">
-						<p className="mb-2 font-semibold text-orange-300">İçerik: Behzat</p>
-					</div>
 				</section>
 			</div>
 		</article>

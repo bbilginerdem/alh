@@ -155,8 +155,8 @@ const Features = () => (
 				<p className="text-lg text-zinc-50 opacity-50">
 					Evet, Ankara’nın sokakları denize çıkmaz; ama Ankara’da sokaklar
 					Ankara Lindy Hop’a çıkar. Ankara Lindy Hop, Ankara’nın sokaklarında,
-					parklarında ve bahçelerinde ortaya çıkmış, jazz müziğinin din, dil,
-					ırk ve cinsiyet gibi hiçbir ayrım gözetmeyen özgürlükçü felsefesini
+					parklarında ve bahçelerinde ortaya çıkmış, caz müziğinin din, dil, ırk
+					ve cinsiyet gibi hiçbir ayrım gözetmeyen özgürlükçü felsefesini
 					merkezine koymuş bir topluluktur. Başta Lindy Hop, Solo Jazz, Blues ve
 					Swing dansı türlerini, Ankara’ya kar amacı gütmeden kazandırmayı
 					amaçlayan bu dost grubu, 2018 yılında hayatın akışı içinde bir araya
@@ -201,7 +201,7 @@ const Features = () => (
 					<BentoCard
 						src="/images/features-3.jpg"
 						title={<b>Sıcak bir topluluk</b>}
-						description="Jazz, blues ve swing tutkunu yeni insanlarla tanışın."
+						description="Caz, blues ve swing tutkunu yeni insanlarla tanışın."
 					/>
 				</BentoTilt>
 

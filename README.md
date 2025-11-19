@@ -70,10 +70,10 @@ Hadi dansıyla ve giyim tarzıyla akıllara kazınan lindy hop öncülerinden bi
 ## TODOS
 
 * Yeni blog eklendiginde yada etkinlik oldugunda son 1 hafta icinde yeni diye navbarda yazsin bunu kiroya yaptir
-* In small screens, there is a gap in blogs white, something is overflowing
 * Contact us part at the bottom of home page doesn't look the best, ask kiro to change it text and styling to make it similar to overall design of the website or maybe you can add something from reactbits.dev
 * Solve SEO problems from gsc
 * Image with src "/images/blogs/7.webp" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
 * The resource at “http://localhost:3000/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2” preloaded with link preload was not used within a few seconds. Make sure all attributes of the preload tag are set correctly.
 * GSAP target null not found. https://gsap.com 2 forward-logs-shared.ts:95:22 GSAP target  not found. https://gsap.com forward-logs-shared.ts:95:22
+* codesmell ile ilgili birsey kullanilabilinir
 

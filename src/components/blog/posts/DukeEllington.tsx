@@ -104,7 +104,7 @@ export default function DukeEllington() {
 						düzenlenerek kaydedilmiştir.
 					</p>
 					<p className="text-base md:text-lg">
-						Bu şarkılardan en önemlisi jazz tarihinde de önemli bir yere sahip
+						Bu şarkılardan en önemlisi caz tarihinde de önemli bir yere sahip
 						olan{" "}
 						<span className="font-semibold text-orange-300">"Caravan"</span>
 						dır ve Duke Ellington'ın yanında trombonist olan
