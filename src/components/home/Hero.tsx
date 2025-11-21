@@ -19,6 +19,7 @@ const Hero = () => {
 	const tl = gsap.timeline();
 
 	useEffect(() => {
+		// Using Math.random() for non-security-critical UI video selection is safe
 		const randomIndex = Math.floor(Math.random() * 4) + 1; // 1-4
 		setCurrentVideoIndex(randomIndex);
 	}, []);

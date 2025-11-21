@@ -207,7 +207,7 @@ export const posts: BlogMetadata[] = [
 		id: 7,
 		title: "Count Basie: Swing Kralı ve Caza Damga Vuran Müzikal Dev",
 		slug: "count-basie",
-		publishDate: "2025-11-07T08:30:00Z",
+		publishDate: "2025-11-21T08:30:00Z",
 		author: "Neval",
 		excerpt:
 			"Count Basie'nin müzikal liderliği, orkestrasının özgün tarzı ve swing dansı kültürüne etkisi.",

@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { NewBadge } from "@/components/ui/NewBadge";
+import { isNewContent } from "@/lib/blog-utils";
 
 interface Event {
 	id: string;
@@ -55,8 +57,15 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 	const renderEventItem = (event: Event) => (
 		<li
 			key={event.id}
-			className="flex flex-col overflow-hidden rounded-lg border border-white/10 bg-white/10 shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-xl md:flex-row"
+			className="relative flex flex-col overflow-hidden rounded-lg border border-white/10 bg-white/10 shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-xl md:flex-row"
 		>
+			{/* New Badge */}
+			{isNewContent(event.date) && !event.id.startsWith("weekly-") && (
+				<div className="absolute top-4 right-4 z-10">
+					<NewBadge />
+				</div>
+			)}
+
 			{event.imageUrl && (
 				<div className="relative h-48 w-full md:h-auto md:w-1/3">
 					<Image
@@ -67,7 +76,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 						quality={90}
 					/>
-					<div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent md:bg-gradient-to-r" />
+					<div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent md:bg-linear-to-r" />
 				</div>
 			)}
 			<div className="flex-1 p-4 sm:p-6">

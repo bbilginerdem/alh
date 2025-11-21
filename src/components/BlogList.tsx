@@ -10,7 +10,8 @@ import { useEffect, useRef } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 import { CornerDownLeft } from "lucide-react";
-import { formatDate } from "@/lib/blog-utils";
+import { NewBadge } from "@/components/ui/NewBadge";
+import { formatDate, isNewContent } from "@/lib/blog-utils";
 import type { BlogMetadata } from "@/types/blog";
 
 interface BlogListProps {
@@ -43,6 +44,13 @@ function BlogCard({
 					</div>
 				)}
 
+				{/* New Badge */}
+				{isNewContent(post.publishDate) && (
+					<div className="absolute top-[10px] right-18 z-10">
+						<NewBadge />
+					</div>
+				)}
+
 				{/* Category Badge */}
 				<div className="absolute top-3 right-3 z-10 rounded-full bg-zinc-800/80 px-2 py-1 font-medium text-xs text-zinc-200">
 					{post.category}
@@ -58,7 +66,7 @@ function BlogCard({
 							className="object-cover transition-transform duration-600 group-hover:scale-105"
 							loading="lazy"
 						/>
-						<div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/40 to-transparent" />
+						<div className="pointer-events-none absolute inset-0 bg-linear-to-t from-zinc-900/90 via-zinc-900/40 to-transparent" />
 					</div>
 				) : (
 					<div className="absolute inset-0 flex items-center justify-center bg-zinc-800/60">
@@ -103,7 +111,7 @@ function BlogCard({
 
 				{/* Decorative elements */}
 				<div className="pointer-events-none absolute inset-0 overflow-hidden rounded-lg">
-					<div className="absolute bottom-0 left-0 h-0.5 w-full bg-gradient-to-r from-orange-400 to-orange-600 opacity-0 transition-opacity duration-400 group-hover:opacity-100" />
+					<div className="absolute bottom-0 left-0 h-0.5 w-full bg-linear-to-r from-orange-400 to-orange-600 opacity-0 transition-opacity duration-400 group-hover:opacity-100" />
 				</div>
 			</div>
 		</Link>
@@ -113,9 +121,15 @@ function BlogCard({
 export function BlogList({ posts }: Readonly<BlogListProps>) {
 	const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
+	// Sort posts by publishDate (newest first)
+	const sortedPosts = [...posts].sort(
+		(a, b) =>
+			new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime(),
+	);
+
 	useEffect(() => {
 		// Sync ref array with current posts
-		cardsRef.current = posts.map((_, i) => cardsRef.current[i] || null);
+		cardsRef.current = sortedPosts.map((_, i) => cardsRef.current[i] || null);
 
 		// Filter out null values and animate only valid elements
 		const validCards = cardsRef.current.filter(
@@ -168,14 +182,14 @@ export function BlogList({ posts }: Readonly<BlogListProps>) {
 				trigger.kill();
 			}
 		};
-	}, [posts]);
+	}, [sortedPosts]);
 
 	return (
 		<section className="py-1 sm:py-2">
 			<h2 className="sr-only">Blog Articles</h2>
 
 			<ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-2 lg:grid-cols-3">
-				{posts.map((post, index) => (
+				{sortedPosts.map((post, index) => (
 					<li key={post.id}>
 						<BlogCard
 							post={post}

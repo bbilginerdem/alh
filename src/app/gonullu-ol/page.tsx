@@ -8,6 +8,7 @@ export default function Ekibimiz() {
 		window.open(
 			"https://docs.google.com/forms/d/e/1FAIpQLScZCpPCAqFCMiYHmBwoodiSUHMsWAkXmkFLG8Z2qcgXfi3WFg/viewform?usp=dialog",
 			"_blank",
+			"noopener,noreferrer",
 		);
 	};
 

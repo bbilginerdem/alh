@@ -7,6 +7,8 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useWindowScroll } from "react-use";
 import { v4 as uuidv4 } from "uuid";
+import { isNewContent } from "@/lib/blog-utils";
+import { events, posts } from "@/lib/data";
 import { navbarDirection } from "@/lib/utils";
 
 const navItems: string[] = [
@@ -21,6 +23,12 @@ const NavBar = () => {
 	const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
 
 	const navContainerRef = useRef<HTMLDivElement | null>(null);
+
+	// Check if there are new blogs or events
+	const hasNewBlog = posts.some((post) => isNewContent(post.publishDate));
+	const hasNewEvent = events.some(
+		(event) => isNewContent(event.date) && !event.id.startsWith("weekly-"),
+	);
 
 	const { y: currentScrollY } = useWindowScroll();
 	const [isNavVisible, setIsNavVisible] = useState<boolean>(true);
@@ -55,9 +63,8 @@ const NavBar = () => {
 	return (
 		<div
 			ref={navContainerRef}
-			className={`fixed inset-x-0 top-0 z-40 h-24 border-none ${
-				isDropdownOpen ? "bg-zinc-950/90" : ""
-			}`}
+			className={`fixed inset-x-0 top-0 z-40 h-24 border-none ${isDropdownOpen ? "bg-zinc-950/90" : ""
+				}`}
 		>
 			<div className="-translate-y-1/2 absolute top-1/2 w-full">
 				<nav className="flex size-full items-center justify-between px-8 lg:px-10 xl:px-16">
@@ -91,15 +98,27 @@ const NavBar = () => {
 
 						{/* Navigation Links (Desktop) */}
 						<div className="hidden md:flex md:items-center md:gap-3">
-							{navItems.map((item: string) => (
-								<Link
-									key={uuidv4()}
-									href={`/${navbarDirection(item).toLowerCase()}`}
-									className="nav-hover-btn font-medium text-sm transition-colors hover:text-orange-300"
-								>
-									{item}
-								</Link>
-							))}
+							{navItems.map((item: string) => {
+								const showBadge =
+									(item === "etkinlikler" && hasNewEvent) ||
+									(item === "blog" && hasNewBlog);
+
+								return (
+									<Link
+										key={uuidv4()}
+										href={`/${navbarDirection(item).toLowerCase()}`}
+										className="nav-hover-btn relative font-medium text-sm transition-colors hover:text-orange-300"
+									>
+										{item}
+										{showBadge && (
+											<span className="-top-1 -right-2 absolute flex h-2 w-2">
+												<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-zinc-50 opacity-75" />
+												<span className="relative inline-flex h-2 w-2 rounded-full bg-zinc-100" />
+											</span>
+										)}
+									</Link>
+								);
+							})}
 						</div>
 					</div>
 				</nav>
@@ -108,16 +127,28 @@ const NavBar = () => {
 				{isDropdownOpen && (
 					<div className="absolute z-50 w-full border-zinc-800/50 border-t bg-zinc-950/90 backdrop-blur-sm md:hidden">
 						<div className="flex flex-col items-center justify-center">
-							{navItems.map((item: string) => (
-								<Link
-									key={uuidv4()}
-									href={`/${navbarDirection(item).toLowerCase()}`}
-									className="block px-3 py-4 font-medium text-orange-300 text-sm hover:bg-zinc-800/50"
-									onClick={() => setIsDropdownOpen(false)}
-								>
-									{item}
-								</Link>
-							))}
+							{navItems.map((item: string) => {
+								const showBadge =
+									(item === "etkinlikler" && hasNewEvent) ||
+									(item === "blog" && hasNewBlog);
+
+								return (
+									<Link
+										key={uuidv4()}
+										href={`/${navbarDirection(item).toLowerCase()}`}
+										className="relative block px-3 py-4 font-medium text-orange-300 text-sm hover:bg-zinc-800/50"
+										onClick={() => setIsDropdownOpen(false)}
+									>
+										{item}
+										{showBadge && (
+											<span className="-right-1 absolute top-4 flex h-2 w-2">
+												<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75" />
+												<span className="relative inline-flex h-2 w-2 rounded-full bg-orange-500" />
+											</span>
+										)}
+									</Link>
+								);
+							})}
 						</div>
 					</div>
 				)}
