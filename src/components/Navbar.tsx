@@ -63,8 +63,9 @@ const NavBar = () => {
 	return (
 		<div
 			ref={navContainerRef}
-			className={`fixed inset-x-0 top-0 z-40 h-24 border-none ${isDropdownOpen ? "bg-zinc-950/90" : ""
-				}`}
+			className={`fixed inset-x-0 top-0 z-40 h-24 border-none ${
+				isDropdownOpen ? "bg-zinc-950/90" : ""
+			}`}
 		>
 			<div className="-translate-y-1/2 absolute top-1/2 w-full">
 				<nav className="flex size-full items-center justify-between px-8 lg:px-10 xl:px-16">
