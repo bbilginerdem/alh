@@ -110,7 +110,7 @@ const Contact = () => {
 			ref={containerRef}
 			className="perspective-1000 relative my-32 min-h-120 w-full px-4 sm:px-8 lg:my-40"
 		>
-			<div className="relative mx-auto max-w-7xl rounded-2xl bg-zinc-900 py-24 text-zinc-50 sm:overflow-hidden">
+			<div className="relative mx-auto max-w-7xl rounded-2xl bg-zinc-200 py-24 text-zinc-50 sm:overflow-hidden">
 				<div
 					ref={imageRef}
 					className="absolute inset-0 overflow-hidden rounded-2xl"
@@ -136,7 +136,7 @@ const Contact = () => {
 							Bize Ulaşın
 						</p>
 						<h1 className="mt-4 bg-linear-to-br from-zinc-100 to-zinc-500 bg-clip-text font-black font-zentry text-6xl text-transparent uppercase leading-[0.85] drop-shadow-2xl md:text-8xl">
-							Sorularınız <br /> Mı Var?
+							Sorunuz <br /> Mı Var?
 						</h1>
 					</div>
 
