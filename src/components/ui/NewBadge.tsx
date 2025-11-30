@@ -2,7 +2,7 @@ interface NewBadgeProps {
 	className?: string;
 }
 
-export function NewBadge({ className = "" }: NewBadgeProps) {
+export function NewBadge({ className = "" }: Readonly<NewBadgeProps>) {
 	return (
 		<div className={`inline-flex items-center justify-center ${className}`}>
 			<span className="absolute inline-flex h-5 w-8 animate-ping-2s rounded-full bg-orange-400 opacity-50" />

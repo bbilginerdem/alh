@@ -8,6 +8,7 @@ export default function Toplulukİlkeleri() {
 		window.open(
 			"https://docs.google.com/forms/d/e/1FAIpQLScyrPGGqRb-dUQBOj4VGtpmOHd-SbuoWspXjTCSPb0Fc3_MUA/viewform",
 			"_blank",
+			"noopener,noreferrer",
 		);
 	};
 

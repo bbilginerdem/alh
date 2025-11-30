@@ -1,6 +1,7 @@
 import CountBasie from "@/components/blog/posts/CountBasie";
 import DukeEllington from "@/components/blog/posts/DukeEllington";
 import EarlHines from "@/components/blog/posts/EarlHines";
+import EllaFitzgerald from "@/components/blog/posts/EllaFitzgerald";
 import FrankieManning from "@/components/blog/posts/FrankieManning";
 import LindyHopHistory from "@/components/blog/posts/LindyHopHistory";
 import NormaMiller from "@/components/blog/posts/NormaMiller";
@@ -236,6 +237,42 @@ export const posts: BlogMetadata[] = [
 			canonicalUrl: "https://ankaralindyhop.org/blog/count-basie",
 		},
 		Content: CountBasie,
+	},
+	{
+		id: 8,
+		title: "Ella Fitzgerald: Cazın First Lady'si ve Sihirli Sesi",
+		slug: "ella-fitzgerald",
+		publishDate: "2025-11-22T08:30:00Z",
+		author: "Neval",
+		excerpt:
+			"Ella Fitzgerald'ın zorlu çocukluğu, Apollo Tiyatrosu'ndaki kaderi, scat ustalığı ve efsanevi kariyeri.",
+		readingTime: 4,
+		tags: [
+			"Ella Fitzgerald",
+			"Caz Efsanesi",
+			"Scat Şarkı Söyleme",
+			"Chick Webb",
+			"Dizzy Gillespie",
+		],
+		category: "Müzik",
+		image: "/images/blogs/8.jpg",
+		imageAlt: "Ella Fitzgerald sahne performansı",
+		seo: {
+			metaDescription:
+				"Ella Fitzgerald'ın zorlu çocukluğu, Apollo Tiyatrosu'ndaki dönüm noktası, scat şarkı söylemedeki ustalığı ve caz tarihine kazandırdığı efsanevi eserler.",
+			keywords: [
+				"Ella Fitzgerald",
+				"caz efsanesi",
+				"First Lady of Song",
+				"scat şarkı söyleme",
+				"Chick Webb",
+				"Dizzy Gillespie",
+				"bebop",
+				"jazz tarihi",
+			],
+			canonicalUrl: "https://ankaralindyhop.org/blog/ella-fitzgerald",
+		},
+		Content: EllaFitzgerald,
 	},
 ];
 
