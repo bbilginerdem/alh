@@ -24,7 +24,7 @@ export default function Contact() {
 			if (error) throw new Error(error);
 
 			toast.success("E-posta başarıyla gönderildi.");
-			formRef.current?.reset(); // Safely reset using ref
+			formRef.current?.reset();
 		} catch (error) {
 			toast.error(
 				error instanceof Error

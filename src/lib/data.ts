@@ -243,7 +243,7 @@ export const posts: BlogMetadata[] = [
 		title: "Ella Fitzgerald: Cazın First Lady'si ve Sihirli Sesi",
 		slug: "ella-fitzgerald",
 		publishDate: "2025-11-22T08:30:00Z",
-		author: "Neval",
+		author: "Seda",
 		excerpt:
 			"Ella Fitzgerald'ın zorlu çocukluğu, Apollo Tiyatrosu'ndaki kaderi, scat ustalığı ve efsanevi kariyeri.",
 		readingTime: 4,

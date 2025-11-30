@@ -7,7 +7,7 @@ interface ButtonProps {
 	leftIcon?: React.ReactNode;
 	containerClass: string;
 	type?: "button" | "submit" | "reset";
-	onClick?: () => void; // Add this line
+	onClick?: () => void;
 }
 
 const Button = ({
@@ -17,7 +17,7 @@ const Button = ({
 	leftIcon,
 	containerClass,
 	type = "button",
-	onClick, // Add this line
+	onClick,
 }: ButtonProps) => {
 	return (
 		<button
@@ -27,7 +27,7 @@ const Button = ({
 				containerClass,
 			)}
 			type={type}
-			onClick={onClick} // Add this line
+			onClick={onClick}
 		>
 			{leftIcon}
 
