@@ -5,11 +5,9 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { useWindowScroll } from "react-use";
-import { v4 as uuidv4 } from "uuid";
 import { isNewContent } from "@/lib/blog-utils";
 import { events, posts } from "@/lib/data";
-import { navbarDirection } from "@/lib/utils";
+import { generateSecureRandomId, navbarDirection } from "@/lib/utils";
 
 const navItems: string[] = [
 	"gönüllü ol",
@@ -18,6 +16,29 @@ const navItems: string[] = [
 	"blog",
 	"iletişim",
 ];
+
+export const useWindowScroll = () => {
+	const [scrollY, setScrollY] = useState(0);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			setScrollY(window.scrollY);
+		};
+
+		// Set initial value
+		setScrollY(window.scrollY);
+
+		// Listen to scroll events
+		window.addEventListener("scroll", handleScroll, { passive: true });
+
+		// Cleanup
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
+	return { y: scrollY };
+};
 
 const NavBar = () => {
 	const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
@@ -106,7 +127,7 @@ const NavBar = () => {
 
 								return (
 									<Link
-										key={uuidv4()}
+										key={generateSecureRandomId()}
 										href={`/${navbarDirection(item).toLowerCase()}`}
 										className="nav-hover-btn relative font-medium text-sm transition-colors hover:text-orange-300"
 									>
@@ -135,7 +156,7 @@ const NavBar = () => {
 
 								return (
 									<Link
-										key={uuidv4()}
+										key={generateSecureRandomId()}
 										href={`/${navbarDirection(item).toLowerCase()}`}
 										className="relative block px-3 py-4 font-medium text-orange-300 text-sm hover:bg-zinc-800/50"
 										onClick={() => setIsDropdownOpen(false)}

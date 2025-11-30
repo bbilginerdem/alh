@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { v4 as uuidv4 } from "uuid";
+import { generateSecureRandomId } from "@/lib/utils";
 import Facebook from "./social/facebook";
 import Instagram from "./social/instagram";
 import Youtube from "./social/youtube";
@@ -24,7 +24,7 @@ const Footer = () => {
 				<div className="flex justify-center gap-6 md:justify-start">
 					{socialLinks.map((link) => (
 						<Link
-							key={uuidv4()}
+							key={generateSecureRandomId()}
 							href={link.href}
 							target="_blank"
 							rel="noopener noreferrer"

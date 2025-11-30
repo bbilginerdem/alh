@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import { v4 as uuidv4 } from "uuid";
+import { generateSecureRandomId } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,12 +46,12 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
 		<div ref={containerRef} className={clsx("animated-title", containerClass)}>
 			{title.split("<br />").map((line) => (
 				<div
-					key={uuidv4()}
+					key={generateSecureRandomId()}
 					className="max-w-full flex-center flex-wrap gap-2 px-10 md:gap-3"
 				>
 					{line.split(" ").map((word) => (
 						<span
-							key={uuidv4()}
+							key={generateSecureRandomId()}
 							className="animated-word"
 							dangerouslySetInnerHTML={{ __html: word }}
 						/>

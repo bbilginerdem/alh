@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import Contact from "../components/Contact";
-import About from "../components/home/About";
-import Features from "../components/home/Features";
-import Hero from "../components/home/Hero";
+import Contact from "@/components/Contact";
+import About from "@/components/home/About";
+import Features from "@/components/home/Features";
+import Hero from "@/components/home/Hero";
 import Loading from "./loading";
 
 export default function Home() {

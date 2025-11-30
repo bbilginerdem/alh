@@ -6,8 +6,8 @@ import Link from "next/link";
 import { useId, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import Button from "@/components/ui/Button";
+import CustomBlackLayout from "@/components/ui/CustomBlackLayout";
 import { sendEmail } from "@/email/sendEmail";
-import CustomBlackLayout from "../../components/ui/CustomBlackLayout";
 
 export default function Contact() {
 	const [isPending, setIsPending] = useState(false);
