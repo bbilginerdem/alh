@@ -10,14 +10,16 @@ import Navbar from "@/components/Navbar";
 const inter = Inter({
 	subsets: ["latin"],
 	variable: "--font-inter",
-	display: "swap",
+	display: "optional",
+	preload: true,
 });
 
 const almendraSC = Almendra_SC({
 	subsets: ["latin"],
 	variable: "--font-almendra-sc",
 	weight: "400",
-	display: "swap",
+	display: "optional",
+	preload: true,
 });
 
 export const metadata: Metadata = {

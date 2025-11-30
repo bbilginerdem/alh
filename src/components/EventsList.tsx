@@ -73,7 +73,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 						alt={`${event.title} etkinlik görseli`}
 						fill
 						className="object-cover"
-						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+						sizes="(max-width: 768px) 100vw, 33vw"
 						quality={90}
 					/>
 					<div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent md:bg-linear-to-r" />

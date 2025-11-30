@@ -93,6 +93,7 @@ export const BentoCard: React.FC<BentoCardProps> = ({
 			<Image
 				src={src}
 				fill
+				sizes="(max-width: 640px) 100vw, 50vw"
 				alt={typeof title === "string" ? title : "Bento Card Image"}
 				className="absolute top-0 left-0 size-full object-cover object-center"
 			/>
@@ -171,7 +172,7 @@ const Features = () => (
 			<BentoTilt className="relative mb-7 h-96 w-full overflow-hidden rounded-md border-hsla transition-transform duration-300 ease-out md:h-[65vh]">
 				<BentoCard
 					src="/images/features-1.jpg"
-					title={<b>Stresini at, ritme katıl!</b>}
+					title="Stresini at, ritme katıl!"
 					description="Günlük koşuşturmadan uzaklaş, dansın enerjisiyle yenilen!"
 					isComingSoon="Ankara Etkinlik Takvimi"
 					link="https://www.swing-out.com/turkiye/ankara"
@@ -184,7 +185,7 @@ const Features = () => (
 				<BentoTilt className="bento-tilt sm:row-span-2">
 					<BentoCard
 						src="/images/features-2.jpg"
-						title={<b>Nerede?</b>}
+						title="Nerede?"
 						description="Her Çarşamba Ankara Lindy Hop topluluğu olarak bir araya geliyoruz. Bu buluşmalarda iki birbiriyle bağlantılı etkinlik oluyor: pratik ve sosyal dans."
 						isComingSoon={
 							<>
@@ -200,7 +201,7 @@ const Features = () => (
 				<BentoTilt className="bento-tilt">
 					<BentoCard
 						src="/images/features-3.jpg"
-						title={<b>Sıcak bir topluluk</b>}
+						title="Sıcak bir topluluk"
 						description="Caz, blues ve swing tutkunu yeni insanlarla tanışın."
 					/>
 				</BentoTilt>
@@ -209,7 +210,7 @@ const Features = () => (
 				<BentoTilt className="bento-tilt">
 					<BentoCard
 						src="/images/features-4.jpg"
-						title={<b>Eğlenceli ve Sosyal</b>}
+						title="Eğlenceli ve Sosyal"
 						description="Yeni insanlarla tanış, müziğin ritmine bırak kendini!"
 					/>
 				</BentoTilt>

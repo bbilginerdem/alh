@@ -4,20 +4,18 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import Image from "next/image";
-import { useId } from "react";
+import { useRef } from "react";
 import AnimatedTitle from "./AnimatedTitle";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
-	// Generate unique IDs
-	const clipId = useId();
-	const aboutSectionId = useId();
+	const clipRef = useRef<HTMLDivElement>(null);
 
 	useGSAP(() => {
 		const clipAnimation = gsap.timeline({
 			scrollTrigger: {
-				trigger: `#${clipId}`,
+				trigger: clipRef.current,
 				start: "center center",
 				end: "+=800 center",
 				scrub: 0.5,
@@ -32,10 +30,10 @@ const About = () => {
 			height: "100dvh",
 			borderRadius: 0,
 		});
-	}, [clipId]);
+	});
 
 	return (
-		<section id={aboutSectionId} className="min-h-screen w-screen">
+		<section id="about" className="min-h-screen w-screen">
 			<div className="relative mt-20 mb-3 items-center gap-5 sm:mt-36 sm:mb-5 sm:gap-6 md:mb-6 lg:mb-7 xl:mb-8">
 				<AnimatedTitle
 					title="Ankara’nın ilk <br /> Lindy Hop Komünitesi"
@@ -52,7 +50,7 @@ const About = () => {
 				</div>
 			</div>
 
-			<div className="h-dvh w-screen" id={clipId}>
+			<div className="h-dvh w-screen" id="clip" ref={clipRef}>
 				<div className="mask-clip-path about-image">
 					<Image
 						src="/images/about.jpg"
@@ -60,7 +58,7 @@ const About = () => {
 						fill
 						priority
 						quality={100}
-						sizes="100vw"
+						sizes="(max-width: 768px) 40vw, (max-width: 1024px) 70vw, 100vw"
 						className="absolute top-0 left-0"
 						style={{
 							objectFit: "cover",

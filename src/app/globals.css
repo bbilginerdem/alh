@@ -184,7 +184,7 @@
 	line-height: 0.8;
 	color: white;
 	font-family: var(--font-almendra-sc), sans-serif;
-	font-weight: 900;
+	font-weight: 400;
 }
 
 @media (min-width: 640px) {

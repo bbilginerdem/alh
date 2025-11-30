@@ -42,9 +42,10 @@ export function RelatedPosts({
 										src={post.image}
 										alt={post.imageAlt || post.title}
 										fill
+										sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
 										className="object-cover transition-transform duration-300 group-hover:scale-110"
 									/>
-									<div className="absolute inset-0 bg-gradient-to-t from-zinc-900/60 to-transparent" />
+									<div className="absolute inset-0 bg-linear-to-t from-zinc-900/60 to-transparent" />
 
 									{/* Category badge */}
 									<div className="absolute top-3 right-3 rounded-full bg-orange-500/90 px-2 py-1 font-medium text-white text-xs">

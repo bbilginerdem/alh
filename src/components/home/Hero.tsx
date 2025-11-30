@@ -44,23 +44,23 @@ const Hero = () => {
 			duration: 2,
 			ease: "power3.out",
 		});
-	});
 
-	gsap.set(videoFrameRef.current, {
-		clipPath: "polygon(14% 0, 72% 0, 88% 90%, 0 95%)",
-		borderRadius: "0% 0% 40% 10%",
-	});
+		gsap.set(videoFrameRef.current, {
+			clipPath: "polygon(14% 0, 72% 0, 88% 90%, 0 95%)",
+			borderRadius: "0% 0% 40% 10%",
+		});
 
-	gsap.from(videoFrameRef.current, {
-		clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-		borderRadius: "0% 0% 0% 0%",
-		ease: "power1.inOut",
-		scrollTrigger: {
-			trigger: videoFrameRef.current,
-			start: "center center",
-			end: "bottom center",
-			scrub: true,
-		},
+		gsap.from(videoFrameRef.current, {
+			clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+			borderRadius: "0% 0% 0% 0%",
+			ease: "power1.inOut",
+			scrollTrigger: {
+				trigger: videoFrameRef.current,
+				start: "center center",
+				end: "bottom center",
+				scrub: true,
+			},
+		});
 	});
 
 	const getVideoSrc = (index: number): string => `videos/hero-${index}.mp4`;
@@ -75,6 +75,7 @@ const Hero = () => {
 					<video
 						ref={videoRef}
 						src={getVideoSrc(currentVideoIndex)}
+						poster="/images/features-1.jpg"
 						autoPlay
 						loop
 						muted
@@ -88,7 +89,7 @@ const Hero = () => {
 					ref={lindyTextRef}
 					className="hero-heading absolute right-5 bottom-5 z-30 font-almendra-sc text-zinc-950"
 				>
-					<b>LINDY HOP</b>
+					LINDY HOP
 				</h1>
 
 				<div className="absolute top-0 left-0 z-30 size-full">
@@ -97,7 +98,7 @@ const Hero = () => {
 							ref={ankaraTextRef}
 							className="hero-heading font-almendra-sc text-zinc-950"
 						>
-							<b>ANKARA</b>
+							ANKARA
 						</h1>
 
 						<div className="relative my-3 max-w-fit rounded-md bg-black/40 px-3 py-2 shadow-inner backdrop-blur-xs">
@@ -119,7 +120,7 @@ const Hero = () => {
 			</div>
 
 			<h1 className="hero-heading absolute right-5 bottom-5 font-almendra-sc text-zinc-950">
-				<b>LINDY HOP</b>
+				LINDY HOP
 			</h1>
 		</div>
 	);

@@ -17,29 +17,6 @@ const navItems: string[] = [
 	"iletişim",
 ];
 
-export const useWindowScroll = () => {
-	const [scrollY, setScrollY] = useState(0);
-
-	useEffect(() => {
-		const handleScroll = () => {
-			setScrollY(window.scrollY);
-		};
-
-		// Set initial value
-		setScrollY(window.scrollY);
-
-		// Listen to scroll events
-		window.addEventListener("scroll", handleScroll, { passive: true });
-
-		// Cleanup
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
-	}, []);
-
-	return { y: scrollY };
-};
-
 const NavBar = () => {
 	const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
 
@@ -51,25 +28,35 @@ const NavBar = () => {
 		(event) => isNewContent(event.date) && !event.id.startsWith("weekly-"),
 	);
 
-	const { y: currentScrollY } = useWindowScroll();
 	const [isNavVisible, setIsNavVisible] = useState<boolean>(true);
 	const [lastScrollY, setLastScrollY] = useState<number>(0);
 
 	useEffect(() => {
 		if (!navContainerRef.current) return;
 
-		if (currentScrollY === 0) {
-			setIsNavVisible(true);
-			navContainerRef.current.classList.remove("floating-nav");
-		} else if (currentScrollY > lastScrollY) {
-			setIsNavVisible(false);
-			navContainerRef.current.classList.add("floating-nav");
-		} else if (currentScrollY < lastScrollY) {
-			setIsNavVisible(true);
-			navContainerRef.current.classList.add("floating-nav");
-		}
-		setLastScrollY(currentScrollY);
-	}, [currentScrollY, lastScrollY]);
+		const handleScroll = () => {
+			const currentScrollY = window.scrollY;
+			const isScrollingDown = currentScrollY > lastScrollY;
+
+			// Update lastScrollY for next event
+			setLastScrollY(currentScrollY);
+
+			if (currentScrollY === 0) {
+				setIsNavVisible(true);
+				navContainerRef.current?.classList.remove("floating-nav");
+			} else if (isScrollingDown && currentScrollY > 50) {
+				// Add threshold
+				setIsNavVisible(false);
+				navContainerRef.current?.classList.add("floating-nav");
+			} else if (!isScrollingDown) {
+				setIsNavVisible(true);
+				navContainerRef.current?.classList.add("floating-nav");
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll, { passive: true });
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, [lastScrollY]);
 
 	useEffect(() => {
 		if (!navContainerRef.current) return;

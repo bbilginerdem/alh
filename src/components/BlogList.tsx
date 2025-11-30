@@ -35,7 +35,7 @@ function BlogCard({
 		>
 			<div
 				ref={setRef}
-				className="relative h-80 overflow-hidden rounded-lg border border-orange-300/20 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:translate-y-[-2px] hover:border-orange-300/40 hover:bg-white/10"
+				className="hover:-translate-y-0.5 relative h-80 overflow-hidden rounded-lg border border-orange-300/20 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-orange-300/40 hover:bg-white/10"
 			>
 				{/* Featured Badge */}
 				{post.featured && (
@@ -46,7 +46,7 @@ function BlogCard({
 
 				{/* New Badge */}
 				{isNewContent(post.publishDate) && (
-					<div className="absolute top-[10px] right-18 z-10">
+					<div className="absolute top-2.5 right-18 z-10">
 						<NewBadge />
 					</div>
 				)}
@@ -63,6 +63,7 @@ function BlogCard({
 							src={post.image}
 							alt={post.imageAlt || post.title}
 							fill
+							sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
 							className="object-cover transition-transform duration-600 group-hover:scale-105"
 							loading="lazy"
 						/>
