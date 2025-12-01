@@ -114,7 +114,7 @@ export const posts: BlogMetadata[] = [
 		title: "Duke Ellington: Cazın Efsanevi Bestecisi ve Lideri",
 		slug: "duke-ellington",
 		publishDate: "2025-02-01T10:30:00Z",
-		author: "Neval",
+		author: "Neval D.",
 		excerpt:
 			"Duke Ellington'ın caz müziğine kattığı eşsiz katkılar ve swing dansına etkisini keşfedin.",
 		readingTime: 3,
@@ -148,7 +148,7 @@ export const posts: BlogMetadata[] = [
 		title: "Earl Hines: Cazın Yenilikçi Piyano Devi",
 		slug: "earl-hines",
 		publishDate: "2025-02-05T09:15:00Z",
-		author: "Ayça",
+		author: "Ayça Şirin",
 		excerpt:
 			"Earl Hines'ın piyano tekniğindeki devrimci yaklaşımı ve swing müziğine kattığı yenilikler.",
 		readingTime: 1,
@@ -209,7 +209,7 @@ export const posts: BlogMetadata[] = [
 		title: "Count Basie: Swing Kralı ve Caza Damga Vuran Müzikal Dev",
 		slug: "count-basie",
 		publishDate: "2025-11-21T08:30:00Z",
-		author: "Neval",
+		author: "Neval D.",
 		excerpt:
 			"Count Basie'nin müzikal liderliği, orkestrasının özgün tarzı ve swing dansı kültürüne etkisi.",
 		readingTime: 3,
@@ -243,7 +243,7 @@ export const posts: BlogMetadata[] = [
 		title: "Ella Fitzgerald: Cazın First Lady'si ve Sihirli Sesi",
 		slug: "ella-fitzgerald",
 		publishDate: "2025-11-22T08:30:00Z",
-		author: "Seda",
+		author: "Seda Gülten",
 		excerpt:
 			"Ella Fitzgerald'ın zorlu çocukluğu, Apollo Tiyatrosu'ndaki kaderi, scat ustalığı ve efsanevi kariyeri.",
 		readingTime: 4,
