@@ -49,8 +49,8 @@ export default function NormaMiller() {
 							<span className="font-semibold">İngiltere Kralı VI. George</span>
 							’un taç giyme töreni için düzenlenen özel bir şovda dans etme
 							fırsatı bulması oldu. Bu performans, Lindy Hop’un bir kraliyet
-							önünde sergilendiği ilk resmi anlardan biriydi ve bu dansın
-							saygınlığını sonsuza dek değiştirdi.
+							önünde sergilendiği ilk resmi anlardan biriydi ve belki de bu dansın
+							kaderini sonsuza dek değiştirdi.
 						</p>
 						<p className="mb-4">
 							Bu tarihi başarının ardından, Norma’nın dünyaya açılan kapısı
@@ -60,12 +60,10 @@ export default function NormaMiller() {
 					</div>
 				</div>
 				<p>
-					Norma’nın sahne karizması, teknik kusursuzluğu ve o durdurulamaz
+					Norma’nın sahnedeki karizması, teknik kusursuzluğu ve durdurulamaz
 					enerjisi, Avrupa’daki izleyicileri de baştan çıkardı. Onun
-					performansları, swing dansının yalnızca bir eğlence olmadığını, aynı
-					zamanda gerçek bir sahne sanatı olduğunu herkese kanıtladı. Bu
-					yolculuklar onu, Harlem’den çıkıp dansın gerçek ve tutkulu bir
-					elçisine dönüştürdü.
+					performansları, swing dansının yalnızca bir eğlence olmadığını,
+					aynı zamanda gerçek bir sahne sanatı olduğunu herkese kanıtladı.
 				</p>
 			</section>
 
@@ -143,14 +141,7 @@ export default function NormaMiller() {
 				<h3 className="mb-3 font-semibold text-orange-300 text-xl">
 					Norma Miller'ın Mirası
 				</h3>
-				<ul className="list-disc space-y-2 pl-5 text-zinc-100">
-					<li>Lindy Hop'un en önemli kadın öncülerinden biri</li>
-					<li>Hollywood'un ilk Siyah kadın koreograflarından biri</li>
-					<li>Swing dansının dünya çapındaki bir elçisi</li>
-					<li>Harlem Rönesansı'nın son tanıklarındandı</li>
-					<li>2019'da 99 yaşında vefat etti, ama ruhu hala dans ediyor</li>
-				</ul>
-				<p className="mt-4 border-orange-300 border-l-4 pl-4 text-zinc-100">
+				<p className="mt-4 text-zinc-100">
 					Norma Miller, 5 Mayıs 2019'da, 99 yaşında aramızdan ayrıldı. Ama
 					geride bıraktığı miras yaşamaya devam ediyor: O, Lindy Hop'un en
 					önemli kadın öncülerinden biri, Hollywood'un ilk Siyah kadın

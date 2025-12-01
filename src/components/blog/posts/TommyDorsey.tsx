@@ -35,11 +35,6 @@ export default function TommyDorsey() {
 	return (
 		<article>
 			<section className="mb-8">
-				<p className="mb-6 text-base md:text-lg">
-					Yeni içeriğimiz ile karşınızdayız:{" "}
-					<span className="font-semibold text-orange-300">Tommy Dorsey 🎺</span>
-				</p>
-
 				<div className="mb-8 flex flex-col gap-6 md:flex-row">
 					<div className="md:w-1/2">
 						<Image

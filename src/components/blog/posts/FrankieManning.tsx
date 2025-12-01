@@ -34,10 +34,10 @@ export default function FrankieManning() {
 						</h2>
 						<p className="mb-4">
 							Frankie, 1914'te dünyaya geldi ve gençliğini Harlem'in kalbinde,{" "}
-							<span className="font-semibold">Savoy Ballroom</span>, elektrikli
-							atmosferinde geçirdi. Burası, cazın coştuğu, dansçıların
+							<span className="font-semibold">Savoy Ballroom</span>'un elektrikli
+							atmosferinde, geçirdi. Burası, cazın coştuğu, dansçıların
 							birbirleriyle yarıştığı ve yeni adımların doğduğu gerçek bir
-							laboratuvardı. Frankie de burada kendini geliştirdi.
+							laboratuvardı.
 						</p>
 
 						<p className="mb-4">
@@ -60,9 +60,9 @@ export default function FrankieManning() {
 						<p className="mb-4">
 							Ama her hikayede bir dönüş vardır. Swing dönemi kapandı, büyük
 							orkestralar dağıldı. Frankie Manning de, belki de en parlak
-							döneminde, adeta sessizliğe gömüldü. Dansı unutuldu... ta ki
-							1980'lerde genç bir nesil, eski kayıtları bulup Lindy Hop'u
-							yeniden keşfedene kadar.
+							döneminde, adeta sessizliğe gömüldü. Hatta postane'de
+							çalışmaya başladı, ta ki 1980'lerde tekrar eğitim vermesi
+							istenilene kadar.
 						</p>
 					</div>
 				</div>
@@ -76,36 +76,14 @@ export default function FrankieManning() {
 					Frankie, 70'li yaşlarında, tüm dünyayı dolaşmaya, yeni nesillere
 					atılımları, aerials'ı ve dansın ruhunu öğretmeye başladı. Onun için
 					dans, sadece adımlardan ibaret değildi; bir neşe, bir özgürlük ve
-					yaratıcılık ifadesiydi. Şöyle derdi: "Dans etmek, müziğin içinde
-					uçmaktır."
+					yaratıcılık ifadesiydi.
 				</p>
 				<p>
 					Frankie Manning, 2009'da, neredeyse 95 yaşında aramızdan ayrıldı. Ama
 					mirası asla bitmedi. Bugün dünyanın dört bir yanındaki her swing
-					festivalinde, her workshop'ta, pistte havaya kaldırılan her partnerde
+					festivalinde, her eğitimde, pistte havaya kaldırılan herkeste
 					onun ruhu yaşıyor.
 				</p>
-			</section>
-
-			<section className="rounded-lg p-6">
-				<h3 className="mb-4 font-semibold text-orange-300 text-xl">
-					Son Söz: Frankie'nin Dansı Asla Bitmez!
-				</h3>
-				<p className="mb-4">
-					Frankie Manning, 2009'da, neredeyse 95 yaşında aramızdan ayrıldı. Ama
-					mirası asla bitmedi. Bugün dünyanın dört bir yanındaki her swing
-					festivalinde, her workshop'ta, pistte havaya kaldırılan her partnerde
-					onun ruhu yaşıyor.
-				</p>
-				<div className="mt-6">
-					<p className="mb-2 font-semibold">
-						Peki ya siz? Hiç Lindy Hop denediniz mi?
-					</p>
-					<p>
-						Yoksa onun hikayesi sizi dans etmek (veya izlemek) konusunda
-						heyecanlandırdı mı?
-					</p>
-				</div>
 			</section>
 		</div>
 	);
