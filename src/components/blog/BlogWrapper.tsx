@@ -17,7 +17,7 @@ export function BlogWrapper({
 	return (
 		<article className="mx-auto max-w-4xl px-4 py-8">
 			{/* Blog Header */}
-			<header className="mb-12">
+			<header className="mb-8">
 				{/* Category Badge */}
 				<div className="mb-4">
 					<span className="inline-block rounded-full bg-orange-500/20 px-3 py-1 font-medium text-orange-300 text-sm">

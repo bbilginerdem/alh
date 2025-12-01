@@ -4,14 +4,15 @@ import Image from "next/image";
 
 export default function FrankieManning() {
 	return (
-		<div className="mx-auto max-w-4xl text-zinc-100">
+		<div>
 			<section className="mb-8">
-				<p className="mb-6 text-lg">
-					Dans tarihinin en etkileyici figürlerinden biri olan{" "}
+				<p className="mb-8 text-lg">
+					Dans tarihinde devrim yaratan isimlerden biri:{" "}
 					<span className="font-semibold text-orange-300">Frankie Manning</span>
-					, sadece bir dansçı değil, aynı zamanda bir devrimciydi. Lindy Hop'u
-					yeni zirvelere taşıyan, aerial (havada) figürleriyle dans dünyasını
-					sarsan ve bu dans türünü küresel bir fenomen haline getiren isimdi.
+					. Onu sadece bir dansçı olarak tanımlamak yetmez; o, Lindy Hop'u
+					şekillendiren, adeta yeniden icat eden bir öncüydü. Dans pistlerinde
+					yarattığı havada akrobatik figürlerle herkesi hayrete düşürdü ve bu
+					dansı tüm dünyaya sevdirdi.
 				</p>
 
 				<div className="mb-8 flex flex-col gap-6 md:flex-row">
@@ -32,45 +33,36 @@ export default function FrankieManning() {
 							Frankie Manning: Dansın Öncü Ruhu
 						</h2>
 						<p className="mb-4">
-							Frankie Manning, 1914'te doğdu ve Harlem'in büyüleyici caz
-							sahnesinde yetişti.{" "}
-							<span className="font-semibold">Savoy Ballroom</span>, onun ve
-							diğer efsanevi dansçıların yeni adımlar keşfettiği, sınırları
-							zorladığı bir laboratuvardı.
+							Frankie, 1914'te dünyaya geldi ve gençliğini Harlem'in kalbinde,{" "}
+							<span className="font-semibold">Savoy Ballroom</span>, elektrikli
+							atmosferinde geçirdi. Burası, cazın coştuğu, dansçıların
+							birbirleriyle yarıştığı ve yeni adımların doğduğu gerçek bir
+							laboratuvardı. Frankie de burada kendini geliştirdi.
 						</p>
 
 						<p className="mb-4">
-							Frankie, sadece dans etmekle kalmadı, Lindy Hop'a kattığı{" "}
-							<span className="font-semibold">aerials</span> (havada yapılan
-							akrobatik hareketler) ile dansın fiziksel sınırlarını genişletti.
-							Bu hareketler o kadar etkileyiciydi ki, Savoy'da performans
-							sergilediği gecelerde dans pisti tıklım tıklım dolardı.
+							Onun asıl devrimi, dansı yere bağlı olmaktan çıkarıp havaya
+							taşımasıydı. <span className="font-semibold">"Aerials"</span>{" "}
+							dediğimiz o akrobatik, partneri fırlatıp tuttuğu hareketleri Lindy
+							Hop'a kattı. O kadar etkileyiciydi ki, Frankie pistteyken Savoy
+							tıklım tıklım dolardı. İnsanlar onu izlemek için gelirdi.
 						</p>
 
 						<p className="mb-4">
 							1940'larda{" "}
-							<span className="font-semibold">Whitey's Lindy Hoppers</span>{" "}
-							grubuyla dünya turuna çıktı ve Lindy Hop'u küresel bir fenomen
-							haline getirdi. Hollywood filmlerinde koreograf olarak çalıştığı
-							sahneler, bugün hala swing dansçıları için altın standart kabul
-							edilir.
+							<span className="font-semibold">Whitey's Lindy Hoppers</span> adlı
+							grupla dünyayı dolaştı. Hollywood filmlerinde dans sahneleri
+							koreografiledi. "Hellzapoppin'" filmindeki o meşhur sahneyi belki
+							görmüşsünüzdür; işte o, Frankie'nin imzasını taşır. Dansı beyaz
+							perdede ölümsüzleştirdi.
 						</p>
 
 						<p className="mb-4">
-							Dans kariyerinin zirvesindeyken İkinci Dünya Savaşı'nın patlak
-							vermesi ve swing müziğinin popülaritesini yitirmesiyle Frankie, 30
-							yıllık bir sessizliğe gömüldü. Ancak 1980'lerde{" "}
-							<span className="font-semibold">Lindy Hop Rönesansı</span>{" "}
-							başladığında, efsanevi dansçı yeniden sahnelere döndü.
-						</p>
-
-						<p>
-							Ömrünün son yıllarını dünyayı dolaşarak workshop'lar vererek ve
-							yeni nesillere Lindy Hop'u öğreterek geçiren Frankie Manning,
-							2009'da aramızdan ayrıldı. Ancak bıraktığı miras, her{" "}
-							<span className="font-semibold">swing</span> festivalinde, her{" "}
-							<span className="font-semibold">aerial</span> hareketinde ve her
-							Lindy Hop yapan dansçının adımlarında yaşamaya devam ediyor.
+							Ama her hikayede bir dönüş vardır. Swing dönemi kapandı, büyük
+							orkestralar dağıldı. Frankie Manning de, belki de en parlak
+							döneminde, adeta sessizliğe gömüldü. Dansı unutuldu... ta ki
+							1980'lerde genç bir nesil, eski kayıtları bulup Lindy Hop'u
+							yeniden keşfedene kadar.
 						</p>
 					</div>
 				</div>
@@ -78,53 +70,41 @@ export default function FrankieManning() {
 
 			<section className="mb-8 rounded-lg bg-white/10 p-6 backdrop-blur-sm">
 				<h2 className="mb-4 font-semibold text-2xl text-orange-300">
-					Hollywood'dan Dünyaya: Frankie'nin Mirası
+					Ve Efsane Uyandı
 				</h2>
 				<p className="mb-4">
-					Frankie Manning'in yeteneği sadece dans pistiyle sınırlı kalmadı.
-					1940'larda Hollywood filmlerinde koreograf olarak çalıştı ve Lindy
-					Hop'u beyaz perdeye taşıdı.{" "}
-					<span className="font-semibold">"Hellzapoppin'"</span> gibi
-					filmlerdeki dans sahneleri, bugün hala swing dansçıları için bir ilham
-					kaynağı.
+					Frankie, 70'li yaşlarında, tüm dünyayı dolaşmaya, yeni nesillere
+					atılımları, aerials'ı ve dansın ruhunu öğretmeye başladı. Onun için
+					dans, sadece adımlardan ibaret değildi; bir neşe, bir özgürlük ve
+					yaratıcılık ifadesiydi. Şöyle derdi: "Dans etmek, müziğin içinde
+					uçmaktır."
 				</p>
 				<p>
-					Ancak, swing dansının popülaritesi 1950'lerde azalmaya başladığında
-					Frankie Manning de bir süre unutuldu. Ta ki 1980'lerde{" "}
-					<span className="font-semibold">Lindy Hop'un yeniden doğuşuna</span>{" "}
-					kadar!
+					Frankie Manning, 2009'da, neredeyse 95 yaşında aramızdan ayrıldı. Ama
+					mirası asla bitmedi. Bugün dünyanın dört bir yanındaki her swing
+					festivalinde, her workshop'ta, pistte havaya kaldırılan her partnerde
+					onun ruhu yaşıyor.
 				</p>
 			</section>
 
-			<section className="mb-8">
-				<h2 className="mb-4 font-semibold text-2xl text-orange-300">
-					Lindy Hop Elçisi ve Dansın Felsefesi
-				</h2>
-				<p className="mb-4">
-					Frankie Manning, sadece bir dansçı değil, aynı zamanda bir{" "}
-					<span className="font-semibold">kültür elçisiydi</span>. Ona göre
-					Lindy Hop, sadece bir dans değil, bir yaşam tarzıydı. Eğlence,
-					özgürlük ve yaratıcılıkla doluydu.
-				</p>
-				<blockquote className="my-6 border-orange-300 border-l-4 pl-4 italic">
-					"Dans etmek, müziğin içinde uçmaktır." <br />
-					<span className="text-orange-300">– Frankie Manning</span>
-				</blockquote>
-			</section>
-
-			<section className="rounded-lg bg-white/10 p-6 backdrop-blur-sm">
+			<section className="rounded-lg p-6">
 				<h3 className="mb-4 font-semibold text-orange-300 text-xl">
 					Son Söz: Frankie'nin Dansı Asla Bitmez!
 				</h3>
 				<p className="mb-4">
-					Frankie Manning, 2009'da aramızdan ayrıldı, ancak bıraktığı miras hiç
-					bitmeyecek. Eğer bir gün bir swing dansı etkinliğine katılır ve
-					partnerinizi havaya kaldırıp döndürürken kendinizi özgür
-					hissederseniz, bilin ki bu Frankie'nin size armağanıdır.
+					Frankie Manning, 2009'da, neredeyse 95 yaşında aramızdan ayrıldı. Ama
+					mirası asla bitmedi. Bugün dünyanın dört bir yanındaki her swing
+					festivalinde, her workshop'ta, pistte havaya kaldırılan her partnerde
+					onun ruhu yaşıyor.
 				</p>
 				<div className="mt-6">
-					<p className="mb-2 font-semibold">Siz hiç Lindy Hop denediniz mi?</p>
-					<p>Frankie Manning'in hikayesi sizi nasıl etkiledi?</p>
+					<p className="mb-2 font-semibold">
+						Peki ya siz? Hiç Lindy Hop denediniz mi?
+					</p>
+					<p>
+						Yoksa onun hikayesi sizi dans etmek (veya izlemek) konusunda
+						heyecanlandırdı mı?
+					</p>
 				</div>
 			</section>
 		</div>
