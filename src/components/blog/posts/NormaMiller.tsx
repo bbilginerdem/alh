@@ -49,8 +49,8 @@ export default function NormaMiller() {
 							<span className="font-semibold">İngiltere Kralı VI. George</span>
 							’un taç giyme töreni için düzenlenen özel bir şovda dans etme
 							fırsatı bulması oldu. Bu performans, Lindy Hop’un bir kraliyet
-							önünde sergilendiği ilk resmi anlardan biriydi ve belki de bu dansın
-							kaderini sonsuza dek değiştirdi.
+							önünde sergilendiği ilk resmi anlardan biriydi ve belki de bu
+							dansın kaderini sonsuza dek değiştirdi.
 						</p>
 						<p className="mb-4">
 							Bu tarihi başarının ardından, Norma’nın dünyaya açılan kapısı
@@ -62,8 +62,8 @@ export default function NormaMiller() {
 				<p>
 					Norma’nın sahnedeki karizması, teknik kusursuzluğu ve durdurulamaz
 					enerjisi, Avrupa’daki izleyicileri de baştan çıkardı. Onun
-					performansları, swing dansının yalnızca bir eğlence olmadığını,
-					aynı zamanda gerçek bir sahne sanatı olduğunu herkese kanıtladı.
+					performansları, swing dansının yalnızca bir eğlence olmadığını, aynı
+					zamanda gerçek bir sahne sanatı olduğunu herkese kanıtladı.
 				</p>
 			</section>
 

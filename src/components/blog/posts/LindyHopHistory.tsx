@@ -35,17 +35,19 @@ export default function LindyHopHistory() {
 						<p className="mb-4">
 							Lindy Hop, ismini 1927'de pilot Charles Lindbergh ("Lucky Lindy"),
 							Atlas Okyanusu'nu tek başına uçarak geçtiğinde, gazetelerde çıkan
-							"Lindy Hops the Atlantic" başlığından almıştır. Charles'ın yaptığı hareketler bir
-							neşe kaynağı oldu ve Harlem'deki dansçılar bu hareketlere Lindy Hop
-							ismini koydu.
+							"Lindy Hops the Atlantic" başlığından almıştır. Charles'ın yaptığı
+							hareketler bir neşe kaynağı oldu ve Harlem'deki dansçılar bu
+							hareketlere Lindy Hop ismini koydu.
 						</p>
 					</div>
 				</div>
 				<p className="mb-4">
-					Teknik olarak, 8 veya 6 zamanlı ritimlere dayanır. Lindy Hop, "swing-out", "charleston" vb. gibi temel figürler
-					üzerine kuruludur. Ancak bu dansın gerçek sihri ve "swing" ruhu, bu temeller
-					üzerine inşa edilen doğaçlamalarda yatar. Her dansçı, müziği kendi içinde hissederek,
-					partneriyle kurduğu sözsüz bir diyalogla hareketleri şekillendirir.
+					Teknik olarak, 8 veya 6 zamanlı ritimlere dayanır. Lindy Hop,
+					"swing-out", "charleston" vb. gibi temel figürler üzerine kuruludur.
+					Ancak bu dansın gerçek sihri ve "swing" ruhu, bu temeller üzerine inşa
+					edilen doğaçlamalarda yatar. Her dansçı, müziği kendi içinde
+					hissederek, partneriyle kurduğu sözsüz bir diyalogla hareketleri
+					şekillendirir.
 				</p>
 			</section>
 
@@ -63,10 +65,10 @@ export default function LindyHopHistory() {
 				</p>
 				<p>
 					Bu dönemde dans, Büyük Buhran ve II. Dünya Savaşı gibi zor zamanlarda
-					insanlar için bir neşe ve dayanışma kaynağı oldu. Ancak
-					1950'lerde rock'n'roll'un yükselişi ve sosyal değişimlerle birlikte,
-					büyük swing orkestralarının masraflı yapısı değişti ve Lindy Hop
-					yaklaşık 30 yıllık bir sessizliğe gömüldü.
+					insanlar için bir neşe ve dayanışma kaynağı oldu. Ancak 1950'lerde
+					rock'n'roll'un yükselişi ve sosyal değişimlerle birlikte, büyük swing
+					orkestralarının masraflı yapısı değişti ve Lindy Hop yaklaşık 30
+					yıllık bir sessizliğe gömüldü.
 				</p>
 			</section>
 
@@ -86,9 +88,10 @@ export default function LindyHopHistory() {
 					<p className="mb-4">
 						Bugün dünyanın dört bir yanında{" "}
 						<span className="font-semibold">Herräng Dance Camp</span> (İsveç),{" "}
-						<span className="font-semibold">ILHC</span> (Uluslararası Lindy Hop Şampiyonası) gibi etkinliklerle dansçılar
-						bir araya geliyor. Bu, sadece adımların değil, dansın tarihi, ruhu
-						ve kültürünün de aktarıldığı canlı bir zincir oluşturdu.
+						<span className="font-semibold">ILHC</span> (Uluslararası Lindy Hop
+						Şampiyonası) gibi etkinliklerle dansçılar bir araya geliyor. Bu,
+						sadece adımların değil, dansın tarihi, ruhu ve kültürünün de
+						aktarıldığı canlı bir zincir oluşturdu.
 					</p>
 				</div>
 			</section>
@@ -129,9 +132,9 @@ export default function LindyHopHistory() {
 					</li>
 					<li className="mb-2">
 						<span className="font-semibold">Kişisel İfade ve Yaratıcılık:</span>{" "}
-						Dansın temelleri önemlidir, ama kuralları katı değildir. Herkes kendi
-						kişiliğini, stili ve duygusunu dansa katabilir ve bu sürekli bir
-						keşif ve gelişim süreci sağlar.
+						Dansın temelleri önemlidir, ama kuralları katı değildir. Herkes
+						kendi kişiliğini, stili ve duygusunu dansa katabilir ve bu sürekli
+						bir keşif ve gelişim süreci sağlar.
 					</li>
 					<li>
 						<span className="font-semibold">Canlı Bir Tarihle Bağ Kurmak:</span>{" "}

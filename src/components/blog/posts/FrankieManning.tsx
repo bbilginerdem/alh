@@ -34,10 +34,10 @@ export default function FrankieManning() {
 						</h2>
 						<p className="mb-4">
 							Frankie, 1914'te dünyaya geldi ve gençliğini Harlem'in kalbinde,{" "}
-							<span className="font-semibold">Savoy Ballroom</span>'un elektrikli
-							atmosferinde, geçirdi. Burası, cazın coştuğu, dansçıların
-							birbirleriyle yarıştığı ve yeni adımların doğduğu gerçek bir
-							laboratuvardı.
+							<span className="font-semibold">Savoy Ballroom</span>'un
+							elektrikli atmosferinde, geçirdi. Burası, cazın coştuğu,
+							dansçıların birbirleriyle yarıştığı ve yeni adımların doğduğu
+							gerçek bir laboratuvardı.
 						</p>
 
 						<p className="mb-4">
@@ -60,9 +60,8 @@ export default function FrankieManning() {
 						<p className="mb-4">
 							Ama her hikayede bir dönüş vardır. Swing dönemi kapandı, büyük
 							orkestralar dağıldı. Frankie Manning de, belki de en parlak
-							döneminde, adeta sessizliğe gömüldü. Hatta postane'de
-							çalışmaya başladı, ta ki 1980'lerde tekrar eğitim vermesi
-							istenilene kadar.
+							döneminde, adeta sessizliğe gömüldü. Hatta postane'de çalışmaya
+							başladı, ta ki 1980'lerde tekrar eğitim vermesi istenilene kadar.
 						</p>
 					</div>
 				</div>
@@ -81,8 +80,8 @@ export default function FrankieManning() {
 				<p>
 					Frankie Manning, 2009'da, neredeyse 95 yaşında aramızdan ayrıldı. Ama
 					mirası asla bitmedi. Bugün dünyanın dört bir yanındaki her swing
-					festivalinde, her eğitimde, pistte havaya kaldırılan herkeste
-					onun ruhu yaşıyor.
+					festivalinde, her eğitimde, pistte havaya kaldırılan herkeste onun
+					ruhu yaşıyor.
 				</p>
 			</section>
 		</div>
