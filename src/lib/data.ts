@@ -1,3 +1,4 @@
+import BigJoeTurner from "@/components/blog/posts/BigJoeTurner";
 import CountBasie from "@/components/blog/posts/CountBasie";
 import DukeEllington from "@/components/blog/posts/DukeEllington";
 import EarlHines from "@/components/blog/posts/EarlHines";
@@ -273,6 +274,43 @@ export const posts: BlogMetadata[] = [
 			canonicalUrl: "https://ankaralindyhop.org/blog/ella-fitzgerald",
 		},
 		Content: EllaFitzgerald,
+	},
+	{
+		id: 9,
+		title: "Big Joe Turner",
+		slug: "big-joe-turner",
+		publishDate: "2025-12-06T12:20:00Z",
+		author: "Yurtsever Beldek",
+		excerpt:
+			"Sosyal danslarda herkesi piste çıkaran, güçlü sesiyle, eğlenceli ve enerjik ritimleriyle, Blues'un kükreyen sesi, Rock'n Roll’un efsanesi, Big Joe Turner:",
+		readingTime: 5,
+		tags: [
+			"Big Joe Turner",
+			"Kansas City Blues",
+			"Boogie-Woogie",
+			"Rock'n Roll",
+			"Jump Blues",
+			"Pete Johnson",
+		],
+		category: "Müzik",
+		image: "/images/blogs/9.jpg",
+		imageAlt: "Big Joe Turner sahne performansı sırasında şarkı söylerken",
+		seo: {
+			metaDescription:
+				"Big Joe Turner'ın Kansas City blues'undan dünyaya yayılan gür sesi, boogie-woogie ile şekillenen efsanevi kariyeri ve rock'n roll'un temellerini atan ikonik şarkıları.",
+			keywords: [
+				"Big Joe Turner",
+				"boogie-woogie",
+				"Kansas City blues",
+				"Jump Blues",
+				"Shake Rattle and Roll",
+				"Pete Johnson",
+				"rock'n roll tarihi",
+				"blues şarkıcısı",
+			],
+			canonicalUrl: "https://ankaralindyhop.org/blog/big-joe-turner",
+		},
+		Content: BigJoeTurner,
 	},
 ];
 
