@@ -137,7 +137,7 @@ const Contact = () => {
 							Bize Ulaşın
 						</p>
 						<h1 className="mt-4 bg-linear-to-br from-zinc-100 to-zinc-500 bg-clip-text font-black font-zentry text-6xl text-transparent uppercase leading-[0.85] drop-shadow-2xl md:text-8xl">
-							Sorunuz <br /> Mı Var?
+							Sorunuz <br /> Mu Var?
 						</h1>
 					</div>
 

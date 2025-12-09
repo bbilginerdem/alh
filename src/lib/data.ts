@@ -1,6 +1,7 @@
 import BigJoeTurner from "@/components/blog/posts/BigJoeTurner";
 import CountBasie from "@/components/blog/posts/CountBasie";
-import DukeEllington from "@/components/blog/posts/DukeEllington";
+import DukeEllingtonBlantonWebster from "@/components/blog/posts/DukeEllingtonBlantonWebster";
+import DukeEllington from "@/components/blog/posts/DukeEllingtonsLife";
 import EarlHines from "@/components/blog/posts/EarlHines";
 import EllaFitzgerald from "@/components/blog/posts/EllaFitzgerald";
 import FrankieManning from "@/components/blog/posts/FrankieManning";
@@ -311,6 +312,50 @@ export const posts: BlogMetadata[] = [
 			canonicalUrl: "https://ankaralindyhop.org/blog/big-joe-turner",
 		},
 		Content: BigJoeTurner,
+	},
+	{
+		id: 10,
+		title:
+			"Duke Ellington ile swing çağına yolculuk: Blanton/Webster Döneminin Dans ve Can Üzerine Etkisi",
+		slug: "duke-ellington-blanton-webster",
+		publishDate: "2025-12-14T18:00:00Z",
+		author: "Salih Ürek",
+		excerpt:
+			"Duke Ellington'un 1940-42 yılları arasında RCA Victor ile yaptığı legendary albümü, Blanton-Webster dönemi ve Swing döneminin doruk noktası hakkında detaylı analiz.",
+		readingTime: 8,
+		tags: [
+			"Duke Ellington",
+			"Never No Lament",
+			"Blanton/Webster Band",
+			"Jazz Standard",
+			"Swing Dönemi",
+			"Jimmy Blanton",
+			"Ben Webster",
+			"Billy Strayhorn",
+		],
+		category: "Müzik",
+		image: "/images/blogs/10.jpg",
+		imageAlt:
+			"Duke Ellington - Never No Lament: The Blanton/Webster Band albüm kapağı",
+		seo: {
+			metaDescription:
+				"Duke Ellington'un 1940-42 yılları arasında RCA Victor ile yaptığı legendary albümü, Blanton-Webster dönemi ve Swing döneminin doruk noktası hakkında detaylı analiz.",
+			keywords: [
+				"Duke Ellington",
+				"Never No Lament",
+				"Blanton/Webster Band",
+				"Jazz Standard",
+				"Swing Dönemi",
+				"Jimmy Blanton",
+				"Ben Webster",
+				"Billy Strayhorn",
+				"Caz Tarihi",
+				"Lindy Hop Müzik",
+			],
+			canonicalUrl:
+				"https://ankaralindyhop.org/blog/duke-ellington-never-no-lament",
+		},
+		Content: DukeEllingtonBlantonWebster,
 	},
 ];
 

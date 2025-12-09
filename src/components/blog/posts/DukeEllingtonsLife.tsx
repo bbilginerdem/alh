@@ -95,7 +95,7 @@ export default function DukeEllington() {
 					Bu şarkılardan en önemlisi caz tarihinde de önemli bir yere sahip olan{" "}
 					<span className="font-semibold text-orange-300">"Caravan"</span>
 					dır ve Duke Ellington'ın yanında trombonist olan
-					<span className="font-semibold text-orange-300"> Juan Tizol</span>
+					<span className="font-semibold text-orange-300"> Juan Tizol</span>{" "}
 					tarafından bestelenmiştir.
 				</p>
 			</section>
