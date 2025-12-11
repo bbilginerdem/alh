@@ -35,8 +35,7 @@ similar to above styling write me tsx component about following text in turkish 
 * The resource at “http://localhost:3000/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2” preloaded with link preload was not used within a few seconds. Make sure all attributes of the preload tag are set correctly.
 * This site appears to use a scroll-linked positioning effect. This may not work well with asynchronous panning; see https://firefox-source-docs.mozilla.org/performance/scroll-linked_effects.html for further details and to join the discussion on related tools and features!
 
-### Feature
-* Add cookies to website
+### Features
 * Add language support for english to navbar expect blog page
 * Topluluk ilkeleri yerine bounce rate i arttirabilecek birsey
 * Öne çıkan butonunu arada bir değiştirmesini söyleyebilirsin sürekli aynı olması işleyişini değiştir

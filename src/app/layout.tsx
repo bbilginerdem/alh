@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Almendra_SC, Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
+import CookieConsent from "@/components/CookieConsent";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
@@ -113,9 +114,13 @@ export default function RootLayout({
 					<Toaster
 						position="top-center"
 						toastOptions={{
+							style: {
+								background: "#fdba74", // orange-300 - default for all toasts
+								color: "#18181b", // zinc-900 for text
+							},
 							success: {
 								style: {
-									background: "#fdba74", // orange-3200
+									background: "#fdba74", // orange-300
 									color: "#18181b", // zinc-900 for text
 								},
 								iconTheme: {
@@ -131,6 +136,7 @@ export default function RootLayout({
 							},
 						}}
 					/>
+					<CookieConsent />
 				</main>
 			</body>
 		</html>

@@ -33,15 +33,15 @@ const Hero = () => {
 			{
 				color: "#fdba74",
 				opacity: 1,
-				y: 12,
-				duration: 2,
+				y: 9,
+				duration: 1.5,
 				ease: "power3.in",
 			},
 		).to([lindyTextRef.current, ankaraTextRef.current].filter(Boolean), {
 			color: "#f4f4f5",
 			opacity: 1,
 			y: 0,
-			duration: 2,
+			duration: 1.5,
 			ease: "power3.out",
 		});
 
