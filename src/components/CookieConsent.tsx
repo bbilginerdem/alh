@@ -1,5 +1,7 @@
 "use client";
 
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { Cookie, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
@@ -18,10 +20,23 @@ const CookieConsent = () => {
 		}
 	}, []);
 
-	// Focus management when banner appears
-	useEffect(() => {
+	// GSAP animation for banner entrance
+	useGSAP(() => {
 		if (showBanner && bannerRef.current) {
-			bannerRef.current.focus();
+			gsap.fromTo(
+				bannerRef.current,
+				{
+					y: 100,
+					opacity: 0,
+				},
+				{
+					y: 0,
+					opacity: 0.95,
+					duration: 1,
+					delay: 2,
+					ease: "power3.out",
+				},
+			);
 		}
 	}, [showBanner]);
 
@@ -125,9 +140,10 @@ const CookieConsent = () => {
 
 						{/* Content */}
 						<div className="flex-1">
-							<h3 className="mb-1 font-almendra-sc font-bold text-base text-orange-300 md:mb-2 md:text-xl">
+							{/* Changed from h3 to h2 to fix heading order */}
+							<h2 className="mb-1 font-almendra-sc font-bold text-base text-orange-300 md:mb-2 md:text-xl">
 								🍪 Çerez Bildirimi
-							</h3>
+							</h2>
 							<p className="text-xs text-zinc-300 leading-relaxed md:text-sm md:leading-relaxed">
 								Web sitemizde deneyiminizi geliştirmek için çerezler
 								kullanıyoruz. Sitemizi kullanmaya devam ederek çerez kullanımını

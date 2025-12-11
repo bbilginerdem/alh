@@ -58,7 +58,9 @@ const Hero = () => {
 				trigger: videoFrameRef.current,
 				start: "center center",
 				end: "bottom center",
-				scrub: true,
+				scrub: 0.5,
+				// Optimize for scroll performance
+				invalidateOnRefresh: true,
 			},
 		});
 	});
@@ -70,6 +72,7 @@ const Hero = () => {
 			<div
 				ref={videoFrameRef}
 				className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-zinc-50"
+				style={{ willChange: "clip-path, border-radius" }}
 			>
 				<div>
 					<video
