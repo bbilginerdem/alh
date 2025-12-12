@@ -104,6 +104,15 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="tr">
+			<head>
+				{/* Preload the LCP image (video poster) */}
+				<link
+					rel="preload"
+					as="image"
+					href="/images/features-1.webp"
+					fetchPriority="high"
+				/>
+			</head>
 			<body className={`${inter.variable} ${almendraSC.variable} antialiased`}>
 				<main className="min-h-screen w-screen overflow-x-hidden">
 					{children}

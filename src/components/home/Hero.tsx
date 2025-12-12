@@ -83,7 +83,7 @@ const Hero = () => {
 						loop
 						muted
 						playsInline
-						preload="auto"
+						preload="metadata"
 						className="absolute top-0 left-0 size-full object-cover object-center"
 					/>
 				</div>

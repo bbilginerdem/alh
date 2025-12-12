@@ -56,8 +56,8 @@ const About = () => {
 						src="/images/about.webp"
 						alt="ALH parti sonu"
 						fill
-						priority
-						quality={100}
+						quality={85}
+						loading="lazy"
 						sizes="(max-width: 768px) 60vw, (max-width: 1024px) 80vw, 100vw"
 						className="absolute top-0 left-0"
 						style={{

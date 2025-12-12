@@ -1,0 +1,5 @@
+# Modern browsers only - eliminates unnecessary polyfills
+# This reduces ~14KB of legacy JavaScript (Array.at, Array.flat, Object.fromEntries, etc.)
+defaults and supports es6-module
+not dead
+not op_mini all

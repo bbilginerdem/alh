@@ -15,7 +15,7 @@ const socialLinks = [
 
 const Footer = () => {
 	return (
-		<footer className="w-screen bg-orange-300 py-4 text-black">
+		<footer className="min-h-22 w-screen bg-orange-300 py-4 text-black md:min-h-14">
 			<div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 md:flex-row">
 				{/* Branding */}
 				<p className="text-center font-light text-sm md:text-left">
