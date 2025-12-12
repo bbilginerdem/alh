@@ -40,7 +40,7 @@ export default function DukeEllington() {
 				<div className="mb-8 flex flex-col gap-6 md:flex-row">
 					<div className="md:w-1/2">
 						<Image
-							src="/images/blogs/4.jpg"
+							src="/images/blogs/4.webp"
 							alt="Duke Ellington orkestrası ile"
 							width={600}
 							height={400}

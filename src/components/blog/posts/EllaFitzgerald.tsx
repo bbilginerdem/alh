@@ -55,7 +55,7 @@ export default function EllaFitzgerald() {
 								<Image
 									width={600}
 									height={400}
-									src="/images/blogs/8.jpg"
+									src="/images/blogs/8.webp"
 									alt="Ella Fitzgerald sahne performansı"
 									className="h-full w-full object-cover"
 								/>

@@ -152,7 +152,7 @@ const newPost: BlogMetadata = {
   readingTime: 5,
   tags: ["tag1", "tag2"],
   category: "Category Name",
-  image: "/images/blogs/new-post.jpg",
+  image: "/images/blogs/new-post.webp",
   seo: {
     metaDescription: "SEO-optimized description",
     keywords: ["keyword1", "keyword2"]

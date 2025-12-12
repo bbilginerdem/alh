@@ -60,7 +60,7 @@ export default function Ekibimiz() {
 					<div className="mx-auto h-1 w-24 bg-orange-300" />
 					<p className="mt-6 text-lg text-zinc-300">
 						Ankara Lindy Hop Topluluğu, gönüllülük esasına dayalı olarak çalışan
-						bir topluluktur
+						bir topluluktur.
 					</p>
 				</header>
 
@@ -110,7 +110,7 @@ export default function Ekibimiz() {
 
 						<div className="grid gap-4 md:grid-cols-2">
 							<div className="rounded-md bg-orange-300/5 p-4">
-								<h3 className="font-semibold text-orange-300">DJ Olarak</h3>
+								<h3 className="font-semibold text-orange-300">DJ</h3>
 								<p className="mt-2 text-sm text-zinc-300">
 									Swing ve caz müzikleriyle dans atmosferi oluştur
 								</p>

@@ -1,8 +1,13 @@
 "use client";
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { NewBadge } from "@/components/ui/NewBadge";
 import { isNewContent } from "@/lib/blog-utils";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface Event {
 	id: string;
@@ -18,7 +23,78 @@ interface EventsListProps {
 }
 
 export function EventsList({ events }: Readonly<EventsListProps>) {
-	// Generate next Wednesday event
+	const containerRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const ctx = gsap.context(() => {
+			gsap.fromTo(
+				".events-header",
+				{
+					y: 100,
+					opacity: 0,
+					clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+				},
+				{
+					y: 0,
+					opacity: 1,
+					clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+					duration: 1.2,
+					ease: "power4.out",
+				},
+			);
+
+			ScrollTrigger.batch(".future-event-item", {
+				onEnter: (batch) => {
+					gsap.fromTo(
+						batch,
+						{
+							y: 60,
+							opacity: 0,
+							skewY: 5,
+						},
+						{
+							y: 0,
+							opacity: 1,
+							skewY: 0,
+							duration: 0.8,
+							stagger: 0.15,
+							ease: "expo.out",
+							overwrite: true,
+						},
+					);
+				},
+				start: "top 90%",
+				once: true,
+			});
+
+			ScrollTrigger.batch(".past-event-item", {
+				onEnter: (batch) => {
+					gsap.fromTo(
+						batch,
+						{
+							y: 60,
+							opacity: 0,
+							skewY: 5,
+						},
+						{
+							y: 0,
+							opacity: 1,
+							skewY: 0,
+							duration: 0.8,
+							stagger: 0.15,
+							ease: "expo.out",
+							overwrite: true,
+						},
+					);
+				},
+				start: "top 90%",
+				once: true,
+			});
+		}, containerRef);
+
+		return () => ctx.revert();
+	}, []);
+
 	const generateWeeklyEvent = (): Event => {
 		const nextWednesday = new Date();
 		nextWednesday.setDate(
@@ -26,7 +102,6 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 		);
 		nextWednesday.setHours(20, 0, 0, 0);
 
-		// If today is Wednesday and past 8 PM, get next Wednesday
 		const now = new Date();
 		if (now.getDay() === 3 && now.getHours() >= 20) {
 			nextWednesday.setDate(nextWednesday.getDate() + 7);
@@ -40,7 +115,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 				"Rasa Brasserie, Meşrutiyet, Selanik Caddesi, Raymar Hotel No:74, 06420 Çankaya/Ankara",
 			description:
 				"Ankara Lindy Hop haftalık dans buluşması. Yeni başlayanlar ve tüm seviyeler davetlidir!",
-			imageUrl: "/images/events/weekly-event.png",
+			imageUrl: "/images/events/weekly-event.webp",
 		};
 	};
 
@@ -54,12 +129,13 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 		});
 	};
 
-	const renderEventItem = (event: Event) => (
+	const renderEventItem = (event: Event, isPast: boolean) => (
 		<li
 			key={event.id}
-			className="relative flex flex-col overflow-hidden rounded-lg border border-white/10 bg-white/10 shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-xl md:flex-row"
+			className={`${
+				isPast ? "past-event-item" : "future-event-item"
+			} group relative flex flex-col overflow-hidden rounded-lg border border-white/10 bg-white/5 shadow-sm backdrop-blur-md transition-all duration-500 hover:border-orange-300/30 hover:bg-white/10 hover:shadow-2xl hover:shadow-orange-300/10 md:flex-row`}
 		>
-			{/* New Badge */}
 			{isNewContent(event.date) && !event.id.startsWith("weekly-") && (
 				<div className="absolute top-4 right-4 z-10">
 					<NewBadge />
@@ -67,35 +143,36 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 			)}
 
 			{event.imageUrl && (
-				<div className="relative h-48 w-full md:h-auto md:w-1/3">
+				<div className="relative h-48 w-full overflow-hidden md:h-auto md:w-1/3">
 					<Image
 						src={event.imageUrl}
 						alt={`${event.title} etkinlik görseli`}
 						fill
-						className="object-cover"
+						className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
 						sizes="(max-width: 768px) 100vw, 33vw"
 						quality={90}
 					/>
-					<div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent md:bg-linear-to-r" />
+					<div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent md:bg-linear-to-r" />
 				</div>
 			)}
 			<div className="flex-1 p-4 sm:p-6">
-				<h2 className="mb-2 font-semibold text-xl text-zinc-100 sm:text-2xl">
+				<h2 className="mb-2 font-bold text-xl text-zinc-100 tracking-tight transition-colors duration-300 group-hover:text-orange-300 sm:text-2xl">
 					{event.title}
 				</h2>
-				<p className="mb-2 text-zinc-300">
+				<p className="mb-2 font-medium text-zinc-300">
 					<strong className="text-orange-300">Tarih:</strong>{" "}
 					{formatEventDate(event.date)}
 				</p>
-				<p className="mb-2 text-zinc-300">
+				<p className="mb-2 font-medium text-zinc-300">
 					<strong className="text-orange-300">Konum:</strong> {event.location}
 				</p>
-				<p className="text-zinc-200">{event.description}</p>
+				<p className="font-light text-zinc-400 leading-relaxed">
+					{event.description}
+				</p>
 			</div>
 		</li>
 	);
 
-	// Categorize events
 	const currentDate = new Date();
 	const pastEvents = events.filter(
 		(event) => new Date(event.date) < currentDate,
@@ -104,30 +181,35 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 		(event) => new Date(event.date) >= currentDate,
 	);
 
-	// Add weekly event to future events
 	const weeklyEvent = generateWeeklyEvent();
 	const allFutureEvents = [...futureEvents, weeklyEvent];
 
 	return (
-		<div className="mx-auto max-w-4xl px-4 py-8">
-			<h1 className="mb-8 text-center font-bold text-2xl text-zinc-100 sm:text-3xl">
-				Yaklaşan Etkinlikler
-			</h1>
+		<div className="mx-auto max-w-4xl px-4 py-8" ref={containerRef}>
+			<div className="mb-8 overflow-hidden">
+				<h1 className="events-header text-center font-bold text-3xl text-zinc-100 uppercase tracking-tighter sm:text-4xl">
+					Yaklaşan Etkinlikler
+				</h1>
+			</div>
 
-			<ul className="space-y-6">
+			<ul className="future-events-list space-y-6">
 				{allFutureEvents
 					.toSorted(
 						(a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
 					)
-					.map(renderEventItem)}
+					.map((event) => renderEventItem(event, false))}
 			</ul>
 
 			{pastEvents.length > 0 && (
 				<section className="mt-16">
-					<h2 className="mb-8 text-center font-bold text-2xl text-zinc-100 sm:text-3xl">
-						Geçmiş Etkinlikler
-					</h2>
-					<ul className="space-y-6">{pastEvents.map(renderEventItem)}</ul>
+					<div className="mb-8 overflow-hidden">
+						<h2 className="events-header text-center font-bold text-3xl text-zinc-100 uppercase tracking-tighter sm:text-4xl">
+							Geçmiş Etkinlikler
+						</h2>
+					</div>
+					<ul className="past-events-list space-y-6">
+						{pastEvents.map((event) => renderEventItem(event, true))}
+					</ul>
 				</section>
 			)}
 		</div>

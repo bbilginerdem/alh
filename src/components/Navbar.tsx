@@ -19,17 +19,16 @@ const navItems: string[] = [
 
 const NavBar = () => {
 	const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+	const [isNavVisible, setIsNavVisible] = useState<boolean>(true);
+	const [lastScrollY, setLastScrollY] = useState<number>(0);
 
 	const navContainerRef = useRef<HTMLDivElement | null>(null);
+	const mobileMenuRef = useRef<HTMLDivElement | null>(null);
 
-	// Check if there are new blogs or events
 	const hasNewBlog = posts.some((post) => isNewContent(post.publishDate));
 	const hasNewEvent = events.some(
 		(event) => isNewContent(event.date) && !event.id.startsWith("weekly-"),
 	);
-
-	const [isNavVisible, setIsNavVisible] = useState<boolean>(true);
-	const [lastScrollY, setLastScrollY] = useState<number>(0);
 
 	useEffect(() => {
 		if (!navContainerRef.current) return;
@@ -38,14 +37,18 @@ const NavBar = () => {
 			const currentScrollY = window.scrollY;
 			const isScrollingDown = currentScrollY > lastScrollY;
 
-			// Update lastScrollY for next event
 			setLastScrollY(currentScrollY);
+
+			if (isDropdownOpen) {
+				setIsNavVisible(true);
+				navContainerRef.current?.classList.remove("floating-nav");
+				return;
+			}
 
 			if (currentScrollY === 0) {
 				setIsNavVisible(true);
 				navContainerRef.current?.classList.remove("floating-nav");
 			} else if (isScrollingDown && currentScrollY > 50) {
-				// Add threshold
 				setIsNavVisible(false);
 				navContainerRef.current?.classList.add("floating-nav");
 			} else if (!isScrollingDown) {
@@ -56,7 +59,7 @@ const NavBar = () => {
 
 		window.addEventListener("scroll", handleScroll, { passive: true });
 		return () => window.removeEventListener("scroll", handleScroll);
-	}, [lastScrollY]);
+	}, [lastScrollY, isDropdownOpen]);
 
 	useEffect(() => {
 		if (!navContainerRef.current) return;
@@ -68,16 +71,82 @@ const NavBar = () => {
 		});
 	}, [isNavVisible]);
 
+	useEffect(() => {
+		if (mobileMenuRef.current) {
+			gsap.killTweensOf(mobileMenuRef.current);
+			gsap.killTweensOf(".mobile-nav-item");
+		}
+
+		if (isDropdownOpen) {
+			document.body.style.overflow = "hidden";
+
+			const tl = gsap.timeline();
+
+			tl.to(mobileMenuRef.current, {
+				display: "block",
+				clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+				duration: 0.5,
+				ease: "power4.inOut",
+			});
+
+			tl.fromTo(
+				".mobile-nav-item",
+				{
+					y: 50,
+					opacity: 0,
+					skewY: 5,
+				},
+				{
+					y: 0,
+					opacity: 1,
+					skewY: 0,
+					duration: 0.4,
+					stagger: 0.1,
+					ease: "power3.out",
+				},
+				"-=0.2",
+			);
+		} else {
+			document.body.style.overflow = "auto";
+
+			const tl = gsap.timeline();
+
+			tl.to(".mobile-nav-item", {
+				y: 50,
+				opacity: 0,
+				duration: 0.3,
+				stagger: 0.05,
+				ease: "power3.in",
+			});
+
+			tl.to(
+				mobileMenuRef.current,
+				{
+					clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+					duration: 0.5,
+					ease: "power4.inOut",
+					onComplete: () => {
+						if (mobileMenuRef.current) {
+							mobileMenuRef.current.style.display = "none";
+						}
+					},
+				},
+				"-=0.1",
+			);
+		}
+	}, [isDropdownOpen]);
+
+	const toggleMenu = () => {
+		setIsDropdownOpen(!isDropdownOpen);
+	};
+
 	return (
 		<div
 			ref={navContainerRef}
-			className={`fixed inset-x-0 top-0 z-40 h-24 border-none ${
-				isDropdownOpen ? "bg-zinc-950/90" : ""
-			}`}
+			className={`fixed inset-x-0 top-0 z-50 h-24 border-none transition-colors duration-300 ${isDropdownOpen ? "bg-zinc-950" : ""}`}
 		>
 			<div className="-translate-y-1/2 absolute top-1/2 w-full">
-				<nav className="flex size-full items-center justify-between px-8 lg:px-10 xl:px-16">
-					{/* Logo and Home link */}
+				<nav className="relative z-50 flex size-full items-center justify-between px-8 lg:px-10 xl:px-16">
 					<Link className="flex items-center" href="/">
 						<Image
 							src="/images/logo.png"
@@ -89,11 +158,10 @@ const NavBar = () => {
 						/>
 					</Link>
 
-					{/* Navigation Links and Audio Button */}
 					<div className="flex h-full items-center">
 						<button
-							onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-							className="md:hidden"
+							onClick={toggleMenu}
+							className="relative z-50 md:hidden"
 							aria-label={isDropdownOpen ? "Close menu" : "Open menu"}
 							aria-expanded={isDropdownOpen}
 							type="button"
@@ -105,7 +173,6 @@ const NavBar = () => {
 							)}
 						</button>
 
-						{/* Navigation Links (Desktop) */}
 						<div className="hidden md:flex md:items-center md:gap-3">
 							{navItems.map((item: string) => {
 								const showBadge =
@@ -132,35 +199,36 @@ const NavBar = () => {
 					</div>
 				</nav>
 
-				{/* Dropdown Menu for Small Screens */}
-				{isDropdownOpen && (
-					<div className="absolute z-50 w-full border-zinc-800/50 border-t bg-zinc-950/90 backdrop-blur-sm md:hidden">
-						<div className="flex flex-col items-center justify-center">
-							{navItems.map((item: string) => {
-								const showBadge =
-									(item === "etkinlikler" && hasNewEvent) ||
-									(item === "blog" && hasNewBlog);
+				<div
+					ref={mobileMenuRef}
+					className="absolute top-0 left-0 hidden h-screen w-screen bg-zinc-950 md:hidden"
+					style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" }}
+				>
+					<div className="flex h-full w-full flex-col items-center justify-center gap-6">
+						{navItems.map((item: string) => {
+							const showBadge =
+								(item === "etkinlikler" && hasNewEvent) ||
+								(item === "blog" && hasNewBlog);
 
-								return (
-									<Link
-										key={generateSecureRandomId()}
-										href={`/${navbarDirection(item).toLowerCase()}`}
-										className="relative block px-3 py-4 font-medium text-orange-300 text-sm hover:bg-zinc-800/50"
-										onClick={() => setIsDropdownOpen(false)}
-									>
-										{item}
-										{showBadge && (
-											<span className="-right-1 absolute top-4 flex h-2 w-2">
-												<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75" />
-												<span className="relative inline-flex h-2 w-2 rounded-full bg-orange-500" />
-											</span>
-										)}
-									</Link>
-								);
-							})}
-						</div>
+							return (
+								<Link
+									key={generateSecureRandomId()}
+									href={`/${navbarDirection(item).toLowerCase()}`}
+									className="mobile-nav-item relative block font-bold text-4xl text-orange-300 tracking-tighter transition-colors hover:text-orange-200"
+									onClick={() => setIsDropdownOpen(false)}
+								>
+									{item}
+									{showBadge && (
+										<span className="-right-4 -top-1 absolute flex h-3 w-3">
+											<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75" />
+											<span className="relative inline-flex h-3 w-3 rounded-full bg-orange-500" />
+										</span>
+									)}
+								</Link>
+							);
+						})}
 					</div>
-				)}
+				</div>
 			</div>
 		</div>
 	);

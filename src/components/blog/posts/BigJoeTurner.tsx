@@ -52,7 +52,7 @@ export default function BigJoeTurner() {
 								<Image
 									width={600}
 									height={400}
-									src="/images/blogs/9.jpg"
+									src="/images/blogs/9.webp"
 									alt="Big Joe Turner sahnede"
 									className="h-full w-full object-cover"
 								/>

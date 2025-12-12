@@ -53,12 +53,12 @@ const About = () => {
 			<div className="h-dvh w-screen" id="clip" ref={clipRef}>
 				<div className="mask-clip-path about-image">
 					<Image
-						src="/images/about.jpg"
+						src="/images/about.webp"
 						alt="ALH parti sonu"
 						fill
 						priority
 						quality={100}
-						sizes="(max-width: 768px) 40vw, (max-width: 1024px) 70vw, 100vw"
+						sizes="(max-width: 768px) 60vw, (max-width: 1024px) 80vw, 100vw"
 						className="absolute top-0 left-0"
 						style={{
 							objectFit: "cover",

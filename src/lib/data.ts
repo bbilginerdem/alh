@@ -28,7 +28,7 @@ export const posts: BlogMetadata[] = [
 			"Savoy Ballroom",
 		],
 		category: "Dans Tarihi",
-		image: "/images/blogs/1.jpg",
+		image: "/images/blogs/1.webp",
 		imageAlt: "Frankie Manning Lindy Hop yaparken tarihi fotoğraf",
 		seo: {
 			metaDescription:
@@ -65,7 +65,7 @@ export const posts: BlogMetadata[] = [
 			"Harlem",
 		],
 		category: "Dans Tarihi",
-		image: "/images/blogs/2.jpg",
+		image: "/images/blogs/2.webp",
 		imageAlt: "Norma Miller dans ederken tarihi fotoğraf",
 		seo: {
 			metaDescription:
@@ -93,7 +93,7 @@ export const posts: BlogMetadata[] = [
 		readingTime: 2,
 		tags: ["Lindy Hop", "Swing Tarihi", "Harlem", "Caz Müziği", "Dans Kültürü"],
 		category: "Dans Tarihi",
-		image: "/images/blogs/3.jpg",
+		image: "/images/blogs/3.webp",
 		imageAlt: "Lindy Hop dansçıları tarihi fotoğraf",
 		seo: {
 			metaDescription:
@@ -128,7 +128,7 @@ export const posts: BlogMetadata[] = [
 			"Besteci",
 		],
 		category: "Müzik",
-		image: "/images/blogs/4.jpg",
+		image: "/images/blogs/4.webp",
 		imageAlt: "Duke Ellington piyano başında",
 		seo: {
 			metaDescription:
@@ -156,7 +156,7 @@ export const posts: BlogMetadata[] = [
 		readingTime: 1,
 		tags: ["Earl Hines", "Piyano", "Caz Müziği", "Swing", "Müzik Tekniği"],
 		category: "Müzik",
-		image: "/images/blogs/5.jpg",
+		image: "/images/blogs/5.webp",
 		imageAlt: "Earl Hines piyano çalarken",
 		seo: {
 			metaDescription:
@@ -189,7 +189,7 @@ export const posts: BlogMetadata[] = [
 			"Dans Müziği",
 		],
 		category: "Müzik",
-		image: "/images/blogs/6.jpg",
+		image: "/images/blogs/6.webp",
 		imageAlt: "Tommy Dorsey trombon çalarken",
 		seo: {
 			metaDescription:
@@ -257,7 +257,7 @@ export const posts: BlogMetadata[] = [
 			"Dizzy Gillespie",
 		],
 		category: "Müzik",
-		image: "/images/blogs/8.jpg",
+		image: "/images/blogs/8.webp",
 		imageAlt: "Ella Fitzgerald sahne performansı",
 		seo: {
 			metaDescription:
@@ -294,7 +294,7 @@ export const posts: BlogMetadata[] = [
 			"Pete Johnson",
 		],
 		category: "Müzik",
-		image: "/images/blogs/9.jpg",
+		image: "/images/blogs/9.webp",
 		imageAlt: "Big Joe Turner sahne performansı sırasında şarkı söylerken",
 		seo: {
 			metaDescription:
@@ -334,7 +334,7 @@ export const posts: BlogMetadata[] = [
 			"Billy Strayhorn",
 		],
 		category: "Müzik",
-		image: "/images/blogs/10.jpg",
+		image: "/images/blogs/10.webp",
 		imageAlt:
 			"Duke Ellington - Never No Lament: The Blanton/Webster Band albüm kapağı",
 		seo: {
@@ -367,7 +367,7 @@ export const events = [
 		location: "Rasa Brasserie Cafe & Restaurant",
 		description:
 			"Cadılar Bayramı partimize davetlisiniz!🎃👻 1 Kasım Cumartesi günü @dukesswingband eşliğinde unutulmaz bir gece için kostümlerinizi hazırlayın🙌",
-		imageUrl: "/images/events/halloween-2025.jpg",
+		imageUrl: "/images/events/halloween-2025.webp",
 	},
 	{
 		id: "event-7",
@@ -376,7 +376,7 @@ export const events = [
 		location: "Vişnelik",
 		description:
 			"Yazın ışıltısını dansla kutluyoruz!✨💃 3 Ağustos Pazar akşamı, Rabarba Teras'ta yıldızların altında buluşuyoruz.",
-		imageUrl: "/images/events/visnelik-2024.jpg",
+		imageUrl: "/images/events/visnelik-2024.webp",
 	},
 	{
 		id: "event-6",
@@ -385,7 +385,7 @@ export const events = [
 		location: "Tunus Cad. No:50, Rabarba Teras",
 		description:
 			"Yazın ışıltısını dansla kutluyoruz!✨💃 3 Ağustos Pazar akşamı, Rabarba Teras'ta yıldızların altında buluşuyoruz.",
-		imageUrl: "/images/events/rabarba-2025.png",
+		imageUrl: "/images/events/rabarba-2025.webp",
 	},
 	{
 		id: "event-5",
@@ -394,7 +394,7 @@ export const events = [
 		location: "Rasa Brasserie Cafe & Restaurant",
 		description:
 			"Sevgili ALH dostları, yeni yıla müzik ve dans dolu bir başlangıç yakışır",
-		imageUrl: "/images/events/yilbasi-2025.jpg",
+		imageUrl: "/images/events/yilbasi-2025.webp",
 	},
 	{
 		id: "event-4",
@@ -403,7 +403,7 @@ export const events = [
 		location: "Vişnelik",
 		description:
 			"Yazla vedalaşıp sezonu canlı müzikli parti ile açıyoruz!!! 🥳🥳",
-		imageUrl: "/images/events/visnelik-2024.jpg",
+		imageUrl: "/images/events/visnelik-2024.webp",
 	},
 	{
 		id: "event-3",
@@ -412,7 +412,7 @@ export const events = [
 		location: "Rasa Brasserie Cafe & Restaurant",
 		description:
 			"Sevgili ALH ailesi, 7 Haziran Cuma günü Dj Battle ve SARI temalı partimiz ile karşınızdayız 💛🥳 🎶",
-		imageUrl: "/images/events/sari-2024.jpg",
+		imageUrl: "/images/events/sari-2024.webp",
 	},
 	{
 		id: "event-2",
@@ -421,7 +421,7 @@ export const events = [
 		location: "Rasa Brasserie Cafe & Restaurant",
 		description:
 			"Ve Halloween Party zamanı🥳🥳 @dukesswingband eşliğinde harika bir partiye davetlisiniz😍 3 Kasım Cuma günü her zaman olduğu gibi yine @rasacaferestaurant ‘ta görüşmek üzere, kostümlerinizi hazırlamayı unutmayın🙌",
-		imageUrl: "/images/events/halloween-2023.jpg",
+		imageUrl: "/images/events/halloween-2023.webp",
 	},
 	{
 		id: "event-1",
@@ -430,6 +430,6 @@ export const events = [
 		location: "Rasa Brasserie Cafe & Restaurant",
 		description:
 			"Yazla vedalaşıp sezonu canlı müzikli parti ile açıyoruz!!! 🥳🥳",
-		imageUrl: "/images/events/sonbahar-2023.jpg",
+		imageUrl: "/images/events/sonbahar-2023.webp",
 	},
 ];

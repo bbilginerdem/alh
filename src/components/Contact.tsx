@@ -116,7 +116,7 @@ const Contact = () => {
 					className="absolute inset-0 overflow-hidden rounded-2xl"
 				>
 					<Image
-						src="/images/contact.jpg"
+						src="/images/contact.webp"
 						alt="Contact Image"
 						className="h-full w-full object-cover brightness-75 contrast-125 saturate-150 transition-transform duration-700"
 						fill

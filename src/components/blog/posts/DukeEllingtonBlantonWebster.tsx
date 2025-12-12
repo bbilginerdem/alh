@@ -77,7 +77,7 @@ export default function DukeEllingtonBlantonWebster() {
 							<Image
 								width={600}
 								height={600}
-								src="/images/blogs/10.jpg"
+								src="/images/blogs/10.webp"
 								alt="Duke Ellington - Never No Lament Albüm Kapağı"
 								className="h-full w-full object-cover"
 							/>

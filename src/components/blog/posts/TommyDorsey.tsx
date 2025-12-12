@@ -40,7 +40,7 @@ export default function TommyDorsey() {
 						<Image
 							width={600}
 							height={400}
-							src="/images/blogs/6.jpg"
+							src="/images/blogs/6.webp"
 							alt="Tommy Dorsey 1947"
 							className="rounded-lg shadow-lg"
 						/>
