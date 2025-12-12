@@ -22,7 +22,6 @@
 }
 
 @layer utilities {
-
 	/* Apply Inter as default font for all text */
 	html {
 		font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
@@ -379,7 +378,8 @@
 .three-body__dot:nth-child(2)::after {
 	bottom: 0;
 	left: 0;
-	animation: wobble1 var(--uib-speed) infinite calc(var(--uib-speed) * -0.15) ease-in-out;
+	animation: wobble1 var(--uib-speed) infinite calc(var(--uib-speed) * -0.15)
+		ease-in-out;
 }
 
 .three-body__dot:nth-child(3) {
@@ -405,7 +405,6 @@
 }
 
 @keyframes wobble1 {
-
 	0%,
 	100% {
 		transform: translateY(0%) scale(1);
@@ -419,7 +418,6 @@
 }
 
 @keyframes wobble2 {
-
 	0%,
 	100% {
 		transform: translateY(0%) scale(1);

@@ -32,7 +32,7 @@ similar to above styling write me tsx component about following text in turkish 
 
 ### Improvements
 * Make all jpg webp
-
+* Investigate other problems from page speed insights
 
 ### Features
 * Add language support for english to navbar expect blog page
