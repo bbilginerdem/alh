@@ -31,7 +31,6 @@ similar to above styling write me tsx component about following text in turkish 
 ## TODOS
 
 ### Features
-* Add language support for english to navbar expect blog page
+* Add language support for english to navbar expect blog pages
 * Topluluk ilkeleri yerine bounce rate i arttirabilecek birsey
-* Öne çıkan butonunu arada bir değiştirmesini söyleyebilirsin sürekli aynı olması işleyişini değiştir
 * Ask AI what could be added to the website

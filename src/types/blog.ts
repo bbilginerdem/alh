@@ -16,7 +16,6 @@ export interface BlogMetadata {
 		canonicalUrl?: string;
 	};
 	lastModified?: string;
-	featured?: boolean;
 	Content: React.ComponentType;
 }
 

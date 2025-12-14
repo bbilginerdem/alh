@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import { isNewContent } from "@/lib/blog-utils";
 import { events, posts } from "@/lib/data";
 import { generateSecureRandomId, navbarDirection } from "@/lib/utils";
+import { NewBadgeCircle } from "./home/NewBadgeCircle";
 
 const navItems: string[] = [
 	"gönüllü ol",
@@ -169,7 +170,10 @@ const NavBar = () => {
 							{isDropdownOpen ? (
 								<X size={24} color="#fdba74" />
 							) : (
-								<Menu size={24} color="#fdba74" />
+								<>
+									<Menu size={24} color="#fdba74" />
+									{(hasNewBlog || hasNewEvent) && <NewBadgeCircle />}
+								</>
 							)}
 						</button>
 
@@ -186,12 +190,7 @@ const NavBar = () => {
 										className="nav-hover-btn relative font-medium text-sm transition-colors hover:text-orange-300"
 									>
 										{item}
-										{showBadge && (
-											<span className="-top-1 -right-2 absolute flex h-2 w-2">
-												<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-zinc-50 opacity-75" />
-												<span className="relative inline-flex h-2 w-2 rounded-full bg-zinc-100" />
-											</span>
-										)}
+										{showBadge && <NewBadgeCircle />}
 									</Link>
 								);
 							})}
@@ -218,12 +217,7 @@ const NavBar = () => {
 									onClick={() => setIsDropdownOpen(false)}
 								>
 									{item}
-									{showBadge && (
-										<span className="-right-4 -top-1 absolute flex h-3 w-3">
-											<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75" />
-											<span className="relative inline-flex h-3 w-3 rounded-full bg-orange-500" />
-										</span>
-									)}
+									{showBadge && <NewBadgeCircle />}
 								</Link>
 							);
 						})}

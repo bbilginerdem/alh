@@ -37,14 +37,6 @@ function BlogCard({
 				ref={setRef}
 				className="hover:-translate-y-0.5 relative h-80 overflow-hidden rounded-lg border border-orange-300/20 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-orange-300/40 hover:bg-white/10"
 			>
-				{/* Featured Badge */}
-				{post.featured && (
-					<div className="absolute top-3 left-3 z-10 rounded-full bg-orange-500 px-2 py-1 font-medium text-white text-xs">
-						Öne Çıkan
-					</div>
-				)}
-
-				{/* New Badge */}
 				{isNewContent(post.publishDate) && (
 					<div className="absolute top-2.5 right-18 z-10">
 						<NewBadge />

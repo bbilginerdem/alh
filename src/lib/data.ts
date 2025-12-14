@@ -45,7 +45,6 @@ export const posts: BlogMetadata[] = [
 			canonicalUrl: "https://ankaralindyhop.org/blog/frankie-manning-lindy-hop",
 		},
 		lastModified: "2025-02-10T14:30:00Z",
-		featured: true,
 		Content: FrankieManning,
 	},
 	{
@@ -108,7 +107,6 @@ export const posts: BlogMetadata[] = [
 			],
 			canonicalUrl: "https://ankaralindyhop.org/blog/lindy-hop-tarihi",
 		},
-		featured: true,
 		Content: LindyHopHistory,
 	},
 	{
@@ -318,7 +316,7 @@ export const posts: BlogMetadata[] = [
 		title:
 			"Duke Ellington ile swing çağına yolculuk: Blanton/Webster Döneminin Dans ve Can Üzerine Etkisi",
 		slug: "duke-ellington-blanton-webster",
-		publishDate: "2025-12-14T14:18:00Z",
+		publishDate: "2025-12-14T11:18:00Z",
 		author: "Salih Ürek",
 		excerpt:
 			"Duke Ellington'un 1940-42 yılları arasında RCA Victor ile yaptığı legendary albümü, Blanton-Webster dönemi ve Swing döneminin doruk noktası hakkında detaylı analiz.",
