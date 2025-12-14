@@ -318,7 +318,7 @@ export const posts: BlogMetadata[] = [
 		title:
 			"Duke Ellington ile swing çağına yolculuk: Blanton/Webster Döneminin Dans ve Can Üzerine Etkisi",
 		slug: "duke-ellington-blanton-webster",
-		publishDate: "2025-12-14T18:00:00Z",
+		publishDate: "2025-12-14T14:18:00Z",
 		author: "Salih Ürek",
 		excerpt:
 			"Duke Ellington'un 1940-42 yılları arasında RCA Victor ile yaptığı legendary albümü, Blanton-Webster dönemi ve Swing döneminin doruk noktası hakkında detaylı analiz.",

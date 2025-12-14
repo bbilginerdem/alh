@@ -19,9 +19,10 @@ const Hero = () => {
 	const tl = gsap.timeline();
 
 	useEffect(() => {
-		// Using Math.random() for non-security-critical UI video selection is safe
-		const randomIndex = Math.floor(Math.random() * 4) + 1; // 1-4
-		setCurrentVideoIndex(randomIndex);
+		if (globalThis.window !== undefined) {
+			const randomIndex = Math.floor(Math.random() * 4) + 1; // 1-4
+			setCurrentVideoIndex(randomIndex);
+		}
 	}, []);
 
 	useGSAP(() => {
@@ -34,14 +35,14 @@ const Hero = () => {
 				color: "#fdba74",
 				opacity: 1,
 				y: 9,
-				duration: 1.5,
+				duration: 1,
 				ease: "power3.in",
 			},
 		).to([lindyTextRef.current, ankaraTextRef.current].filter(Boolean), {
 			color: "#f4f4f5",
 			opacity: 1,
 			y: 0,
-			duration: 1.5,
+			duration: 1,
 			ease: "power3.out",
 		});
 

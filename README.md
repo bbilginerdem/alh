@@ -30,9 +30,6 @@ similar to above styling write me tsx component about following text in turkish 
 
 ## TODOS
 
-### Improvements
-* Investigate other problems from page speed insights
-
 ### Features
 * Add language support for english to navbar expect blog page
 * Topluluk ilkeleri yerine bounce rate i arttirabilecek birsey

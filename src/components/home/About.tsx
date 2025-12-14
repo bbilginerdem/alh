@@ -57,8 +57,8 @@ const About = () => {
 						alt="ALH parti sonu"
 						fill
 						quality={85}
-						loading="lazy"
-						sizes="(max-width: 768px) 60vw, (max-width: 1024px) 80vw, 100vw"
+						priority
+						sizes="(max-width: 768px) 80vw, (max-width: 1024px) 90vw, 100vw"
 						className="absolute top-0 left-0"
 						style={{
 							objectFit: "cover",
