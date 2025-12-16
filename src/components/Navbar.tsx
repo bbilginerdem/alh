@@ -146,7 +146,7 @@ const NavBar = () => {
 			ref={navContainerRef}
 			className={`fixed inset-x-0 top-0 z-50 h-24 border-none transition-colors duration-300 ${isDropdownOpen ? "bg-zinc-950" : ""}`}
 		>
-			<div className="-translate-y-1/2 absolute top-1/2 w-full">
+			<div className="absolute top-1/2 w-full -translate-y-1/2">
 				<nav className="relative z-50 flex size-full items-center justify-between px-8 lg:px-10 xl:px-16">
 					<Link className="flex items-center" href="/">
 						<Image
