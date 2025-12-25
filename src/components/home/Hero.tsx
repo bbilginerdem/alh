@@ -112,9 +112,9 @@ const Hero = () => {
 								Rasa kafe & restoranındayız.
 							</p>
 						</div>
-						<Link href="/topluluk-ilkeleri" passHref className="inline-flex">
+						<Link href="/etkinlikler" passHref className="inline-flex">
 							<Button
-								title="Topluluk İlkeleri"
+								title="Etkinlikler"
 								leftIcon={<Navigation />}
 								containerClass="flex-center mt-5"
 							/>

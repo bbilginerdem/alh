@@ -50,7 +50,7 @@ const About = () => {
 				</div>
 			</div>
 
-			<div className="h-dvh w-screen" id="clip" ref={clipRef}>
+			<div className="relative h-dvh w-screen" id="clip" ref={clipRef}>
 				<div className="mask-clip-path about-image">
 					<Image
 						src="/images/about.webp"
