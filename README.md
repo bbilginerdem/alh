@@ -34,3 +34,6 @@ similar to above styling write me tsx component about following text in turkish 
 * Add language support for english to navbar expect blog pages
 * Topluluk ilkeleri yerine bounce rate i arttirabilecek birsey
 * Ask AI what could be added to the website
+* On mobile when going from blog to home and sometimes on first loading about appears at the top, can be fixed by changing z-index but it would be a hack
+
+try <footer class="h-22 w-full bg-orange-300 py-4 text-black md:h-14">
