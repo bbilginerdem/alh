@@ -114,7 +114,7 @@ export function BlogFilters({
 			{/* Filters Row */}
 			<div className="flex flex-wrap gap-4">
 				{/* Category Filter */}
-				<div className="min-w-[200px] flex-1">
+				<div className="min-w-50 flex-1">
 					<label
 						htmlFor={category}
 						className="mb-2 block font-medium text-sm text-zinc-300"
@@ -137,7 +137,7 @@ export function BlogFilters({
 				</div>
 
 				{/* Tag Filter */}
-				<div className="min-w-[200px] flex-1">
+				<div className="min-w-50 flex-1">
 					<label
 						htmlFor={tag}
 						className="mb-2 block font-medium text-sm text-zinc-300"
@@ -160,7 +160,7 @@ export function BlogFilters({
 				</div>
 
 				{/* Sort Filter */}
-				<div className="min-w-[200px] flex-1">
+				<div className="min-w-50 flex-1">
 					<label
 						htmlFor={sort}
 						className="mb-2 block font-medium text-sm text-zinc-300"

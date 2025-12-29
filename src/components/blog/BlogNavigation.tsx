@@ -32,7 +32,7 @@ export function BlogNavigation({
 							href={`/blog/${previousPost.slug}`}
 							className="group flex items-center gap-3 rounded-lg border border-zinc-700/50 p-4 transition-all duration-300 hover:border-orange-300/50 hover:bg-zinc-800/30"
 						>
-							<div className="flex-shrink-0">
+							<div className="shrink-0">
 								<ChevronLeft />
 							</div>
 							<div className="min-w-0 flex-1">
@@ -60,7 +60,7 @@ export function BlogNavigation({
 									{nextPost.title}
 								</h3>
 							</div>
-							<div className="flex-shrink-0">
+							<div className="shrink-0">
 								<ChevronRight />
 							</div>
 						</Link>
