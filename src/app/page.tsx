@@ -6,10 +6,18 @@ import Hero from "@/components/home/Hero";
 export default function Home() {
 	return (
 		<section className="relative">
-			<Hero />
-			<About />
-			<Features />
-			<Contact />
+			<section className="snap-start snap-always">
+				<Hero />
+			</section>
+			<section className="snap-start snap-always">
+				<About />
+			</section>
+			<section className="snap-start snap-always">
+				<Features />
+			</section>
+			<section className="snap-start snap-always">
+				<Contact />
+			</section>
 		</section>
 	);
 }

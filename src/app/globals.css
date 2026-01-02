@@ -25,6 +25,8 @@
 	/* Apply Inter as default font for all text */
 	html {
 		font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+		scroll-snap-type: y mandatory;
+		scroll-behavior: smooth;
 	}
 
 	body {
@@ -42,6 +44,10 @@
 		font-family: var(--font-almendra-sc), serif;
 		font-weight: 400;
 		/* Match the loaded font weight */
+	}
+
+	.snap-always {
+		scroll-snap-stop: always;
 	}
 }
 
