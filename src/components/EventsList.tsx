@@ -2,6 +2,7 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Calendar, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { NewBadge } from "@/components/ui/NewBadge";
@@ -67,6 +68,27 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 				once: true,
 			});
 
+			gsap.fromTo(
+				".calendar-link-card",
+				{
+					y: 60,
+					opacity: 0,
+					scale: 0.95,
+				},
+				{
+					y: 0,
+					opacity: 1,
+					scale: 1,
+					duration: 0.8,
+					ease: "back.out(1.7)",
+					scrollTrigger: {
+						trigger: ".calendar-link-card",
+						start: "top 95%",
+						once: true,
+					},
+				},
+			);
+
 			ScrollTrigger.batch(".past-event-item", {
 				onEnter: (batch) => {
 					gsap.fromTo(
@@ -109,7 +131,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 
 		return {
 			id: `weekly-${nextWednesday.getTime()}`,
-			title: "Haftalık Lindy Hop Buluşması",
+			title: "Ankara Lindy Hop - Pratik & Parti",
 			date: nextWednesday.toISOString(),
 			location:
 				"Rasa Brasserie, Meşrutiyet, Selanik Caddesi, Raymar Hotel No:74, 06420 Çankaya/Ankara",
@@ -188,7 +210,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 		<div className="mx-auto max-w-4xl px-4 py-8" ref={containerRef}>
 			<div className="mb-8 overflow-hidden">
 				<h1 className="events-header text-center font-bold text-3xl text-zinc-100 uppercase tracking-tighter sm:text-4xl">
-					Yaklaşan Etkinlikler
+					Yaklaşan Etkinliklerimiz
 				</h1>
 			</div>
 
@@ -199,6 +221,35 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 					)
 					.map((event) => renderEventItem(event, false))}
 			</ul>
+
+			<div className="calendar-link-card mt-8">
+				<a
+					href="https://www.swing-out.com/turkiye/ankara"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="group relative flex items-center justify-between overflow-hidden rounded-xl border border-orange-500/20 bg-linear-to-r from-orange-500/5 to-purple-500/5 p-6 backdrop-blur-md transition-all duration-300 hover:border-orange-400/50 hover:bg-white/5 hover:shadow-2xl hover:shadow-orange-500/20"
+				>
+					<div className="absolute inset-0 bg-linear-to-r from-orange-500/10 via-transparent to-purple-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+					<div className="relative z-10 flex items-center gap-6">
+						<div className="hidden h-12 w-12 items-center justify-center rounded-full bg-orange-500/10 text-orange-400 shadow-[0_0_15px_rgba(251,146,60,0.3)] transition-all duration-300 group-hover:scale-110 group-hover:bg-orange-400/20 group-hover:text-orange-300 sm:flex">
+							<Calendar className="h-6 w-6" />
+						</div>
+						<div>
+							<h3 className="font-bold text-xl text-zinc-100 tracking-tight transition-colors group-hover:text-orange-300 sm:text-2xl">
+								Ankara Dans Takvimi
+							</h3>
+							<p className="mt-1 font-medium text-zinc-400 transition-colors group-hover:text-zinc-300">
+								Tüm swing etkinliklerini ve daha fazlasini görüntüleyin
+							</p>
+						</div>
+					</div>
+
+					<div className="relative z-10 ml-4 rounded-full border border-white/10 bg-white/5 p-3 text-zinc-400 transition-all duration-300 group-hover:rotate-45 group-hover:border-orange-500/30 group-hover:bg-orange-500/10 group-hover:text-orange-300">
+						<ExternalLink className="h-5 w-5" />
+					</div>
+				</a>
+			</div>
 
 			{pastEvents.length > 0 && (
 				<section className="mt-16">

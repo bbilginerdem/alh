@@ -11,7 +11,7 @@ import Navbar from "@/components/Navbar";
 const inter = Inter({
 	subsets: ["latin"],
 	variable: "--font-inter",
-	display: "optional",
+	display: "swap",
 	preload: true,
 });
 
@@ -19,7 +19,7 @@ const almendraSC = Almendra_SC({
 	subsets: ["latin"],
 	variable: "--font-almendra-sc",
 	weight: "400",
-	display: "optional",
+	display: "swap",
 	preload: true,
 });
 
