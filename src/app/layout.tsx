@@ -112,6 +112,27 @@ export default function RootLayout({
 					href="/images/features-1.webp"
 					fetchPriority="high"
 				/>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							"@context": "https://schema.org",
+							"@type": "Organization",
+							name: "Ankara Lindy Hop",
+							url: "https://ankaralindyhop.org",
+							logo: "https://ankaralindyhop.org/images/og-image.png",
+							sameAs: [
+								"https://www.instagram.com/ankaralindyhop",
+								"https://www.facebook.com/ankaralindyhop",
+							],
+							contactPoint: {
+								"@type": "ContactPoint",
+								email: "iletisim@ankaralindyhop.org",
+								contactType: "customer support",
+							},
+						}),
+					}}
+				/>
 			</head>
 			<body className={`${inter.variable} ${almendraSC.variable} antialiased`}>
 				<main className="min-h-screen w-screen overflow-x-hidden">
