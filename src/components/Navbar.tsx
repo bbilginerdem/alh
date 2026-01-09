@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { isNewContent } from "@/lib/blog-utils";
 import { events, posts } from "@/lib/data";
-import { generateSecureRandomId, navbarDirection } from "@/lib/utils";
+import { navbarDirection } from "@/lib/utils";
 import { NewBadgeCircle } from "./home/NewBadgeCircle";
 
 const navItems: string[] = [
@@ -185,7 +185,7 @@ const NavBar = () => {
 
 								return (
 									<Link
-										key={generateSecureRandomId()}
+										key={item}
 										href={`/${navbarDirection(item).toLowerCase()}`}
 										className="nav-hover-btn relative font-medium text-sm transition-colors hover:text-orange-300"
 									>
@@ -211,7 +211,7 @@ const NavBar = () => {
 
 							return (
 								<Link
-									key={generateSecureRandomId()}
+									key={item}
 									href={`/${navbarDirection(item).toLowerCase()}`}
 									className="mobile-nav-item relative block font-bold text-4xl text-orange-300 tracking-tighter transition-colors hover:text-orange-200"
 									onClick={() => setIsDropdownOpen(false)}

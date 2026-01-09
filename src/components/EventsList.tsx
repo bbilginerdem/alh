@@ -210,7 +210,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 		<div className="mx-auto max-w-4xl px-4 py-8" ref={containerRef}>
 			<div className="mb-8 overflow-hidden">
 				<h1 className="events-header text-center font-bold text-3xl text-zinc-100 uppercase tracking-tighter sm:text-4xl">
-					Yaklaşan Etkinliklerimiz
+					Yaklaşan Etkinlikler
 				</h1>
 			</div>
 
@@ -232,7 +232,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 					<div className="absolute inset-0 bg-linear-to-r from-orange-500/10 via-transparent to-purple-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
 					<div className="relative z-10 flex items-center gap-6">
-						<div className="hidden h-12 w-12 items-center justify-center rounded-full bg-orange-500/10 text-orange-400 shadow-[0_0_15px_rgba(251,146,60,0.3)] transition-all duration-300 group-hover:scale-110 group-hover:bg-orange-400/20 group-hover:text-orange-300 sm:flex">
+						<div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-500/10 text-orange-400 shadow-[0_0_15px_rgba(251,146,60,0.3)] transition-all duration-300 group-hover:scale-110 group-hover:bg-orange-400/20 group-hover:text-orange-300">
 							<Calendar className="h-6 w-6" />
 						</div>
 						<div>
@@ -254,9 +254,9 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 			{pastEvents.length > 0 && (
 				<section className="mt-16">
 					<div className="mb-8 overflow-hidden">
-						<h2 className="events-header text-center font-bold text-3xl text-zinc-100 uppercase tracking-tighter sm:text-4xl">
+						<h1 className="events-header text-center font-bold text-3xl text-zinc-100 uppercase tracking-tighter sm:text-4xl">
 							Geçmiş Etkinlikler
-						</h2>
+						</h1>
 					</div>
 					<ul className="past-events-list space-y-6">
 						{pastEvents.map((event) => renderEventItem(event, true))}

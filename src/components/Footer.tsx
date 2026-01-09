@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { generateSecureRandomId } from "@/lib/utils";
+
 import Facebook from "./social/facebook";
 import Instagram from "./social/instagram";
 import Youtube from "./social/youtube";
@@ -15,7 +15,7 @@ const socialLinks = [
 
 const Footer = () => {
 	return (
-		<footer className="min-h-22 w-full snap-start snap-always bg-orange-300 py-4 text-black md:min-h-14">
+		<footer className="min-h-22 w-full bg-orange-300 py-4 text-black md:min-h-14">
 			<div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 md:flex-row">
 				{/* Branding */}
 				<p className="text-center font-light text-sm md:text-left">
@@ -42,7 +42,7 @@ const Footer = () => {
 				<div className="flex justify-center gap-6 md:justify-start">
 					{socialLinks.map((link) => (
 						<Link
-							key={generateSecureRandomId()}
+							key={link.href}
 							href={link.href}
 							target="_blank"
 							rel="noopener noreferrer"

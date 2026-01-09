@@ -55,17 +55,3 @@ export function navbarDirection(text: string): string {
 
 	return cleanedText.toLowerCase(); // optional: normalize to lowercase
 }
-
-export function generateSecureRandomId(length = 21): string {
-	// Generates a URL-safe, cryptographically secure ID
-	const charset = "abcdefghijklmnopqrstuvwxyz0123456789";
-	const byteLength = Math.ceil((length * Math.log2(charset.length)) / 8);
-	const bytes = new Uint8Array(byteLength);
-	crypto.getRandomValues(bytes);
-
-	let id = "";
-	for (let i = 0; i < length; i++) {
-		id += charset[bytes[i] % charset.length];
-	}
-	return id;
-}

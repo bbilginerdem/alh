@@ -39,7 +39,7 @@ export default function Contact() {
 	return (
 		<CustomBlackLayout>
 			<section className="flex min-h-[calc(100vh-10rem)] flex-col items-center justify-center px-4">
-				<div className="w-full max-w-md space-y-8 rounded-xl p-10 backdrop-blur-sm sm:max-w-lg md:max-w-2xl">
+				<div className="w-full max-w-md space-y-8 rounded-xl p-10 sm:max-w-lg md:max-w-2xl">
 					<h2 className="text-center font-bold text-3xl text-gray-100">
 						İletişim
 					</h2>

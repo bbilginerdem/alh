@@ -3,8 +3,7 @@
 import clsx from "clsx";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
-import { generateSecureRandomId } from "@/lib/utils";
+import { useEffect, useMemo, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +14,16 @@ interface AnimatedTitleProps {
 
 const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
 	const containerRef = useRef<HTMLDivElement>(null);
+
+	const lines = useMemo(() => {
+		return title.split("<br />").map((line, i) => ({
+			id: `line-${i}`,
+			words: line.split(" ").map((word, j) => ({
+				id: `word-${i}-${j}`,
+				html: word,
+			})),
+		}));
+	}, [title]);
 
 	useEffect(() => {
 		const ctx = gsap.context(() => {
@@ -44,16 +53,16 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
 
 	return (
 		<div ref={containerRef} className={clsx("animated-title", containerClass)}>
-			{title.split("<br />").map((line) => (
+			{lines.map((line) => (
 				<div
-					key={generateSecureRandomId()}
+					key={line.id}
 					className="max-w-full flex-center flex-wrap gap-2 px-10 md:gap-3"
 				>
-					{line.split(" ").map((word) => (
+					{line.words.map((word) => (
 						<span
-							key={generateSecureRandomId()}
+							key={word.id}
 							className="animated-word"
-							dangerouslySetInnerHTML={{ __html: word }}
+							dangerouslySetInnerHTML={{ __html: word.html }}
 						/>
 					))}
 				</div>
