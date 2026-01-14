@@ -1,8 +1,18 @@
-"use client";
-
+import type { Metadata } from "next";
 import CustomBlackLayout from "@/components/ui/CustomBlackLayout";
 
-export default function GizlilikPolitikasi() {
+export const metadata: Metadata = {
+	title: "Gizlilik Politikası",
+	description:
+		"Ankara Lindy Hop topluluğu gizlilik politikası ve kişisel verilerin korunması hakkında bilgi. Verilerinizin güvenliğini nasıl sağladığımızı öğrenin.",
+	openGraph: {
+		title: "Gizlilik Politikası | Ankara Lindy Hop",
+		description: "Gizliliğiniz ve veri güvenliğiniz hakkında bilgi edinin.",
+		url: "https://ankaralindyhop.org/gizlilik-politikasi",
+	},
+};
+
+export default function PrivacyPolicyPage() {
 	return (
 		<CustomBlackLayout>
 			<article className="mx-auto max-w-4xl px-4 py-8 text-zinc-100">

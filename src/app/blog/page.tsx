@@ -1,14 +1,27 @@
-"use client";
+import type { Metadata } from "next";
+import { BlogPageClient } from "@/components/blog/BlogPageClient";
 
-import { useState } from "react";
-import { BlogList } from "@/components/BlogList";
-import { BlogFilters } from "@/components/blog/BlogFilters";
-import { posts } from "@/lib/data";
-import type { BlogMetadata } from "@/types/blog";
+export const metadata: Metadata = {
+	title: "Blog Yazıları",
+	description:
+		"Swing dansı, caz müziği ve dans kültürünü derinlemesine inceleyen makalelerimiz, dansçılarımızın hikayeleri ve Ankara'nın caz mirası hakkında yazılar.",
+	keywords: [
+		"Lindy Hop Blog",
+		"Swing Dansı Makaleleri",
+		"Caz Tarihi",
+		"Ankara Lindy Hop Yazıları",
+		"Dans Kültürü",
+	],
+	openGraph: {
+		title: "Blog Yazıları | Ankara Lindy Hop",
+		description:
+			"Swing dansı, caz müziği ve dans kültürünü derinlemesine inceleyen makalelerimiz.",
+		url: "https://ankaralindyhop.org/blog",
+		type: "website",
+	},
+};
 
 export default function BlogPage() {
-	const [filteredPosts, setFilteredPosts] = useState<BlogMetadata[]>(posts);
-
 	return (
 		<section className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
 			<header className="mb-8 text-center">
@@ -20,8 +33,7 @@ export default function BlogPage() {
 				</p>
 			</header>
 
-			<BlogFilters posts={posts} onFilteredPosts={setFilteredPosts} />
-			<BlogList posts={filteredPosts} />
+			<BlogPageClient />
 		</section>
 	);
 }

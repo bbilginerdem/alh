@@ -1,17 +1,20 @@
-"use client";
-
-import Button from "@/components/ui/Button";
+import type { Metadata } from "next";
 import CustomBlackLayout from "@/components/ui/CustomBlackLayout";
+import { VolunteerButton } from "@/components/VolunteerButton";
 
-export default function Ekibimiz() {
-	const handleVolunteerClick = () => {
-		window.open(
-			"https://docs.google.com/forms/d/e/1FAIpQLScZCpPCAqFCMiYHmBwoodiSUHMsWAkXmkFLG8Z2qcgXfi3WFg/viewform?usp=dialog",
-			"_blank",
-			"noopener,noreferrer",
-		);
-	};
+export const metadata: Metadata = {
+	title: "Gönüllü Ol",
+	description:
+		"Ankara Lindy Hop topluluğuna gönüllü olarak katkıda bulunun. DJ'lik, grafik tasarım, etkinlik organizasyonu ve daha fazlası için ekibimize katılın.",
+	openGraph: {
+		title: "Gönüllü Ol | Ankara Lindy Hop",
+		description:
+			"Yeteneklerinle topluluğumuza katkı sağla. Gönüllü ekibimize katıl!",
+		url: "https://ankaralindyhop.org/gonullu-ol",
+	},
+};
 
+export default function VolunteerPage() {
 	const teamMembers = [
 		{
 			id: "safety",
@@ -142,11 +145,7 @@ export default function Ekibimiz() {
 								olarak aramıza katılabilirsin. Yeteneklerin ne olursa olsun,
 								seni aramızda görmek isteriz!
 							</p>
-							<Button
-								title="Gönüllü Ol"
-								containerClass="mx-auto"
-								onClick={handleVolunteerClick}
-							/>
+							<VolunteerButton />
 							<p className="mt-4 text-sm text-zinc-400">
 								Gönüllü formunu doldurarak katkı sağlayabileceğin alanları
 								belirtebilirsin

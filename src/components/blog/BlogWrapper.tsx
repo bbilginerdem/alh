@@ -1,5 +1,3 @@
-"use client";
-
 import { CalendarFold } from "lucide-react";
 import Link from "next/link";
 import { formatDate, formatReadingTime } from "@/lib/blog-utils";

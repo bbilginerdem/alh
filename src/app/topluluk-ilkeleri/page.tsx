@@ -1,32 +1,31 @@
-"use client";
-
-import Button from "@/components/ui/Button";
+import type { Metadata } from "next";
 import CustomBlackLayout from "@/components/ui/CustomBlackLayout";
+import { ViolationReportButton } from "@/components/ViolationReportButton";
 
-export default function Toplulukİlkeleri() {
-	const handleButtonClick = () => {
-		window.open(
-			"https://docs.google.com/forms/d/e/1FAIpQLScyrPGGqRb-dUQBOj4VGtpmOHd-SbuoWspXjTCSPb0Fc3_MUA/viewform",
-			"_blank",
-			"noopener,noreferrer",
-		);
-	};
+export const metadata: Metadata = {
+	title: "Topluluk İlkeleri",
+	description:
+		"Ankara Lindy Hop topluluğunun etik ilkeleri, taciz politikası ve dans pisti görgü kuralları. Herkes için güvenli bir dans ortamı yaratıyoruz.",
+	openGraph: {
+		title: "Topluluk İlkeleri | Ankara Lindy Hop",
+		description:
+			"Etik ilkelerimiz ve güvenli dans ortamı politikalarımız hakkında bilgi edinin.",
+		url: "https://ankaralindyhop.org/topluluk-ilkeleri",
+	},
+};
 
+export default function CommunityPrinciplesPage() {
 	return (
 		<CustomBlackLayout>
 			<article className="mx-auto max-w-4xl px-4 py-8 text-zinc-100">
 				<header className="mb-8 text-center">
 					<h1 className="mb-4 font-bold text-3xl md:text-4xl lg:text-5xl">
-						{" "}
-						{/* Responsive title */}
 						ALH Topluluğu Etik İlkeleri
 					</h1>
 					<div className="mx-auto h-1 w-24 bg-orange-300" />
 				</header>
 
 				<div className="max-w-none text-base md:text-lg">
-					{" "}
-					{/* Responsive base text */}
 					<section className="mb-8">
 						<p className="mb-6 text-lg md:text-xl">
 							Ankara Lindy Hop Topluluğu (ALH) kar odaklı olmayan, yardımlaşma
@@ -38,13 +37,9 @@ export default function Toplulukİlkeleri() {
 
 						<div className="mb-8">
 							<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
-								{" "}
-								{/* Responsive heading */}
 								Topluluğun Politikaları
 							</h2>
 							<ul className="mb-4 list-disc space-y-2 pl-5 text-base md:space-y-3 md:text-lg">
-								{" "}
-								{/* Responsive list */}
 								<li>
 									ALH cinsiyet kimliği, cinsel yönelim, engellilik, fiziksel
 									görünüm, vücut ölçüsü, ırk, dil, din, dans beceri düzeyi veya
@@ -68,9 +63,8 @@ export default function Toplulukİlkeleri() {
 							</ul>
 						</div>
 					</section>
+
 					<section className="mb-8 rounded-lg bg-white/10 p-4 backdrop-blur-sm md:p-6">
-						{" "}
-						{/* Responsive padding */}
 						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
 							Taciz ve Uygunsuz Davranışlar
 						</h2>
@@ -115,6 +109,7 @@ export default function Toplulukİlkeleri() {
 							geçin.
 						</p>
 					</section>
+
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
 							Dans Pistinde Görgü Kuralları
@@ -187,6 +182,7 @@ export default function Toplulukİlkeleri() {
 							</li>
 						</ul>
 					</section>
+
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
 							Etkinlik Mekanı Kuralları
@@ -234,7 +230,7 @@ export default function Toplulukİlkeleri() {
 							</p>
 						</div>
 					</section>
-					{/* Care Team Section */}
+
 					<section className="my-12 rounded-lg border border-orange-300/30 bg-orange-300/5 p-6 text-center">
 						<p className="font-medium text-lg text-orange-300">
 							Bu ilkeler topluluğumuzun refahı ve güvenliği için özenle
@@ -244,12 +240,9 @@ export default function Toplulukİlkeleri() {
 							ALH Care Team tarafından ❤️ ile yazıldı
 						</p>
 					</section>
+
 					<section className="text-center">
-						<Button
-							title="İhlal Bildirimi Yap"
-							containerClass="mx-auto my-4"
-							onClick={handleButtonClick}
-						/>
+						<ViolationReportButton />
 						<p className="my-3 text-sm text-zinc-400">
 							Topluluk ilkelerini ihlal eden bir durumla karşılaştıysanız, bu
 							buton aracılığıyla bildirimde bulunabilirsiniz.
