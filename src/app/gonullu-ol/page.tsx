@@ -12,6 +12,9 @@ export const metadata: Metadata = {
 			"Yeteneklerinle topluluğumuza katkı sağla. Gönüllü ekibimize katıl!",
 		url: "https://ankaralindyhop.org/gonullu-ol",
 	},
+	alternates: {
+		canonical: "/gonullu-ol",
+	},
 };
 
 export default function VolunteerPage() {

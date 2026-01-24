@@ -25,8 +25,7 @@ export async function generateMetadata({
 		description: post.seo.metaDescription,
 		keywords: post.seo.keywords,
 		alternates: {
-			canonical:
-				post.seo.canonicalUrl || `https://ankaralindyhop.org/blog/${post.slug}`,
+			canonical: post.seo.canonicalUrl || `/blog/${post.slug}`,
 		},
 		openGraph: {
 			title: post.title,

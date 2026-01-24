@@ -19,6 +19,9 @@ export const metadata: Metadata = {
 		url: "https://ankaralindyhop.org/blog",
 		type: "website",
 	},
+	alternates: {
+		canonical: "/blog",
+	},
 };
 
 export default function BlogPage() {

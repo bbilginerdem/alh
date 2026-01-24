@@ -315,7 +315,7 @@ export const posts: BlogMetadata[] = [
 		id: 10,
 		title:
 			"Duke Ellington ile swing çağına yolculuk: Blanton/Webster Döneminin Dans ve Can Üzerine Etkisi",
-		slug: "duke-ellington-blanton-webster",
+		slug: "duke-ellington-never-no-lament",
 		publishDate: "2025-12-14T11:18:00Z",
 		author: "Salih Ürek",
 		excerpt:

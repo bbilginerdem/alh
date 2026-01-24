@@ -12,6 +12,9 @@ export const metadata: Metadata = {
 			"Etik ilkelerimiz ve güvenli dans ortamı politikalarımız hakkında bilgi edinin.",
 		url: "https://ankaralindyhop.org/topluluk-ilkeleri",
 	},
+	alternates: {
+		canonical: "/topluluk-ilkeleri",
+	},
 };
 
 export default function CommunityPrinciplesPage() {

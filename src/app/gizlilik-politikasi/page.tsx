@@ -7,8 +7,11 @@ export const metadata: Metadata = {
 		"Ankara Lindy Hop topluluğu gizlilik politikası ve kişisel verilerin korunması hakkında bilgi. Verilerinizin güvenliğini nasıl sağladığımızı öğrenin.",
 	openGraph: {
 		title: "Gizlilik Politikası | Ankara Lindy Hop",
-		description: "Gizliliğiniz ve veri güvenliğiniz hakkında bilgi edinin.",
+		description: "Gizliliğiniz and veri güvenliğiniz hakkında bilgi edinin.",
 		url: "https://ankaralindyhop.org/gizlilik-politikasi",
+	},
+	alternates: {
+		canonical: "/gizlilik-politikasi",
 	},
 };
 

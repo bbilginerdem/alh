@@ -93,8 +93,9 @@ export const metadata: Metadata = {
 		],
 	},
 	manifest: "/favicon/site.webmanifest",
+	metadataBase: new URL("https://ankaralindyhop.org"),
 	alternates: {
-		canonical: "https://ankaralindyhop.org",
+		canonical: "/",
 	},
 };
 export default function RootLayout({

@@ -13,6 +13,9 @@ export const metadata: Metadata = {
 			"Yaklaşan dans partileri, atölyeleri ve swing etkinliklerimizi takip edin.",
 		url: "https://ankaralindyhop.org/etkinlikler",
 	},
+	alternates: {
+		canonical: "/etkinlikler",
+	},
 };
 
 const EventsPage: React.FC = () => {
