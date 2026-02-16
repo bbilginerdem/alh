@@ -7,6 +7,7 @@ import EllaFitzgerald from "@/components/blog/posts/EllaFitzgerald";
 import FrankieManning from "@/components/blog/posts/FrankieManning";
 import LindyHopHistory from "@/components/blog/posts/LindyHopHistory";
 import NormaMiller from "@/components/blog/posts/NormaMiller";
+import SammyDavisJr from "@/components/blog/posts/SammyDavisJr";
 import TommyDorsey from "@/components/blog/posts/TommyDorsey";
 import type { BlogMetadata } from "@/types/blog";
 
@@ -354,6 +355,44 @@ export const posts: BlogMetadata[] = [
 				"https://ankaralindyhop.org/blog/duke-ellington-never-no-lament",
 		},
 		Content: DukeEllingtonBlantonWebster,
+	},
+	{
+		id: 11,
+		title: "Sammy Davis Jr.: Sınırları Aşan Çok Yönlü Bir İkon",
+		slug: "sammy-davis-jr",
+		publishDate: "2026-02-16T10:00:00Z",
+		author: "Ankara Lindy Hop",
+		excerpt:
+			"Harlem'den Rat Pack'e uzanan efsanevi bir kariyer: Sammy Davis Jr.'ın toplumsal bariyerleri yıkan yeteneği, cesur yaşamı ve caz dünyasındaki unutulmaz mirası.",
+		readingTime: 6,
+		tags: [
+			"Sammy Davis Jr.",
+			"Rat Pack",
+			"Frank Sinatra",
+			"Swing",
+			"Jazz",
+			"Irkçılıkla Mücadele",
+			"Biyografi",
+			"The Entertainer",
+		],
+		category: "Müzik",
+		image: "/images/blogs/11-4.webp",
+		imageAlt: "Sammy Davis Jr. sahnede şarkı söyleyip dans ederken",
+		seo: {
+			metaDescription:
+				"Sammy Davis Jr.'ın Harlem'den Rat Pack'e uzanan hayatı, ırkçılıkla mücadelesi ve 'The Entertainer' olarak bıraktığı miras hakkında detaylı bir analiz.",
+			keywords: [
+				"Sammy Davis Jr.",
+				"Rat Pack",
+				"Frank Sinatra",
+				"Will Mastin Trio",
+				"Caz Tarihi",
+				"Lindy Hop",
+				"Müzik Tarihi",
+			],
+			canonicalUrl: "https://ankaralindyhop.org/blog/sammy-davis-jr",
+		},
+		Content: SammyDavisJr,
 	},
 ];
 
