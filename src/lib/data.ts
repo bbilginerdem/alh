@@ -361,7 +361,7 @@ export const posts: BlogMetadata[] = [
 		title: "Sammy Davis Jr.: Sınırları Aşan Çok Yönlü Bir İkon",
 		slug: "sammy-davis-jr",
 		publishDate: "2026-02-16T10:00:00Z",
-		author: "Ankara Lindy Hop",
+		author: "Behzat Bilgin Erdem",
 		excerpt:
 			"Harlem'den Rat Pack'e uzanan efsanevi bir kariyer: Sammy Davis Jr.'ın toplumsal bariyerleri yıkan yeteneği, cesur yaşamı ve caz dünyasındaki unutulmaz mirası.",
 		readingTime: 6,
