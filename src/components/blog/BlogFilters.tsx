@@ -1,6 +1,7 @@
 "use client";
 
 import { Search } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useId, useMemo, useState } from "react";
 import type { BlogMetadata } from "@/types/blog";
 
@@ -13,13 +14,21 @@ export function BlogFilters({
 	posts,
 	onFilteredPosts,
 }: Readonly<BlogFiltersProps>) {
+	const searchParams = useSearchParams();
+	const initialTag = searchParams.get("tag") || "all";
+
 	const [searchTerm, setSearchTerm] = useState("");
 	const [selectedCategory, setSelectedCategory] = useState("all");
-	const [selectedTag, setSelectedTag] = useState("all");
+	const [selectedTag, setSelectedTag] = useState(initialTag);
 	const [sortBy, setSortBy] = useState("oldest");
 	const sort = useId();
 	const tag = useId();
 	const category = useId();
+
+	// Update selectedTag when URL parameter changes
+	useEffect(() => {
+		setSelectedTag(searchParams.get("tag") || "all");
+	}, [searchParams]);
 
 	// Get unique categories and tags
 	const categories = useMemo(() => {

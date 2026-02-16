@@ -65,7 +65,7 @@ export function BlogWrapper({
 						{metadata.tags.map((tag) => (
 							<Link
 								key={tag}
-								href={`/blog/tag/${encodeURIComponent(tag.toLowerCase())}`}
+								href={`/blog?tag=${encodeURIComponent(tag)}`}
 								className="rounded-md bg-zinc-800/50 px-2 py-1 text-xs text-zinc-300 transition-colors hover:bg-zinc-700/50 hover:text-orange-300"
 							>
 								#{tag}

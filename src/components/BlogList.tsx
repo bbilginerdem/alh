@@ -10,6 +10,7 @@ import { useEffect, useRef } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 import { CornerDownLeft } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { NewBadge } from "@/components/ui/NewBadge";
 import { formatDate, isNewContent } from "@/lib/blog-utils";
 import type { BlogMetadata } from "@/types/blog";
@@ -17,6 +18,7 @@ import type { BlogMetadata } from "@/types/blog";
 interface BlogListProps {
 	posts: BlogMetadata[];
 }
+
 function BlogCard({
 	post,
 	setRef,
@@ -25,6 +27,14 @@ function BlogCard({
 	index: number;
 	setRef: (el: HTMLDivElement | null) => void;
 }>) {
+	const router = useRouter();
+
+	const handleTagClick = (e: React.MouseEvent, tag: string) => {
+		e.preventDefault();
+		e.stopPropagation();
+		router.push(`/blog?tag=${encodeURIComponent(tag)}`);
+	};
+
 	return (
 		<Link
 			href={`/blog/${post.slug}`}
@@ -86,12 +96,14 @@ function BlogCard({
 					{/* Tags */}
 					<div className="mb-0 flex flex-wrap gap-1 opacity-0 transition-all duration-600 group-hover:mb-3 group-hover:translate-x-3 group-hover:opacity-100">
 						{post.tags.slice(0, 2).map((tag) => (
-							<span
+							<button
+								type="button"
 								key={tag}
-								className="rounded-md bg-zinc-800/60 px-2 py-1 text-xs text-zinc-300"
+								onClick={(e) => handleTagClick(e, tag)}
+								className="rounded-md bg-zinc-800/60 px-2 py-1 text-xs text-zinc-300 transition-colors hover:bg-orange-300/20 hover:text-orange-300 focus:outline-none focus:ring-1 focus:ring-orange-300/50"
 							>
 								#{tag}
-							</span>
+							</button>
 						))}
 						{post.tags.length > 2 && (
 							<span className="rounded-md bg-zinc-800/60 px-2 py-1 text-xs text-zinc-400">

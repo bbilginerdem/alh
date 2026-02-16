@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { formatDate, formatReadingTime } from "@/lib/blog-utils";
 import type { BlogMetadata } from "@/types/blog";
 
@@ -12,9 +15,16 @@ export function RelatedPosts({
 	posts,
 	currentPostId,
 }: Readonly<RelatedPostsProps>) {
+	const router = useRouter();
 	const relatedPosts = posts
 		.filter((post) => post.id !== currentPostId)
 		.slice(0, 3);
+
+	const handleTagClick = (e: React.MouseEvent, tag: string) => {
+		e.preventDefault();
+		e.stopPropagation();
+		router.push(`/blog?tag=${encodeURIComponent(tag)}`);
+	};
 
 	if (relatedPosts.length === 0) {
 		return null;
@@ -72,12 +82,14 @@ export function RelatedPosts({
 								{/* Tags */}
 								<div className="mt-3 flex flex-wrap gap-1">
 									{post.tags.slice(0, 2).map((tag) => (
-										<span
+										<button
+											type="button"
 											key={tag}
-											className="rounded-md bg-zinc-700/50 px-2 py-1 text-xs text-zinc-300"
+											onClick={(e) => handleTagClick(e, tag)}
+											className="rounded-md bg-zinc-700/50 px-2 py-1 text-xs text-zinc-300 transition-colors hover:bg-orange-300/20 hover:text-orange-300 focus:outline-none focus:ring-1 focus:ring-orange-300/50"
 										>
 											#{tag}
-										</span>
+										</button>
 									))}
 								</div>
 							</div>

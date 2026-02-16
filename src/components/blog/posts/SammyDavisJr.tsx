@@ -88,10 +88,10 @@ export default function SammyDavisJr() {
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
 					Hayatındaki en büyük kırılma noktalarından biri II. Dünya Savaşı
-					sırasında orduda görev almasıydı. Burada karşılaştığı yoğun ırkçı
-					önyargılarla başa çıkabilmek için yeteneğini bir "silaha"
-					dönüştürdüğünü fark etti. Yeteneği, insanların düşüncelerini
-					etkileyebileceği tek yol haline gelmişti.
+					sırasında orduda görev almasıydı. Burada karşılaştığı yoğun ırkçı ve
+					gösteri bandosuna katılmasının etkisiyle, önyargılarla başa çıkabilmek
+					için yeteneğini bir "silaha" dönüştürebileceğini fark etti. Yeteneği,
+					insanların düşüncelerini etkileyebileceği tek yol haline gelmişti.
 				</p>
 				<p className="text-base md:text-lg">
 					Savaş sonrası kariyere hızla dönse de,{" "}

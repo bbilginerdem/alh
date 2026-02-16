@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
 import { BlogPageClient } from "@/components/blog/BlogPageClient";
+import type { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
 	title: "Blog Yazıları",
@@ -32,11 +33,13 @@ export default function BlogPage() {
 					Blog Yazıları
 				</h1>
 				<p className="mx-auto max-w-2xl text-lg text-zinc-300">
-					Swing dansı, caz müziği ve dans kültürü hakkında derinlemesine yazılar
+					Swing dansı, caz müziği ve dans kültür hakkında derinlemesine yazılar
 				</p>
 			</header>
 
-			<BlogPageClient />
+			<Suspense fallback={<div className="text-zinc-400">Yükleniyor...</div>}>
+				<BlogPageClient />
+			</Suspense>
 		</section>
 	);
 }
