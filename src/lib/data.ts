@@ -21,11 +21,7 @@ export const posts: BlogMetadata[] = [
 		excerpt:
 			"Dans tarihinin en etkileyici figürlerinden Frankie Manning'in hikayesi ve Lindy Hop'a kattığı devrimci aerial hareketleri keşfedin.",
 		readingTime: 2,
-		tags: [
-			"Lindy Hop",
-			"Swing Dansı",
-			"Dans Tarihi",
-		],
+		tags: ["Lindy Hop", "Swing Dansı", "Dans Tarihi"],
 		category: "Dans Tarihi",
 		image: "/images/blogs/1.webp",
 		imageAlt: "Frankie Manning Lindy Hop yaparken tarihi fotoğraf",
@@ -55,11 +51,7 @@ export const posts: BlogMetadata[] = [
 		excerpt:
 			"Lindy Hop'un kraliçesi Norma Miller'ın cesur kişiliği ve dans dünyasına kattığı yenilikçi yaklaşımı keşfedin.",
 		readingTime: 3,
-		tags: [
-			"Lindy Hop",
-			"Kadın Dansçılar",
-			"Harlem",
-		],
+		tags: ["Lindy Hop", "Kadın Dansçılar", "Harlem"],
 		category: "Dans Tarihi",
 		image: "/images/blogs/2.webp",
 		imageAlt: "Norma Miller dans ederken tarihi fotoğraf",
@@ -115,12 +107,7 @@ export const posts: BlogMetadata[] = [
 		excerpt:
 			"Duke Ellington'ın caz müziğine kattığı eşsiz katkılar ve swing dansına etkisini keşfedin.",
 		readingTime: 3,
-		tags: [
-			"Duke Ellington",
-			"Caz Müziği",
-			"Orkestra",
-			"Besteci",
-		],
+		tags: ["Duke Ellington", "Caz Müziği", "Orkestra", "Besteci"],
 		category: "Müzik",
 		image: "/images/blogs/4.webp",
 		imageAlt: "Duke Ellington piyano başında",
@@ -175,12 +162,7 @@ export const posts: BlogMetadata[] = [
 		excerpt:
 			"Tommy Dorsey'nin trombon ustalığı ve swing orkestrasının dans müziğine kattığı büyüleyici melodiler.",
 		readingTime: 2,
-		tags: [
-			"Trombon",
-			"Swing Orkestra",
-			"Big Band",
-			"Dans Müziği",
-		],
+		tags: ["Trombon", "Swing Orkestra", "Big Band", "Dans Müziği"],
 		category: "Müzik",
 		image: "/images/blogs/6.webp",
 		imageAlt: "Tommy Dorsey trombon çalarken",
@@ -207,12 +189,7 @@ export const posts: BlogMetadata[] = [
 		excerpt:
 			"Count Basie'nin müzikal liderliği, orkestrasının özgün tarzı ve swing dansı kültürüne etkisi.",
 		readingTime: 3,
-		tags: [
-			"Swing Orkestrası",
-			"Big Band",
-			"Caz Efsanesi",
-			"Caz Orkestrası",
-		],
+		tags: ["Swing Orkestrası", "Big Band", "Caz Efsanesi", "Caz Orkestrası"],
 		category: "Müzik",
 		image: "/images/blogs/7.webp",
 		imageAlt: "Count Basie Orkestrası Performansı",
@@ -239,12 +216,7 @@ export const posts: BlogMetadata[] = [
 		excerpt:
 			"Ella Fitzgerald'ın zorlu çocukluğu, Apollo Tiyatrosu'ndaki kaderi, scat ustalığı ve efsanevi kariyeri.",
 		readingTime: 4,
-		tags: [
-			"Caz Efsanesi",
-			"Scat Şarkı Söyleme",
-			"Harlem",
-			"Solist"
-		],
+		tags: ["Caz Efsanesi", "Scat Şarkı Söyleme", "Harlem", "Solist"],
 		category: "Müzik",
 		image: "/images/blogs/8.webp",
 		imageAlt: "Ella Fitzgerald sahne performansı",
@@ -274,12 +246,7 @@ export const posts: BlogMetadata[] = [
 		excerpt:
 			"Sosyal danslarda herkesi piste çıkaran, güçlü sesiyle, eğlenceli ve enerjik ritimleriyle, Blues'un kükreyen sesi, Rock'n Roll’un efsanesi, Big Joe Turner:",
 		readingTime: 5,
-		tags: [
-			"Kansas City Blues",
-			"Boogie-Woogie",
-			"Rock'n Roll",
-			"Jump Blues",
-		],
+		tags: ["Kansas City Blues", "Boogie-Woogie", "Rock'n Roll", "Jump Blues"],
 		category: "Müzik",
 		image: "/images/blogs/9.webp",
 		imageAlt: "Big Joe Turner sahne performansı sırasında şarkı söylerken",
@@ -315,7 +282,7 @@ export const posts: BlogMetadata[] = [
 			"Swing Dönemi",
 			"Big Band",
 			"Caz Efsanesi",
-			"Besteci"
+			"Besteci",
 		],
 		category: "Müzik",
 		image: "/images/blogs/10.webp",
@@ -350,12 +317,7 @@ export const posts: BlogMetadata[] = [
 		excerpt:
 			"Harlem'den Rat Pack'e uzanan efsanevi bir kariyer: Sammy Davis Jr.'ın toplumsal bariyerleri yıkan yeteneği, cesur yaşamı ve caz dünyasındaki unutulmaz mirası.",
 		readingTime: 5,
-		tags: [
-			"Rat Pack",
-			"Swing",
-			"Jazz",
-			"Irkçılıkla Mücadele",
-		],
+		tags: ["Rat Pack", "Swing", "Jazz", "Irkçılıkla Mücadele"],
 		category: "Müzik",
 		image: "/images/blogs/11-4.webp",
 		imageAlt: "Sammy Davis Jr. sahnede şarkı söyleyip dans ederken",

@@ -1,6 +1,6 @@
-import { BlogPageClient } from "@/components/blog/BlogPageClient";
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { BlogPageClient } from "@/components/blog/BlogPageClient";
 
 export const metadata: Metadata = {
 	title: "Blog Yazıları",
