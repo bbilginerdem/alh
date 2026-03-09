@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 			"Duke Ellington ile swing çağına yolculuk: Blanton/Webster Döneminin Dans ve Can Üzerine Etkisi",
 		description:
 			"Duke Ellington'un 1940-42 yılları arasında RCA Victor ile yaptığı legendary albümü, Blanton-Webster dönemi ve Swing döneminin doruk noktası hakkında detaylı analiz.",
-		url: "https://ankaralindyhop.org/blog/duke-ellington-blanton-webster",
+		url: "https://ankaralindyhop.org/blog/duke-ellington-never-no-lament",
 		siteName: "Ankara Lindy Hop",
 		locale: "tr_TR",
 		type: "article",
