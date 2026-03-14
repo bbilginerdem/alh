@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { isNewContent } from "@/lib/blog-utils";
 import { events, posts } from "@/lib/data";
 import { navbarDirection } from "@/lib/utils";
@@ -31,59 +31,72 @@ const NavBar = () => {
 		(event) => isNewContent(event.date) && !event.id.startsWith("weekly-"),
 	);
 
-	useEffect(() => {
-		if (!navContainerRef.current) return;
+	const handleScroll = useCallback(() => {
+		const currentScrollY = window.scrollY;
+		const isScrollingDown = currentScrollY > lastScrollY;
 
-		const handleScroll = () => {
-			const currentScrollY = window.scrollY;
-			const isScrollingDown = currentScrollY > lastScrollY;
+		setLastScrollY(currentScrollY);
 
-			setLastScrollY(currentScrollY);
+		if (isDropdownOpen) {
+			setIsNavVisible(true);
+			navContainerRef.current?.classList.remove("floating-nav");
+			return;
+		}
 
-			if (isDropdownOpen) {
-				setIsNavVisible(true);
-				navContainerRef.current?.classList.remove("floating-nav");
-				return;
-			}
-
-			if (currentScrollY === 0) {
-				setIsNavVisible(true);
-				navContainerRef.current?.classList.remove("floating-nav");
-			} else if (isScrollingDown && currentScrollY > 50) {
-				setIsNavVisible(false);
-				navContainerRef.current?.classList.add("floating-nav");
-			} else if (!isScrollingDown) {
-				setIsNavVisible(true);
-				navContainerRef.current?.classList.add("floating-nav");
-			}
-		};
-
-		window.addEventListener("scroll", handleScroll, { passive: true });
-		return () => window.removeEventListener("scroll", handleScroll);
+		if (currentScrollY === 0) {
+			setIsNavVisible(true);
+			navContainerRef.current?.classList.remove("floating-nav");
+		} else if (isScrollingDown && currentScrollY > 50) {
+			setIsNavVisible(false);
+			navContainerRef.current?.classList.add("floating-nav");
+		} else if (!isScrollingDown) {
+			setIsNavVisible(true);
+			navContainerRef.current?.classList.add("floating-nav");
+		}
 	}, [lastScrollY, isDropdownOpen]);
 
 	useEffect(() => {
 		if (!navContainerRef.current) return;
 
-		gsap.to(navContainerRef.current, {
-			y: isNavVisible ? 0 : -100,
-			opacity: isNavVisible ? 1 : 0,
-			duration: 0.2,
-		});
+		window.addEventListener("scroll", handleScroll, { passive: true });
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, [handleScroll]);
+
+	useEffect(() => {
+		if (!navContainerRef.current) return;
+
+		const ctx = gsap.context(() => {
+			gsap.to(navContainerRef.current, {
+				y: isNavVisible ? 0 : -100,
+				opacity: isNavVisible ? 1 : 0,
+				duration: 0.2,
+			});
+		}, navContainerRef);
+
+		return () => {
+			ctx.revert();
+		};
 	}, [isNavVisible]);
 
 	useEffect(() => {
-		if (mobileMenuRef.current) {
-			gsap.killTweensOf(mobileMenuRef.current);
-			gsap.killTweensOf(".mobile-nav-item");
-		}
+		const mobileEl = mobileMenuRef.current;
+		if (!mobileEl) return;
+
+		// ✅ Kill any existing tweens to prevent conflicts
+		gsap.killTweensOf(mobileEl);
+		gsap.killTweensOf(".mobile-nav-item");
+
+		// ✅ Save original body overflow to restore on cleanup
+		const originalOverflow = document.body.style.overflow;
 
 		if (isDropdownOpen) {
 			document.body.style.overflow = "hidden";
 
 			const tl = gsap.timeline();
 
-			tl.to(mobileMenuRef.current, {
+			tl.to(mobileEl, {
 				display: "block",
 				clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
 				duration: 0.5,
@@ -121,20 +134,26 @@ const NavBar = () => {
 			});
 
 			tl.to(
-				mobileMenuRef.current,
+				mobileEl,
 				{
 					clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
 					duration: 0.5,
 					ease: "power4.inOut",
 					onComplete: () => {
-						if (mobileMenuRef.current) {
-							mobileMenuRef.current.style.display = "none";
+						if (mobileEl) {
+							mobileEl.style.display = "none";
 						}
 					},
 				},
 				"-=0.1",
 			);
 		}
+
+		return () => {
+			document.body.style.overflow = originalOverflow;
+			gsap.killTweensOf(mobileEl);
+			gsap.killTweensOf(".mobile-nav-item");
+		};
 	}, [isDropdownOpen]);
 
 	const toggleMenu = () => {

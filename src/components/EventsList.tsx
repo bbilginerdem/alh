@@ -224,7 +224,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 
 			<div className="calendar-link-card mt-8">
 				<a
-					href="https://www.swing-out.com/turkiye/ankara"
+					href="https://swingtakvim.com/?city=ankara"
 					target="_blank"
 					rel="noopener noreferrer"
 					className="group relative flex items-center justify-between overflow-hidden rounded-xl border border-orange-500/20 bg-linear-to-r from-orange-500/5 to-purple-500/5 p-6 backdrop-blur-md transition-all duration-300 hover:border-orange-400/50 hover:bg-white/5 hover:shadow-2xl hover:shadow-orange-500/20"

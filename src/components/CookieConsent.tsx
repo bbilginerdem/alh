@@ -18,25 +18,37 @@ const CookieConsent = () => {
 		if (shouldShow) {
 			setShowBanner(true);
 		}
+
+		return () => {
+			setShowBanner((prev) => {
+				return prev;
+			});
+		};
 	}, []);
 
 	// GSAP animation for banner entrance
 	useGSAP(() => {
 		if (showBanner && bannerRef.current) {
-			gsap.fromTo(
-				bannerRef.current,
-				{
-					y: 100,
-					opacity: 0,
-				},
-				{
-					y: 0,
-					opacity: 0.95,
-					duration: 1,
-					delay: 2,
-					ease: "power3.out",
-				},
-			);
+			const ctx = gsap.context(() => {
+				gsap.fromTo(
+					bannerRef.current,
+					{
+						y: 100,
+						opacity: 0,
+					},
+					{
+						y: 0,
+						opacity: 0.95,
+						duration: 1,
+						delay: 2,
+						ease: "power3.out",
+					},
+				);
+			}, bannerRef);
+
+			return () => {
+				ctx.revert();
+			};
 		}
 	}, [showBanner]);
 

@@ -1,38 +1,38 @@
 {
-	"name": "alh",
-	"version": "1.0.0",
-	"scripts": {
-		"dev": "next dev --turbopack",
-		"build": "next build",
-		"start": "next start",
-		"lint": "pnpm dlx @biomejs/biome check --write --css-parse-tailwind-directives=true"
-	},
-	"dependencies": {
-		"@gsap/react": "^2.1.2",
-		"@react-email/components": "^1.0.8",
-		"@react-email/tailwind": "^2.0.5",
-		"@vercel/analytics": "^1.6.1",
-		"@vercel/speed-insights": "^1.3.1",
-		"clsx": "^2.1.1",
-		"gsap": "^3.14.2",
-		"lucide-react": "^0.577.0",
-		"next": "16.1.6",
-		"prettier": "^3.8.1",
-		"react": "19.2.4",
-		"react-dom": "19.2.4",
-		"react-hot-toast": "^2.6.0",
-		"resend": "^6.9.3",
-		"tailwind-merge": "^3.5.0"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "2.4.6",
-		"@tailwindcss/postcss": "^4.2.1",
-		"@types/node": "^25",
-		"@types/react": "^19",
-		"@types/react-dom": "^19",
-		"postcss": "^8",
-		"tailwindcss": "^4.2.1",
-		"typescript": "^5.9.3"
-	},
-	"packageManager": "pnpm@10.31.0"
+  "name": "alh",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "pnpm dlx @biomejs/biome check --write --css-parse-tailwind-directives=true"
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@react-email/components": "^1.0.9",
+    "@react-email/tailwind": "^2.0.5",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
+    "clsx": "^2.1.1",
+    "gsap": "^3.14.2",
+    "lucide-react": "^0.577.0",
+    "next": "16.1.6",
+    "prettier": "^3.8.1",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-hot-toast": "^2.6.0",
+    "resend": "^6.9.3",
+    "tailwind-merge": "^3.5.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.7",
+    "@tailwindcss/postcss": "^4.2.1",
+    "@types/node": "^25",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "postcss": "^8",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "pnpm@10.32.1"
 }

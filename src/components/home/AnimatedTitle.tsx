@@ -1,11 +1,12 @@
 "use client";
 
+import { useGSAP } from "@gsap/react"; // Modern standard
 import clsx from "clsx";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useMemo, useRef } from "react";
+import { useMemo, useRef } from "react";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 interface AnimatedTitleProps {
 	title: string;
@@ -15,18 +16,20 @@ interface AnimatedTitleProps {
 const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 
+	// Memoize the string splitting to prevent re-calculating on unrelated re-renders
 	const lines = useMemo(() => {
 		return title.split("<br />").map((line, i) => ({
 			id: `line-${i}`,
 			words: line.split(" ").map((word, j) => ({
 				id: `word-${i}-${j}`,
-				html: word,
+				text: word,
 			})),
 		}));
 	}, [title]);
 
-	useEffect(() => {
-		const ctx = gsap.context(() => {
+	// useGSAP handles cleanup (revert) automatically!
+	useGSAP(
+		() => {
 			const titleAnimation = gsap.timeline({
 				scrollTrigger: {
 					trigger: containerRef.current,
@@ -46,10 +49,9 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
 				},
 				0,
 			);
-		}, containerRef);
-
-		return () => ctx.revert(); // Clean up on unmount
-	}, []);
+		},
+		{ scope: containerRef, dependencies: [lines] }, // Re-run if lines change
+	);
 
 	return (
 		<div ref={containerRef} className={clsx("animated-title", containerClass)}>
@@ -61,9 +63,11 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
 					{line.words.map((word) => (
 						<span
 							key={word.id}
-							className="animated-word"
-							dangerouslySetInnerHTML={{ __html: word.html }}
-						/>
+							className="animated-word inline-block opacity-0"
+							style={{ willChange: "transform, opacity" }}
+						>
+							{word.text}
+						</span>
 					))}
 				</div>
 			))}

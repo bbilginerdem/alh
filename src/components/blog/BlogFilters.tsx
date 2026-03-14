@@ -7,6 +7,16 @@ import type { BlogMetadata } from "@/types/blog";
 
 interface BlogFiltersProps {
 	posts: BlogMetadata[];
+	/**
+	 * Callback notified when filtered posts change.
+	 * @param posts - The filtered and sorted post array
+	 * @remarks Parent component MUST memoize this callback with `useCallback`
+	 *          to prevent unnecessary re-renders of this component.
+	 * @example
+	 * const handleFilteredPosts = useCallback((posts) => {
+	 *   setDisplayedPosts(posts);
+	 * }, []);
+	 */
 	onFilteredPosts: (posts: BlogMetadata[]) => void;
 }
 
@@ -15,43 +25,56 @@ export function BlogFilters({
 	onFilteredPosts,
 }: Readonly<BlogFiltersProps>) {
 	const searchParams = useSearchParams();
-	const initialTag = searchParams.get("tag") || "all";
 
-	const [searchTerm, setSearchTerm] = useState("");
-	const [selectedCategory, setSelectedCategory] = useState("all");
-	const [selectedTag, setSelectedTag] = useState(initialTag);
-	const [sortBy, setSortBy] = useState("oldest");
+	const urlTag = searchParams.get("tag") || "all";
+	const urlCategory = searchParams.get("category") || "all";
+	const urlSort = searchParams.get("sort") || "oldest";
+	const urlSearch = searchParams.get("search") || "";
+
+	const [searchTerm, setSearchTerm] = useState(urlSearch);
+	const [selectedCategory, setSelectedCategory] = useState(urlCategory);
+	const [selectedTag, setSelectedTag] = useState(urlTag);
+	const [sortBy, setSortBy] = useState(urlSort);
+
+	const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(urlSearch);
+
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setDebouncedSearchTerm(searchTerm);
+		}, 300);
+		return () => clearTimeout(timer);
+	}, [searchTerm]);
+
 	const sort = useId();
 	const tag = useId();
 	const category = useId();
 
-	// Update selectedTag when URL parameter changes
 	useEffect(() => {
-		setSelectedTag(searchParams.get("tag") || "all");
-	}, [searchParams]);
+		setSelectedTag(urlTag);
+		setSelectedCategory(urlCategory);
+		setSortBy(urlSort);
+		setSearchTerm(urlSearch);
+	}, [urlTag, urlCategory, urlSort, urlSearch]);
 
-	// Get unique categories and tags
 	const categories = useMemo(() => {
 		const cats = Array.from(new Set(posts.map((post) => post.category)));
-		return cats.sort((a, b) => a.localeCompare(b));
+		return cats.sort((a, b) => a.localeCompare(b, "tr"));
 	}, [posts]);
 
 	const tags = useMemo(() => {
 		const allTags = posts.flatMap((post) => post.tags);
 		const uniqueTags = Array.from(new Set(allTags));
-		return uniqueTags.sort((a, b) => a.localeCompare(b));
+		return uniqueTags.sort((a, b) => a.localeCompare(b, "tr"));
 	}, [posts]);
 
-	// Filter and sort posts
 	const filteredPosts = useMemo(() => {
 		const filtered = posts.filter((post) => {
+			const searchLower = debouncedSearchTerm.toLowerCase();
 			const matchesSearch =
-				searchTerm === "" ||
-				post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-				post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-				post.tags.some((tag) =>
-					tag.toLowerCase().includes(searchTerm.toLowerCase()),
-				);
+				searchLower === "" ||
+				post.title.toLowerCase().includes(searchLower) ||
+				post.excerpt.toLowerCase().includes(searchLower) ||
+				post.tags.some((t) => t.toLowerCase().includes(searchLower));
 
 			const matchesCategory =
 				selectedCategory === "all" || post.category === selectedCategory;
@@ -61,32 +84,32 @@ export function BlogFilters({
 			return matchesSearch && matchesCategory && matchesTag;
 		});
 
-		// Sort posts
-		filtered.sort((a, b) => {
+		const sorted = [...filtered].sort((a, b) => {
 			switch (sortBy) {
-				case "newest":
-					return (
-						new Date(b.publishDate).getTime() -
-						new Date(a.publishDate).getTime()
-					);
-				case "oldest":
-					return (
-						new Date(a.publishDate).getTime() -
-						new Date(b.publishDate).getTime()
-					);
+				case "newest": {
+					const dateA = new Date(a.publishDate).getTime();
+					const dateB = new Date(b.publishDate).getTime();
+					if (Number.isNaN(dateA) || Number.isNaN(dateB)) return 0;
+					return dateB - dateA;
+				}
+				case "oldest": {
+					const dateA = new Date(a.publishDate).getTime();
+					const dateB = new Date(b.publishDate).getTime();
+					if (Number.isNaN(dateA) || Number.isNaN(dateB)) return 0;
+					return dateA - dateB;
+				}
 				case "title":
 					return a.title.localeCompare(b.title, "tr");
 				case "reading-time":
-					return a.readingTime - b.readingTime;
+					return (a.readingTime || 0) - (b.readingTime || 0);
 				default:
 					return 0;
 			}
 		});
 
-		return filtered;
-	}, [posts, searchTerm, selectedCategory, selectedTag, sortBy]);
+		return sorted;
+	}, [posts, debouncedSearchTerm, selectedCategory, selectedTag, sortBy]);
 
-	// Update parent component when filters change
 	useEffect(() => {
 		onFilteredPosts(filteredPosts);
 	}, [filteredPosts, onFilteredPosts]);
@@ -108,11 +131,12 @@ export function BlogFilters({
 		<div className="mb-10 space-y-5">
 			{/* Search Bar */}
 			<div className="relative">
-				<div className="pointer-events-none absolute inset-0 flex items-center pl-3">
-					<Search />
+				<div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+					<Search className="h-5 w-5 text-zinc-400" aria-hidden="true" />
 				</div>
 				<input
 					type="text"
+					aria-label="Blog yazılarında ara"
 					placeholder="Blog yazılarında ara..."
 					value={searchTerm}
 					onChange={(e) => setSearchTerm(e.target.value)}
@@ -123,7 +147,7 @@ export function BlogFilters({
 			{/* Filters Row */}
 			<div className="flex flex-wrap gap-4">
 				{/* Category Filter */}
-				<div className="min-w-50 flex-1">
+				<div className="min-w-[200px] flex-1">
 					<label
 						htmlFor={category}
 						className="mb-2 block font-medium text-sm text-zinc-300"
@@ -137,16 +161,16 @@ export function BlogFilters({
 						className="w-full rounded-lg border border-zinc-700 bg-zinc-800/50 px-3 py-2 text-zinc-100 focus:border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-300/20"
 					>
 						<option value="all">Tüm Kategoriler</option>
-						{categories.map((category) => (
-							<option key={category} value={category}>
-								{category}
+						{categories.map((cat) => (
+							<option key={cat} value={cat}>
+								{cat}
 							</option>
 						))}
 					</select>
 				</div>
 
 				{/* Tag Filter */}
-				<div className="min-w-50 flex-1">
+				<div className="min-w-[200px] flex-1">
 					<label
 						htmlFor={tag}
 						className="mb-2 block font-medium text-sm text-zinc-300"
@@ -160,16 +184,16 @@ export function BlogFilters({
 						className="w-full rounded-lg border border-zinc-700 bg-zinc-800/50 px-3 py-2 text-zinc-100 focus:border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-300/20"
 					>
 						<option value="all">Tüm Etiketler</option>
-						{tags.map((tag) => (
-							<option key={tag} value={tag}>
-								#{tag}
+						{tags.map((t) => (
+							<option key={t} value={t}>
+								#{t}
 							</option>
 						))}
 					</select>
 				</div>
 
 				{/* Sort Filter */}
-				<div className="min-w-50 flex-1">
+				<div className="min-w-[200px] flex-1">
 					<label
 						htmlFor={sort}
 						className="mb-2 block font-medium text-sm text-zinc-300"
@@ -192,7 +216,11 @@ export function BlogFilters({
 
 			{/* Results Summary and Clear Filters */}
 			<div className="flex items-center justify-between">
-				<p className="text-sm text-zinc-400">
+				<p
+					className="text-sm text-zinc-400"
+					aria-live="polite"
+					aria-atomic="true"
+				>
 					{filteredPosts.length} yazı bulundu
 					{posts.length !== filteredPosts.length && ` (${posts.length} toplam)`}
 				</p>
@@ -201,7 +229,7 @@ export function BlogFilters({
 					<button
 						type="button"
 						onClick={clearFilters}
-						className="rounded-lg bg-zinc-800/50 px-3 py-1 text-sm text-zinc-300 transition-colors hover:bg-zinc-700/50 hover:text-orange-300"
+						className="rounded-lg bg-zinc-800/50 px-3 py-1 text-sm text-zinc-300 transition-colors hover:bg-zinc-700/50 hover:text-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-300/20"
 					>
 						Filtreleri Temizle
 					</button>

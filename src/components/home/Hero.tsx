@@ -16,7 +16,6 @@ const Hero = () => {
 	const videoFrameRef = useRef<HTMLDivElement>(null);
 	const lindyTextRef = useRef<HTMLDivElement>(null);
 	const ankaraTextRef = useRef<HTMLDivElement>(null);
-	const tl = gsap.timeline();
 
 	useEffect(() => {
 		if (globalThis.window !== undefined) {
@@ -25,48 +24,59 @@ const Hero = () => {
 		}
 	}, []);
 
-	useGSAP(() => {
-		if (!videoFrameRef.current) return;
+	useGSAP(
+		() => {
+			const tl = gsap.timeline();
 
-		tl.fromTo(
-			[lindyTextRef.current, ankaraTextRef.current].filter(Boolean),
-			{ color: "#09090b", opacity: 1, y: 24 },
-			{
-				color: "#fdba74",
+			if (!videoFrameRef.current) return;
+
+			tl.fromTo(
+				[lindyTextRef.current, ankaraTextRef.current].filter(Boolean),
+				{ color: "#09090b", opacity: 1, y: 24 },
+				{
+					color: "#fdba74",
+					opacity: 1,
+					y: 9,
+					duration: 1,
+					ease: "power3.in",
+				},
+			).to([lindyTextRef.current, ankaraTextRef.current].filter(Boolean), {
+				color: "#f4f4f5",
 				opacity: 1,
-				y: 9,
+				y: 0,
 				duration: 1,
-				ease: "power3.in",
-			},
-		).to([lindyTextRef.current, ankaraTextRef.current].filter(Boolean), {
-			color: "#f4f4f5",
-			opacity: 1,
-			y: 0,
-			duration: 1,
-			ease: "power3.out",
-		});
+				ease: "power3.out",
+			});
 
-		gsap.set(videoFrameRef.current, {
-			clipPath: "polygon(14% 0, 72% 0, 88% 90%, 0 95%)",
-			borderRadius: "0% 0% 40% 10%",
-		});
+			gsap.set(videoFrameRef.current, {
+				clipPath: "polygon(14% 0, 72% 0, 88% 90%, 0 95%)",
+				borderRadius: "0% 0% 40% 10%",
+			});
 
-		gsap.from(videoFrameRef.current, {
-			clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-			borderRadius: "0% 0% 0% 0%",
-			ease: "power1.inOut",
-			scrollTrigger: {
-				trigger: videoFrameRef.current,
-				start: "center center",
-				end: "bottom center",
-				scrub: 0.5,
-				// Optimize for scroll performance
-				invalidateOnRefresh: true,
-			},
-		});
-	});
+			gsap.from(videoFrameRef.current, {
+				clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+				borderRadius: "0% 0% 0% 0%",
+				ease: "power1.inOut",
+				scrollTrigger: {
+					trigger: videoFrameRef.current,
+					start: "center center",
+					end: "bottom center",
+					scrub: 0.5,
+					invalidateOnRefresh: true,
+				},
+			});
+		},
+		{ scope: videoFrameRef, dependencies: [] },
+	);
 
 	const getVideoSrc = (index: number): string => `videos/hero-${index}.mp4`;
+
+	const handleVideoError = () => {
+		// Fallback to first video if random one fails
+		if (currentVideoIndex !== 1) {
+			setCurrentVideoIndex(1);
+		}
+	};
 
 	return (
 		<div className="relative h-dvh w-screen overflow-x-hidden">
@@ -79,6 +89,7 @@ const Hero = () => {
 					<video
 						ref={videoRef}
 						src={getVideoSrc(currentVideoIndex)}
+						onError={handleVideoError}
 						poster="/images/features-1.webp"
 						autoPlay
 						loop

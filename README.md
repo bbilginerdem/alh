@@ -26,7 +26,7 @@ Ankara'nın en aktif Lindy Hop ve swing dans topluluğu olan **Ankara Lindy Hop*
 
 ### Ön Gereksinimler
 
-- Node.js 20+ 
+- Node.js 20+
 - pnpm (Önerilen)
 
 ### Kurulum
@@ -81,7 +81,6 @@ Yeni bir blog yazısı eklemek için:
 - [ ] **PWA Desteği**: Kullanıcıların siteye uygulama gibi erişebilmesi ve bildirim alabilmesi.
 - [ ] **Çoklu Dil Desteği (i18n)**: İçeriklerin İngilizce ve diğer dillerde sunulması.
 - [ ] **Yorum Sistemi**: Blog yazılarına topluluk katılımı için yorum ekleme özelliği.
-- [ ] **Etkinlik Takvimi**: Google Calendar entegrasyonu ile daha detaylı etkinlik yönetimi.
 - [ ] **Abone Sistemi**: Yeni blog ve etkinlikler için e-bülten kaydı.
 
 ## 🤝 Katkıda Bulunma
