@@ -9,14 +9,14 @@
 	},
 	"dependencies": {
 		"@gsap/react": "^2.1.2",
-		"@react-email/components": "^1.0.9",
-		"@react-email/tailwind": "^2.0.5",
+		"@react-email/components": "^1.0.10",
+		"@react-email/tailwind": "^2.0.6",
 		"@vercel/analytics": "^2.0.1",
 		"@vercel/speed-insights": "^2.0.0",
 		"clsx": "^2.1.1",
 		"gsap": "^3.14.2",
-		"lucide-react": "^0.577.0",
-		"next": "16.1.7",
+		"lucide-react": "^1.7.0",
+		"next": "16.2.1",
 		"prettier": "^3.8.1",
 		"react": "19.2.4",
 		"react-dom": "19.2.4",
@@ -25,14 +25,14 @@
 		"tailwind-merge": "^3.5.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.7",
-		"@tailwindcss/postcss": "^4.2.1",
+		"@biomejs/biome": "2.4.9",
+		"@tailwindcss/postcss": "^4.2.2",
 		"@types/node": "^25",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
 		"postcss": "^8",
-		"tailwindcss": "^4.2.1",
-		"typescript": "^5.9.3"
+		"tailwindcss": "^4.2.2",
+		"typescript": "^6.0.2"
 	},
-	"packageManager": "pnpm@10.32.1"
+	"packageManager": "pnpm@10.33.0"
 }
