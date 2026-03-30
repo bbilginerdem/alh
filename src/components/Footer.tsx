@@ -13,8 +13,6 @@ const socialLinks = [
 	{ href: "https://www.youtube.com/@AnkaraLindyHop", icon: <Youtube /> },
 ];
 
-import PushNotificationToggle from "./PushNotificationToggle";
-
 const Footer = () => {
 	return (
 		<footer className="min-h-22 w-full bg-orange-300 py-4 text-black md:min-h-14">
@@ -24,7 +22,6 @@ const Footer = () => {
 					<p className="text-center font-light text-sm md:text-left">
 						Ankara Lindy Hop
 					</p>
-					<PushNotificationToggle />
 				</div>
 
 				{/* Footer Links */}

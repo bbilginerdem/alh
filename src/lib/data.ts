@@ -341,6 +341,15 @@ export const posts: BlogMetadata[] = [
 
 export const events = [
 	{
+		id: "event-9",
+		title: "Maskeli Balo 2026",
+		date: "2026-03-27T20:00:00",
+		location: "Rasa Brasserie Cafe & Restaurant",
+		description:
+			"Swing müziğin en güzel örneklerini plaklardan dinleyeceğimiz, dans edip eğleneceğimiz bir gece sizi bekliyor! 🎶💃",
+		imageUrl: "/images/events/maskeli-balo-2026.webp",
+	},
+	{
 		id: "event-8",
 		title: "Cadılar Bayramı 2025",
 		date: "2025-11-01T20:00:00",

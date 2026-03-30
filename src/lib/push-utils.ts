@@ -1,4 +1,4 @@
-// Helper functions for Vercel KV Push Notification implementation
+// Helper functions for Supabase Push Notification implementation
 
 // Convert base64 url string to Uint8Array required by pushManager
 const urlBase64ToUint8Array = (base64String: string) => {
@@ -52,16 +52,18 @@ export async function subscribeToPushNotifications() {
 			applicationServerKey: urlBase64ToUint8Array(vapidPublicKey),
 		});
 
-		// Save in our Vercel KV via API route
-		await saveSubscriptionToBackend(subscription);
-		return true;
+		// Save in our Supabase DB via API route
+		const saved = await saveSubscriptionToBackend(subscription);
+		return saved;
 	} catch (error) {
 		console.error("Failed to subscribe user:", error);
 		return false;
 	}
 }
 
-async function saveSubscriptionToBackend(subscription: PushSubscription) {
+async function saveSubscriptionToBackend(
+	subscription: PushSubscription,
+): Promise<boolean> {
 	try {
 		const response = await fetch("/api/push", {
 			method: "POST",
@@ -70,12 +72,17 @@ async function saveSubscriptionToBackend(subscription: PushSubscription) {
 		});
 
 		if (!response.ok) {
-			throw new Error("Failed to save subscription to Vercel KV");
+			const errBody = await response.json();
+			throw new Error(
+				errBody.error || "Failed to save subscription to Supabase DB",
+			);
 		}
 
 		console.log("Successfully saved push subscription");
+		return true;
 	} catch (error) {
 		console.error("Error saving push subscription payload:", error);
+		return false;
 	}
 }
 
@@ -91,7 +98,7 @@ export async function unsubscribeFromPushNotifications() {
 		// Unsubscribe in browser
 		await subscription.unsubscribe();
 
-		// Remove from Vercel KV
+		// Remove from Supabase
 		await fetch("/api/push", {
 			method: "DELETE",
 			headers: { "Content-Type": "application/json" },

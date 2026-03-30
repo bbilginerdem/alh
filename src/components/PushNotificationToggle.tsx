@@ -18,7 +18,7 @@ export default function PushNotificationToggle() {
 		<button
 			type="button"
 			onClick={handleSubscribe}
-			className="flex items-center gap-2 rounded-full border border-black px-3 py-1 font-semibold text-sm transition-colors hover:bg-black hover:text-white"
+			className="flex items-center gap-2 rounded-full border border-orange-300 px-3 py-1 font-semibold text-orange-300 text-sm transition-all duration-300 ease-in-out hover:bg-orange-300/30 hover:text-orange-300/90"
 			title="Yeni etkinlik bildirimlerini aç"
 		>
 			<Bell size={16} />
