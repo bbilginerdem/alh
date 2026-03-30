@@ -7,6 +7,7 @@ import { Navigation } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Button from "@/components/ui/Button";
+import PushNotificationToggle from "../PushNotificationToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -123,12 +124,13 @@ const Hero = () => {
 								Rasa kafe & restoranındayız.
 							</p>
 						</div>
-						<Link href="/etkinlikler" passHref className="inline-flex">
+						<Link href="/etkinlikler" passHref className="inline-flex gap-5">
 							<Button
 								title="Etkinlikler"
 								leftIcon={<Navigation />}
 								containerClass="flex-center mt-5"
 							/>
+							<PushNotificationToggle />
 						</Link>
 					</div>
 				</div>

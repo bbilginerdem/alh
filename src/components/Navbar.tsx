@@ -9,7 +9,6 @@ import { isNewContent } from "@/lib/blog-utils";
 import { events, posts } from "@/lib/data";
 import { navbarDirection } from "@/lib/utils";
 import { NewBadgeCircle } from "./home/NewBadgeCircle";
-import PushNotificationToggle from "./PushNotificationToggle";
 
 const navItems: string[] = [
 	"gönüllü ol",
@@ -178,7 +177,6 @@ const NavBar = () => {
 							priority
 						/>
 					</Link>
-					<PushNotificationToggle />
 					<div className="flex h-full items-center">
 						<button
 							onClick={toggleMenu}

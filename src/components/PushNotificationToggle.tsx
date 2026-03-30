@@ -2,6 +2,7 @@
 
 import { Bell } from "lucide-react";
 import toast from "react-hot-toast";
+import Button from "@/components/ui/Button";
 import { subscribeToPushNotifications } from "@/lib/push-utils";
 
 export default function PushNotificationToggle() {
@@ -15,14 +16,12 @@ export default function PushNotificationToggle() {
 	};
 
 	return (
-		<button
+		<Button
+			title="Bildirimleri aç"
 			type="button"
 			onClick={handleSubscribe}
-			className="flex items-center gap-2 rounded-full border border-orange-300 px-3 py-1 font-semibold text-orange-300 text-sm transition-all duration-300 ease-in-out hover:bg-orange-300/30 hover:text-orange-300/90"
-			title="Yeni etkinlik bildirimlerini aç"
-		>
-			<Bell size={16} />
-			<span>Bildirimleri Aç</span>
-		</button>
+			containerClass="flex-center mt-5"
+			leftIcon={<Bell />}
+		/>
 	);
 }
