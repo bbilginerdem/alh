@@ -7,6 +7,8 @@ import { Toaster } from "react-hot-toast";
 import CookieConsent from "@/components/CookieConsent";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import PWAInstallPrompt from "@/components/PWAInstallPrompt";
+import PWARegistration from "@/components/PWARegistration";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -92,7 +94,7 @@ export const metadata: Metadata = {
 			},
 		],
 	},
-	manifest: "/favicon/site.webmanifest",
+	manifest: "/manifest.json",
 	metadataBase: new URL("https://ankaralindyhop.org"),
 	alternates: {
 		canonical: "/",
@@ -168,6 +170,8 @@ export default function RootLayout({
 						}}
 					/>
 					<CookieConsent />
+					<PWARegistration />
+					<PWAInstallPrompt />
 				</main>
 			</body>
 		</html>

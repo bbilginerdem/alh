@@ -13,14 +13,19 @@ const socialLinks = [
 	{ href: "https://www.youtube.com/@AnkaraLindyHop", icon: <Youtube /> },
 ];
 
+import PushNotificationToggle from "./PushNotificationToggle";
+
 const Footer = () => {
 	return (
 		<footer className="min-h-22 w-full bg-orange-300 py-4 text-black md:min-h-14">
 			<div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 md:flex-row">
 				{/* Branding */}
-				<p className="text-center font-light text-sm md:text-left">
-					Ankara Lindy Hop
-				</p>
+				<div className="flex flex-col items-center gap-3 md:flex-row md:items-center">
+					<p className="text-center font-light text-sm md:text-left">
+						Ankara Lindy Hop
+					</p>
+					<PushNotificationToggle />
+				</div>
 
 				{/* Footer Links */}
 				<div className="flex flex-wrap items-center justify-center gap-4 text-sm md:gap-6">
