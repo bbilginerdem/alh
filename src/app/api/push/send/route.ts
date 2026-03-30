@@ -1,14 +1,30 @@
 import { createClient } from "@supabase/supabase-js";
 import { NextResponse } from "next/server";
+// Alias the import to avoid collision with the global DOM PushSubscription
+import webpush, {
+	type WebPushError,
+	type PushSubscription as WebPushSubscription,
+} from "web-push";
 
-import webpush from "web-push";
+// 1. Define exactly what the Database Row looks like
+interface DbPushSubscription {
+	subscription: WebPushSubscription; // Use our aliased type here
+}
 
-// Supabase client
+// 2. Define the payload for the POST request
+interface PushPayload {
+	title?: string;
+	body?: string;
+	url?: string;
+}
+
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
 const supabaseKey =
 	process.env.SUPABASE_SERVICE_ROLE_KEY ||
 	process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
 	"";
+
+// Tip: If you have generated types, use createClient<Database>(...)
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 webpush.setVapidDetails(
@@ -17,52 +33,46 @@ webpush.setVapidDetails(
 	process.env.VAPID_PRIVATE_KEY || "",
 );
 
-async function removeDeadSubscription(endpointToRemove: string) {
+async function removeDeadSubscription(endpointToRemove: string): Promise<void> {
 	try {
 		await supabase
 			.from("push_subscriptions")
 			.delete()
 			.eq("endpoint", endpointToRemove);
 	} catch (e) {
-		console.error("Failed to prune dead subscription from Supabase:", e);
+		console.error("Failed to prune dead subscription:", e);
 	}
 }
 
 export async function POST(req: Request) {
 	try {
-		const { title, body, url } = await req.json();
+		const { title, body, url }: PushPayload = await req.json();
 
 		if (
 			!process.env.VAPID_PRIVATE_KEY ||
 			!process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY
 		) {
 			return NextResponse.json(
-				{ error: "VAPID keyleri eksik. .env dosyanızı kontrol edin." },
+				{ error: "VAPID keys missing" },
 				{ status: 500 },
 			);
 		}
 
-		if (!supabaseUrl || !supabaseKey) {
-			return NextResponse.json(
-				{ error: "Supabase keyleri eksik. .env dosyanızı kontrol edin." },
-				{ status: 500 },
-			);
-		}
-
-		// Supabase'den aboneleri çek
-		const { data: dbSubscriptions, error } = await supabase
+		// MODERN SUPABASE SYNTAX:
+		// Instead of .returns(), we cast the 'data' result or use the generic in .from
+		const { data, error: dbError } = await supabase
 			.from("push_subscriptions")
 			.select("subscription");
 
-		if (error || !dbSubscriptions || dbSubscriptions.length === 0) {
+		// Type assertion to bridge the gap if you aren't using a full 'Database' schema type
+		const dbSubscriptions = data as DbPushSubscription[] | null;
+
+		if (dbError || !dbSubscriptions || dbSubscriptions.length === 0) {
 			return NextResponse.json(
-				{ error: "Kayıtlı abone bulunamadı veya veritabanı hatası." },
+				{ error: "No subscribers found" },
 				{ status: 404 },
 			);
 		}
-
-		let sendCount = 0;
-		let failCount = 0;
 
 		const payload = JSON.stringify({
 			title: title || "ALH - Yeni Etkinlik 🎉",
@@ -70,32 +80,34 @@ export async function POST(req: Request) {
 			url: url || "/",
 		});
 
-		// Gönderimleri Paralel Yap
-		const sendPromises = dbSubscriptions.map((row: any) => {
+		let sendCount = 0;
+		let failCount = 0;
+
+		const sendPromises = dbSubscriptions.map((row) => {
 			const sub = row.subscription;
-			return webpush.sendNotification(sub, payload).then(
-				() => {
+
+			// webpush.sendNotification now correctly sees 'sub' as WebPushSubscription
+			return webpush
+				.sendNotification(sub, payload)
+				.then(() => {
 					sendCount++;
-				},
-				(err) => {
+				})
+				.catch((err: WebPushError) => {
 					failCount++;
-					console.error("Failed to send to client:", err.statusCode);
-					// Geçersiz veya süresi dolan abonelikleri temizle
 					if (err.statusCode === 404 || err.statusCode === 410) {
 						removeDeadSubscription(sub.endpoint);
 					}
-				},
-			);
+				});
 		});
 
 		await Promise.allSettled(sendPromises);
 
 		return NextResponse.json({
 			success: true,
-			message: `Push gönderimleri tamamlandı. Başarılı: ${sendCount}, Hatalı/Silinen: ${failCount}`,
+			message: `Sent: ${sendCount}, Failed: ${failCount}`,
 		});
 	} catch (error) {
-		console.error("[Push Send] Error processing notifications:", error);
+		console.error("[Push Send] Fatal Error:", error);
 		return NextResponse.json(
 			{ error: "Internal server error" },
 			{ status: 500 },

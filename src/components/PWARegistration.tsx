@@ -4,6 +4,10 @@ import { useEffect } from "react";
 
 export default function PWARegistration() {
 	useEffect(() => {
+		// Arka planda yeni içerik (blog/etkinlik) eklenmiş mi diye kontrol eden sistemi çalıştırır
+		// Zaten veritabanında (Supabase -> sent_notifications) kayıtlı ise hiçbir işlem yapıp sistemi yormadan 200 döner.
+		fetch("/api/push/auto").catch(console.error);
+
 		if (typeof window !== "undefined" && "serviceWorker" in navigator) {
 			window.addEventListener("load", () => {
 				navigator.serviceWorker

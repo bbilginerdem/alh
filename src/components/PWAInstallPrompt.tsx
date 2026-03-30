@@ -3,25 +3,48 @@
 import { Download, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
+/**
+ * 1. Olay Tipini Tanımlıyoruz
+ */
+interface BeforeInstallPromptEvent extends Event {
+	readonly platforms: string[];
+	readonly userChoice: Promise<{
+		outcome: "accepted" | "dismissed";
+		platform: string;
+	}>;
+	prompt(): Promise<void>;
+}
+
+/**
+ * 2. Global Window Olay Haritasını Genişletiyoruz
+ * Bu kısım, window.addEventListener("beforeinstallprompt", ...) kullanımını
+ * TypeScript için yerel bir standart haline getirir.
+ */
+declare global {
+	interface WindowEventMap {
+		beforeinstallprompt: BeforeInstallPromptEvent;
+	}
+}
+
 export default function PWAInstallPrompt() {
-	const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+	// State artık BeforeInstallPromptEvent tipini tam olarak tanıyor
+	const [deferredPrompt, setDeferredPrompt] =
+		useState<BeforeInstallPromptEvent | null>(null);
 	const [showPrompt, setShowPrompt] = useState(false);
 
 	useEffect(() => {
-		const handleBeforeInstallPrompt = (e: Event) => {
-			// Prevent the mini-infobar from appearing on mobile
+		// Tip artık otomatik olarak WindowEventMap'ten geliyor
+		const handleBeforeInstallPrompt = (e: BeforeInstallPromptEvent) => {
 			e.preventDefault();
-			// Stash the event so it can be triggered later.
 			setDeferredPrompt(e);
-			// Show the install button/prompt
 
-			// Optional: only show if they haven't dismissed it
 			const hasDismissed = localStorage.getItem("pwa-install-dismissed");
 			if (!hasDismissed) {
 				setShowPrompt(true);
 			}
 		};
 
+		// 'as any' kullanmaya gerek kalmadı, TS artık 'beforeinstallprompt'u tanıyor
 		window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
 
 		return () => {
@@ -36,12 +59,14 @@ export default function PWAInstallPrompt() {
 		if (!deferredPrompt) return;
 
 		setShowPrompt(false);
-		deferredPrompt.prompt();
 
+		// Yükleme istemini başlat
+		await deferredPrompt.prompt();
+
+		// Sonucu yakala
 		const { outcome } = await deferredPrompt.userChoice;
-		console.log(`[PWA] User response to the install prompt: ${outcome}`);
+		console.log(`[PWA] User response: ${outcome}`);
 
-		// Clear prompt
 		setDeferredPrompt(null);
 	};
 
