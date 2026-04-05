@@ -76,9 +76,9 @@ Yeni bir blog yazısı eklemek için:
 3. Görselleri `public/images/blogs/` dizinine `.webp` formatında ekleyin.
 
 ## 📈 Yol Haritası (Gelecek Geliştirmeler)
-
+[text](https://pagespeed.web.dev/analysis/https-ankaralindyhop-org/jxn9pthnvw?form_factor=mobile)
+- [x] **PWA Desteği**: Kullanıcıların siteye uygulama gibi erişebilmesi ve bildirim alabilmesi. (Test edilecek)
 - [ ] **MDX Entegrasyonu**: Blog içeriklerini TSX yerine MDX formatına taşıyarak içerik yönetimini kolaylaştırmak.
-- [ ] **PWA Desteği**: Kullanıcıların siteye uygulama gibi erişebilmesi ve bildirim alabilmesi.
 - [ ] **Çoklu Dil Desteği (i18n)**: İçeriklerin İngilizce ve diğer dillerde sunulması.
 - [ ] **Yorum Sistemi**: Blog yazılarına topluluk katılımı için yorum ekleme özelliği.
 - [ ] **Abone Sistemi**: Yeni blog ve etkinlikler için e-bülten kaydı.
