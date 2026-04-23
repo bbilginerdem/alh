@@ -19,7 +19,9 @@ export interface BlogMetadata {
 	Content: React.ComponentType;
 }
 
+export type SerializableBlogMetadata = Omit<BlogMetadata, "Content">;
+
 export interface BlogWrapperProps {
-	metadata: BlogMetadata;
+	metadata: SerializableBlogMetadata;
 	children: React.ReactNode;
 }

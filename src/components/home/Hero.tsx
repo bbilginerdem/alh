@@ -3,10 +3,11 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { Navigation } from "lucide-react";
+import { BookOpen } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Button from "@/components/ui/Button";
+import { posts } from "@/lib/data";
 import PushNotificationToggle from "../PushNotificationToggle";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -17,6 +18,10 @@ const Hero = () => {
 	const videoFrameRef = useRef<HTMLDivElement>(null);
 	const lindyTextRef = useRef<HTMLDivElement>(null);
 	const ankaraTextRef = useRef<HTMLDivElement>(null);
+
+	const latestPost = posts.reduce((latest, post) =>
+		new Date(post.publishDate) > new Date(latest.publishDate) ? post : latest,
+	);
 
 	useEffect(() => {
 		if (globalThis.window !== undefined) {
@@ -124,14 +129,18 @@ const Hero = () => {
 								Rasa kafe & restoranındayız.
 							</p>
 						</div>
-						<Link href="/etkinlikler" passHref className="inline-flex gap-5">
-							<Button
-								title="Etkinlikler"
-								leftIcon={<Navigation />}
-								containerClass="flex-center mt-5"
-							/>
-							<PushNotificationToggle />
-						</Link>
+						<div className="flex gap-5">
+							<Link href={`/blog/${latestPost.slug}`} passHref>
+								<Button
+									title="Son Blog Yazısı"
+									leftIcon={<BookOpen />}
+									containerClass="flex-center mt-5"
+								/>
+							</Link>
+							<Link href="/etkinlikler" passHref>
+								<PushNotificationToggle />
+							</Link>
+						</div>
 					</div>
 				</div>
 			</div>

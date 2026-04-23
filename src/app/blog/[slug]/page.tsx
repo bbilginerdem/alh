@@ -75,18 +75,18 @@ export default async function BlogPost({
 		notFound();
 	}
 
+	const { Content, ...metadata } = post;
 	const structuredData = generateBlogStructuredData(post);
 
 	return (
 		<>
 			<script
+				id="blog-structured-data"
 				type="application/ld+json"
-				dangerouslySetInnerHTML={{
-					__html: JSON.stringify(structuredData),
-				}}
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
 			/>
-			<BlogWrapper metadata={post}>
-				<post.Content />
+			<BlogWrapper metadata={metadata}>
+				<Content />
 				<BlogNavigation currentPost={post} allPosts={posts} />
 				<RelatedPosts posts={posts} currentPostId={post.id} />
 			</BlogWrapper>

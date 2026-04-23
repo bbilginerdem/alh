@@ -1,10 +1,10 @@
 import { CalendarFold } from "lucide-react";
 import Link from "next/link";
 import { formatDate, formatReadingTime } from "@/lib/blog-utils";
-import type { BlogMetadata } from "@/types/blog";
+import type { SerializableBlogMetadata } from "@/types/blog";
 
 interface BlogWrapperProps {
-	metadata: BlogMetadata;
+	metadata: SerializableBlogMetadata;
 	children: React.ReactNode;
 }
 
