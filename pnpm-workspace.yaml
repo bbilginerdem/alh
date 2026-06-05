@@ -1,5 +1,7 @@
 allowBuilds:
   sharp: true
+minimumReleaseAgeExclude:
+  - lucide-react@1.17.0
 overrides:
   postcss@<8.5.10: '>=8.5.10'
   uuid@<14.0.0: '>=14.0.0'

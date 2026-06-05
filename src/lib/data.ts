@@ -340,6 +340,15 @@ export const posts: BlogMetadata[] = [
 ];
 
 export const events = [
+  	{
+		id: "event-10",
+		title: "Rengarenk 2026",
+		date: "2026-06-12T20:00:00",
+		location: "Rasa Brasserie Cafe & Restaurant",
+		description:
+			"Swing müziğin en güzel örneklerini djlerimizden dinleyeceğimiz, dans edip eğleneceğimiz rengarenk bir gece sizi bekliyor! 🎶💃",
+		imageUrl: "/images/events/rengarenk-2026.webp",
+	},
 	{
 		id: "event-9",
 		title: "Maskeli Balo 2026",
