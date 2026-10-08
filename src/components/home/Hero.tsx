@@ -8,7 +8,6 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Button from "@/components/ui/Button";
 import { posts } from "@/lib/data";
-import PushNotificationToggle from "../PushNotificationToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -136,9 +135,6 @@ const Hero = () => {
 									leftIcon={<BookOpen />}
 									containerClass="flex-center mt-5"
 								/>
-							</Link>
-							<Link href="/etkinlikler" passHref>
-								<PushNotificationToggle />
 							</Link>
 						</div>
 					</div>

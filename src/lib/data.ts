@@ -340,7 +340,7 @@ export const posts: BlogMetadata[] = [
 ];
 
 export const events = [
-  	{
+	{
 		id: "event-10",
 		title: "Rengarenk 2026",
 		date: "2026-06-12T20:00:00",

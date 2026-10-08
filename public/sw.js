@@ -2,10 +2,10 @@
 
 // ============================================================================
 // Ankara Lindy Hop - Service Worker
-// Progressive Web App with offline support & push notifications
+// Progressive Web App with offline support
 // ============================================================================
 
-const CACHE_VERSION = "alh-v1";
+const CACHE_VERSION = "alh-v2";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
@@ -38,7 +38,7 @@ self.addEventListener("install", (event) => {
 		caches
 			.open(STATIC_CACHE)
 			.then((cache) => {
-				console.log("[SW] Precaching static assets");
+				console.log("[SW] Pre-caching static assets");
 				return cache.addAll(PRECACHE_URLS);
 			})
 			.then(() => {
@@ -110,7 +110,7 @@ self.addEventListener("fetch", (event) => {
 	// Strategy: Images → Cache-first
 	if (
 		request.destination === "image" ||
-		url.pathname.match(/\.(png|jpg|jpeg|webp|avif|gif|svg|ico)$/i)
+		new RegExp(/\.(png|jpg|jpeg|webp|avif|gif|svg|ico)$/i).exec(url.pathname)
 	) {
 		event.respondWith(cacheFirst(request, IMAGE_CACHE, IMAGE_CACHE_LIMIT));
 		return;
@@ -121,7 +121,7 @@ self.addEventListener("fetch", (event) => {
 		request.destination === "script" ||
 		request.destination === "style" ||
 		request.destination === "font" ||
-		url.pathname.match(/\.(js|css|woff|woff2)$/i)
+		new RegExp(/\.(js|css|woff|woff2)$/i).exec(url.pathname)
 	) {
 		event.respondWith(staleWhileRevalidate(request, STATIC_CACHE));
 		return;
@@ -238,94 +238,6 @@ async function trimCache(cacheName, maxItems) {
 }
 
 // ============================================================================
-// PUSH NOTIFICATION EVENTS
-// ============================================================================
-
-self.addEventListener("push", (event) => {
-	console.log("[SW] Push notification received");
-
-	let data = {
-		title: "Ankara Lindy Hop",
-		body: "Yeni bir güncelleme var!",
-		icon: "/favicon/android-chrome-192x192.png",
-		badge: "/favicon/favicon-32x32.png",
-		url: "/",
-		tag: "alh-notification",
-	};
-
-	// Try to parse push data
-	if (event.data) {
-		try {
-			const pushData = event.data.json();
-			data = { ...data, ...pushData };
-		} catch {
-			data.body = event.data.text();
-		}
-	}
-
-	const options = {
-		body: data.body,
-		icon: data.icon || "/favicon/android-chrome-192x192.png",
-		badge: data.badge || "/favicon/favicon-32x32.png",
-		image: data.image || undefined,
-		vibrate: [200, 100, 200, 100, 200],
-		tag: data.tag || "alh-notification",
-		renotify: true,
-		requireInteraction: false,
-		actions: [
-			{
-				action: "open",
-				title: "Aç",
-			},
-			{
-				action: "close",
-				title: "Kapat",
-			},
-		],
-		data: {
-			url: data.url || "/",
-			dateOfArrival: Date.now(),
-		},
-	};
-
-	event.waitUntil(self.registration.showNotification(data.title, options));
-});
-
-// Handle notification click
-self.addEventListener("notificationclick", (event) => {
-	console.log("[SW] Notification clicked:", event.action);
-
-	event.notification.close();
-
-	if (event.action === "close") return;
-
-	const urlToOpen = event.notification.data?.url || "/";
-
-	event.waitUntil(
-		self.clients
-			.matchAll({ type: "window", includeUncontrolled: true })
-			.then((clientList) => {
-				// If a window is already open, focus it
-				for (const client of clientList) {
-					if (client.url.includes(urlToOpen) && "focus" in client) {
-						return client.focus();
-					}
-				}
-
-				// Otherwise open a new window
-				if (self.clients.openWindow) {
-					return self.clients.openWindow(urlToOpen);
-				}
-			}),
-	);
-});
-
-// Handle notification close
-self.addEventListener("notificationclose", () => {
-	console.log("[SW] Notification dismissed");
-});
-
-// ============================================================================
 // BACKGROUND SYNC (for future offline form submissions)
 // ============================================================================
 self.addEventListener("sync", (event) => {
@@ -345,15 +257,15 @@ async function syncContactForm() {
 // MESSAGE HANDLER (for communication with main thread)
 // ============================================================================
 self.addEventListener("message", (event) => {
-	if (event.data && event.data.type === "SKIP_WAITING") {
+	if (event.data?.type === "SKIP_WAITING") {
 		self.skipWaiting();
 	}
 
-	if (event.data && event.data.type === "GET_VERSION") {
+	if (event.data?.type === "GET_VERSION") {
 		event.ports[0].postMessage({ version: CACHE_VERSION });
 	}
 
-	if (event.data && event.data.type === "CLEAR_CACHE") {
+	if (event.data?.type === "CLEAR_CACHE") {
 		event.waitUntil(
 			caches
 				.keys()
