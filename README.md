@@ -26,7 +26,7 @@ Ankara'nın en aktif Lindy Hop ve swing dans topluluğu olan **Ankara Lindy Hop*
 
 ### Ön Gereksinimler
 
-- Node.js 20+
+- Node.js 24+
 - pnpm (Önerilen)
 
 ### Kurulum
@@ -61,14 +61,6 @@ src/
 └── public/          # Statik dosyalar (resimler, videolar)
 ```
 
-## 🏗 Geliştirme Kuralları
-
-### Kod Kalitesi
-Değişikliklerinizi commit etmeden önce linter'ı çalıştırmayı unutmayın:
-```bash
-pnpm run lint
-```
-
 ### Blog Yazısı Ekleme
 Yeni bir blog yazısı eklemek için:
 1. `src/components/blog/posts/` altında yeni bir `.tsx` dosyası oluşturun.
@@ -76,11 +68,11 @@ Yeni bir blog yazısı eklemek için:
 3. Görselleri `public/images/blogs/` dizinine `.webp` formatında ekleyin.
 
 ## 📈 Yol Haritası (Gelecek Geliştirmeler)
-- [x] **PWA Desteği**: Kullanıcıların siteye uygulama gibi erişebilmesi ve bildirim alabilmesi. (Test edilecek)
+- [x] **PWA Desteği**: Kullanıcıların siteye uygulama gibi erişebilmesi ve bildirim alabilmesi.
 - [ ] **MDX Entegrasyonu**: Blog içeriklerini TSX yerine MDX formatına taşıyarak içerik yönetimini kolaylaştırmak.
 - [ ] **Çoklu Dil Desteği (i18n)**: İçeriklerin İngilizce ve diğer dillerde sunulması.
-- [ ] **Yorum Sistemi**: Blog yazılarına topluluk katılımı için yorum ekleme özelliği.
 - [ ] **Abone Sistemi**: Yeni blog ve etkinlikler için e-bülten kaydı.
+- [ ] **Yorum Sistemi**: Blog yazılarına topluluk katılımı için yorum ekleme özelliği.
 
 ## 🤝 Katkıda Bulunma
 
