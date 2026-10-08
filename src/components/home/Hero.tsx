@@ -18,9 +18,11 @@ const Hero = () => {
 	const lindyTextRef = useRef<HTMLDivElement>(null);
 	const ankaraTextRef = useRef<HTMLDivElement>(null);
 
-	const latestPost = posts.reduce((latest, post) =>
-		new Date(post.publishDate) > new Date(latest.publishDate) ? post : latest,
-	);
+  const latestPost = posts.reduce(
+    (latest, post) =>
+      new Date(post.publishDate) > new Date(latest.publishDate) ? post : latest,
+    posts[0],
+  );
 
 	useEffect(() => {
 		const randomIndex = Math.floor(Math.random() * 4) + 1;
