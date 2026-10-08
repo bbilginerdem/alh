@@ -12,7 +12,7 @@ import { posts } from "@/lib/data";
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-	const [currentVideoIndex, setCurrentVideoIndex] = useState<number>(1);
+	const [currentVideoIndex, setCurrentVideoIndex] = useState<number | null>(null);
 	const videoRef = useRef<HTMLVideoElement>(null);
 	const videoFrameRef = useRef<HTMLDivElement>(null);
 	const lindyTextRef = useRef<HTMLDivElement>(null);
@@ -23,11 +23,15 @@ const Hero = () => {
 	);
 
 	useEffect(() => {
-		if (globalThis.window !== undefined) {
-			const randomIndex = Math.floor(Math.random() * 4) + 1;
-			setCurrentVideoIndex(randomIndex);
-		}
+		const randomIndex = Math.floor(Math.random() * 4) + 1;
+		setCurrentVideoIndex(randomIndex);
 	}, []);
+
+	useEffect(() => {
+		if (currentVideoIndex !== null && videoRef.current) {
+			videoRef.current.play().catch(() => {});
+		}
+	}, [currentVideoIndex]);
 
 	useGSAP(
 		() => {
@@ -74,7 +78,7 @@ const Hero = () => {
 		{ scope: videoFrameRef, dependencies: [] },
 	);
 
-	const getVideoSrc = (index: number): string => `videos/hero-${index}.mp4`;
+	const getVideoSrc = (index: number): string => `/videos/hero-${index}.mp4`;
 
 	const handleVideoError = () => {
 		if (currentVideoIndex !== 1) {
@@ -92,14 +96,14 @@ const Hero = () => {
 				<div>
 					<video
 						ref={videoRef}
-						src={getVideoSrc(currentVideoIndex)}
+						src={currentVideoIndex !== null ? getVideoSrc(currentVideoIndex) : undefined}
 						onError={handleVideoError}
 						poster="/images/features-1.webp"
 						autoPlay
 						loop
 						muted
 						playsInline
-						preload="metadata"
+						preload={currentVideoIndex !== null ? "metadata" : "none"}
 						className="absolute top-0 left-0 size-full object-cover object-center"
 					/>
 				</div>
