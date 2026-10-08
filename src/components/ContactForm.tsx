@@ -13,23 +13,17 @@ export function ContactForm() {
 	const id = useId();
 	const formRef = useRef<HTMLFormElement>(null);
 
-	async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-		event.preventDefault();
+	async function handleSubmit(formData: FormData) {
 		setIsPending(true);
 
 		try {
-			const formData = new FormData(event.currentTarget);
 			const { error } = await sendEmail(formData);
 			if (error) throw new Error(error);
 
 			toast.success("E-posta başarıyla gönderildi.");
 			formRef.current?.reset();
 		} catch (error) {
-			toast.error(
-				error instanceof Error
-					? error.message
-					: "An unexpected error occurred.",
-			);
+			toast.error(error instanceof Error ? error.message : "An unexpected error occurred.");
 		} finally {
 			setIsPending(false);
 		}
@@ -51,16 +45,9 @@ export function ContactForm() {
 				bize ulaşabilirsiniz.
 			</p>
 
-			<form
-				className="mt-8 flex flex-col gap-5"
-				onSubmit={handleSubmit}
-				ref={formRef}
-			>
+			<form className="mt-8 flex flex-col gap-5" action={handleSubmit} ref={formRef}>
 				<div className="space-y-3">
-					<label
-						htmlFor={`${id}-email`}
-						className="block font-medium text-sm text-zinc-300"
-					>
+					<label htmlFor={`${id}-email`} className="block font-medium text-sm text-zinc-300">
 						E-posta adresiniz:
 					</label>
 					<input
@@ -75,10 +62,7 @@ export function ContactForm() {
 				</div>
 
 				<div className="space-y-3">
-					<label
-						htmlFor={`${id}-message`}
-						className="block font-medium text-sm text-zinc-300"
-					>
+					<label htmlFor={`${id}-message`} className="block font-medium text-sm text-zinc-300">
 						Mesajınız:
 					</label>
 					<textarea
@@ -106,9 +90,7 @@ export function ContactForm() {
 					}
 					containerClass={clsx(
 						"mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-lg px-6 py-3 font-medium focus:outline-none focus:ring-4",
-						isPending
-							? "cursor-not-allowed bg-orange-300/90 text-zinc-100"
-							: "",
+						isPending ? "cursor-not-allowed bg-orange-300/90 text-zinc-100" : "",
 					)}
 					type="submit"
 				/>

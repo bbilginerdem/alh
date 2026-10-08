@@ -50,24 +50,18 @@ export default function TommyDorsey() {
 					</div>
 					<div className="md:w-1/2">
 						<p className="mb-4 text-base md:text-lg">
-							<span className="font-semibold text-orange-300">
-								1905 yılında Pennsylvania
-							</span>
-							'da dünyaya gelen Tommy, müzikle iç içe büyüdü. Babasının
-							teşvikiyle önce trompet öğrendi, fakat daha sonra tutkusunu
-							trombonda buldu. Yeteneği hızla parladı ve henüz 15 yaşındayken
-							ağabeyi Jimmy Dorsey ile birlikte profesyonel olarak çalmaya
-							başladı.
+							<span className="font-semibold text-orange-300">1905 yılında Pennsylvania</span>
+							'da dünyaya gelen Tommy, müzikle iç içe büyüdü. Babasının teşvikiyle önce trompet
+							öğrendi, fakat daha sonra tutkusunu trombonda buldu. Yeteneği hızla parladı ve henüz
+							15 yaşındayken ağabeyi Jimmy Dorsey ile birlikte profesyonel olarak çalmaya başladı.
 						</p>
 						<p className="mb-4 text-base md:text-lg">
-							<span className="font-semibold text-orange-300">1920'lerde</span>,
-							Dorsey Brothers Orchestra adlı kendi grubunu kuran kardeşler,
-							swing müziğinin enerjisini yakaladı. Ancak başarılarına rağmen
-							aralarındaki gerginlik arttı. Tommy, mükemmeliyetçi ve otoriter
-							bir lider olarak tanındı.{" "}
-							<span className="font-semibold text-orange-300">1935'te</span>{" "}
-							yollarını ayırdılar ve swing döneminin önemli gruplarından biri
-							sona erdi.
+							<span className="font-semibold text-orange-300">1920'lerde</span>, Dorsey Brothers
+							Orchestra adlı kendi grubunu kuran kardeşler, swing müziğinin enerjisini yakaladı.
+							Ancak başarılarına rağmen aralarındaki gerginlik arttı. Tommy, mükemmeliyetçi ve
+							otoriter bir lider olarak tanındı.{" "}
+							<span className="font-semibold text-orange-300">1935'te</span> yollarını ayırdılar ve
+							swing döneminin önemli gruplarından biri sona erdi.
 						</p>
 					</div>
 				</div>
@@ -83,20 +77,14 @@ export default function TommyDorsey() {
 						1930'ların sonu ve 1940'ların başında
 					</span>
 					, swing müziğinin altın çağını yaşadı. Orkestrası,{" "}
-					<span className="font-semibold">
-						“Boogie Woogie,” “A Smooth One,”
-					</span>{" "}
-					ve{" "}
-					<span className="font-semibold">
-						“I'm Getting Sentimental Over You”
-					</span>{" "}
-					gibi birçok hit kaydetti.
+					<span className="font-semibold">“Boogie Woogie,” “A Smooth One,”</span> ve{" "}
+					<span className="font-semibold">“I'm Getting Sentimental Over You”</span> gibi birçok hit
+					kaydetti.
 				</p>
 				<p className="text-base md:text-lg">
-					Dorsey, mükemmeliyetçi liderliğiyle tanınıyordu. Müzisyenlerine sıkı
-					disiplin uygulardı ve hatalı performansları tolere etmezdi. Ancak
-					yeteneği ve liderlik becerisi, orkestrasını dönemin en iyi
-					gruplarından biri haline getirdi.
+					Dorsey, mükemmeliyetçi liderliğiyle tanınıyordu. Müzisyenlerine sıkı disiplin uygulardı ve
+					hatalı performansları tolere etmezdi. Ancak yeteneği ve liderlik becerisi, orkestrasını
+					dönemin en iyi gruplarından biri haline getirdi.
 				</p>
 			</section>
 
@@ -105,41 +93,32 @@ export default function TommyDorsey() {
 					Dönüşüm ve Sonrası
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
-					<span className="font-semibold text-orange-300">
-						İkinci Dünya Savaşı
-					</span>{" "}
-					ve müzik zevklerindeki değişim, swing döneminin sonunu işaret etti.
-					Dorsey, müziğini yeniliklere açarak ayakta kalmaya çalıştı. Bop ve
-					bebop gibi yeni caz akımlarından etkilenerek müziğini modernleştirdi.
-					Ne var ki, swing döneminin altın çağının tekrarı mümkün olmadı.
+					<span className="font-semibold text-orange-300">İkinci Dünya Savaşı</span> ve müzik
+					zevklerindeki değişim, swing döneminin sonunu işaret etti. Dorsey, müziğini yeniliklere
+					açarak ayakta kalmaya çalıştı. Bop ve bebop gibi yeni caz akımlarından etkilenerek
+					müziğini modernleştirdi. Ne var ki, swing döneminin altın çağının tekrarı mümkün olmadı.
 				</p>
 				<p className="text-base md:text-lg">
-					Tommy Dorsey,{" "}
-					<span className="font-semibold text-orange-300">1956 yılında</span>{" "}
-					hayatını kaybeden unutulmaz bir swing müziği sanatçısıdır.
-					Orkestrasının kaydettiği birçok hit, hala dinlenerek swing döneminin
-					enerjisini yansıtmaktadır.
+					Tommy Dorsey, <span className="font-semibold text-orange-300">1956 yılında</span> hayatını
+					kaybeden unutulmaz bir swing müziği sanatçısıdır. Orkestrasının kaydettiği birçok hit,
+					hala dinlenerek swing döneminin enerjisini yansıtmaktadır.
 				</p>
 			</section>
 
 			<section className="rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h3 className="mb-4 font-semibold text-lg text-orange-300 md:text-xl">
-					Miras ve Etki
-				</h3>
+				<h3 className="mb-4 font-semibold text-lg text-orange-300 md:text-xl">Miras ve Etki</h3>
 				<p className="mb-4 text-base md:text-lg">
 					Dorsey, sadece müzikle değil, aynı zamanda{" "}
-					<span className="font-semibold">swing danslarının gelişiminde</span>{" "}
-					de önemli bir rol oynamıştır. Dans pistlerinde fırtına estiren tempolu
-					parçaları, dansçıların ilham kaynağı olmuş ve swing döneminin ruhunu
-					yansıtmıştır.
+					<span className="font-semibold">swing danslarının gelişiminde</span> de önemli bir rol
+					oynamıştır. Dans pistlerinde fırtına estiren tempolu parçaları, dansçıların ilham kaynağı
+					olmuş ve swing döneminin ruhunu yansıtmıştır.
 				</p>
 				<p className="text-base md:text-lg">
-					Tommy Dorsey'nin hikayesi,{" "}
-					<span className="font-semibold">tutkuyla çalışmanın</span>,{" "}
+					Tommy Dorsey'nin hikayesi, <span className="font-semibold">tutkuyla çalışmanın</span>,{" "}
 					<span className="font-semibold">mükemmeliyetçiliğin</span> ve{" "}
-					<span className="font-semibold">müziğin birleştirici gücünün</span>{" "}
-					etkileyici bir örneğidir. Swing döneminin enerjisini ve tarihini
-					yaşatmaya devam eden bir müzikal dev olarak anılmaktadır.
+					<span className="font-semibold">müziğin birleştirici gücünün</span> etkileyici bir
+					örneğidir. Swing döneminin enerjisini ve tarihini yaşatmaya devam eden bir müzikal dev
+					olarak anılmaktadır.
 				</p>
 			</section>
 

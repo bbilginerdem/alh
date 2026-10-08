@@ -7,23 +7,10 @@ import type { BlogMetadata } from "@/types/blog";
 
 interface BlogFiltersProps {
 	posts: BlogMetadata[];
-	/**
-	 * Callback notified when filtered posts change.
-	 * @param posts - The filtered and sorted post array
-	 * @remarks Parent component MUST memoize this callback with `useCallback`
-	 *          to prevent unnecessary re-renders of this component.
-	 * @example
-	 * const handleFilteredPosts = useCallback((posts) => {
-	 *   setDisplayedPosts(posts);
-	 * }, []);
-	 */
 	onFilteredPosts: (posts: BlogMetadata[]) => void;
 }
 
-export function BlogFilters({
-	posts,
-	onFilteredPosts,
-}: Readonly<BlogFiltersProps>) {
+export function BlogFilters({ posts, onFilteredPosts }: Readonly<BlogFiltersProps>) {
 	const searchParams = useSearchParams();
 
 	const urlTag = searchParams.get("tag") || "all";
@@ -76,10 +63,8 @@ export function BlogFilters({
 				post.excerpt.toLowerCase().includes(searchLower) ||
 				post.tags.some((t) => t.toLowerCase().includes(searchLower));
 
-			const matchesCategory =
-				selectedCategory === "all" || post.category === selectedCategory;
-			const matchesTag =
-				selectedTag === "all" || post.tags.includes(selectedTag);
+			const matchesCategory = selectedCategory === "all" || post.category === selectedCategory;
+			const matchesTag = selectedTag === "all" || post.tags.includes(selectedTag);
 
 			return matchesSearch && matchesCategory && matchesTag;
 		});
@@ -122,14 +107,10 @@ export function BlogFilters({
 	};
 
 	const hasActiveFilters =
-		searchTerm !== "" ||
-		selectedCategory !== "all" ||
-		selectedTag !== "all" ||
-		sortBy !== "oldest";
+		searchTerm !== "" || selectedCategory !== "all" || selectedTag !== "all" || sortBy !== "oldest";
 
 	return (
 		<div className="mb-10 space-y-5">
-			{/* Search Bar */}
 			<div className="relative">
 				<div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
 					<Search className="h-5 w-5 text-zinc-400" aria-hidden="true" />
@@ -144,14 +125,9 @@ export function BlogFilters({
 				/>
 			</div>
 
-			{/* Filters Row */}
 			<div className="flex flex-wrap gap-4">
-				{/* Category Filter */}
-				<div className="min-w-[200px] flex-1">
-					<label
-						htmlFor={category}
-						className="mb-2 block font-medium text-sm text-zinc-300"
-					>
+				<div className="min-w-50 flex-1">
+					<label htmlFor={category} className="mb-2 block font-medium text-sm text-zinc-300">
 						Kategori
 					</label>
 					<select
@@ -169,12 +145,8 @@ export function BlogFilters({
 					</select>
 				</div>
 
-				{/* Tag Filter */}
-				<div className="min-w-[200px] flex-1">
-					<label
-						htmlFor={tag}
-						className="mb-2 block font-medium text-sm text-zinc-300"
-					>
+				<div className="min-w-50 flex-1">
+					<label htmlFor={tag} className="mb-2 block font-medium text-sm text-zinc-300">
 						Etiket
 					</label>
 					<select
@@ -192,12 +164,8 @@ export function BlogFilters({
 					</select>
 				</div>
 
-				{/* Sort Filter */}
-				<div className="min-w-[200px] flex-1">
-					<label
-						htmlFor={sort}
-						className="mb-2 block font-medium text-sm text-zinc-300"
-					>
+				<div className="min-w-50 flex-1">
+					<label htmlFor={sort} className="mb-2 block font-medium text-sm text-zinc-300">
 						Sıralama
 					</label>
 					<select
@@ -214,13 +182,8 @@ export function BlogFilters({
 				</div>
 			</div>
 
-			{/* Results Summary and Clear Filters */}
 			<div className="flex items-center justify-between">
-				<p
-					className="text-sm text-zinc-400"
-					aria-live="polite"
-					aria-atomic="true"
-				>
+				<p className="text-sm text-zinc-400" aria-live="polite" aria-atomic="true">
 					{filteredPosts.length} yazı bulundu
 					{posts.length !== filteredPosts.length && ` (${posts.length} toplam)`}
 				</p>

@@ -1,20 +1,20 @@
-import type { Metadata } from "next";
-import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
 import { Almendra_SC, Inter } from "next/font/google";
+import Script from "next/script";
 import { Toaster } from "react-hot-toast";
 import CookieConsent from "@/components/CookieConsent";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import PWAInstallPrompt from "@/components/PWAInstallPrompt";
 import PWARegistration from "@/components/PWARegistration";
+import "./globals.css";
 
 const inter = Inter({
 	subsets: ["latin"],
 	variable: "--font-inter",
 	display: "swap",
-	preload: true,
 });
 
 const almendraSC = Almendra_SC({
@@ -22,7 +22,6 @@ const almendraSC = Almendra_SC({
 	variable: "--font-almendra-sc",
 	weight: "400",
 	display: "swap",
-	preload: true,
 });
 
 export const metadata: Metadata = {
@@ -48,11 +47,7 @@ export const metadata: Metadata = {
 	authors: [{ name: "Ankara Lindy Hop Topluluğu" }],
 	creator: "Ankara Lindy Hop",
 	publisher: "Ankara Lindy Hop",
-	formatDetection: {
-		email: false,
-		address: false,
-		telephone: false,
-	},
+	formatDetection: { email: false, address: false, telephone: false },
 	openGraph: {
 		title: "Ankara Lindy Hop - Lindy Hop Dans Topluluğu",
 		description:
@@ -96,10 +91,23 @@ export const metadata: Metadata = {
 	},
 	manifest: "/manifest.json",
 	metadataBase: new URL("https://ankaralindyhop.org"),
-	alternates: {
-		canonical: "/",
+	alternates: { canonical: "/" },
+};
+
+const organizationSchema = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	name: "Ankara Lindy Hop",
+	url: "https://ankaralindyhop.org",
+	logo: "https://ankaralindyhop.org/images/og-image.png",
+	sameAs: ["https://www.instagram.com/ankaralindyhop", "https://www.facebook.com/ankaralindyhop"],
+	contactPoint: {
+		"@type": "ContactPoint",
+		email: "iletisim@ankaralindyhop.org",
+		contactType: "customer support",
 	},
 };
+
 export default function RootLayout({
 	children,
 }: Readonly<{
@@ -107,65 +115,30 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="tr">
-			<head>
-				{/* Preload the LCP image (video poster) */}
-				<link
-					rel="preload"
-					as="image"
-					href="/images/features-1.webp"
-					fetchPriority="high"
-				/>
-				<script
+			<body className={`${inter.variable} ${almendraSC.variable} antialiased`}>
+				<Script
+					id="organization-ld-json"
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{
-						__html: JSON.stringify({
-							"@context": "https://schema.org",
-							"@type": "Organization",
-							name: "Ankara Lindy Hop",
-							url: "https://ankaralindyhop.org",
-							logo: "https://ankaralindyhop.org/images/og-image.png",
-							sameAs: [
-								"https://www.instagram.com/ankaralindyhop",
-								"https://www.facebook.com/ankaralindyhop",
-							],
-							contactPoint: {
-								"@type": "ContactPoint",
-								email: "iletisim@ankaralindyhop.org",
-								contactType: "customer support",
-							},
-						}),
+						__html: JSON.stringify(organizationSchema),
 					}}
 				/>
-			</head>
-			<body className={`${inter.variable} ${almendraSC.variable} antialiased`}>
-				<main className="min-h-screen w-screen overflow-x-hidden">
+				<main className="min-h-screen w-full overflow-x-hidden">
+					<Navbar />
 					{children}
+					<Footer />
 					<SpeedInsights />
 					<Analytics />
-					<Navbar />
-					<Footer />
 					<Toaster
 						position="top-center"
 						toastOptions={{
-							style: {
-								background: "#fdba74", // orange-300 - default for all toasts
-								color: "#18181b", // zinc-900 for text
-							},
+							style: { background: "#fdba74", color: "#18181b" },
 							success: {
-								style: {
-									background: "#fdba74", // orange-300
-									color: "#18181b", // zinc-900 for text
-								},
-								iconTheme: {
-									primary: "#18181b", // zinc-900
-									secondary: "#fdba74", // orange-300
-								},
+								style: { background: "#fdba74", color: "#18181b" },
+								iconTheme: { primary: "#18181b", secondary: "#fdba74" },
 							},
 							error: {
-								style: {
-									background: "#f87171", // red-400 (optional - keep error red)
-									color: "#18181b",
-								},
+								style: { background: "#f87171", color: "#18181b" },
 							},
 						}}
 					/>

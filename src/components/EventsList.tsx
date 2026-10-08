@@ -10,7 +10,7 @@ import { isNewContent } from "@/lib/blog-utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface Event {
+interface DanceEvent {
 	id: string;
 	title: string;
 	date: string;
@@ -20,7 +20,7 @@ interface Event {
 }
 
 interface EventsListProps {
-	events: Event[];
+	events: DanceEvent[];
 }
 
 export function EventsList({ events }: Readonly<EventsListProps>) {
@@ -117,11 +117,9 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 		return () => ctx.revert();
 	}, []);
 
-	const generateWeeklyEvent = (): Event => {
+	const generateWeeklyEvent = (): DanceEvent => {
 		const nextWednesday = new Date();
-		nextWednesday.setDate(
-			nextWednesday.getDate() + ((3 - nextWednesday.getDay() + 7) % 7),
-		);
+		nextWednesday.setDate(nextWednesday.getDate() + ((3 - nextWednesday.getDay() + 7) % 7));
 		nextWednesday.setHours(20, 0, 0, 0);
 
 		const now = new Date();
@@ -151,7 +149,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 		});
 	};
 
-	const renderEventItem = (event: Event, isPast: boolean) => (
+	const renderEventItem = (event: DanceEvent, isPast: boolean) => (
 		<li
 			key={event.id}
 			className={`${
@@ -182,26 +180,19 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 					{event.title}
 				</h2>
 				<p className="mb-2 font-medium text-zinc-300">
-					<strong className="text-orange-300">Tarih:</strong>{" "}
-					{formatEventDate(event.date)}
+					<strong className="text-orange-300">Tarih:</strong> {formatEventDate(event.date)}
 				</p>
 				<p className="mb-2 font-medium text-zinc-300">
 					<strong className="text-orange-300">Konum:</strong> {event.location}
 				</p>
-				<p className="font-light text-zinc-400 leading-relaxed">
-					{event.description}
-				</p>
+				<p className="font-light text-zinc-400 leading-relaxed">{event.description}</p>
 			</div>
 		</li>
 	);
 
 	const currentDate = new Date();
-	const pastEvents = events.filter(
-		(event) => new Date(event.date) < currentDate,
-	);
-	const futureEvents = events.filter(
-		(event) => new Date(event.date) >= currentDate,
-	);
+	const pastEvents = events.filter((event) => new Date(event.date) < currentDate);
+	const futureEvents = events.filter((event) => new Date(event.date) >= currentDate);
 
 	const weeklyEvent = generateWeeklyEvent();
 	const allFutureEvents = [...futureEvents, weeklyEvent];
@@ -216,9 +207,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 
 			<ul className="future-events-list space-y-6">
 				{allFutureEvents
-					.toSorted(
-						(a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
-					)
+					.toSorted((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 					.map((event) => renderEventItem(event, false))}
 			</ul>
 
@@ -240,7 +229,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 								Ankara Dans Takvimi
 							</h3>
 							<p className="mt-1 font-medium text-zinc-400 transition-colors group-hover:text-zinc-300">
-								Tüm swing etkinliklerini ve daha fazlasini görüntüleyin
+								Tüm swing etkinliklerini ve daha fazlasını görüntüleyin
 							</p>
 						</div>
 					</div>

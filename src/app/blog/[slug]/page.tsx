@@ -31,8 +31,7 @@ export async function generateMetadata({
 			title: post.title,
 			description: post.seo.metaDescription,
 			type: "article",
-			url:
-				post.seo.canonicalUrl || `https://ankaralindyhop.org/blog/${post.slug}`,
+			url: post.seo.canonicalUrl || `https://ankaralindyhop.org/blog/${post.slug}`,
 			images: post.image
 				? [
 						{
@@ -53,11 +52,7 @@ export async function generateMetadata({
 			title: post.title,
 			description: post.seo.metaDescription,
 			images: post.image
-				? [
-						post.image.startsWith("http")
-							? post.image
-							: `https://ankaralindyhop.org${post.image}`,
-					]
+				? [post.image.startsWith("http") ? post.image : `https://ankaralindyhop.org${post.image}`]
 				: [],
 		},
 	};

@@ -7,14 +7,10 @@ interface BlogNavigationProps {
 	allPosts: BlogMetadata[];
 }
 
-export function BlogNavigation({
-	currentPost,
-	allPosts,
-}: Readonly<BlogNavigationProps>) {
+export function BlogNavigation({ currentPost, allPosts }: Readonly<BlogNavigationProps>) {
 	const currentIndex = allPosts.findIndex((post) => post.id === currentPost.id);
 	const previousPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
-	const nextPost =
-		currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+	const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
 
 	if (!previousPost && !nextPost) {
 		return null;
@@ -23,7 +19,6 @@ export function BlogNavigation({
 	return (
 		<nav className="mt-12 border-zinc-700 border-t pt-8">
 			<div className="flex flex-col gap-4 sm:flex-row sm:justify-between">
-				{/* Previous Post */}
 				<div className="flex-1">
 					{previousPost ? (
 						<Link
@@ -45,7 +40,6 @@ export function BlogNavigation({
 					)}
 				</div>
 
-				{/* Next Post */}
 				<div className="flex-1">
 					{nextPost ? (
 						<Link

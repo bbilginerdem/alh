@@ -11,14 +11,9 @@ interface RelatedPostsProps {
 	currentPostId: number;
 }
 
-export function RelatedPosts({
-	posts,
-	currentPostId,
-}: Readonly<RelatedPostsProps>) {
+export function RelatedPosts({ posts, currentPostId }: Readonly<RelatedPostsProps>) {
 	const router = useRouter();
-	const relatedPosts = posts
-		.filter((post) => post.id !== currentPostId)
-		.slice(0, 3);
+	const relatedPosts = posts.filter((post) => post.id !== currentPostId).slice(0, 3);
 
 	const handleTagClick = (e: React.MouseEvent, tag: string) => {
 		e.preventDefault();
@@ -32,9 +27,7 @@ export function RelatedPosts({
 
 	return (
 		<section className="mt-10 border-zinc-700 border-t pt-12">
-			<h2 className="mb-8 text-center font-bold text-2xl text-zinc-100">
-				İlgili Yazılar
-			</h2>
+			<h2 className="mb-8 text-center font-bold text-2xl text-zinc-100">İlgili Yazılar</h2>
 
 			<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 				{relatedPosts.map((post) => (
@@ -55,7 +48,6 @@ export function RelatedPosts({
 									/>
 									<div className="absolute inset-0 bg-linear-to-t from-zinc-900/60 to-transparent" />
 
-									{/* Category badge */}
 									<div className="absolute top-3 right-3 rounded-full bg-orange-500/90 px-2 py-1 font-medium text-white text-xs">
 										{post.category}
 									</div>
@@ -64,9 +56,7 @@ export function RelatedPosts({
 
 							<div className="p-4">
 								<div className="mb-2 flex items-center gap-2 text-xs text-zinc-400">
-									<time dateTime={post.publishDate}>
-										{formatDate(post.publishDate)}
-									</time>
+									<time dateTime={post.publishDate}>{formatDate(post.publishDate)}</time>
 									<span>•</span>
 									<span>{formatReadingTime(post.readingTime)}</span>
 								</div>
@@ -75,11 +65,8 @@ export function RelatedPosts({
 									{post.title}
 								</h3>
 
-								<p className="line-clamp-2 text-sm text-zinc-400">
-									{post.excerpt}
-								</p>
+								<p className="line-clamp-2 text-sm text-zinc-400">{post.excerpt}</p>
 
-								{/* Tags */}
 								<div className="mt-3 flex flex-wrap gap-1">
 									{post.tags.slice(0, 2).map((tag) => (
 										<button

@@ -44,14 +44,9 @@ export function navbarDirection(text: string): string {
 		Ü: "U",
 	};
 
-	// Replace Turkish characters
-	let cleanedText = text.replaceAll(
-		/[çÇğĞıİöÖşŞüÜ]/g,
-		(char) => turkishChars[char] || char,
-	);
+	let cleanedText = text.replaceAll(/[çÇğĞıİöÖşŞüÜ]/g, (char) => turkishChars[char] || char);
 
-	// Replace spaces with hyphens, and trim excess whitespace
 	cleanedText = cleanedText.trim().replaceAll(/\s+/g, "-");
 
-	return cleanedText.toLowerCase(); // optional: normalize to lowercase
+	return cleanedText.toLowerCase();
 }

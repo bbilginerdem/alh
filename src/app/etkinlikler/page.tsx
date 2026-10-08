@@ -9,8 +9,7 @@ export const metadata: Metadata = {
 		"Ankara Lindy Hop topluluğunun yaklaşan dans partileri, atölyeleri ve swing etkinlikleri. Bize katılın ve dansın neşesini paylaşın.",
 	openGraph: {
 		title: "Etkinlikler | Ankara Lindy Hop",
-		description:
-			"Yaklaşan dans partileri, atölyeleri ve swing etkinliklerimizi takip edin.",
+		description: "Yaklaşan dans partileri, atölyeleri ve swing etkinliklerimizi takip edin.",
 		url: "https://ankaralindyhop.org/etkinlikler",
 	},
 	alternates: {

@@ -5,13 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Navigation } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-	type MouseEventHandler,
-	type ReactNode,
-	useEffect,
-	useRef,
-	useState,
-} from "react";
+import { type MouseEventHandler, type ReactNode, useEffect, useRef, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,18 +22,14 @@ interface BentoCardProps {
 	link?: string;
 }
 
-export const BentoTilt: React.FC<BentoTiltProps> = ({
-	children,
-	className = "",
-}) => {
+export const BentoTilt: React.FC<BentoTiltProps> = ({ children, className = "" }) => {
 	const [transformStyle, setTransformStyle] = useState<string>("");
 	const itemRef = useRef<HTMLDivElement | null>(null);
 
 	const handleMouseMove: MouseEventHandler<HTMLDivElement> = (event) => {
 		if (!itemRef.current) return;
 
-		const { left, top, width, height } =
-			itemRef.current.getBoundingClientRect();
+		const { left, top, width, height } = itemRef.current.getBoundingClientRect();
 
 		const relativeX = (event.clientX - left) / width;
 		const relativeY = (event.clientY - top) / height;
@@ -133,7 +123,6 @@ export const BentoCard: React.FC<BentoCardProps> = ({
 							onMouseLeave={handleMouseLeave}
 							className="relative flex w-fit cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-white/10 bg-black/50 px-5 py-2.5 font-bold text-sm text-white/90 uppercase tracking-widest backdrop-blur-md transition-colors hover:bg-black/70"
 						>
-							{/* Radial gradient hover effect */}
 							<div
 								className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
 								style={{
@@ -161,7 +150,6 @@ const Features = () => {
 		if (!containerRef.current) return;
 
 		const ctx = gsap.context(() => {
-			// Swiss-style Text Reveal
 			gsap.fromTo(
 				".feature-header-text",
 				{
@@ -183,7 +171,6 @@ const Features = () => {
 				},
 			);
 
-			// Bento Grid Stagger
 			gsap.fromTo(
 				".bento-tilt",
 				{
@@ -203,7 +190,6 @@ const Features = () => {
 						start: "top 75%",
 					},
 					onComplete: () => {
-						// Internal card animations triggered after card appears
 						gsap.to([".bento-title", ".bento-description", ".bento-btn"], {
 							y: 0,
 							opacity: 1,
@@ -229,18 +215,15 @@ const Features = () => {
 						Ankara Lindy Hop kimdir?
 					</p>
 					<p className="feature-header-text font-light text-lg text-zinc-400 leading-relaxed md:max-w-3xl">
-						Evet, Ankara’nın sokakları denize çıkmaz; ama Ankara’da sokaklar
-						Ankara Lindy Hop’a çıkar. Ankara Lindy Hop, Ankara’nın sokaklarında,
-						parklarında ve bahçelerinde ortaya çıkmış, caz müziğinin din, dil,
-						ırk ve cinsiyet gibi hiçbir ayrım gözetmeyen özgürlükçü felsefesini
-						merkezine koymuş bir topluluktur. Başta Lindy Hop, Solo Jazz, Blues
-						ve Swing dansı türlerini, Ankara’ya kar amacı gütmeden kazandırmayı
-						amaçlayan bu dost grubu, 2018 yılında hayatın akışı içinde bir araya
-						gelmiştir. O günden itibaren, kar amacı gütmeden ve Lindy Hop ruhunu
-						yansıtmak amacıyla, dansı yaymak ve topluluğu büyütmek için çeşitli
-						etkinlikler düzenlemeye devam etmiştir. Bir grup insanla başlayan bu
-						yolculuk, bugün 470 üyeye ulaşan geniş ve dinamik bir topluluğa
-						dönüşmüştür.
+						Evet, Ankara’nın sokakları denize çıkmaz; ama Ankara’da sokaklar Ankara Lindy Hop’a
+						çıkar. Ankara Lindy Hop, Ankara’nın sokaklarında, parklarında ve bahçelerinde ortaya
+						çıkmış, caz müziğinin din, dil, ırk ve cinsiyet gibi hiçbir ayrım gözetmeyen özgürlükçü
+						felsefesini merkezine koymuş bir topluluktur. Başta Lindy Hop, Solo Jazz, Blues ve Swing
+						dansı türlerini, Ankara’ya kar amacı gütmeden kazandırmayı amaçlayan bu dost grubu, 2018
+						yılında hayatın akışı içinde bir araya gelmiştir. O günden itibaren, kar amacı gütmeden
+						ve Lindy Hop ruhunu yansıtmak amacıyla, dansı yaymak ve topluluğu büyütmek için çeşitli
+						etkinlikler düzenlemeye devam etmiştir. Bir grup insanla başlayan bu yolculuk, bugün 470
+						üyeye ulaşan geniş ve dinamik bir topluluğa dönüşmüştür.
 					</p>
 				</div>
 

@@ -10,13 +10,7 @@ import { events, posts } from "@/lib/data";
 import { navbarDirection } from "@/lib/utils";
 import { NewBadgeCircle } from "./home/NewBadgeCircle";
 
-const navItems: string[] = [
-	"gönüllü ol",
-	"topluluk ilkeleri",
-	"etkinlikler",
-	"blog",
-	"iletişim",
-];
+const navItems: string[] = ["gönüllü ol", "topluluk ilkeleri", "etkinlikler", "blog", "iletişim"];
 
 const NavBar = () => {
 	const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
@@ -84,11 +78,9 @@ const NavBar = () => {
 		const mobileEl = mobileMenuRef.current;
 		if (!mobileEl) return;
 
-		// ✅ Kill any existing tweens to prevent conflicts
 		gsap.killTweensOf(mobileEl);
 		gsap.killTweensOf(".mobile-nav-item");
 
-		// ✅ Save original body overflow to restore on cleanup
 		const originalOverflow = document.body.style.overflow;
 
 		if (isDropdownOpen) {
@@ -198,8 +190,7 @@ const NavBar = () => {
 						<div className="hidden md:flex md:items-center md:gap-3">
 							{navItems.map((item: string) => {
 								const showBadge =
-									(item === "etkinlikler" && hasNewEvent) ||
-									(item === "blog" && hasNewBlog);
+									(item === "etkinlikler" && hasNewEvent) || (item === "blog" && hasNewBlog);
 
 								return (
 									<Link
@@ -224,8 +215,7 @@ const NavBar = () => {
 					<div className="flex h-full w-full flex-col items-center justify-center gap-6">
 						{navItems.map((item: string) => {
 							const showBadge =
-								(item === "etkinlikler" && hasNewEvent) ||
-								(item === "blog" && hasNewBlog);
+								(item === "etkinlikler" && hasNewEvent) || (item === "blog" && hasNewBlog);
 
 							return (
 								<Link

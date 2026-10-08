@@ -40,10 +40,7 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
 				});
 
 				mm.add("(prefers-reduced-motion: no-preference)", () => {
-					const wordCount = lines.reduce(
-						(sum, line) => sum + line.words.length,
-						0,
-					);
+					const wordCount = lines.reduce((sum, line) => sum + line.words.length, 0);
 					const stagger = Math.min(0.02, 0.5 / Math.max(1, wordCount));
 
 					const titleAnimation = gsap.timeline({
@@ -78,18 +75,14 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
 	return (
 		<div ref={containerRef} className={clsx("animated-title", containerClass)}>
 			{lines.map((line) => (
-				<div
-					key={line.id}
-					className="max-w-full flex-center flex-wrap gap-2 px-10 md:gap-3"
-				>
+				<div key={line.id} className="max-w-full flex-center flex-wrap gap-2 px-10 md:gap-3">
 					{line.words.map((word) => (
 						<span
 							key={word.id}
 							className="animated-word inline-block opacity-0"
 							style={{
 								willChange: "transform, opacity",
-								transform:
-									"translate3d(0, 40px, 0) rotateY(15deg) rotateX(-15deg)",
+								transform: "translate3d(0, 40px, 0) rotateY(15deg) rotateX(-15deg)",
 							}}
 						>
 							{word.text}

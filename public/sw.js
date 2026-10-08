@@ -1,16 +1,8 @@
-/// <reference lib="webworker" />
-
-// ============================================================================
-// Ankara Lindy Hop - Service Worker
-// Progressive Web App with offline support
-// ============================================================================
-
 const CACHE_VERSION = "alh-v2";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
 
-// Static assets to precache on install
 const PRECACHE_URLS = [
 	"/",
 	"/offline",
@@ -24,39 +16,23 @@ const PRECACHE_URLS = [
 	"/manifest.json",
 ];
 
-// Max items in dynamic cache
 const DYNAMIC_CACHE_LIMIT = 50;
 const IMAGE_CACHE_LIMIT = 100;
 
-// ============================================================================
-// INSTALL EVENT - Precache static assets
-// ============================================================================
 self.addEventListener("install", (event) => {
-	console.log("[SW] Installing service worker...");
-
 	event.waitUntil(
 		caches
 			.open(STATIC_CACHE)
 			.then((cache) => {
-				console.log("[SW] Pre-caching static assets");
 				return cache.addAll(PRECACHE_URLS);
 			})
 			.then(() => {
-				// Activate immediately without waiting
 				return self.skipWaiting();
-			})
-			.catch((err) => {
-				console.error("[SW] Precache failed:", err);
 			}),
 	);
 });
 
-// ============================================================================
-// ACTIVATE EVENT - Clean old caches
-// ============================================================================
 self.addEventListener("activate", (event) => {
-	console.log("[SW] Activating service worker...");
-
 	event.waitUntil(
 		caches
 			.keys()
@@ -64,7 +40,6 @@ self.addEventListener("activate", (event) => {
 				return Promise.all(
 					cacheNames
 						.filter((name) => {
-							// Delete caches that don't match current version
 							return (
 								name.startsWith("alh-") &&
 								name !== STATIC_CACHE &&
@@ -73,32 +48,24 @@ self.addEventListener("activate", (event) => {
 							);
 						})
 						.map((name) => {
-							console.log("[SW] Deleting old cache:", name);
 							return caches.delete(name);
 						}),
 				);
 			})
 			.then(() => {
-				// Take control of all clients immediately
 				return self.clients.claim();
 			}),
 	);
 });
 
-// ============================================================================
-// FETCH EVENT - Network-first for pages, Cache-first for assets
-// ============================================================================
 self.addEventListener("fetch", (event) => {
 	const { request } = event;
 	const url = new URL(request.url);
 
-	// Skip non-GET requests
 	if (request.method !== "GET") return;
 
-	// Skip chrome-extension and other non-http(s) schemes
 	if (!url.protocol.startsWith("http")) return;
 
-	// Skip API routes and analytics
 	if (
 		url.pathname.startsWith("/api/") ||
 		url.hostname.includes("vercel") ||
@@ -107,7 +74,6 @@ self.addEventListener("fetch", (event) => {
 		return;
 	}
 
-	// Strategy: Images → Cache-first
 	if (
 		request.destination === "image" ||
 		new RegExp(/\.(png|jpg|jpeg|webp|avif|gif|svg|ico)$/i).exec(url.pathname)
@@ -116,41 +82,31 @@ self.addEventListener("fetch", (event) => {
 		return;
 	}
 
-	// Strategy: Static assets (JS, CSS, fonts) → Stale-while-revalidate
 	if (
 		request.destination === "script" ||
 		request.destination === "style" ||
 		request.destination === "font" ||
 		new RegExp(/\.(js|css|woff|woff2)$/i).exec(url.pathname)
 	) {
-		event.respondWith(staleWhileRevalidate(request, STATIC_CACHE));
+		event.respondWith(staleWhileRevalidate(event, request, STATIC_CACHE));
 		return;
 	}
 
-	// Strategy: Pages (navigation) → Network-first with offline fallback
 	if (request.mode === "navigate") {
 		event.respondWith(networkFirst(request));
 		return;
 	}
 
-	// Everything else → Stale-while-revalidate
-	event.respondWith(staleWhileRevalidate(request, DYNAMIC_CACHE));
+	event.respondWith(staleWhileRevalidate(event, request, DYNAMIC_CACHE));
 });
 
-// ============================================================================
-// CACHING STRATEGIES
-// ============================================================================
-
-/**
- * Network-first: Try network, fallback to cache, then offline page
- */
 async function networkFirst(request) {
 	try {
 		const networkResponse = await fetch(request);
 
 		if (networkResponse.ok) {
 			const cache = await caches.open(DYNAMIC_CACHE);
-			cache.put(request, networkResponse.clone());
+			await cache.put(request, networkResponse.clone());
 			await trimCache(DYNAMIC_CACHE, DYNAMIC_CACHE_LIMIT);
 		}
 
@@ -159,7 +115,6 @@ async function networkFirst(request) {
 		const cachedResponse = await caches.match(request);
 		if (cachedResponse) return cachedResponse;
 
-		// If navigating, show offline page
 		if (request.mode === "navigate") {
 			const offlinePage = await caches.match("/offline");
 			if (offlinePage) return offlinePage;
@@ -173,9 +128,6 @@ async function networkFirst(request) {
 	}
 }
 
-/**
- * Cache-first: Try cache, fallback to network
- */
 async function cacheFirst(request, cacheName, limit) {
 	const cachedResponse = await caches.match(request);
 	if (cachedResponse) return cachedResponse;
@@ -185,48 +137,43 @@ async function cacheFirst(request, cacheName, limit) {
 
 		if (networkResponse.ok) {
 			const cache = await caches.open(cacheName);
-			cache.put(request, networkResponse.clone());
+			await cache.put(request, networkResponse.clone());
 			await trimCache(cacheName, limit);
 		}
 
 		return networkResponse;
 	} catch {
-		// Return a transparent 1x1 pixel for missing images
 		if (request.destination === "image") {
-			return new Response(
-				"<svg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/>",
-				{
-					headers: { "Content-Type": "image/svg+xml" },
-				},
-			);
+			return new Response("<svg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/>", {
+				headers: { "Content-Type": "image/svg+xml" },
+			});
 		}
 
 		return new Response("", { status: 408 });
 	}
 }
 
-/**
- * Stale-while-revalidate: Return cache immediately, update in background
- */
-async function staleWhileRevalidate(request, cacheName) {
+async function staleWhileRevalidate(event, request, cacheName) {
 	const cache = await caches.open(cacheName);
 	const cachedResponse = await cache.match(request);
 
-	const fetchPromise = fetch(request)
-		.then((networkResponse) => {
+	const networkPromise = fetch(request)
+		.then(async (networkResponse) => {
 			if (networkResponse.ok) {
-				cache.put(request, networkResponse.clone());
+				await cache.put(request, networkResponse.clone());
 			}
 			return networkResponse;
 		})
 		.catch(() => cachedResponse);
 
-	return cachedResponse || fetchPromise;
+	if (cachedResponse) {
+		event.waitUntil(networkPromise);
+		return cachedResponse;
+	}
+
+	return networkPromise;
 }
 
-/**
- * Trim cache to max number of items (FIFO)
- */
 async function trimCache(cacheName, maxItems) {
 	const cache = await caches.open(cacheName);
 	const keys = await cache.keys();
@@ -237,39 +184,30 @@ async function trimCache(cacheName, maxItems) {
 	}
 }
 
-// ============================================================================
-// BACKGROUND SYNC (for future offline form submissions)
-// ============================================================================
 self.addEventListener("sync", (event) => {
-	console.log("[SW] Background sync event:", event.tag);
-
 	if (event.tag === "contact-form-sync") {
 		event.waitUntil(syncContactForm());
 	}
 });
 
-async function syncContactForm() {
-	// This can be implemented later for offline form submission
-	console.log("[SW] Syncing contact form data...");
-}
-
-// ============================================================================
-// MESSAGE HANDLER (for communication with main thread)
-// ============================================================================
 self.addEventListener("message", (event) => {
+	if (event.origin !== self.location.origin) {
+		return;
+	}
+
 	if (event.data?.type === "SKIP_WAITING") {
 		self.skipWaiting();
 	}
 
 	if (event.data?.type === "GET_VERSION") {
-		event.ports[0].postMessage({ version: CACHE_VERSION });
+		if (event.ports?.[0]) {
+			event.ports[0].postMessage({ version: CACHE_VERSION });
+		}
 	}
 
 	if (event.data?.type === "CLEAR_CACHE") {
 		event.waitUntil(
-			caches
-				.keys()
-				.then((names) => Promise.all(names.map((name) => caches.delete(name)))),
+			caches.keys().then((names) => Promise.all(names.map((name) => caches.delete(name)))),
 		);
 	}
 });

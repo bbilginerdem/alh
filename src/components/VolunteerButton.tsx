@@ -11,11 +11,5 @@ export function VolunteerButton() {
 		);
 	};
 
-	return (
-		<Button
-			title="Gönüllü Ol"
-			containerClass="mx-auto"
-			onClick={handleVolunteerClick}
-		/>
-	);
+	return <Button title="Gönüllü Ol" containerClass="mx-auto" onClick={handleVolunteerClick} />;
 }

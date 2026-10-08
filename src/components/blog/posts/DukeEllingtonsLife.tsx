@@ -32,9 +32,9 @@ export default function DukeEllington() {
 			<section className="mb-8">
 				<p className="mb-8 text-base md:text-lg">
 					Asıl adı Edward Ellington olan{" "}
-					<span className="font-semibold text-orange-300">Duke Ellington</span>,
-					"Duke" lakabını; arkadaşlarının ona zarif kıyafetleri ve görgülü
-					tavırlarından ötürü taktığı bir lakap olarak almıştır.
+					<span className="font-semibold text-orange-300">Duke Ellington</span>, "Duke" lakabını;
+					arkadaşlarının ona zarif kıyafetleri ve görgülü tavırlarından ötürü taktığı bir lakap
+					olarak almıştır.
 				</p>
 
 				<div className="mb-8 flex flex-col gap-6 md:flex-row">
@@ -46,36 +46,26 @@ export default function DukeEllington() {
 							height={400}
 							className="rounded-lg shadow-lg"
 						/>
-						<p className="mt-2 text-xs text-zinc-400">
-							Duke Ellington ile Alicie Babs
-						</p>
+						<p className="mt-2 text-xs text-zinc-400">Duke Ellington ile Alicie Babs</p>
 					</div>
 					<div className="md:w-1/2">
 						<p className="mb-4 text-base md:text-lg">
-							Duke Ellington, caz tarihinin en önemli bestecisi, büyük bir müzik
-							grubu lideri olmasına ek olarak beraber çalıştığı müzisyenlere
-							özgü solo yazma konusunda da örnek bir figür olarak caz tarihine
-							geçmiştir.
+							Duke Ellington, caz tarihinin en önemli bestecisi, büyük bir müzik grubu lideri
+							olmasına ek olarak beraber çalıştığı müzisyenlere özgü solo yazma konusunda da örnek
+							bir figür olarak caz tarihine geçmiştir.
 						</p>
 
 						<p className="mb-4 text-base md:text-lg">
-							<span className="font-semibold text-orange-300">Ben Webster</span>
-							,{" "}
-							<span className="font-semibold text-orange-300">
-								Johnny Hodges
-							</span>
-							,{" "}
-							<span className="font-semibold text-orange-300">
-								Cootie Williams
-							</span>{" "}
-							gibi bir çok virtüöz müzisyeni etkileyerek, onlara özgü sololar
-							yazarak yeteneklerini vurgulamak için daha önlere çıkarmıştır.
+							<span className="font-semibold text-orange-300">Ben Webster</span>,{" "}
+							<span className="font-semibold text-orange-300">Johnny Hodges</span>,{" "}
+							<span className="font-semibold text-orange-300">Cootie Williams</span> gibi bir çok
+							virtüöz müzisyeni etkileyerek, onlara özgü sololar yazarak yeteneklerini vurgulamak
+							için daha önlere çıkarmıştır.
 						</p>
 						<p className="text-base md:text-lg">
-							Ellington'ın bu eşsiz yaklaşımı, sadece bireysel yetenekleri ön
-							plana çıkarmakla kalmadı, aynı zamanda orkestrasının kolektif
-							kimliğini de güçlendirdi. Her müzisyenin kendine has tonu ve
-							tarzı, Ellington'ın besteleriyle harmanlandığında, ortaya çıkan
+							Ellington'ın bu eşsiz yaklaşımı, sadece bireysel yetenekleri ön plana çıkarmakla
+							kalmadı, aynı zamanda orkestrasının kolektif kimliğini de güçlendirdi. Her müzisyenin
+							kendine has tonu ve tarzı, Ellington'ın besteleriyle harmanlandığında, ortaya çıkan
 							ses orkestranın imzası haline geldi.
 						</p>
 					</div>
@@ -87,16 +77,15 @@ export default function DukeEllington() {
 					Müzisyenliğini Geliştiren Bir Lider
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
-					Bunlara ek olarak yanındaki müzisyenlere kendi şarkılarını deneme
-					fırsatı vermiştir. Bunlardan bazıları orkestra ile yeniden
-					düzenlenerek kaydedilmiştir.
+					Bunlara ek olarak yanındaki müzisyenlere kendi şarkılarını deneme fırsatı vermiştir.
+					Bunlardan bazıları orkestra ile yeniden düzenlenerek kaydedilmiştir.
 				</p>
 				<p className="text-base md:text-lg">
 					Bu şarkılardan en önemlisi caz tarihinde de önemli bir yere sahip olan{" "}
 					<span className="font-semibold text-orange-300">"Caravan"</span>
 					dır ve Duke Ellington'ın yanında trombonist olan
-					<span className="font-semibold text-orange-300"> Juan Tizol</span>{" "}
-					tarafından bestelenmiştir.
+					<span className="font-semibold text-orange-300"> Juan Tizol</span> tarafından
+					bestelenmiştir.
 				</p>
 			</section>
 
@@ -107,16 +96,15 @@ export default function DukeEllington() {
 							Caravan: Bir Klasik Doğuyor
 						</h2>
 						<p className="mb-4 text-base md:text-lg">
-							<span className="font-semibold text-orange-300">"Caravan"</span>,
-							1936 yılında bestelenen bu eser, Duke Ellington orkestrasının en
-							ikonik parçalarından biri haline gelmiştir. Latin ritimlerinden
-							esinlenen bu parça, caz repertuarında oryantal ve egzotik
-							temaların kullanımına öncülük etmiştir.
+							<span className="font-semibold text-orange-300">"Caravan"</span>, 1936 yılında
+							bestelenen bu eser, Duke Ellington orkestrasının en ikonik parçalarından biri haline
+							gelmiştir. Latin ritimlerinden esinlenen bu parça, caz repertuarında oryantal ve
+							egzotik temaların kullanımına öncülük etmiştir.
 						</p>
 						<p className="text-base md:text-lg">
-							Juan Tizol'un trombonundan çıkan bu melodi, yıllar içinde sayısız
-							müzisyen tarafından yorumlanmış ve Lindy Hop topluluklarında da
-							sıkça dans edilen bir klasik haline gelmiştir.
+							Juan Tizol'un trombonundan çıkan bu melodi, yıllar içinde sayısız müzisyen tarafından
+							yorumlanmış ve Lindy Hop topluluklarında da sıkça dans edilen bir klasik haline
+							gelmiştir.
 						</p>
 					</div>
 				</div>
@@ -127,10 +115,9 @@ export default function DukeEllington() {
 					Ellington'ın Mirası
 				</h3>
 				<p className="mb-4 text-base md:text-lg">
-					Duke Ellington, sadece bir besteci değil aynı zamanda bir mentor ve
-					ilham kaynağıydı. Onunla çalışan her müzisyen, kendi sesini bulma
-					fırsatı elde etti. Bu yaklaşımı, caz tarihinde benzersiz bir yer
-					edinmesini sağlamıştır.
+					Duke Ellington, sadece bir besteci değil aynı zamanda bir mentor ve ilham kaynağıydı.
+					Onunla çalışan her müzisyen, kendi sesini bulma fırsatı elde etti. Bu yaklaşımı, caz
+					tarihinde benzersiz bir yer edinmesini sağlamıştır.
 				</p>
 
 				<blockquote className="my-6 border-orange-300 border-l-4 pl-4 text-base italic md:text-lg">

@@ -1,45 +1,64 @@
 "use client";
 
 import { useEffect } from "react";
+import { type Toast, toast } from "react-hot-toast";
+
+const renderUpdateToast = (t: Toast) => (
+	<span>
+		New version available!{" "}
+		<button
+			onClick={() => {
+				window.location.reload();
+				toast.dismiss(t.id);
+			}}
+			className="font-bold underline"
+			type="button"
+		>
+			Refresh
+		</button>
+	</span>
+);
 
 export default function PWARegistration() {
 	useEffect(() => {
-		if (typeof window !== "undefined" && "serviceWorker" in navigator) {
-			window.addEventListener("load", () => {
-				navigator.serviceWorker
-					.register("/sw.js")
-					.then((registration) => {
-						console.log(
-							"[PWA] Service Worker registered successfully with scope:",
-							registration.scope,
-						);
+		if (typeof window === "undefined" || !("serviceWorker" in navigator)) {
+			return;
+		}
 
-						// Handle updates
-						registration.addEventListener("updatefound", () => {
-							const newWorker = registration.installing;
-							if (newWorker) {
-								newWorker.addEventListener("statechange", () => {
-									if (
-										newWorker.state === "installed" &&
-										navigator.serviceWorker.controller
-									) {
-										// Notify user that a new version is available
-										console.log("[PWA] Update available");
-										// You can add a toast notification here to ask the user to refresh
-									}
-								});
-							}
-						});
-					})
-					.catch((error) => {
-						console.error("[PWA] Service Worker registration failed:", error);
-					});
-
-				// Handle messages from service worker
-				navigator.serviceWorker.addEventListener("message", (event) => {
-					console.log("[PWA] Message from Service Worker:", event.data);
+		const handleStateChange = (newWorker: ServiceWorker) => {
+			if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
+				toast(renderUpdateToast, {
+					duration: Number.POSITIVE_INFINITY,
+					id: "pwa-update-available",
 				});
-			});
+			}
+		};
+
+		const handleUpdateFound = (registration: ServiceWorkerRegistration) => {
+			const newWorker = registration.installing;
+			if (!newWorker) return;
+
+			newWorker.addEventListener("statechange", () => handleStateChange(newWorker));
+		};
+
+		const registerServiceWorker = async () => {
+			try {
+				const registration = await navigator.serviceWorker.register("/sw.js");
+				registration.addEventListener("updatefound", () => handleUpdateFound(registration));
+			} catch {}
+		};
+
+		const handleLoad = () => {
+			void registerServiceWorker();
+		};
+
+		if (document.readyState === "complete") {
+			void registerServiceWorker();
+		} else {
+			window.addEventListener("load", handleLoad);
+			return () => {
+				window.removeEventListener("load", handleLoad);
+			};
 		}
 	}, []);
 

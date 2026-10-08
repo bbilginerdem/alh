@@ -12,12 +12,10 @@ export default function OfflinePage() {
 			<div className="mb-6 rounded-full bg-zinc-900 p-6">
 				<WifiOff size={48} className="text-orange-300" />
 			</div>
-			<h1 className="mb-2 font-almendra-sc text-4xl text-white md:text-5xl">
-				Bağlantı Yok
-			</h1>
+			<h1 className="mb-2 font-almendra-sc text-4xl text-white md:text-5xl">Bağlantı Yok</h1>
 			<p className="mb-8 max-w-md text-zinc-400">
-				Görünüşe göre internet bağlantınız kesilmiş. Lütfen bağlantınızı kontrol
-				edip tekrar deneyin.
+				Görünüşe göre internet bağlantınız kesilmiş. Lütfen bağlantınızı kontrol edip tekrar
+				deneyin.
 			</p>
 
 			<Link

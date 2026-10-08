@@ -142,13 +142,7 @@ export const posts: BlogMetadata[] = [
 		seo: {
 			metaDescription:
 				"Earl Hines'ın piyano tekniğindeki yenilikler ve caz müziğine etkisi. Swing döneminin önemli piyanistlerinden biri.",
-			keywords: [
-				"Earl Hines",
-				"caz piyanisti",
-				"swing müziği",
-				"piyano tekniği",
-				"müzik yeniliği",
-			],
+			keywords: ["Earl Hines", "caz piyanisti", "swing müziği", "piyano tekniği", "müzik yeniliği"],
 			canonicalUrl: "https://ankaralindyhop.org/blog/earl-hines",
 		},
 		Content: EarlHines,
@@ -169,13 +163,7 @@ export const posts: BlogMetadata[] = [
 		seo: {
 			metaDescription:
 				"Tommy Dorsey'nin swing dönemindeki rolü ve trombon ustalığı. Big band müziğinin dans kültürüne etkisi.",
-			keywords: [
-				"trombon",
-				"swing orkestra",
-				"big band",
-				"dans müziği",
-				"swing dönemi",
-			],
+			keywords: ["trombon", "swing orkestra", "big band", "dans müziği", "swing dönemi"],
 			canonicalUrl: "https://ankaralindyhop.org/blog/tommy-dorsey",
 		},
 		Content: TommyDorsey,
@@ -196,13 +184,7 @@ export const posts: BlogMetadata[] = [
 		seo: {
 			metaDescription:
 				"Count Basie'nin müzik kariyeri, orkestrasının özgün tarzı ve swing döneminin gelişimindeki rolü. Swing dansı için unutulmaz melodiler.",
-			keywords: [
-				"swing müzik",
-				"Big Band",
-				"caz efsanesi",
-				"swing dansı",
-				"lindy hop müzik",
-			],
+			keywords: ["swing müzik", "Big Band", "caz efsanesi", "swing dansı", "lindy hop müzik"],
 			canonicalUrl: "https://ankaralindyhop.org/blog/count-basie",
 		},
 		Content: CountBasie,
@@ -277,17 +259,10 @@ export const posts: BlogMetadata[] = [
 		excerpt:
 			"Duke Ellington'un 1940-42 yılları arasında RCA Victor ile yaptığı legendary albümü, Blanton-Webster dönemi ve Swing döneminin doruk noktası hakkında detaylı analiz.",
 		readingTime: 8,
-		tags: [
-			"Jazz Standard",
-			"Swing Dönemi",
-			"Big Band",
-			"Caz Efsanesi",
-			"Besteci",
-		],
+		tags: ["Jazz Standard", "Swing Dönemi", "Big Band", "Caz Efsanesi", "Besteci"],
 		category: "Müzik",
 		image: "/images/blogs/10.webp",
-		imageAlt:
-			"Duke Ellington - Never No Lament: The Blanton/Webster Band albüm kapağı",
+		imageAlt: "Duke Ellington - Never No Lament: The Blanton/Webster Band albüm kapağı",
 		seo: {
 			metaDescription:
 				"Duke Ellington'un 1940-42 yılları arasında RCA Victor ile yaptığı legendary albümü, Blanton-Webster dönemi ve Swing döneminin doruk noktası hakkında detaylı analiz.",
@@ -303,8 +278,7 @@ export const posts: BlogMetadata[] = [
 				"Caz Tarihi",
 				"Lindy Hop Müzik",
 			],
-			canonicalUrl:
-				"https://ankaralindyhop.org/blog/duke-ellington-never-no-lament",
+			canonicalUrl: "https://ankaralindyhop.org/blog/duke-ellington-never-no-lament",
 		},
 		Content: DukeEllingtonBlantonWebster,
 	},
@@ -390,8 +364,7 @@ export const events = [
 		title: "Sarı Tema & DJ Battle",
 		date: "2025-06-07T20:00:00",
 		location: "Rasa Brasserie Cafe & Restaurant",
-		description:
-			"Sevgili ALH dostları, yeni yıla müzik ve dans dolu bir başlangıç yakışır",
+		description: "Sevgili ALH dostları, yeni yıla müzik ve dans dolu bir başlangıç yakışır",
 		imageUrl: "/images/events/yilbasi-2025.webp",
 	},
 	{
@@ -399,8 +372,7 @@ export const events = [
 		title: "Havuz Partisi",
 		date: "2025-08-24T20:00:00",
 		location: "Vişnelik",
-		description:
-			"Yazla vedalaşıp sezonu canlı müzikli parti ile açıyoruz!!! 🥳🥳",
+		description: "Yazla vedalaşıp sezonu canlı müzikli parti ile açıyoruz!!! 🥳🥳",
 		imageUrl: "/images/events/visnelik-2024.webp",
 	},
 	{
@@ -426,8 +398,7 @@ export const events = [
 		title: "Sonbahar Partisi",
 		date: "2023-09-16T20:00:00",
 		location: "Rasa Brasserie Cafe & Restaurant",
-		description:
-			"Yazla vedalaşıp sezonu canlı müzikli parti ile açıyoruz!!! 🥳🥳",
+		description: "Yazla vedalaşıp sezonu canlı müzikli parti ile açıyoruz!!! 🥳🥳",
 		imageUrl: "/images/events/sonbahar-2023.webp",
 	},
 ];

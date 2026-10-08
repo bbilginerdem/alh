@@ -26,7 +26,6 @@ const Contact = () => {
 				},
 			});
 
-			// Crazy Image reveal animation
 			tl.fromTo(
 				imageRef.current,
 				{
@@ -43,7 +42,6 @@ const Contact = () => {
 				},
 			);
 
-			// Text stagger animation with skew and rotation
 			tl.fromTo(
 				".contact-text",
 				{
@@ -64,7 +62,6 @@ const Contact = () => {
 				"-=1.2",
 			);
 
-			// Continuous floating animation for text
 			gsap.to(".contact-text", {
 				duration: 2,
 				repeat: -1,
@@ -73,11 +70,9 @@ const Contact = () => {
 				stagger: 0.1,
 			});
 
-			// Mouse move parallax effect
 			const handleMouseMove = (e: MouseEvent) => {
 				if (!containerRef.current) return;
-				const { left, top, width, height } =
-					containerRef.current.getBoundingClientRect();
+				const { left, top, width, height } = containerRef.current.getBoundingClientRect();
 				const x = (e.clientX - left) / width - 0.5;
 				const y = (e.clientY - top) / height - 0.5;
 
@@ -113,10 +108,7 @@ const Contact = () => {
 			className="perspective-1000 relative my-32 min-h-120 w-full px-4 sm:px-8 lg:my-40"
 		>
 			<div className="relative mx-auto max-w-7xl rounded-2xl bg-zinc-200 py-24 text-zinc-50 sm:overflow-hidden">
-				<div
-					ref={imageRef}
-					className="absolute inset-0 overflow-hidden rounded-2xl"
-				>
+				<div ref={imageRef} className="absolute inset-0 overflow-hidden rounded-2xl">
 					<Image
 						src="/images/contact.webp"
 						alt="Contact Image"
@@ -144,8 +136,8 @@ const Contact = () => {
 					</div>
 
 					<div className="contact-text max-w-xl font-circular-web font-medium text-lg text-zinc-300 leading-relaxed drop-shadow-md md:text-2xl">
-						Partilerimizin tarih ve saatleri için takvimimizi, instagram'ımızı
-						ve web sitemizi takip edin. Dans gecelerini kaçırmayın!
+						Partilerimizin tarih ve saatleri için takvimimizi, instagram'ımızı ve web sitemizi takip
+						edin. Dans gecelerini kaçırmayın!
 					</div>
 
 					<Link href="/iletisim" passHref className="contact-text pt-12">

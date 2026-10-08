@@ -24,7 +24,7 @@ const Hero = () => {
 
 	useEffect(() => {
 		if (globalThis.window !== undefined) {
-			const randomIndex = Math.floor(Math.random() * 4) + 1; // 1-4
+			const randomIndex = Math.floor(Math.random() * 4) + 1;
 			setCurrentVideoIndex(randomIndex);
 		}
 	}, []);
@@ -77,7 +77,6 @@ const Hero = () => {
 	const getVideoSrc = (index: number): string => `videos/hero-${index}.mp4`;
 
 	const handleVideoError = () => {
-		// Fallback to first video if random one fails
 		if (currentVideoIndex !== 1) {
 			setCurrentVideoIndex(1);
 		}
@@ -114,17 +113,14 @@ const Hero = () => {
 
 				<div className="absolute top-0 left-0 z-30 size-full">
 					<div className="mt-24 px-5 sm:px-10">
-						<h1
-							ref={ankaraTextRef}
-							className="hero-heading font-almendra-sc text-zinc-950"
-						>
+						<h1 ref={ankaraTextRef} className="hero-heading font-almendra-sc text-zinc-950">
 							ANKARA
 						</h1>
 
 						<div className="relative my-3 max-w-fit rounded-md bg-black/40 px-3 py-2 shadow-inner backdrop-blur-xs">
 							<p className="text-base text-zinc-100">
-								Her çarşamba 20:00-00:00 arası <br /> Ücretsiz pratik alanı ve
-								sosyal dans için <br />
+								Her çarşamba 20:00-00:00 arası <br /> Ücretsiz pratik alanı ve sosyal dans için{" "}
+								<br />
 								Rasa kafe & restoranındayız.
 							</p>
 						</div>

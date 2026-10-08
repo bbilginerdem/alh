@@ -1,6 +1,6 @@
 "use client";
 
-import { useGSAP } from "@gsap/react"; // Modern standard
+import { useGSAP } from "@gsap/react";
 import clsx from "clsx";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -16,7 +16,6 @@ interface AnimatedTitleProps {
 const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 
-	// Memoize the string splitting to prevent re-calculating on unrelated re-renders
 	const lines = useMemo(() => {
 		return title.split("<br />").map((line, i) => ({
 			id: `line-${i}`,
@@ -27,7 +26,6 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
 		}));
 	}, [title]);
 
-	// useGSAP handles cleanup (revert) automatically!
 	useGSAP(
 		() => {
 			const titleAnimation = gsap.timeline({
@@ -50,16 +48,13 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
 				0,
 			);
 		},
-		{ scope: containerRef, dependencies: [lines] }, // Re-run if lines change
+		{ scope: containerRef, dependencies: [lines] },
 	);
 
 	return (
 		<div ref={containerRef} className={clsx("animated-title", containerClass)}>
 			{lines.map((line) => (
-				<div
-					key={line.id}
-					className="max-w-full flex-center flex-wrap gap-2 px-10 md:gap-3"
-				>
+				<div key={line.id} className="max-w-full flex-center flex-wrap gap-2 px-10 md:gap-3">
 					{line.words.map((word) => (
 						<span
 							key={word.id}

@@ -5,7 +5,7 @@ export interface BlogMetadata {
 	publishDate: string;
 	author: string;
 	excerpt: string;
-	readingTime: number; // in minutes
+	readingTime: number;
 	tags: string[];
 	category: string;
 	image?: string;

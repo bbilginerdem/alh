@@ -8,8 +8,7 @@ export const metadata: Metadata = {
 		"Ankara Lindy Hop topluluğuna gönüllü olarak katkıda bulunun. DJ'lik, grafik tasarım, etkinlik organizasyonu ve daha fazlası için ekibimize katılın.",
 	openGraph: {
 		title: "Gönüllü Ol | Ankara Lindy Hop",
-		description:
-			"Yeteneklerinle topluluğumuza katkı sağla. Gönüllü ekibimize katıl!",
+		description: "Yeteneklerinle topluluğumuza katkı sağla. Gönüllü ekibimize katıl!",
 		url: "https://ankaralindyhop.org/gonullu-ol",
 	},
 	alternates: {
@@ -60,13 +59,10 @@ export default function VolunteerPage() {
 		<CustomBlackLayout>
 			<article className="mx-auto max-w-4xl px-4 py-8 text-zinc-100">
 				<header className="mb-12 text-center">
-					<h1 className="mb-4 font-bold text-3xl md:text-4xl lg:text-5xl">
-						Ekibimiz
-					</h1>
+					<h1 className="mb-4 font-bold text-3xl md:text-4xl lg:text-5xl">Ekibimiz</h1>
 					<div className="mx-auto h-1 w-24 bg-orange-300" />
 					<p className="mt-6 text-lg text-zinc-300">
-						Ankara Lindy Hop Topluluğu, gönüllülük esasına dayalı olarak çalışan
-						bir topluluktur.
+						Ankara Lindy Hop Topluluğu, gönüllülük esasına dayalı olarak çalışan bir topluluktur.
 					</p>
 				</header>
 
@@ -76,9 +72,9 @@ export default function VolunteerPage() {
 							Gönüllülük Esası
 						</h2>
 						<p className="mb-4 text-base md:text-lg">
-							Topluluğumuz tamamen gönüllü üyeler tarafından yürütülmektedir.
-							Hiçbir üye maddi kazanç amacı gütmemektedir. Tüm çalışmalar sevgi,
-							paylaşma ve dans kültürü yayma motivasyonuyla gerçekleşmektedir.
+							Topluluğumuz tamamen gönüllü üyeler tarafından yürütülmektedir. Hiçbir üye maddi
+							kazanç amacı gütmemektedir. Tüm çalışmalar sevgi, paylaşma ve dans kültürü yayma
+							motivasyonuyla gerçekleşmektedir.
 						</p>
 					</section>
 
@@ -95,9 +91,7 @@ export default function VolunteerPage() {
 								>
 									<div className="mb-4 flex items-center">
 										<span className="mr-3 text-2xl">{member.icon}</span>
-										<h3 className="font-semibold text-orange-300 text-xl">
-											{member.role}
-										</h3>
+										<h3 className="font-semibold text-orange-300 text-xl">{member.role}</h3>
 									</div>
 									<p className="text-zinc-300">{member.description}</p>
 								</div>
@@ -110,8 +104,8 @@ export default function VolunteerPage() {
 							Nasıl Katkı Sağlayabilirsin?
 						</h2>
 						<p className="mb-6 text-base md:text-lg">
-							Topluluğumuzun büyümesi ve gelişmesi için herkes katkı
-							sağlayabilir. Yeteneklerin ne olursa olsun, bizim için değerlisin!
+							Topluluğumuzun büyümesi ve gelişmesi için herkes katkı sağlayabilir. Yeteneklerin ne
+							olursa olsun, bizim için değerlisin!
 						</p>
 
 						<div className="grid gap-4 md:grid-cols-2">
@@ -122,9 +116,7 @@ export default function VolunteerPage() {
 								</p>
 							</div>
 							<div className="rounded-md bg-orange-300/5 p-4">
-								<h3 className="font-semibold text-orange-300">
-									Grafik Tasarımcı
-								</h3>
+								<h3 className="font-semibold text-orange-300">Grafik Tasarımcı</h3>
 								<p className="mt-2 text-sm text-zinc-300">
 									Afiş ve sosyal medya içerikleri hazırla
 								</p>
@@ -144,14 +136,12 @@ export default function VolunteerPage() {
 								Aramıza Katılmak İster misin?
 							</h2>
 							<p className="mx-auto mb-6 max-w-2xl text-zinc-300">
-								Topluluğumuzun büyümesine katkı sağlamak istiyorsan, gönüllü
-								olarak aramıza katılabilirsin. Yeteneklerin ne olursa olsun,
-								seni aramızda görmek isteriz!
+								Topluluğumuzun büyümesine katkı sağlamak istiyorsan, gönüllü olarak aramıza
+								katılabilirsin. Yeteneklerin ne olursa olsun, seni aramızda görmek isteriz!
 							</p>
 							<VolunteerButton />
 							<p className="mt-4 text-sm text-zinc-400">
-								Gönüllü formunu doldurarak katkı sağlayabileceğin alanları
-								belirtebilirsin
+								Gönüllü formunu doldurarak katkı sağlayabileceğin alanları belirtebilirsin
 							</p>
 						</div>
 					</section>

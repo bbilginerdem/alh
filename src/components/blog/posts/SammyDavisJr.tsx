@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-	// ... (Metadata kısımları aynı kalacak)
 	title: "Sammy Davis Jr.: Sınırları Aşan Çok Yönlü Bir İkon",
 	description:
 		"Sammy Davis Jr.'ın Harlem'den Rat Pack'e uzanan hayatı, ırkçılıkla mücadelesi, geçirdiği kaza sonrası dönüşümü, cesur evliliği ve 'The Entertainer' olarak bıraktığı miras hakkında detaylı bilgiler.",
@@ -37,13 +36,11 @@ export default function SammyDavisJr() {
 		<div>
 			<section className="mb-8">
 				<p className="mb-8 text-base md:text-lg">
-					Sammy Davis Jr.'ın hikayesi, sadece bir şovmenin değil, yeteneğini
-					ırkçılık ve önyargı duvarlarını yıkmak için kullanan{" "}
-					<span className="font-semibold text-orange-300">
-						çok yönlü bir devin
-					</span>{" "}
-					hikayesidir. Harlem'in kalbinden dünya sahnelerine uzanan bu yolculuk,
-					cesaret ve saf yetenekle döşenmiştir.
+					Sammy Davis Jr.'ın hikayesi, sadece bir şovmenin değil, yeteneğini ırkçılık ve önyargı
+					duvarlarını yıkmak için kullanan{" "}
+					<span className="font-semibold text-orange-300">çok yönlü bir devin</span> hikayesidir.
+					Harlem'in kalbinden dünya sahnelerine uzanan bu yolculuk, cesaret ve saf yetenekle
+					döşenmiştir.
 				</p>
 
 				<div className="mb-8 flex flex-col gap-6 md:flex-row">
@@ -60,22 +57,20 @@ export default function SammyDavisJr() {
 							</div>
 						</div>
 						<p className="mt-2 text-center text-xs text-zinc-400">
-							Henüz çocuk yaşta sahne tozunu yutmaya başlayan Sammy, doğuştan
-							bir gösteri insanıydı.
+							Henüz çocuk yaşta sahne tozunu yutmaya başlayan Sammy, doğuştan bir gösteri insanıydı.
 						</p>
 					</div>
 					<div className="md:w-1/2">
 						<p className="mb-4 text-base md:text-lg">
-							8 Aralık 1925'te dünyaya gelen Sammy, sanatçı bir ailenin
-							çocuğuydu. Puerto Rico asıllı koro kızı bir anne ve Afro-Amerikalı
-							dansçı bir babanın evladı olarak, henüz dört yaşındayken babasıyla
-							birlikte <span className="font-semibold">Will Mastin Trio</span>{" "}
-							grubuna katılarak sahne hayatına adım attı.
+							8 Aralık 1925'te dünyaya gelen Sammy, sanatçı bir ailenin çocuğuydu. Puerto Rico
+							asıllı koro kızı bir anne ve Afro-Amerikalı dansçı bir babanın evladı olarak, henüz
+							dört yaşındayken babasıyla birlikte{" "}
+							<span className="font-semibold">Will Mastin Trio</span> grubuna katılarak sahne
+							hayatına adım attı.
 						</p>
 						<p className="text-base md:text-lg">
-							Bu erken dönem, onun sadece şarkı söyleyen değil, dans eden,
-							enstrüman çalan ve taklit yapan, kısacası{" "}
-							<span className="font-semibold">"her şeyi yapabilen"</span> bir
+							Bu erken dönem, onun sadece şarkı söyleyen değil, dans eden, enstrüman çalan ve taklit
+							yapan, kısacası <span className="font-semibold">"her şeyi yapabilen"</span> bir
 							gösteri devine dönüşmesinin temellerini attı.
 						</p>
 					</div>
@@ -87,27 +82,21 @@ export default function SammyDavisJr() {
 					Yetenek: Bir Savunma Mekanizması ve Kırılma Noktası
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
-					Hayatındaki en büyük kırılma noktalarından biri II. Dünya Savaşı
-					sırasında orduda görev almasıydı. Burada karşılaştığı yoğun ırkçı ve
-					gösteri bandosuna katılmasının etkisiyle, önyargılarla başa çıkabilmek
-					için yeteneğini bir "silaha" dönüştürebileceğini fark etti. Yeteneği,
-					insanların düşüncelerini etkileyebileceği tek yol haline gelmişti.
+					Hayatındaki en büyük kırılma noktalarından biri II. Dünya Savaşı sırasında orduda görev
+					almasıydı. Burada karşılaştığı yoğun ırkçı ve gösteri bandosuna katılmasının etkisiyle,
+					önyargılarla başa çıkabilmek için yeteneğini bir "silaha" dönüştürebileceğini fark etti.
+					Yeteneği, insanların düşüncelerini etkileyebileceği tek yol haline gelmişti.
 				</p>
 				<p className="text-base md:text-lg">
 					Savaş sonrası kariyere hızla dönse de,{" "}
-					<span className="font-semibold">
-						1954 yılında geçirdiği trajik otomobil kazası
-					</span>{" "}
-					sol gözünü kaybetmesine neden oldu. Bu sadece fiziksel bir kayıp
-					değil, bir kimlik dönüşümüydü. Hastanede gözlerini açtığında aldığı
-					radikal bir kararla Museviliğe geçti.
+					<span className="font-semibold">1954 yılında geçirdiği trajik otomobil kazası</span> sol
+					gözünü kaybetmesine neden oldu. Bu sadece fiziksel bir kayıp değil, bir kimlik
+					dönüşümüydü. Hastanede gözlerini açtığında aldığı radikal bir kararla Museviliğe geçti.
 				</p>
-				{/* Alıntı için özel stil */}
 				<blockquote className="mt-4 border-orange-300 border-l-4 pl-4 text-zinc-300 italic">
-					"Hey zenci, hemen arka sıraya geç!" diyen Alabamalı bir otobüs
-					şoförüne verdiği yanıt efsanevidir: "Ama ben aynı zamanda bir
-					Yahudiyim." Şoförün yanıtı dönemin ruhunu özetler: "O zaman defol
-					otobüsten!"
+					"Hey zenci, hemen arka sıraya geç!" diyen Alabamalı bir otobüs şoförüne verdiği yanıt
+					efsanevidir: "Ama ben aynı zamanda bir Yahudiyim." Şoförün yanıtı dönemin ruhunu özetler:
+					"O zaman defol otobüsten!"
 				</blockquote>
 			</section>
 
@@ -121,8 +110,8 @@ export default function SammyDavisJr() {
 						className="h-auto w-full rounded-lg"
 					/>
 					<div className="absolute right-0 bottom-0 left-0 rounded-b-lg bg-black/50 p-2 text-center text-xs text-zinc-300">
-						Frank Sinatra ile başlayan dostluğu, onu efsanevi Rat Pack grubunun
-						vazgeçilmez bir parçası yaptı.
+						Frank Sinatra ile başlayan dostluğu, onu efsanevi Rat Pack grubunun vazgeçilmez bir
+						parçası yaptı.
 					</div>
 				</div>
 
@@ -130,18 +119,16 @@ export default function SammyDavisJr() {
 					Rat Pack ve Toplumsal Cesaret
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
-					1950'ler ve 60'lar, Sammy’nin{" "}
-					<span className="font-semibold">Frank Sinatra</span> ile başlayan ömür
-					boyu sürecek dostluğuyla Rat Pack grubunun ayrılmaz bir parçası olduğu
-					dönemdi. Bu grup, o yıllarda ABD'de ırk ayrımcılığına karşı sahnede
-					sessiz ama etkili bir duruş sergiledi.
+					1950'ler ve 60'lar, Sammy’nin <span className="font-semibold">Frank Sinatra</span> ile
+					başlayan ömür boyu sürecek dostluğuyla Rat Pack grubunun ayrılmaz bir parçası olduğu
+					dönemdi. Bu grup, o yıllarda ABD'de ırk ayrımcılığına karşı sahnede sessiz ama etkili bir
+					duruş sergiledi.
 				</p>
 				<p className="text-base md:text-lg">
-					Ancak Sammy’nin asıl "devrimi" özel hayatındaydı. 1960 yılında İsveçli
-					aktris <span className="font-semibold">May Britt</span> ile evlendi. O
-					tarihte ırklar arası evlilik, ABD'nin 50 eyaletinden 31'inde hala
-					yasaktı. Bu cesur adım yüzünden ağır eleştiriler ve ölüm tehditleri
-					almasına rağmen geri adım atmadı.
+					Ancak Sammy’nin asıl "devrimi" özel hayatındaydı. 1960 yılında İsveçli aktris{" "}
+					<span className="font-semibold">May Britt</span> ile evlendi. O tarihte ırklar arası
+					evlilik, ABD'nin 50 eyaletinden 31'inde hala yasaktı. Bu cesur adım yüzünden ağır
+					eleştiriler ve ölüm tehditleri almasına rağmen geri adım atmadı.
 				</p>
 			</section>
 
@@ -163,25 +150,21 @@ export default function SammyDavisJr() {
 							Final Perdesi ve Miras
 						</h3>
 						<p className="mb-4 text-base md:text-lg">
-							Kariyeri boyunca "Candy Man" gibi hit şarkılara imza attı,
-							Broadway'de "Golden Boy" gibi dev prodüksiyonlarda başrol oynadı.
-							Hayatını alkol ve uyuşturucu bağımlılığı gibi zorluklarla da
-							mücadele ederek geçirdi ancak her zaman sahnelerin en profesyoneli
+							Kariyeri boyunca "Candy Man" gibi hit şarkılara imza attı, Broadway'de "Golden Boy"
+							gibi dev prodüksiyonlarda başrol oynadı. Hayatını alkol ve uyuşturucu bağımlılığı gibi
+							zorluklarla da mücadele ederek geçirdi ancak her zaman sahnelerin en profesyoneli
 							olarak kaldı.
 						</p>
 					</div>
 				</div>
 				<p className="border-white/10 border-t pt-4 text-base md:text-lg">
-					1990 yılında gırtlak kanserinden vefat ettiğinde, mezar taşına onu en
-					iyi anlatan o cümle kazındı:{" "}
-					<span className="font-semibold text-orange-300">
-						"The Entertainer – He Did It All"
-					</span>{" "}
+					1990 yılında gırtlak kanserinden vefat ettiğinde, mezar taşına onu en iyi anlatan o cümle
+					kazındı:{" "}
+					<span className="font-semibold text-orange-300">"The Entertainer – He Did It All"</span>{" "}
 					(Eğlence İnsanı – Her Şeyi Yaptı).
 				</p>
 			</section>
 
-			{/* KAYNAKLAR BÖLÜMÜ */}
 			<section className="mt-8">
 				<h3 className="font-semibold text-lg text-orange-300">Kaynaklar</h3>
 				<ul className="mt-2 list-inside list-disc space-y-1 text-sm text-zinc-300">

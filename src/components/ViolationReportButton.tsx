@@ -12,10 +12,6 @@ export function ViolationReportButton() {
 	};
 
 	return (
-		<Button
-			title="İhlal Bildirimi Yap"
-			containerClass="mx-auto my-4"
-			onClick={handleButtonClick}
-		/>
+		<Button title="İhlal Bildirimi Yap" containerClass="mx-auto my-4" onClick={handleButtonClick} />
 	);
 }

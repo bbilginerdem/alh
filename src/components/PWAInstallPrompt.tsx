@@ -3,9 +3,6 @@
 import { Download, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
-/**
- * 1. Olay Tipini Tanımlıyoruz
- */
 interface BeforeInstallPromptEvent extends Event {
 	readonly platforms: string[];
 	readonly userChoice: Promise<{
@@ -15,11 +12,6 @@ interface BeforeInstallPromptEvent extends Event {
 	prompt(): Promise<void>;
 }
 
-/**
- * 2. Global Window Olay Haritasını Genişletiyoruz
- * Bu kısım, window.addEventListener("beforeinstallprompt", ...) kullanımını
- * TypeScript için yerel bir standart haline getirir.
- */
 declare global {
 	interface WindowEventMap {
 		beforeinstallprompt: BeforeInstallPromptEvent;
@@ -27,13 +19,10 @@ declare global {
 }
 
 export default function PWAInstallPrompt() {
-	// State artık BeforeInstallPromptEvent tipini tam olarak tanıyor
-	const [deferredPrompt, setDeferredPrompt] =
-		useState<BeforeInstallPromptEvent | null>(null);
+	const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
 	const [showPrompt, setShowPrompt] = useState(false);
 
 	useEffect(() => {
-		// Tip artık otomatik olarak WindowEventMap'ten geliyor
 		const handleBeforeInstallPrompt = (e: BeforeInstallPromptEvent) => {
 			e.preventDefault();
 			setDeferredPrompt(e);
@@ -44,14 +33,10 @@ export default function PWAInstallPrompt() {
 			}
 		};
 
-		// 'as any' kullanmaya gerek kalmadı, TS artık 'beforeinstallprompt'u tanıyor
 		window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
 
 		return () => {
-			window.removeEventListener(
-				"beforeinstallprompt",
-				handleBeforeInstallPrompt,
-			);
+			window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
 		};
 	}, []);
 
@@ -60,12 +45,7 @@ export default function PWAInstallPrompt() {
 
 		setShowPrompt(false);
 
-		// Yükleme istemini başlat
 		await deferredPrompt.prompt();
-
-		// Sonucu yakala
-		const { outcome } = await deferredPrompt.userChoice;
-		console.log(`[PWA] User response: ${outcome}`);
 
 		setDeferredPrompt(null);
 	};
@@ -83,8 +63,7 @@ export default function PWAInstallPrompt() {
 				<div>
 					<h3 className="font-semibold text-sm text-white">Uygulamayı Yükle</h3>
 					<p className="mt-1 text-xs text-zinc-400">
-						Ankara Lindy Hop&apos;u ana ekranınıza ekleyerek etkinliklerden ilk
-						siz haberdar olun!
+						Ankara Lindy Hop&apos;u ana ekranınıza ekleyerek etkinliklerden ilk siz haberdar olun!
 					</p>
 				</div>
 				<div className="flex gap-2">

@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 
-// Register GSAP plugin
 gsap.registerPlugin(ScrollTrigger);
 
 import { CornerDownLeft } from "lucide-react";
@@ -53,12 +52,10 @@ function BlogCard({
 					</div>
 				)}
 
-				{/* Category Badge */}
 				<div className="absolute top-3 right-3 z-10 rounded-full bg-zinc-800/80 px-2 py-1 font-medium text-xs text-zinc-200">
 					{post.category}
 				</div>
 
-				{/* Image with gradient overlay */}
 				{post.image ? (
 					<div className="absolute inset-0">
 						<Image
@@ -77,9 +74,7 @@ function BlogCard({
 					</div>
 				)}
 
-				{/* Content */}
 				<div className="relative flex h-full flex-col justify-end p-3 sm:px-5 sm:pt-2">
-					{/* Meta info */}
 					<div className="mb-3 flex items-center gap-3 text-sm text-zinc-300 transition-colors duration-300 group-hover:text-zinc-100">
 						<span>{formatDate(post.publishDate)}</span>
 					</div>
@@ -88,12 +83,8 @@ function BlogCard({
 						{post.title}
 					</h2>
 
-					{/* Excerpt */}
-					<p className="mb-3 line-clamp-2 text-sm text-zinc-300">
-						{post.excerpt}
-					</p>
+					<p className="mb-3 line-clamp-2 text-sm text-zinc-300">{post.excerpt}</p>
 
-					{/* Tags */}
 					<div className="mb-0 flex flex-wrap gap-1 opacity-0 transition-all duration-600 group-hover:mb-3 group-hover:translate-x-3 group-hover:opacity-100">
 						{post.tags.slice(0, 2).map((tag) => (
 							<button
@@ -114,7 +105,6 @@ function BlogCard({
 					</div>
 				</div>
 
-				{/* Decorative elements */}
 				<div className="pointer-events-none absolute inset-0 overflow-hidden rounded-lg">
 					<div className="absolute bottom-0 left-0 h-0.5 w-full bg-linear-to-r from-orange-400 to-orange-600 opacity-0 transition-opacity duration-400 group-hover:opacity-100" />
 				</div>
@@ -126,20 +116,14 @@ function BlogCard({
 export function BlogList({ posts }: Readonly<BlogListProps>) {
 	const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-	// Sort posts by publishDate (newest first)
 	const sortedPosts = [...posts].sort(
-		(a, b) =>
-			new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime(),
+		(a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime(),
 	);
 
 	useEffect(() => {
-		// Sync ref array with current posts
 		cardsRef.current = sortedPosts.map((_, i) => cardsRef.current[i] || null);
 
-		// Filter out null values and animate only valid elements
-		const validCards = cardsRef.current.filter(
-			(card): card is HTMLDivElement => card !== null,
-		);
+		const validCards = cardsRef.current.filter((card): card is HTMLDivElement => card !== null);
 
 		const animations = validCards.map((card) => {
 			gsap.set(card, { y: 20, opacity: 0 });

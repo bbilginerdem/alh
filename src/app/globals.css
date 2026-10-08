@@ -22,7 +22,6 @@
 }
 
 @layer utilities {
-	/* Apply Inter as default font for all text */
 	html {
 		font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
 		scroll-behavior: smooth;
@@ -33,16 +32,13 @@
 		overflow-x: hidden;
 		background-color: #dfdff0;
 		font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
-		/* Ensure antialiasing for smoother text */
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}
 
-	/* Apply Almendra SC to all h1 elements */
 	h1 {
 		font-family: var(--font-almendra-sc), serif;
 		font-weight: 400;
-		/* Match the loaded font weight */
 	}
 }
 

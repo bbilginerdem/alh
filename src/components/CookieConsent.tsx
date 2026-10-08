@@ -7,6 +7,20 @@ import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import Button from "@/components/ui/Button";
 
+const setCookieSafely = async (name: string, value: string) => {
+	const maxAge = 31536000;
+	const path = "/";
+
+	if ("cookieStore" in window) {
+		try {
+			await window.cookieStore.set({ name, value, path, expires: Date.now() + maxAge * 1000 });
+			return;
+		} catch {}
+	}
+
+	document.cookie = `${name}=${value}; path=${path}; max-age=${maxAge}; SameSite=Lax`;
+};
+
 const CookieConsent = () => {
 	const [showBanner, setShowBanner] = useState(false);
 	const bannerRef = useRef<HTMLDivElement>(null);
@@ -18,62 +32,21 @@ const CookieConsent = () => {
 		if (shouldShow) {
 			setShowBanner(true);
 		}
-
-		return () => {
-			setShowBanner((prev) => {
-				return prev;
-			});
-		};
 	}, []);
 
-	// GSAP animation for banner entrance
 	useGSAP(() => {
-		if (showBanner && bannerRef.current) {
-			const ctx = gsap.context(() => {
-				gsap.fromTo(
-					bannerRef.current,
-					{
-						y: 100,
-						opacity: 0,
-					},
-					{
-						y: 0,
-						opacity: 0.95,
-						duration: 1,
-						delay: 2,
-						ease: "power3.out",
-					},
-				);
-			}, bannerRef);
+		if (!showBanner || !bannerRef.current) return;
 
-			return () => {
-				ctx.revert();
-			};
-		}
+		gsap.fromTo(
+			bannerRef.current,
+			{ y: 100, opacity: 0 },
+			{ y: 0, opacity: 0.95, duration: 1, delay: 2, ease: "power3.out" },
+		);
 	}, [showBanner]);
 
 	const handleAccept = async () => {
 		localStorage.setItem("cookieConsent", "accepted");
-
-		// Use Cookie Store API if available, otherwise fallback
-		if ("cookieStore" in globalThis) {
-			try {
-				// biome-ignore lint/suspicious/noExplicitAny: Cookie Store API types not yet in TypeScript
-				await (globalThis as any).cookieStore.set({
-					name: "cookieConsent",
-					value: "accepted",
-					path: "/",
-					maxAge: 31536000, // 1 year in seconds
-				});
-			} catch (error) {
-				console.error("Cookie Store API failed, using fallback:", error);
-				// biome-ignore lint/suspicious/noDocumentCookie: Fallback for browsers without Cookie Store API
-				document.cookie = "cookieConsent=accepted; path=/; max-age=31536000";
-			}
-		} else {
-			// biome-ignore lint/suspicious/noDocumentCookie: Fallback for browsers without Cookie Store API
-			document.cookie = "cookieConsent=accepted; path=/; max-age=31536000";
-		}
+		await setCookieSafely("cookieConsent", "accepted");
 
 		setShowBanner(false);
 		toast.success("Çerez tercihleri kaydedildi!", {
@@ -84,26 +57,7 @@ const CookieConsent = () => {
 
 	const handleDecline = async () => {
 		localStorage.setItem("cookieConsent", "declined");
-
-		// Use Cookie Store API if available, otherwise fallback
-		if ("cookieStore" in globalThis) {
-			try {
-				// biome-ignore lint/suspicious/noExplicitAny: Cookie Store API types not yet in TypeScript
-				await (globalThis as any).cookieStore.set({
-					name: "cookieConsent",
-					value: "declined",
-					path: "/",
-					maxAge: 31536000, // 1 year in seconds
-				});
-			} catch (error) {
-				console.error("Cookie Store API failed, using fallback:", error);
-				// biome-ignore lint/suspicious/noDocumentCookie: Fallback for browsers without Cookie Store API
-				document.cookie = "cookieConsent=declined; path=/; max-age=31536000";
-			}
-		} else {
-			// biome-ignore lint/suspicious/noDocumentCookie: Fallback for browsers without Cookie Store API
-			document.cookie = "cookieConsent=declined; path=/; max-age=31536000";
-		}
+		await setCookieSafely("cookieConsent", "declined");
 
 		setShowBanner(false);
 		toast("Çerez tercihleri kaydedildi.", {
@@ -131,7 +85,6 @@ const CookieConsent = () => {
 					tabIndex={-1}
 					className="relative rounded-2xl border border-orange-300/20 bg-zinc-900/95 p-4 shadow-2xl backdrop-blur-lg md:p-8"
 				>
-					{/* Close button */}
 					<button
 						type="button"
 						onClick={handleClose}
@@ -143,23 +96,19 @@ const CookieConsent = () => {
 					</button>
 
 					<div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-8">
-						{/* Icon */}
 						<div className="hidden shrink-0 md:block">
 							<div className="flex h-16 w-16 items-center justify-center rounded-full bg-orange-300/10">
 								<Cookie className="h-8 w-8 text-orange-300" />
 							</div>
 						</div>
 
-						{/* Content */}
 						<div className="flex-1">
-							{/* Changed from h3 to h2 to fix heading order */}
 							<h2 className="mb-1 font-almendra-sc font-bold text-base text-orange-300 md:mb-2 md:text-xl">
 								🍪 Çerez Bildirimi
 							</h2>
 							<p className="text-xs text-zinc-300 leading-relaxed md:text-sm md:leading-relaxed">
-								Web sitemizde deneyiminizi geliştirmek için çerezler
-								kullanıyoruz. Sitemizi kullanmaya devam ederek çerez kullanımını
-								kabul etmiş olursunuz.{" "}
+								Web sitemizde deneyiminizi geliştirmek için çerezler kullanıyoruz. Sitemizi
+								kullanmaya devam ederek çerez kullanımını kabul etmiş olursunuz.{" "}
 								<a
 									href="/privacy"
 									className="text-orange-300 underline transition-colors hover:text-orange-200"
@@ -169,7 +118,6 @@ const CookieConsent = () => {
 							</p>
 						</div>
 
-						{/* Buttons */}
 						<div className="flex items-center justify-center gap-2 sm:flex-row md:shrink-0">
 							<Button
 								title="Kabul Et"
