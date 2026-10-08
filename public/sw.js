@@ -1,4 +1,4 @@
-const CACHE_VERSION = "alh-v2";
+const CACHE_VERSION = "alh-v3";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
@@ -14,6 +14,7 @@ const PRECACHE_URLS = [
 	"/favicon/favicon.ico",
 	"/images/logo.png",
 	"/manifest.json",
+	"/site.webmanifest",
 ];
 
 const DYNAMIC_CACHE_LIMIT = 50;
@@ -65,6 +66,18 @@ self.addEventListener("fetch", (event) => {
 	if (request.method !== "GET") return;
 
 	if (!url.protocol.startsWith("http")) return;
+
+	// Do not intercept media (video/audio) or Range requests.
+	// Browsers require native handling for HTTP 206 Partial Content and media streaming.
+	if (
+		request.destination === "video" ||
+		request.destination === "audio" ||
+		request.headers.has("range") ||
+		url.pathname.startsWith("/videos/") ||
+		new RegExp(/\.(mp4|webm|ogg|mp3|wav|m4a|aac)$/i).exec(url.pathname)
+	) {
+		return;
+	}
 
 	if (
 		url.pathname.startsWith("/api/") ||
