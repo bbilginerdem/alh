@@ -45,7 +45,13 @@ export function ContactForm() {
 				bize ulaşabilirsiniz.
 			</p>
 
-			<form className="mt-8 flex flex-col gap-5" action={handleSubmit} ref={formRef}>
+			<form
+				className="mt-8 flex flex-col gap-5"
+				action={handleSubmit}
+				ref={formRef}
+				data-mcp-tool="send_contact_email"
+				data-mcp-description="İletişim formunu doldurarak Ankara Lindy Hop topluluğuna e-posta gönderin."
+			>
 				<div className="space-y-3">
 					<label htmlFor={`${id}-email`} className="block font-medium text-sm text-zinc-300">
 						E-posta adresiniz:
@@ -58,6 +64,7 @@ export function ContactForm() {
 						maxLength={500}
 						placeholder="ornek@mail.com"
 						id={`${id}-email`}
+						data-mcp-param-description="Gönderenin e-posta adresi"
 					/>
 				</div>
 
@@ -73,6 +80,7 @@ export function ContactForm() {
 						maxLength={5000}
 						rows={6}
 						id={`${id}-message`}
+						data-mcp-param-description="İletişim mesajı içeriği"
 					/>
 				</div>
 
