@@ -23,7 +23,7 @@ const Button = ({
 		<button
 			id={id}
 			className={clsx(
-				"group grip-1 relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-orange-300 px-7 py-3 text-zinc-950 shadow-md transition-all duration-500 hover:bg-orange-200 hover:shadow-lg",
+				"group grip-1 relative z-10 w-fit cursor-pointer space-x-2 overflow-hidden rounded-full bg-orange-300 px-6 py-3 text-zinc-950 shadow-md transition-all duration-500 hover:bg-orange-200 hover:shadow-lg",
 				containerClass,
 			)}
 			type={type}
@@ -31,7 +31,7 @@ const Button = ({
 		>
 			{leftIcon}
 
-			<span className="relative inline-flex overflow-hidden p-1 font-inter text-sm tracking-wide">
+			<span className="relative inline-flex overflow-hidden font-inter text-sm tracking-wide">
 				<div className="translate-y-0 skew-y-0 transition duration-500 group-hover:translate-y-[-160%] group-hover:skew-y-12">
 					{title}
 				</div>

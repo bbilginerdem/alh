@@ -3,11 +3,10 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { BookOpen } from "lucide-react";
+import { Ticket } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Button from "@/components/ui/Button";
-import { posts } from "@/lib/data";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,16 +16,6 @@ const Hero = () => {
 	const videoFrameRef = useRef<HTMLDivElement>(null);
 	const lindyTextRef = useRef<HTMLDivElement>(null);
 	const ankaraTextRef = useRef<HTMLDivElement>(null);
-
-	const firstPost = posts[0];
-
-	const latestPost = firstPost
-		? posts.reduce(
-				(latest, post) =>
-					new Date(post.publishDate) > new Date(latest.publishDate) ? post : latest,
-				firstPost,
-			)
-		: undefined;
 
 	useEffect(() => {
 		const randomIndex = Math.floor(Math.random() * 4) + 1;
@@ -135,10 +124,10 @@ const Hero = () => {
 							</p>
 						</div>
 						<div className="flex gap-5">
-							<Link href={`/blog/${latestPost?.slug}`} passHref>
+							<Link href={"/etkinlikler"} passHref>
 								<Button
-									title="Son Blog Yazısı"
-									leftIcon={<BookOpen />}
+									title="Yaklaşan Etkinlikler"
+									leftIcon={<Ticket />}
 									containerClass="flex-center mt-5"
 								/>
 							</Link>

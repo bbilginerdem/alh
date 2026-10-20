@@ -2,9 +2,9 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Calendar, ExternalLink } from "lucide-react";
+import { Calendar, ExternalLink, Loader2 } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { NewBadge } from "@/components/ui/NewBadge";
 import { isNewContent } from "@/lib/blog-utils";
 
@@ -23,9 +23,67 @@ interface EventsListProps {
 	events: DanceEvent[];
 }
 
+const INITIAL_BATCH_COUNT = 4;
+const BATCH_SIZE = 3;
+
+function generateWeeklyEvent(): DanceEvent {
+	const nextWednesday = new Date();
+	nextWednesday.setDate(nextWednesday.getDate() + ((3 - nextWednesday.getDay() + 7) % 7));
+	nextWednesday.setHours(20, 0, 0, 0);
+
+	const now = new Date();
+	if (now.getDay() === 3 && now.getHours() >= 20) {
+		nextWednesday.setDate(nextWednesday.getDate() + 7);
+	}
+
+	return {
+		id: `weekly-${nextWednesday.getTime()}`,
+		title: "Ankara Lindy Hop - Pratik & Parti",
+		date: nextWednesday.toISOString(),
+		location:
+			"Rasa Brasserie, Meşrutiyet, Selanik Caddesi, Raymar Hotel No:74, 06420 Çankaya/Ankara",
+		description:
+			"Ankara Lindy Hop haftalık dans buluşması. Yeni başlayanlar ve tüm seviyeler davetlidir!",
+		imageUrl: "/images/events/weekly-event.webp",
+	};
+}
+
 export function EventsList({ events }: Readonly<EventsListProps>) {
 	const containerRef = useRef<HTMLDivElement>(null);
+	const pastSentinelRef = useRef<HTMLDivElement>(null);
+	const futureSentinelRef = useRef<HTMLDivElement>(null);
 
+	const [visiblePastCount, setVisiblePastCount] = useState(INITIAL_BATCH_COUNT);
+	const [isLoadingPast, setIsLoadingPast] = useState(false);
+	const isLoadingPastRef = useRef(false);
+	const prevPastCountRef = useRef(INITIAL_BATCH_COUNT);
+	const pastTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+	const [visibleFutureCount, setVisibleFutureCount] = useState(INITIAL_BATCH_COUNT);
+	const [isLoadingFuture, setIsLoadingFuture] = useState(false);
+	const isLoadingFutureRef = useRef(false);
+	const prevFutureCountRef = useRef(INITIAL_BATCH_COUNT);
+	const futureTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+	const { sortedFutureEvents, sortedPastEvents } = useMemo(() => {
+		const currentDate = new Date();
+		const past = events
+			.filter((event) => new Date(event.date) < currentDate)
+			.toSorted((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+		const future = events.filter((event) => new Date(event.date) >= currentDate);
+		const weekly = generateWeeklyEvent();
+		const allFuture = [...future, weekly].toSorted(
+			(a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+		);
+
+		return {
+			sortedFutureEvents: allFuture,
+			sortedPastEvents: past,
+		};
+	}, [events]);
+
+	// Initial GSAP context and entrance animations
 	useEffect(() => {
 		const ctx = gsap.context(() => {
 			gsap.fromTo(
@@ -117,27 +175,154 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 		return () => ctx.revert();
 	}, []);
 
-	const generateWeeklyEvent = (): DanceEvent => {
-		const nextWednesday = new Date();
-		nextWednesday.setDate(nextWednesday.getDate() + ((3 - nextWednesday.getDay() + 7) % 7));
-		nextWednesday.setHours(20, 0, 0, 0);
-
-		const now = new Date();
-		if (now.getDay() === 3 && now.getHours() >= 20) {
-			nextWednesday.setDate(nextWednesday.getDate() + 7);
+	// Animate newly added past events
+	useEffect(() => {
+		if (visiblePastCount > prevPastCountRef.current) {
+			const container = containerRef.current;
+			if (container) {
+				const allPastItems = container.querySelectorAll(".past-event-item");
+				const newItems = Array.from(allPastItems).slice(prevPastCountRef.current, visiblePastCount);
+				if (newItems.length > 0) {
+					gsap.fromTo(
+						newItems,
+						{
+							y: 50,
+							opacity: 0,
+							skewY: 4,
+						},
+						{
+							y: 0,
+							opacity: 1,
+							skewY: 0,
+							duration: 0.7,
+							stagger: 0.12,
+							ease: "expo.out",
+							overwrite: true,
+						},
+					);
+				}
+			}
+			prevPastCountRef.current = visiblePastCount;
+			ScrollTrigger.refresh();
 		}
+	}, [visiblePastCount]);
 
-		return {
-			id: `weekly-${nextWednesday.getTime()}`,
-			title: "Ankara Lindy Hop - Pratik & Parti",
-			date: nextWednesday.toISOString(),
-			location:
-				"Rasa Brasserie, Meşrutiyet, Selanik Caddesi, Raymar Hotel No:74, 06420 Çankaya/Ankara",
-			description:
-				"Ankara Lindy Hop haftalık dans buluşması. Yeni başlayanlar ve tüm seviyeler davetlidir!",
-			imageUrl: "/images/events/weekly-event.webp",
+	// Animate newly added future events
+	useEffect(() => {
+		if (visibleFutureCount > prevFutureCountRef.current) {
+			const container = containerRef.current;
+			if (container) {
+				const allFutureItems = container.querySelectorAll(".future-event-item");
+				const newItems = Array.from(allFutureItems).slice(
+					prevFutureCountRef.current,
+					visibleFutureCount,
+				);
+				if (newItems.length > 0) {
+					gsap.fromTo(
+						newItems,
+						{
+							y: 50,
+							opacity: 0,
+							skewY: 4,
+						},
+						{
+							y: 0,
+							opacity: 1,
+							skewY: 0,
+							duration: 0.7,
+							stagger: 0.12,
+							ease: "expo.out",
+							overwrite: true,
+						},
+					);
+				}
+			}
+			prevFutureCountRef.current = visibleFutureCount;
+			ScrollTrigger.refresh();
+		}
+	}, [visibleFutureCount]);
+
+	// Load more past events handler
+	const loadMorePast = useCallback(() => {
+		if (isLoadingPastRef.current || visiblePastCount >= sortedPastEvents.length) return;
+		isLoadingPastRef.current = true;
+		setIsLoadingPast(true);
+
+		pastTimeoutRef.current = setTimeout(() => {
+			setVisiblePastCount((prev) => Math.min(prev + BATCH_SIZE, sortedPastEvents.length));
+			isLoadingPastRef.current = false;
+			setIsLoadingPast(false);
+		}, 300);
+	}, [visiblePastCount, sortedPastEvents.length]);
+
+	// Infinite scroll observer for past events
+	useEffect(() => {
+		const sentinel = pastSentinelRef.current;
+		if (!sentinel || visiblePastCount >= sortedPastEvents.length) return;
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const [entry] = entries;
+				if (entry?.isIntersecting) {
+					loadMorePast();
+				}
+			},
+			{
+				rootMargin: "200px 0px",
+				threshold: 0.1,
+			},
+		);
+
+		observer.observe(sentinel);
+		return () => {
+			observer.disconnect();
 		};
-	};
+	}, [visiblePastCount, sortedPastEvents.length, loadMorePast]);
+
+	// Load more future events handler
+	const loadMoreFuture = useCallback(() => {
+		if (isLoadingFutureRef.current || visibleFutureCount >= sortedFutureEvents.length) return;
+		isLoadingFutureRef.current = true;
+		setIsLoadingFuture(true);
+
+		futureTimeoutRef.current = setTimeout(() => {
+			setVisibleFutureCount((prev) => Math.min(prev + BATCH_SIZE, sortedFutureEvents.length));
+			isLoadingFutureRef.current = false;
+			setIsLoadingFuture(false);
+		}, 300);
+	}, [visibleFutureCount, sortedFutureEvents.length]);
+
+	// Infinite scroll observer for future events
+	useEffect(() => {
+		const sentinel = futureSentinelRef.current;
+		if (!sentinel || visibleFutureCount >= sortedFutureEvents.length) return;
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const [entry] = entries;
+				if (entry?.isIntersecting) {
+					loadMoreFuture();
+				}
+			},
+			{
+				rootMargin: "200px 0px",
+				threshold: 0.1,
+			},
+		);
+
+		observer.observe(sentinel);
+		return () => {
+			observer.disconnect();
+		};
+	}, [visibleFutureCount, sortedFutureEvents.length, loadMoreFuture]);
+
+	// Timeout cleanup on unmount
+	useEffect(() => {
+		return () => {
+			if (pastTimeoutRef.current) clearTimeout(pastTimeoutRef.current);
+			if (futureTimeoutRef.current) clearTimeout(futureTimeoutRef.current);
+		};
+	}, []);
 
 	const formatEventDate = (dateString: string) => {
 		return new Date(dateString).toLocaleDateString("tr-TR", {
@@ -190,12 +375,11 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 		</li>
 	);
 
-	const currentDate = new Date();
-	const pastEvents = events.filter((event) => new Date(event.date) < currentDate);
-	const futureEvents = events.filter((event) => new Date(event.date) >= currentDate);
+	const visibleFutureEvents = sortedFutureEvents.slice(0, visibleFutureCount);
+	const hasMoreFuture = visibleFutureCount < sortedFutureEvents.length;
 
-	const weeklyEvent = generateWeeklyEvent();
-	const allFutureEvents = [...futureEvents, weeklyEvent];
+	const visiblePastEvents = sortedPastEvents.slice(0, visiblePastCount);
+	const hasMorePast = visiblePastCount < sortedPastEvents.length;
 
 	return (
 		<div className="mx-auto max-w-4xl px-4 py-8" ref={containerRef}>
@@ -206,17 +390,42 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 			</div>
 
 			<ul className="future-events-list space-y-6">
-				{allFutureEvents
-					.toSorted((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-					.map((event) => renderEventItem(event, false))}
+				{visibleFutureEvents.map((event) => renderEventItem(event, false))}
 			</ul>
+
+			{hasMoreFuture && (
+				<div
+					ref={futureSentinelRef}
+					className="mt-6 flex flex-col items-center justify-center py-4"
+				>
+					{isLoadingFuture ? (
+						<div className="flex items-center gap-3 rounded-full border border-orange-500/20 bg-orange-500/10 px-5 py-2.5 text-orange-300 backdrop-blur-xs">
+							<Loader2 className="h-5 w-5 animate-spin text-orange-400" />
+							<span className="font-medium text-sm text-zinc-300">
+								Daha fazla etkinlik yükleniyor...
+							</span>
+						</div>
+					) : (
+						<button
+							type="button"
+							onClick={loadMoreFuture}
+							className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-2.5 font-medium text-sm text-zinc-300 backdrop-blur-xs transition-all duration-300 hover:border-orange-400/40 hover:bg-white/10 hover:text-orange-300 hover:shadow-lg hover:shadow-orange-500/10 focus:outline-hidden focus:ring-2 focus:ring-orange-400/50"
+						>
+							<span>Daha Fazla Yaklaşan Etkinlik</span>
+							<span className="text-xs text-zinc-500 group-hover:text-orange-300/80">
+								({sortedFutureEvents.length - visibleFutureCount} kaldı)
+							</span>
+						</button>
+					)}
+				</div>
+			)}
 
 			<div className="calendar-link-card mt-8">
 				<a
-					href="https://swingtakvim.com/?city=ankara"
+					href="https://swing-out.com/turkiye/ankara/calendar"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="group relative flex items-center justify-between overflow-hidden rounded-xl border border-orange-500/20 bg-linear-to-r from-orange-500/5 to-purple-500/5 p-6 backdrop-blur-md transition-all duration-300 hover:border-orange-400/50 hover:bg-white/5 hover:shadow-2xl hover:shadow-orange-500/20"
+					className="group relative flex items-center justify-between overflow-hidden rounded-xl border border-orange-500/20 bg-linear-to-r from-orange-500/5 to-purple-500/5 p-6 backdrop-blur-md transition-all duration-300 hover:border-orange-400/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-orange-500/20"
 				>
 					<div className="absolute inset-0 bg-linear-to-r from-orange-500/10 via-transparent to-purple-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
@@ -240,7 +449,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 				</a>
 			</div>
 
-			{pastEvents.length > 0 && (
+			{sortedPastEvents.length > 0 && (
 				<section className="mt-16">
 					<div className="mb-8 overflow-hidden">
 						<h1 className="events-header text-center font-bold text-3xl text-zinc-100 uppercase tracking-tighter sm:text-4xl">
@@ -248,8 +457,43 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 						</h1>
 					</div>
 					<ul className="past-events-list space-y-6">
-						{pastEvents.map((event) => renderEventItem(event, true))}
+						{visiblePastEvents.map((event) => renderEventItem(event, true))}
 					</ul>
+
+					{hasMorePast && (
+						<div
+							ref={pastSentinelRef}
+							className="mt-8 flex flex-col items-center justify-center py-6"
+						>
+							{isLoadingPast ? (
+								<div className="flex items-center gap-3 rounded-full border border-orange-500/20 bg-orange-500/10 px-5 py-2.5 text-orange-300 backdrop-blur-xs">
+									<Loader2 className="h-5 w-5 animate-spin text-orange-400" />
+									<span className="font-medium text-sm text-zinc-300">
+										Daha fazla etkinlik yükleniyor...
+									</span>
+								</div>
+							) : (
+								<button
+									type="button"
+									onClick={loadMorePast}
+									className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-2.5 font-medium text-sm text-zinc-300 backdrop-blur-xs transition-all duration-300 hover:border-orange-400/40 hover:bg-white/10 hover:text-orange-300 hover:shadow-lg hover:shadow-orange-500/10 focus:outline-hidden focus:ring-2 focus:ring-orange-400/50"
+								>
+									<span>Daha Fazla Geçmiş Etkinlik</span>
+									<span className="text-xs text-zinc-500 group-hover:text-orange-300/80">
+										({sortedPastEvents.length - visiblePastCount} kaldı)
+									</span>
+								</button>
+							)}
+						</div>
+					)}
+
+					{!hasMorePast && sortedPastEvents.length > INITIAL_BATCH_COUNT && (
+						<div className="mt-8 py-4 text-center">
+							<p className="font-medium text-xs text-zinc-500 uppercase tracking-widest">
+								Tüm geçmiş etkinlikler yüklendi
+							</p>
+						</div>
+					)}
 				</section>
 			)}
 		</div>

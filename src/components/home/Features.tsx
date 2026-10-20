@@ -233,7 +233,7 @@ const Features = () => {
 						title="Stresini at, ritme katıl!"
 						description="Günlük koşuşturmadan uzaklaş, dansın enerjisiyle yenilen!"
 						isComingSoon="Ankara Etkinlik Takvimi"
-						link="https://swing-out.com/turkiye/ankara/calendar"
+						link="https://swingtakvim.com/?city=ankara"
 					/>
 				</div>
 

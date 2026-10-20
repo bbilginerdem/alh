@@ -315,6 +315,15 @@ export const posts: BlogMetadata[] = [
 
 export const events = [
 	{
+		id: "event-11",
+		title: "Halloween 2026",
+		date: "2026-11-06T20:00:00",
+		location: "Rasa Brasserie Cafe & Restaurant",
+		description:
+			"Siz şimdiden dolapları karıştırmaya ve kostümleri planlamaya başlayın, görüşmek üzeree!👻",
+		imageUrl: "/images/events/halloween-2026.webp",
+	},
+	{
 		id: "event-10",
 		title: "Rengarenk 2026",
 		date: "2026-06-12T20:00:00",
