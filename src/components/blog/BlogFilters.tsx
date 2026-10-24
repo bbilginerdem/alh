@@ -121,20 +121,20 @@ export function BlogFilters({ posts, onFilteredPosts }: Readonly<BlogFiltersProp
 					placeholder="Blog yazılarında ara..."
 					value={searchTerm}
 					onChange={(e) => setSearchTerm(e.target.value)}
-					className="w-full rounded-lg border border-zinc-700 bg-zinc-800/50 py-3 pr-4 pl-11 text-zinc-100 placeholder-zinc-400 focus:border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-300/20"
+					className="w-full rounded-lg border border-zinc-700 bg-zinc-800/50 py-3 pr-4 pl-11 text-zinc-100 placeholder-zinc-400 focus:border-orange-300 focus:ring-2 focus:ring-orange-300/20 focus:outline-none"
 				/>
 			</div>
 
 			<div className="flex flex-wrap gap-4">
 				<div className="min-w-50 flex-1">
-					<label htmlFor={category} className="mb-2 block font-medium text-sm text-zinc-300">
+					<label htmlFor={category} className="mb-2 block text-sm font-medium text-zinc-300">
 						Kategori
 					</label>
 					<select
 						id={category}
 						value={selectedCategory}
 						onChange={(e) => setSelectedCategory(e.target.value)}
-						className="w-full rounded-lg border border-zinc-700 bg-zinc-800/50 px-3 py-2 text-zinc-100 focus:border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-300/20"
+						className="w-full rounded-lg border border-zinc-700 bg-zinc-800/50 px-3 py-2 text-zinc-100 focus:border-orange-300 focus:ring-2 focus:ring-orange-300/20 focus:outline-none"
 					>
 						<option value="all">Tüm Kategoriler</option>
 						{categories.map((cat) => (
@@ -146,14 +146,14 @@ export function BlogFilters({ posts, onFilteredPosts }: Readonly<BlogFiltersProp
 				</div>
 
 				<div className="min-w-50 flex-1">
-					<label htmlFor={tag} className="mb-2 block font-medium text-sm text-zinc-300">
+					<label htmlFor={tag} className="mb-2 block text-sm font-medium text-zinc-300">
 						Etiket
 					</label>
 					<select
 						id={tag}
 						value={selectedTag}
 						onChange={(e) => setSelectedTag(e.target.value)}
-						className="w-full rounded-lg border border-zinc-700 bg-zinc-800/50 px-3 py-2 text-zinc-100 focus:border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-300/20"
+						className="w-full rounded-lg border border-zinc-700 bg-zinc-800/50 px-3 py-2 text-zinc-100 focus:border-orange-300 focus:ring-2 focus:ring-orange-300/20 focus:outline-none"
 					>
 						<option value="all">Tüm Etiketler</option>
 						{tags.map((t) => (
@@ -165,14 +165,14 @@ export function BlogFilters({ posts, onFilteredPosts }: Readonly<BlogFiltersProp
 				</div>
 
 				<div className="min-w-50 flex-1">
-					<label htmlFor={sort} className="mb-2 block font-medium text-sm text-zinc-300">
+					<label htmlFor={sort} className="mb-2 block text-sm font-medium text-zinc-300">
 						Sıralama
 					</label>
 					<select
 						id={sort}
 						value={sortBy}
 						onChange={(e) => setSortBy(e.target.value)}
-						className="w-full rounded-lg border border-zinc-700 bg-zinc-800/50 px-3 py-2 text-zinc-100 focus:border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-300/20"
+						className="w-full rounded-lg border border-zinc-700 bg-zinc-800/50 px-3 py-2 text-zinc-100 focus:border-orange-300 focus:ring-2 focus:ring-orange-300/20 focus:outline-none"
 					>
 						<option value="newest">En Yeni</option>
 						<option value="oldest">En Eski</option>
@@ -192,7 +192,7 @@ export function BlogFilters({ posts, onFilteredPosts }: Readonly<BlogFiltersProp
 					<button
 						type="button"
 						onClick={clearFilters}
-						className="rounded-lg bg-zinc-800/50 px-3 py-1 text-sm text-zinc-300 transition-colors hover:bg-zinc-700/50 hover:text-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-300/20"
+						className="rounded-lg bg-zinc-800/50 px-3 py-1 text-sm text-zinc-300 transition-colors hover:bg-zinc-700/50 hover:text-orange-300 focus:ring-2 focus:ring-orange-300/20 focus:outline-none"
 					>
 						Filtreleri Temizle
 					</button>

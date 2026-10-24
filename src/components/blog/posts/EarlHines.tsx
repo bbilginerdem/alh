@@ -78,7 +78,7 @@ export default function EarlHines() {
 			</section>
 
 			<section className="mb-8 rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					Kendi Orkestrası ve "Fatha" Lakabı
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
@@ -97,7 +97,7 @@ export default function EarlHines() {
 			<section className="mb-8">
 				<div className="flex flex-col gap-6 md:flex-row-reverse">
 					<div>
-						<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+						<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 							Yenilikçi Piyano Stili
 						</h2>
 						<p className="mb-4 text-base md:text-lg">
@@ -118,7 +118,7 @@ export default function EarlHines() {
 			</section>
 
 			<section className="mb-8">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					1940’lardan Sonra: Küçük Gruplar ve Yeniden Keşif
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
@@ -134,21 +134,21 @@ export default function EarlHines() {
 			</section>
 
 			<section className="rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h3 className="mb-4 font-semibold text-lg text-orange-300 md:text-xl">Miras ve Etki</h3>
+				<h3 className="mb-4 text-lg font-semibold text-orange-300 md:text-xl">Miras ve Etki</h3>
 				<p className="mb-4 text-base md:text-lg">
 					Earl Hines, sadece bir piyanist değil, aynı zamanda bir <em>devrimci</em> ve
 					<em> mentor</em> idi. Müziğindeki keskin ritimler, melodik cesaret ve teknik yenilikler,
 					onu caz piyanosunun gelişiminde dönüm noktası yaptı.
 				</p>
 
-				<blockquote className="my-6 border-orange-300 border-l-4 pl-4 text-base italic md:text-lg">
+				<blockquote className="my-6 border-l-4 border-orange-300 pl-4 text-base italic md:text-lg">
 					"Piyano, benim sesimdir. Her notada bir hikâye var." <br />
 					<span className="text-orange-300">– Earl Hines</span>
 				</blockquote>
 			</section>
 
 			<section className="mt-10 rounded-lg border border-zinc-700 bg-zinc-900/50 p-6">
-				<h3 className="font-semibold text-lg text-orange-300">Orkestra Üyeleri (1928–1932)</h3>
+				<h3 className="text-lg font-semibold text-orange-300">Orkestra Üyeleri (1928–1932)</h3>
 				<ul className="mt-2 list-inside list-disc space-y-1 text-sm md:text-base">
 					<li>
 						<strong>Leader & Piano:</strong> Earl Hines
@@ -184,7 +184,7 @@ export default function EarlHines() {
 			</section>
 
 			<section className="mt-8">
-				<h3 className="font-semibold text-lg text-orange-300">Kaynaklar</h3>
+				<h3 className="text-lg font-semibold text-orange-300">Kaynaklar</h3>
 				<ul className="mt-2 list-inside list-disc space-y-1 text-sm text-zinc-300">
 					<li>
 						Hoffmann, F. (2004). <em>HINES, EARL “FATHA” (28 NOV 1903–22 APR 1983)</em>. In

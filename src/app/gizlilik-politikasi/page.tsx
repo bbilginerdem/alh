@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
 		<CustomBlackLayout>
 			<article className="mx-auto max-w-4xl px-4 py-8 text-zinc-100">
 				<header className="mb-8 text-center">
-					<h1 className="mb-4 font-bold text-3xl md:text-4xl lg:text-5xl">Gizlilik Politikası</h1>
+					<h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">Gizlilik Politikası</h1>
 					<div className="mx-auto h-1 w-24 bg-orange-300" />
 					<p className="mt-4 text-sm text-zinc-400">Son Güncellenme: Aralık 2025</p>
 				</header>
@@ -35,7 +35,7 @@ export default function PrivacyPolicyPage() {
 					</section>
 
 					<section className="mb-8">
-						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+						<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 							1. Toplanan Bilgiler
 						</h2>
 						<p className="mb-4">Web sitemizi kullanırken aşağıdaki bilgiler toplanabilir:</p>
@@ -56,7 +56,7 @@ export default function PrivacyPolicyPage() {
 					</section>
 
 					<section className="mb-8 rounded-lg bg-white/10 p-4 backdrop-blur-sm md:p-6">
-						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+						<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 							2. Çerezler (Cookies)
 						</h2>
 						<p className="mb-4">
@@ -64,7 +64,7 @@ export default function PrivacyPolicyPage() {
 							tarayıcınız tarafından bilgisayarınıza kaydedilen küçük metin dosyalarıdır.
 						</p>
 						<div className="mb-4">
-							<h3 className="mb-2 font-semibold text-lg text-orange-200">
+							<h3 className="mb-2 text-lg font-semibold text-orange-200">
 								Kullandığımız Çerez Türleri:
 							</h3>
 							<ul className="list-disc space-y-2 pl-5">
@@ -89,7 +89,7 @@ export default function PrivacyPolicyPage() {
 					</section>
 
 					<section className="mb-8">
-						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+						<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 							3. Bilgilerin Kullanımı
 						</h2>
 						<p className="mb-4">Topladığımız bilgileri şu amaçlarla kullanırız:</p>
@@ -103,7 +103,7 @@ export default function PrivacyPolicyPage() {
 					</section>
 
 					<section className="mb-8">
-						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+						<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 							4. Bilgi Paylaşımı
 						</h2>
 						<p className="mb-4">
@@ -118,7 +118,7 @@ export default function PrivacyPolicyPage() {
 					</section>
 
 					<section className="mb-8 rounded-lg bg-white/10 p-4 backdrop-blur-sm md:p-6">
-						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+						<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 							5. Veri Güvenliği
 						</h2>
 						<p className="mb-4">
@@ -128,7 +128,7 @@ export default function PrivacyPolicyPage() {
 					</section>
 
 					<section className="mb-8">
-						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+						<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 							6. Haklarınız
 						</h2>
 						<p className="mb-4">
@@ -145,7 +145,7 @@ export default function PrivacyPolicyPage() {
 					</section>
 
 					<section className="mb-8">
-						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+						<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 							7. Üçüncü Taraf Bağlantılar
 						</h2>
 						<p className="mb-4">
@@ -156,7 +156,7 @@ export default function PrivacyPolicyPage() {
 					</section>
 
 					<section className="mb-8 rounded-lg bg-white/10 p-4 backdrop-blur-sm md:p-6">
-						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+						<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 							8. Çocukların Gizliliği
 						</h2>
 						<p className="mb-4">
@@ -167,7 +167,7 @@ export default function PrivacyPolicyPage() {
 					</section>
 
 					<section className="mb-8">
-						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+						<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 							9. Politika Değişiklikleri
 						</h2>
 						<p className="mb-4">
@@ -178,7 +178,7 @@ export default function PrivacyPolicyPage() {
 					</section>
 
 					<section className="mb-8 rounded-lg border border-orange-300/30 bg-orange-300/5 p-4 md:p-6">
-						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+						<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 							10. İletişim
 						</h2>
 						<p className="mb-4">
@@ -208,7 +208,7 @@ export default function PrivacyPolicyPage() {
 					</section>
 
 					<section className="my-12 rounded-lg border border-orange-300/30 bg-orange-300/5 p-6 text-center">
-						<p className="font-medium text-lg text-orange-300">Gizliliğiniz bizim için önemlidir</p>
+						<p className="text-lg font-medium text-orange-300">Gizliliğiniz bizim için önemlidir</p>
 						<p className="mt-2 text-sm text-zinc-300">
 							Bu politika, verilerinizin güvenliği ve gizliliği için özenle hazırlanmıştır
 						</p>

@@ -72,7 +72,7 @@ export default function BigJoeTurner() {
 			</section>
 
 			<section className="mb-8 rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					Carnegie Hall (1938)
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
@@ -88,7 +88,7 @@ export default function BigJoeTurner() {
 			</section>
 
 			<section className="mb-8">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					Rock'n Roll'a geçiş ve Zirve Yılları (1950)
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
@@ -108,7 +108,7 @@ export default function BigJoeTurner() {
 			</section>
 
 			<section className="rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h3 className="mb-4 font-semibold text-lg text-orange-300 md:text-xl">Son Dönemleri</h3>
+				<h3 className="mb-4 text-lg font-semibold text-orange-300 md:text-xl">Son Dönemleri</h3>
 				<p className="mb-4 text-base md:text-lg">
 					1960'lar ve 1970'lerde tekrar köklerine inen Turner, yeniden Jazz ve Blues'a dönüş
 					yaparak, ömrünün sonuna kadar sahnelerden ayrılmadı. Bastonla veya oturarak bile şarkı

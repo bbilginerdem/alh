@@ -57,14 +57,14 @@ export default function NotFound() {
 				className="flex min-h-[calc(100vh-10rem)] flex-col items-center justify-center px-4"
 			>
 				<div className="overflow-hidden">
-					<h1 className="not-found-code mb-2 font-bold text-8xl text-orange-300 leading-none tracking-tighter md:text-9xl">
+					<h1 className="not-found-code mb-2 text-8xl leading-none font-bold tracking-tighter text-orange-300 md:text-9xl">
 						404
 					</h1>
 				</div>
-				<h2 className="not-found-title mt-6 mb-4 text-center font-bold text-2xl text-zinc-100 md:text-4xl">
+				<h2 className="not-found-title mt-6 mb-4 text-center text-2xl font-bold text-zinc-100 md:text-4xl">
 					Sayfa Bulunamadı
 				</h2>
-				<p className="not-found-desc mb-10 max-w-md text-center text-lg text-zinc-400 leading-relaxed">
+				<p className="not-found-desc mb-10 max-w-md text-center text-lg leading-relaxed text-zinc-400">
 					Aradığınız sayfa taşınmış, silinmiş veya hiç var olmamış olabilir.
 				</p>
 				<Link

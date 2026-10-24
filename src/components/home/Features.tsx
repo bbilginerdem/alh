@@ -94,12 +94,12 @@ export const BentoCard: React.FC<BentoCardProps> = ({
 			/>
 			<div className="relative z-10 flex size-full flex-col justify-between p-8 text-zinc-50">
 				<div className="flex flex-col gap-3">
-					<h1 className="bento-title translate-y-4 font-bold text-3xl uppercase leading-none tracking-tight opacity-0">
+					<h1 className="bento-title translate-y-4 text-3xl leading-none font-bold tracking-tight uppercase opacity-0">
 						{title}
 					</h1>
 					{description && (
 						<div className="bento-description relative max-w-fit translate-y-4 rounded-xl bg-black/40 px-3 py-2 opacity-0 shadow-inner backdrop-blur-sm">
-							<p className="max-w-64 font-medium text-xs text-zinc-200 leading-relaxed md:text-sm">
+							<p className="max-w-64 text-xs leading-relaxed font-medium text-zinc-200 md:text-sm">
 								{description}
 							</p>
 						</div>
@@ -121,7 +121,7 @@ export const BentoCard: React.FC<BentoCardProps> = ({
 							onMouseMove={handleMouseMove}
 							onMouseEnter={handleMouseEnter}
 							onMouseLeave={handleMouseLeave}
-							className="relative flex w-fit cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-white/10 bg-black/50 px-5 py-2.5 font-bold text-sm text-white/90 uppercase tracking-widest backdrop-blur-md transition-colors hover:bg-black/70"
+							className="relative flex w-fit cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-white/10 bg-black/50 px-5 py-2.5 text-sm font-bold tracking-widest text-white/90 uppercase backdrop-blur-md transition-colors hover:bg-black/70"
 						>
 							<div
 								className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
@@ -211,10 +211,10 @@ const Features = () => {
 			<div className="container mx-auto px-3 md:px-10">
 				<div className="feature-text-container flex flex-col gap-6 px-5 py-32">
 					<h2 className="sr-only">Ankara Lindy Hop Features</h2>
-					<p className="feature-header-text font-bold text-2xl text-zinc-50 tracking-tight md:text-4xl">
+					<p className="feature-header-text text-2xl font-bold tracking-tight text-zinc-50 md:text-4xl">
 						Ankara Lindy Hop kimdir?
 					</p>
-					<p className="feature-header-text font-light text-lg text-zinc-400 leading-relaxed md:max-w-3xl">
+					<p className="feature-header-text text-lg leading-relaxed font-light text-zinc-400 md:max-w-3xl">
 						Evet, Ankara’nın sokakları denize çıkmaz; ama Ankara’da sokaklar Ankara Lindy Hop’a
 						çıkar. Ankara Lindy Hop, Ankara’nın sokaklarında, parklarında ve bahçelerinde ortaya
 						çıkmış, caz müziğinin din, dil, ırk ve cinsiyet gibi hiçbir ayrım gözetmeyen özgürlükçü
@@ -227,7 +227,7 @@ const Features = () => {
 					</p>
 				</div>
 
-				<div className="bento-tilt relative mb-6 h-96 w-full overflow-hidden rounded-md border-hsla transition-transform duration-300 ease-out md:h-[65vh]">
+				<div className="bento-tilt border-hsla relative mb-6 h-96 w-full overflow-hidden rounded-md transition-transform duration-300 ease-out md:h-[65vh]">
 					<BentoCard
 						src="/images/features-1.webp"
 						title="Stresini at, ritme katıl!"
@@ -238,7 +238,7 @@ const Features = () => {
 				</div>
 
 				<div className="bento-grid grid w-full grid-cols-1 gap-7 pb-10 sm:grid-cols-2 sm:grid-rows-2">
-					<div className="bento-tilt relative h-full w-full overflow-hidden rounded-md border-hsla sm:row-span-2">
+					<div className="bento-tilt border-hsla relative h-full w-full overflow-hidden rounded-md sm:row-span-2">
 						<BentoCard
 							src="/images/features-2.webp"
 							title="Nerede?"
@@ -253,7 +253,7 @@ const Features = () => {
 						/>
 					</div>
 
-					<div className="bento-tilt relative h-full w-full overflow-hidden rounded-md border-hsla">
+					<div className="bento-tilt border-hsla relative h-full w-full overflow-hidden rounded-md">
 						<BentoTilt className="h-full w-full">
 							<BentoCard
 								src="/images/features-3.webp"
@@ -263,7 +263,7 @@ const Features = () => {
 						</BentoTilt>
 					</div>
 
-					<div className="bento-tilt relative h-full w-full overflow-hidden rounded-md border-hsla">
+					<div className="bento-tilt border-hsla relative h-full w-full overflow-hidden rounded-md">
 						<BentoTilt className="h-full w-full">
 							<BentoCard
 								src="/images/features-4.webp"

@@ -26,7 +26,7 @@ export default function FrankieManning() {
 						<p className="mt-2 text-xs text-zinc-400">Fotograf Ralph Gabriner tarafından</p>
 					</div>
 					<div className="md:w-1/2">
-						<h2 className="mb-4 font-semibold text-2xl text-orange-300">
+						<h2 className="mb-4 text-2xl font-semibold text-orange-300">
 							Frankie Manning: Dansın Öncü Ruhu
 						</h2>
 						<p className="mb-4">
@@ -60,7 +60,7 @@ export default function FrankieManning() {
 			</section>
 
 			<section className="mb-8 rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h2 className="mb-4 font-semibold text-2xl text-orange-300">Ve Efsane Uyandı</h2>
+				<h2 className="mb-4 text-2xl font-semibold text-orange-300">Ve Efsane Uyandı</h2>
 				<p className="mb-4">
 					Frankie, 70'li yaşlarında, tüm dünyayı dolaşmaya, yeni nesillere atılımları, aerials'ı ve
 					dansın ruhunu öğretmeye başladı. Onun için dans, sadece adımlardan ibaret değildi; bir

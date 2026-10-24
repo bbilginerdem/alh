@@ -90,7 +90,7 @@ export default function EllaFitzgerald() {
 			</section>
 
 			<section className="mb-8 rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					Apollo Tiyatrosu ve Kaderin Gecesi
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
@@ -111,7 +111,7 @@ export default function EllaFitzgerald() {
 			</section>
 
 			<section className="mb-8">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					Chick Webb ile İş Birliği ve Ün
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
@@ -140,7 +140,7 @@ export default function EllaFitzgerald() {
 			</section>
 
 			<section className="rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h3 className="mb-4 font-semibold text-lg text-orange-300 md:text-xl">
+				<h3 className="mb-4 text-lg font-semibold text-orange-300 md:text-xl">
 					Liderlik ve Solo Kariyer Başlangıcı
 				</h3>
 				<p className="mb-4 text-base md:text-lg">
@@ -159,7 +159,7 @@ export default function EllaFitzgerald() {
 			</section>
 
 			<section className="my-8">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					Bebop ve Scat Ustalığı
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
@@ -186,7 +186,7 @@ export default function EllaFitzgerald() {
 			</section>
 
 			<section className="mt-8">
-				<h3 className="font-semibold text-lg text-orange-300">Kaynaklar</h3>
+				<h3 className="text-lg font-semibold text-orange-300">Kaynaklar</h3>
 				<ul className="mt-2 list-inside list-disc space-y-1 text-sm text-zinc-300">
 					<li>
 						<Link

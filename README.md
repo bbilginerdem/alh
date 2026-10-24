@@ -32,17 +32,20 @@ Ankara'nın en aktif Lindy Hop ve swing dans topluluğu olan **Ankara Lindy Hop*
 ### Kurulum
 
 1. Repoyu klonlayın:
+
    ```bash
    git clone https://github.com/bbilginerdem/alh.git
    cd alh
    ```
 
 2. Bağımlılıkları yükleyin:
+
    ```bash
    pnpm install
    ```
 
 3. Geliştirme sunucusunu başlatın:
+
    ```bash
    pnpm dev
    ```
@@ -62,12 +65,14 @@ src/
 ```
 
 ### Blog Yazısı Ekleme
+
 Yeni bir blog yazısı eklemek için:
 1. `src/components/blog/posts/` altında yeni bir `.tsx` dosyası oluşturun.
 2. `src/lib/data.ts` içerisindeki `posts` dizisine gerekli metadata bilgilerini ekleyin.
 3. Görselleri `public/images/blogs/` dizinine `.webp` formatında ekleyin.
 
 ## 📈 Yol Haritası (Gelecek Geliştirmeler)
+
 - [x] **PWA Desteği**: Kullanıcıların siteye uygulama gibi erişebilmesi ve bildirim alabilmesi.
 - [ ] **MDX Entegrasyonu**: Blog içeriklerini TSX yerine MDX formatına taşıyarak içerik yönetimini kolaylaştırmak.
 - [ ] **Çoklu Dil Desteği (i18n)**: İçeriklerin İngilizce ve diğer dillerde sunulması.

@@ -59,7 +59,7 @@ export default function VolunteerPage() {
 		<CustomBlackLayout>
 			<article className="mx-auto max-w-4xl px-4 py-8 text-zinc-100">
 				<header className="mb-12 text-center">
-					<h1 className="mb-4 font-bold text-3xl md:text-4xl lg:text-5xl">Ekibimiz</h1>
+					<h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">Ekibimiz</h1>
 					<div className="mx-auto h-1 w-24 bg-orange-300" />
 					<p className="mt-6 text-lg text-zinc-300">
 						Ankara Lindy Hop Topluluğu, gönüllülük esasına dayalı olarak çalışan bir topluluktur.
@@ -68,7 +68,7 @@ export default function VolunteerPage() {
 
 				<div className="max-w-none text-base md:text-lg">
 					<section className="mb-12 rounded-lg bg-white/5 p-6 backdrop-blur-sm">
-						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+						<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 							Gönüllülük Esası
 						</h2>
 						<p className="mb-4 text-base md:text-lg">
@@ -79,7 +79,7 @@ export default function VolunteerPage() {
 					</section>
 
 					<section className="mb-12">
-						<h2 className="mb-8 text-center font-semibold text-2xl text-orange-300 md:text-3xl">
+						<h2 className="mb-8 text-center text-2xl font-semibold text-orange-300 md:text-3xl">
 							Ekip Üyelerimizin Rolleri
 						</h2>
 
@@ -91,7 +91,7 @@ export default function VolunteerPage() {
 								>
 									<div className="mb-4 flex items-center">
 										<span className="mr-3 text-2xl">{member.icon}</span>
-										<h3 className="font-semibold text-orange-300 text-xl">{member.role}</h3>
+										<h3 className="text-xl font-semibold text-orange-300">{member.role}</h3>
 									</div>
 									<p className="text-zinc-300">{member.description}</p>
 								</div>
@@ -100,7 +100,7 @@ export default function VolunteerPage() {
 					</section>
 
 					<section className="mb-12 rounded-lg bg-white/5 p-6 backdrop-blur-sm">
-						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+						<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 							Nasıl Katkı Sağlayabilirsin?
 						</h2>
 						<p className="mb-6 text-base md:text-lg">
@@ -132,7 +132,7 @@ export default function VolunteerPage() {
 
 					<section className="text-center">
 						<div className="rounded-lg border border-orange-300/30 bg-orange-300/5 p-8">
-							<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+							<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 								Aramıza Katılmak İster misin?
 							</h2>
 							<p className="mx-auto mb-6 max-w-2xl text-zinc-300">

@@ -73,7 +73,7 @@ export default function DukeEllington() {
 			</section>
 
 			<section className="mb-8 rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					Müzisyenliğini Geliştiren Bir Lider
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
@@ -92,7 +92,7 @@ export default function DukeEllington() {
 			<section className="mb-8">
 				<div className="flex flex-col gap-6 md:flex-row-reverse">
 					<div>
-						<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+						<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 							Caravan: Bir Klasik Doğuyor
 						</h2>
 						<p className="mb-4 text-base md:text-lg">
@@ -111,7 +111,7 @@ export default function DukeEllington() {
 			</section>
 
 			<section className="rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h3 className="mb-4 font-semibold text-lg text-orange-300 md:text-xl">
+				<h3 className="mb-4 text-lg font-semibold text-orange-300 md:text-xl">
 					Ellington'ın Mirası
 				</h3>
 				<p className="mb-4 text-base md:text-lg">
@@ -120,7 +120,7 @@ export default function DukeEllington() {
 					tarihinde benzersiz bir yer edinmesini sağlamıştır.
 				</p>
 
-				<blockquote className="my-6 border-orange-300 border-l-4 pl-4 text-base italic md:text-lg">
+				<blockquote className="my-6 border-l-4 border-orange-300 pl-4 text-base italic md:text-lg">
 					"Müzik, kalpten kalbe akan bir dildir." <br />
 					<span className="text-orange-300">– Duke Ellington</span>
 				</blockquote>

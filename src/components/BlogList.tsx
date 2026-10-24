@@ -52,7 +52,7 @@ function BlogCard({
 					</div>
 				)}
 
-				<div className="absolute top-3 right-3 z-10 rounded-full bg-zinc-800/80 px-2 py-1 font-medium text-xs text-zinc-200">
+				<div className="absolute top-3 right-3 z-10 rounded-full bg-zinc-800/80 px-2 py-1 text-xs font-medium text-zinc-200">
 					{post.category}
 				</div>
 
@@ -79,7 +79,7 @@ function BlogCard({
 						<span>{formatDate(post.publishDate)}</span>
 					</div>
 
-					<h2 className="mb-2 line-clamp-2 font-medium text-lg text-zinc-100 transition-colors duration-300 group-hover:text-orange-300 sm:text-xl">
+					<h2 className="mb-2 line-clamp-2 text-lg font-medium text-zinc-100 transition-colors duration-300 group-hover:text-orange-300 sm:text-xl">
 						{post.title}
 					</h2>
 
@@ -91,7 +91,7 @@ function BlogCard({
 								type="button"
 								key={tag}
 								onClick={(e) => handleTagClick(e, tag)}
-								className="rounded-md bg-zinc-800/60 px-2 py-1 text-xs text-zinc-300 transition-colors hover:bg-orange-300/20 hover:text-orange-300 focus:outline-none focus:ring-1 focus:ring-orange-300/50"
+								className="rounded-md bg-zinc-800/60 px-2 py-1 text-xs text-zinc-300 transition-colors hover:bg-orange-300/20 hover:text-orange-300 focus:ring-1 focus:ring-orange-300/50 focus:outline-none"
 							>
 								#{tag}
 							</button>

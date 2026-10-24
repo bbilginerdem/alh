@@ -105,7 +105,7 @@ const Hero = () => {
 
 				<h1
 					ref={lindyTextRef}
-					className="hero-heading absolute right-5 bottom-5 z-30 font-almendra-sc text-zinc-950"
+					className="hero-heading font-almendra-sc absolute right-5 bottom-5 z-30 text-zinc-950"
 				>
 					LINDY HOP
 				</h1>
@@ -136,7 +136,7 @@ const Hero = () => {
 				</div>
 			</div>
 
-			<h1 className="hero-heading absolute right-5 bottom-5 font-almendra-sc text-zinc-950">
+			<h1 className="hero-heading font-almendra-sc absolute right-5 bottom-5 text-zinc-950">
 				LINDY HOP
 			</h1>
 		</div>

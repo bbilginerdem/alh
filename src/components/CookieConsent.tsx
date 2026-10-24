@@ -103,10 +103,10 @@ const CookieConsent = () => {
 						</div>
 
 						<div className="flex-1">
-							<h2 className="mb-1 font-almendra-sc font-bold text-base text-orange-300 md:mb-2 md:text-xl">
+							<h2 className="font-almendra-sc mb-1 text-base font-bold text-orange-300 md:mb-2 md:text-xl">
 								🍪 Çerez Bildirimi
 							</h2>
-							<p className="text-xs text-zinc-300 leading-relaxed md:text-sm md:leading-relaxed">
+							<p className="text-xs leading-relaxed text-zinc-300 md:text-sm md:leading-relaxed">
 								Web sitemizde deneyiminizi geliştirmek için çerezler kullanıyoruz. Sitemizi
 								kullanmaya devam ederek çerez kullanımını kabul etmiş olursunuz.{" "}
 								<a

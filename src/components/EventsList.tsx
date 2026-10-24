@@ -361,7 +361,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 				</div>
 			)}
 			<div className="flex-1 p-4 sm:p-6">
-				<h2 className="mb-2 font-bold text-xl text-zinc-100 tracking-tight transition-colors duration-300 group-hover:text-orange-300 sm:text-2xl">
+				<h2 className="mb-2 text-xl font-bold tracking-tight text-zinc-100 transition-colors duration-300 group-hover:text-orange-300 sm:text-2xl">
 					{event.title}
 				</h2>
 				<p className="mb-2 font-medium text-zinc-300">
@@ -370,7 +370,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 				<p className="mb-2 font-medium text-zinc-300">
 					<strong className="text-orange-300">Konum:</strong> {event.location}
 				</p>
-				<p className="font-light text-zinc-400 leading-relaxed">{event.description}</p>
+				<p className="leading-relaxed font-light text-zinc-400">{event.description}</p>
 			</div>
 		</li>
 	);
@@ -384,7 +384,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 	return (
 		<div className="mx-auto max-w-4xl px-4 py-8" ref={containerRef}>
 			<div className="mb-8 overflow-hidden">
-				<h1 className="events-header text-center font-bold text-3xl text-zinc-100 uppercase tracking-tighter sm:text-4xl">
+				<h1 className="events-header text-center text-3xl font-bold tracking-tighter text-zinc-100 uppercase sm:text-4xl">
 					Yaklaşan Etkinlikler
 				</h1>
 			</div>
@@ -401,7 +401,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 					{isLoadingFuture ? (
 						<div className="flex items-center gap-3 rounded-full border border-orange-500/20 bg-orange-500/10 px-5 py-2.5 text-orange-300 backdrop-blur-xs">
 							<Loader2 className="h-5 w-5 animate-spin text-orange-400" />
-							<span className="font-medium text-sm text-zinc-300">
+							<span className="text-sm font-medium text-zinc-300">
 								Daha fazla etkinlik yükleniyor...
 							</span>
 						</div>
@@ -409,7 +409,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 						<button
 							type="button"
 							onClick={loadMoreFuture}
-							className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-2.5 font-medium text-sm text-zinc-300 backdrop-blur-xs transition-all duration-300 hover:border-orange-400/40 hover:bg-white/10 hover:text-orange-300 hover:shadow-lg hover:shadow-orange-500/10 focus:outline-hidden focus:ring-2 focus:ring-orange-400/50"
+							className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-2.5 text-sm font-medium text-zinc-300 backdrop-blur-xs transition-all duration-300 hover:border-orange-400/40 hover:bg-white/10 hover:text-orange-300 hover:shadow-lg hover:shadow-orange-500/10 focus:ring-2 focus:ring-orange-400/50 focus:outline-hidden"
 						>
 							<span>Daha Fazla Yaklaşan Etkinlik</span>
 							<span className="text-xs text-zinc-500 group-hover:text-orange-300/80">
@@ -434,7 +434,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 							<Calendar className="h-6 w-6" />
 						</div>
 						<div>
-							<h3 className="font-bold text-xl text-zinc-100 tracking-tight transition-colors group-hover:text-orange-300 sm:text-2xl">
+							<h3 className="text-xl font-bold tracking-tight text-zinc-100 transition-colors group-hover:text-orange-300 sm:text-2xl">
 								Ankara Dans Takvimi
 							</h3>
 							<p className="mt-1 font-medium text-zinc-400 transition-colors group-hover:text-zinc-300">
@@ -452,7 +452,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 			{sortedPastEvents.length > 0 && (
 				<section className="mt-16">
 					<div className="mb-8 overflow-hidden">
-						<h1 className="events-header text-center font-bold text-3xl text-zinc-100 uppercase tracking-tighter sm:text-4xl">
+						<h1 className="events-header text-center text-3xl font-bold tracking-tighter text-zinc-100 uppercase sm:text-4xl">
 							Geçmiş Etkinlikler
 						</h1>
 					</div>
@@ -468,7 +468,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 							{isLoadingPast ? (
 								<div className="flex items-center gap-3 rounded-full border border-orange-500/20 bg-orange-500/10 px-5 py-2.5 text-orange-300 backdrop-blur-xs">
 									<Loader2 className="h-5 w-5 animate-spin text-orange-400" />
-									<span className="font-medium text-sm text-zinc-300">
+									<span className="text-sm font-medium text-zinc-300">
 										Daha fazla etkinlik yükleniyor...
 									</span>
 								</div>
@@ -476,7 +476,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 								<button
 									type="button"
 									onClick={loadMorePast}
-									className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-2.5 font-medium text-sm text-zinc-300 backdrop-blur-xs transition-all duration-300 hover:border-orange-400/40 hover:bg-white/10 hover:text-orange-300 hover:shadow-lg hover:shadow-orange-500/10 focus:outline-hidden focus:ring-2 focus:ring-orange-400/50"
+									className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-2.5 text-sm font-medium text-zinc-300 backdrop-blur-xs transition-all duration-300 hover:border-orange-400/40 hover:bg-white/10 hover:text-orange-300 hover:shadow-lg hover:shadow-orange-500/10 focus:ring-2 focus:ring-orange-400/50 focus:outline-hidden"
 								>
 									<span>Daha Fazla Geçmiş Etkinlik</span>
 									<span className="text-xs text-zinc-500 group-hover:text-orange-300/80">
@@ -489,7 +489,7 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 
 					{!hasMorePast && sortedPastEvents.length > INITIAL_BATCH_COUNT && (
 						<div className="mt-8 py-4 text-center">
-							<p className="font-medium text-xs text-zinc-500 uppercase tracking-widest">
+							<p className="text-xs font-medium tracking-widest text-zinc-500 uppercase">
 								Tüm geçmiş etkinlikler yüklendi
 							</p>
 						</div>

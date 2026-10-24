@@ -26,7 +26,7 @@ export default function NormaMiller() {
 						<p className="mt-2 text-xs text-zinc-400">Norma Miller, Lindy Hop'un altın çağında</p>
 					</div>
 					<div className="md:w-1/2">
-						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+						<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 							Harlem'den Dünyaya Açılan Bir Yıldız
 						</h2>
 						<p className="mb-4">
@@ -60,7 +60,7 @@ export default function NormaMiller() {
 			</section>
 
 			<section className="mb-8 rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+				<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 					Hollywood'un Swing Yıldızı
 				</h2>
 				<p className="mb-4">
@@ -82,7 +82,7 @@ export default function NormaMiller() {
 			</section>
 
 			<section className="mb-8">
-				<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+				<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 					Caz Devleriyle Sahne Paylaşımı
 				</h2>
 				<p className="mb-4">
@@ -92,7 +92,7 @@ export default function NormaMiller() {
 					aynı sahneyi paylaştı. Bu işbirlikleri, swing dansı ile caz müziği arasındaki o kopmaz
 					bağı daha da güçlendirdi.
 				</p>
-				<blockquote className="my-6 border-orange-300 border-l-4 pl-4 italic">
+				<blockquote className="my-6 border-l-4 border-orange-300 pl-4 italic">
 					"Dans etmek özgürlüktür. Müziğin seni götürdüğü yere gitmektir."
 					<br />
 					<span className="text-orange-300">– Norma Miller</span>
@@ -104,7 +104,7 @@ export default function NormaMiller() {
 			</section>
 
 			<section className="mb-8 rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+				<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 					Yaş Sadece Bir Sayıydı
 				</h2>
 				<p className="mb-4">
@@ -123,7 +123,7 @@ export default function NormaMiller() {
 			</section>
 
 			<section className="rounded-lg p-6">
-				<h3 className="mb-3 font-semibold text-orange-300 text-xl">Norma Miller'ın Mirası</h3>
+				<h3 className="mb-3 text-xl font-semibold text-orange-300">Norma Miller'ın Mirası</h3>
 				<p className="mt-4 text-zinc-100">
 					Norma Miller, 5 Mayıs 2019'da, 99 yaşında aramızdan ayrıldı. Ama geride bıraktığı miras
 					yaşamaya devam ediyor: O, Lindy Hop'un en önemli kadın öncülerinden biri, Hollywood'un ilk

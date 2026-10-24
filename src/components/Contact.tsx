@@ -127,15 +127,15 @@ const Contact = () => {
 					className="relative z-10 flex flex-col items-start px-6 text-left sm:px-12 md:px-16 lg:w-2/3"
 				>
 					<div className="contact-text mb-8 flex flex-col items-start">
-						<p className="font-bold font-general text-orange-400 text-sm uppercase tracking-[0.3em] drop-shadow-lg">
+						<p className="font-general text-sm font-bold tracking-[0.3em] text-orange-400 uppercase drop-shadow-lg">
 							Bize Ulaşın
 						</p>
-						<h1 className="mt-4 bg-linear-to-br from-zinc-100 to-zinc-500 bg-clip-text font-black font-zentry text-6xl text-transparent uppercase leading-[0.85] drop-shadow-2xl md:text-8xl">
+						<h1 className="font-zentry mt-4 bg-linear-to-br from-zinc-100 to-zinc-500 bg-clip-text text-6xl leading-[0.85] font-black text-transparent uppercase drop-shadow-2xl md:text-8xl">
 							Sorunuz <br /> Mu Var?
 						</h1>
 					</div>
 
-					<div className="contact-text max-w-xl font-circular-web font-medium text-lg text-zinc-300 leading-relaxed drop-shadow-md md:text-2xl">
+					<div className="contact-text font-circular-web max-w-xl text-lg leading-relaxed font-medium text-zinc-300 drop-shadow-md md:text-2xl">
 						Partilerimizin tarih ve saatleri için takvimimizi, instagram'ımızı ve web sitemizi takip
 						edin. Dans gecelerini kaçırmayın!
 					</div>

@@ -84,17 +84,17 @@ export default function DukeEllingtonBlantonWebster() {
 			</section>
 
 			<section className="mb-8 rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					DUKE ELLINGTON - NEVER NO LAMENT - THE BLANTON/WEBSTER BAND
 				</h2>
-				<blockquote className="border-orange-300 border-l-4 pl-4 text-zinc-300 italic">
+				<blockquote className="border-l-4 border-orange-300 pl-4 text-zinc-300 italic">
 					“Gün gelecek tüm caz sanatçıları bir araya gelecek ve dizleri üstüne çökerek Duke
 					Ellington’a hürmetlerini sunacaklar.” - Miles Davis
 				</blockquote>
 			</section>
 
 			<section className="mb-8">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					1940'lar: Swing'in Doruk Noktası ve İnişin Başlangıcı
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
@@ -119,7 +119,7 @@ export default function DukeEllingtonBlantonWebster() {
 			</section>
 
 			<section className="mb-8 rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					Duke Ellington Orkestrası: Sessizliklere Karşı Müzik
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
@@ -137,7 +137,7 @@ export default function DukeEllingtonBlantonWebster() {
 			</section>
 
 			<section className="mb-8">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					Albümün Kökeni ve Önemi
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
@@ -158,7 +158,7 @@ export default function DukeEllingtonBlantonWebster() {
 			</section>
 
 			<section className="mb-8 rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					Yenilikçiler: Billy Strayhorn ve Jimmy Blanton
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
@@ -182,7 +182,7 @@ export default function DukeEllingtonBlantonWebster() {
 			</section>
 
 			<section className="mb-8">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					Ben Webster ve Grup Dinamikleri
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
@@ -200,7 +200,7 @@ export default function DukeEllingtonBlantonWebster() {
 			</section>
 
 			<section className="mb-8 rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					Seçilmiş Şarkılar: Ko-Ko
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
@@ -215,7 +215,7 @@ export default function DukeEllingtonBlantonWebster() {
 			</section>
 
 			<section className="mb-8">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					Cotton Tail: Webster'ın Sessizliği ve Dinamikler
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
@@ -252,7 +252,7 @@ export default function DukeEllingtonBlantonWebster() {
 			</section>
 
 			<section className="mb-8 rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					Chelsea Bridge: Empresyonist Bir Resim
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
@@ -272,7 +272,7 @@ export default function DukeEllingtonBlantonWebster() {
 			</section>
 
 			<section className="mb-8">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					In a Mellowtone ve Perdido: Swing'in Kalbi
 				</h2>
 				<p className="mb-4 text-base md:text-lg">
@@ -316,7 +316,7 @@ export default function DukeEllingtonBlantonWebster() {
 			</section>
 
 			<section className="mb-8 rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-				<h2 className="mb-4 font-semibold text-orange-300 text-xl md:text-2xl">
+				<h2 className="mb-4 text-xl font-semibold text-orange-300 md:text-2xl">
 					Sonuç: Dans-Müzik İlişkisi İçin Bir Harita
 				</h2>
 				<p className="mb-4 text-base md:text-lg">

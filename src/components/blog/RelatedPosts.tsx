@@ -26,8 +26,8 @@ export function RelatedPosts({ posts, currentPostId }: Readonly<RelatedPostsProp
 	}
 
 	return (
-		<section className="mt-10 border-zinc-700 border-t pt-12">
-			<h2 className="mb-8 text-center font-bold text-2xl text-zinc-100">İlgili Yazılar</h2>
+		<section className="mt-10 border-t border-zinc-700 pt-12">
+			<h2 className="mb-8 text-center text-2xl font-bold text-zinc-100">İlgili Yazılar</h2>
 
 			<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 				{relatedPosts.map((post) => (
@@ -48,7 +48,7 @@ export function RelatedPosts({ posts, currentPostId }: Readonly<RelatedPostsProp
 									/>
 									<div className="absolute inset-0 bg-linear-to-t from-zinc-900/60 to-transparent" />
 
-									<div className="absolute top-3 right-3 rounded-full bg-orange-500/90 px-2 py-1 font-medium text-white text-xs">
+									<div className="absolute top-3 right-3 rounded-full bg-orange-500/90 px-2 py-1 text-xs font-medium text-white">
 										{post.category}
 									</div>
 								</div>
@@ -73,7 +73,7 @@ export function RelatedPosts({ posts, currentPostId }: Readonly<RelatedPostsProp
 											type="button"
 											key={tag}
 											onClick={(e) => handleTagClick(e, tag)}
-											className="rounded-md bg-zinc-700/50 px-2 py-1 text-xs text-zinc-300 transition-colors hover:bg-orange-300/20 hover:text-orange-300 focus:outline-none focus:ring-1 focus:ring-orange-300/50"
+											className="rounded-md bg-zinc-700/50 px-2 py-1 text-xs text-zinc-300 transition-colors hover:bg-orange-300/20 hover:text-orange-300 focus:ring-1 focus:ring-orange-300/50 focus:outline-none"
 										>
 											#{tag}
 										</button>

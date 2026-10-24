@@ -21,7 +21,7 @@ export default function CommunityPrinciplesPage() {
 		<CustomBlackLayout>
 			<article className="mx-auto max-w-4xl px-4 py-8 text-zinc-100">
 				<header className="mb-8 text-center">
-					<h1 className="mb-4 font-bold text-3xl md:text-4xl lg:text-5xl">
+					<h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">
 						ALH Topluluğu Etik İlkeleri
 					</h1>
 					<div className="mx-auto h-1 w-24 bg-orange-300" />
@@ -37,7 +37,7 @@ export default function CommunityPrinciplesPage() {
 						</p>
 
 						<div className="mb-8">
-							<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+							<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 								Topluluğun Politikaları
 							</h2>
 							<ul className="mb-4 list-disc space-y-2 pl-5 text-base md:space-y-3 md:text-lg">
@@ -64,7 +64,7 @@ export default function CommunityPrinciplesPage() {
 					</section>
 
 					<section className="mb-8 rounded-lg bg-white/10 p-4 backdrop-blur-sm md:p-6">
-						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+						<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 							Taciz ve Uygunsuz Davranışlar
 						</h2>
 						<p className="mb-4 text-base md:text-lg">
@@ -105,7 +105,7 @@ export default function CommunityPrinciplesPage() {
 					</section>
 
 					<section className="mb-8">
-						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+						<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 							Dans Pistinde Görgü Kuralları
 						</h2>
 						<ul className="list-disc space-y-2 pl-5 text-base md:space-y-3 md:text-lg">
@@ -168,7 +168,7 @@ export default function CommunityPrinciplesPage() {
 					</section>
 
 					<section className="mb-8">
-						<h2 className="mb-4 font-semibold text-2xl text-orange-300 md:text-3xl">
+						<h2 className="mb-4 text-2xl font-semibold text-orange-300 md:text-3xl">
 							Etkinlik Mekanı Kuralları
 						</h2>
 						<ul className="list-disc space-y-2 pl-5 text-base md:space-y-3 md:text-lg">
@@ -199,7 +199,7 @@ export default function CommunityPrinciplesPage() {
 					</section>
 
 					<section className="my-12 rounded-lg border border-orange-300/30 bg-orange-300/5 p-6 text-center">
-						<p className="font-medium text-lg text-orange-300">
+						<p className="text-lg font-medium text-orange-300">
 							Bu ilkeler topluluğumuzun refahı ve güvenliği için özenle hazırlanmıştır
 						</p>
 						<p className="mt-2 text-sm text-zinc-300">ALH Care Team tarafından ❤️ ile yazıldı</p>

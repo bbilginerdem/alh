@@ -13,14 +13,14 @@ export function BlogWrapper({ metadata, children }: Readonly<BlogWrapperProps>) 
 		<article className="mx-auto max-w-4xl px-4 py-8">
 			<header className="mb-8">
 				<div className="mb-4">
-					<span className="inline-block rounded-full bg-orange-500/20 px-3 py-1 font-medium text-orange-300 text-sm">
+					<span className="inline-block rounded-full bg-orange-500/20 px-3 py-1 text-sm font-medium text-orange-300">
 						{metadata.category}
 					</span>
 				</div>
 
-				<h1 className="mb-6 font-bold text-4xl text-zinc-100 leading-tight">{metadata.title}</h1>
+				<h1 className="mb-6 text-4xl leading-tight font-bold text-zinc-100">{metadata.title}</h1>
 
-				<p className="mb-8 text-lg text-zinc-300 leading-relaxed">{metadata.excerpt}</p>
+				<p className="mb-8 text-lg leading-relaxed text-zinc-300">{metadata.excerpt}</p>
 
 				<div className="flex flex-wrap items-center gap-6 text-sm text-zinc-400">
 					<div className="flex items-center gap-3">

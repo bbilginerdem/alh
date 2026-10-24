@@ -61,7 +61,7 @@ export default function PWAInstallPrompt() {
 		<div className="fixed right-4 bottom-4 left-4 z-100 flex items-start gap-4 rounded-xl border border-zinc-800 bg-zinc-950 p-4 shadow-2xl md:right-8 md:bottom-8 md:left-auto md:w-96">
 			<div className="flex-1 space-y-3">
 				<div>
-					<h3 className="font-semibold text-sm text-white">Uygulamayı Yükle</h3>
+					<h3 className="text-sm font-semibold text-white">Uygulamayı Yükle</h3>
 					<p className="mt-1 text-xs text-zinc-400">
 						Ankara Lindy Hop&apos;u ana ekranınıza ekleyerek etkinliklerden ilk siz haberdar olun!
 					</p>
@@ -70,7 +70,7 @@ export default function PWAInstallPrompt() {
 					<button
 						type="button"
 						onClick={handleInstall}
-						className="flex flex-1 items-center justify-center gap-2 rounded-md bg-orange-300 px-3 py-2 font-semibold text-xs text-zinc-900 transition-colors hover:bg-orange-400"
+						className="flex flex-1 items-center justify-center gap-2 rounded-md bg-orange-300 px-3 py-2 text-xs font-semibold text-zinc-900 transition-colors hover:bg-orange-400"
 					>
 						<Download size={14} />
 						Ana Ekrana Ekle

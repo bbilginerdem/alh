@@ -31,7 +31,7 @@ export function ContactForm() {
 
 	return (
 		<div className="w-full max-w-md space-y-8 rounded-xl p-10 sm:max-w-lg md:max-w-2xl">
-			<h2 className="text-center font-bold text-3xl text-gray-100">İletişim</h2>
+			<h2 className="text-center text-3xl font-bold text-gray-100">İletişim</h2>
 
 			<p className="text-center text-gray-300">
 				Form aracılığıyla veya doğrudan{" "}
@@ -53,11 +53,11 @@ export function ContactForm() {
 				data-mcp-description="İletişim formunu doldurarak Ankara Lindy Hop topluluğuna e-posta gönderin."
 			>
 				<div className="space-y-3">
-					<label htmlFor={`${id}-email`} className="block font-medium text-sm text-zinc-300">
+					<label htmlFor={`${id}-email`} className="block text-sm font-medium text-zinc-300">
 						E-posta adresiniz:
 					</label>
 					<input
-						className="w-full rounded-lg border border-gray-600 bg-gray-800 px-4 py-3 text-gray-100 transition-all placeholder:text-gray-400 focus:border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-300/30"
+						className="w-full rounded-lg border border-gray-600 bg-gray-800 px-4 py-3 text-gray-100 transition-all placeholder:text-gray-400 focus:border-orange-300 focus:ring-2 focus:ring-orange-300/30 focus:outline-none"
 						name="senderEmail"
 						type="email"
 						required
@@ -69,11 +69,11 @@ export function ContactForm() {
 				</div>
 
 				<div className="space-y-3">
-					<label htmlFor={`${id}-message`} className="block font-medium text-sm text-zinc-300">
+					<label htmlFor={`${id}-message`} className="block text-sm font-medium text-zinc-300">
 						Mesajınız:
 					</label>
 					<textarea
-						className="w-full rounded-lg border border-gray-600 bg-gray-800 px-4 py-3 text-gray-100 transition-all placeholder:text-gray-400 focus:border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-300/30"
+						className="w-full rounded-lg border border-gray-600 bg-gray-800 px-4 py-3 text-gray-100 transition-all placeholder:text-gray-400 focus:border-orange-300 focus:ring-2 focus:ring-orange-300/30 focus:outline-none"
 						name="message"
 						placeholder="Size nasıl yardımcı olabiliriz?"
 						required
@@ -97,7 +97,7 @@ export function ContactForm() {
 						)
 					}
 					containerClass={clsx(
-						"mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-lg px-6 py-3 font-medium focus:outline-none focus:ring-4",
+						"mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-lg px-6 py-3 font-medium focus:ring-4 focus:outline-none",
 						isPending ? "cursor-not-allowed bg-orange-300/90 text-zinc-100" : "",
 					)}
 					type="submit"

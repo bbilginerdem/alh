@@ -17,7 +17,7 @@ export function BlogNavigation({ currentPost, allPosts }: Readonly<BlogNavigatio
 	}
 
 	return (
-		<nav className="mt-12 border-zinc-700 border-t pt-8">
+		<nav className="mt-12 border-t border-zinc-700 pt-8">
 			<div className="flex flex-col gap-4 sm:flex-row sm:justify-between">
 				<div className="flex-1">
 					{previousPost ? (

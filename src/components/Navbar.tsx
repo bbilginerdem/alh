@@ -196,7 +196,7 @@ const NavBar = () => {
 									<Link
 										key={item}
 										href={`/${navbarDirection(item).toLowerCase()}`}
-										className="nav-hover-btn relative font-medium text-sm transition-colors hover:text-orange-300"
+										className="nav-hover-btn relative text-sm font-medium transition-colors hover:text-orange-300"
 									>
 										{item}
 										{showBadge && <NewBadgeCircle />}
@@ -221,7 +221,7 @@ const NavBar = () => {
 								<Link
 									key={item}
 									href={`/${navbarDirection(item).toLowerCase()}`}
-									className="mobile-nav-item relative block font-bold text-4xl text-orange-300 tracking-tighter transition-colors hover:text-orange-200"
+									className="mobile-nav-item relative block text-4xl font-bold tracking-tighter text-orange-300 transition-colors hover:text-orange-200"
 									onClick={() => setIsDropdownOpen(false)}
 								>
 									{item}

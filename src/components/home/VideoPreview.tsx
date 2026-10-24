@@ -75,7 +75,7 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
 	return (
 		<div ref={containerRef} className={clsx("animated-title", containerClass)}>
 			{lines.map((line) => (
-				<div key={line.id} className="max-w-full flex-center flex-wrap gap-2 px-10 md:gap-3">
+				<div key={line.id} className="flex-center max-w-full flex-wrap gap-2 px-10 md:gap-3">
 					{line.words.map((word) => (
 						<span
 							key={word.id}
