@@ -17,7 +17,7 @@ export const posts: BlogMetadata[] = [
 		title: "Frankie Manning: Lindy Hop'un Efsanevi Öncüsü",
 		slug: "frankie-manning-lindy-hop",
 		publishDate: "2025-01-15T10:00:00Z",
-		author: "Bilgin Erdem",
+		author: "",
 		excerpt:
 			"Dans tarihinin en etkileyici figürlerinden Frankie Manning'in hikayesi ve Lindy Hop'a kattığı devrimci aerial hareketleri keşfedin.",
 		readingTime: 2,
@@ -47,7 +47,7 @@ export const posts: BlogMetadata[] = [
 		title: "Norma Miller: Lindy Hop'un Kraliçesi",
 		slug: "norma-miller-lindy-hop",
 		publishDate: "2025-01-20T09:00:00Z",
-		author: "Bilgin Erdem",
+		author: "",
 		excerpt:
 			"Lindy Hop'un kraliçesi Norma Miller'ın cesur kişiliği ve dans dünyasına kattığı yenilikçi yaklaşımı keşfedin.",
 		readingTime: 3,
@@ -75,7 +75,7 @@ export const posts: BlogMetadata[] = [
 		title: "Lindy Hop: Swing'in Efsanevi Dansının Tarihi",
 		slug: "lindy-hop-tarihi",
 		publishDate: "2025-01-25T11:00:00Z",
-		author: "Bilgin Erdem",
+		author: "",
 		excerpt:
 			"Harlem'in sokaklarından dünyaya yayılan Lindy Hop'un büyüleyici tarihini ve kültürel etkisini keşfedin.",
 		readingTime: 2,
@@ -152,7 +152,7 @@ export const posts: BlogMetadata[] = [
 		title: "Tommy Dorsey: Swing Döneminin Trombon Devi",
 		slug: "tommy-dorsey",
 		publishDate: "2025-02-10T08:45:00Z",
-		author: "Bilgin Erdem",
+		author: "",
 		excerpt:
 			"Tommy Dorsey'nin trombon ustalığı ve swing orkestrasının dans müziğine kattığı büyüleyici melodiler.",
 		readingTime: 2,
@@ -194,7 +194,7 @@ export const posts: BlogMetadata[] = [
 		title: "Ella Fitzgerald: Cazın First Lady'si ve Sihirli Sesi",
 		slug: "ella-fitzgerald",
 		publishDate: "2025-11-22T08:30:00Z",
-		author: "Bilgin Erdem",
+		author: "",
 		excerpt:
 			"Ella Fitzgerald'ın zorlu çocukluğu, Apollo Tiyatrosu'ndaki kaderi, scat ustalığı ve efsanevi kariyeri.",
 		readingTime: 4,
@@ -287,7 +287,7 @@ export const posts: BlogMetadata[] = [
 		title: "Sammy Davis Jr.: Sınırları Aşan Çok Yönlü Bir İkon",
 		slug: "sammy-davis-jr",
 		publishDate: "2026-02-16T10:00:00Z",
-		author: "Bilgin Erdem",
+		author: "",
 		excerpt:
 			"Harlem'den Rat Pack'e uzanan efsanevi bir kariyer: Sammy Davis Jr.'ın toplumsal bariyerleri yıkan yeteneği, cesur yaşamı ve caz dünyasındaki unutulmaz mirası.",
 		readingTime: 5,
