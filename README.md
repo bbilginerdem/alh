@@ -48,6 +48,8 @@ Ankara'nın en aktif Lindy Hop ve swing dans topluluğu olan **Ankara Lindy Hop*
 
    ```bash
    pnpm dev
+   biome migrate --write
+   pnpm run lint
    ```
 
 4. Tarayıcınızda `http://localhost:3000` adresini açın.
@@ -67,6 +69,7 @@ src/
 ### Blog Yazısı Ekleme
 
 Yeni bir blog yazısı eklemek için:
+
 1. `src/components/blog/posts/` altında yeni bir `.tsx` dosyası oluşturun.
 2. `src/lib/data.ts` içerisindeki `posts` dizisine gerekli metadata bilgilerini ekleyin.
 3. Görselleri `public/images/blogs/` dizinine `.webp` formatında ekleyin.
