@@ -77,7 +77,7 @@ Yeni bir blog yazısı eklemek için:
 ## 📈 Yol Haritası (Gelecek Geliştirmeler)
 
 - [x] **PWA Desteği**: Kullanıcıların siteye uygulama gibi erişebilmesi ve bildirim alabilmesi.
-- [ ] **MDX Entegrasyonu**: Blog içeriklerini TSX yerine MDX formatına taşıyarak içerik yönetimini kolaylaştırmak.
+- [ ] **Markdocc Entegrasyonu**: Blog içeriklerini TSX yerine MDX formatına taşıyarak içerik yönetimini kolaylaştırmak.
 - [ ] **Çoklu Dil Desteği (i18n)**: İçeriklerin İngilizce ve diğer dillerde sunulması.
 - [ ] **Abone Sistemi**: Yeni blog ve etkinlikler için e-bülten kaydı.
 - [ ] **Yorum Sistemi**: Blog yazılarına topluluk katılımı için yorum ekleme özelliği.
