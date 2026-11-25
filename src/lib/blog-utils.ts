@@ -1,3 +1,4 @@
+import { absoluteUrl, SITE_URL } from "@/lib/site";
 import type { BlogMetadata } from "@/types/blog";
 
 export function formatDate(dateString: string): string {
@@ -28,7 +29,7 @@ export function generateBlogStructuredData(metadata: BlogMetadata) {
 		"@type": "BlogPosting",
 		headline: metadata.title,
 		description: metadata.seo.metaDescription,
-		image: metadata.image ? [metadata.image] : [],
+		image: metadata.image ? [absoluteUrl(metadata.image)] : [],
 		datePublished: metadata.publishDate,
 		dateModified: metadata.lastModified || metadata.publishDate,
 		author: {
@@ -40,12 +41,12 @@ export function generateBlogStructuredData(metadata: BlogMetadata) {
 			name: "Ankara Lindy Hop",
 			logo: {
 				"@type": "ImageObject",
-				url: "/images/logo.png",
+				url: absoluteUrl("/images/logo.png"),
 			},
 		},
 		mainEntityOfPage: {
 			"@type": "WebPage",
-			"@id": metadata.seo.canonicalUrl || `https://ankaralindyhop.org/blog/${metadata.slug}`,
+			"@id": metadata.seo.canonicalUrl || `${SITE_URL}/blog/${metadata.slug}`,
 		},
 		keywords: metadata.seo.keywords.join(", "),
 		articleSection: metadata.category,

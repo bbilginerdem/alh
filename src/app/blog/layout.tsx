@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 		title: "Blog | Ankara Lindy Hop",
 		description:
 			"Ankara Lindy Hop topluluğundan en son güncellemeler - etkinlikler, eğitimler ve Türkiye'nin başkentindeki swing dans kültürü.",
-		url: "https://ankaralindyhop.org/blog",
+		url: "/blog",
 		siteName: "Ankara Lindy Hop",
 		locale: "tr_TR",
 		type: "website",

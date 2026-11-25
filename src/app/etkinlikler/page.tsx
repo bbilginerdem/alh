@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Etkinlikler | Ankara Lindy Hop",
 		description: "Yaklaşan dans partileri, atölyeleri ve swing etkinliklerimizi takip edin.",
-		url: "https://ankaralindyhop.org/etkinlikler",
+		url: "/etkinlikler",
 	},
 	alternates: {
 		canonical: "/etkinlikler",

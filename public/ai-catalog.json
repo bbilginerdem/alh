@@ -2,41 +2,41 @@
 	"schema_version": "1.0.0",
 	"name": "Ankara Lindy Hop",
 	"description": "Ankara'nın en aktif Lindy Hop ve swing dans topluluğu. Etkinlikler, partiler, eğitimler ve dans kültürü.",
-	"url": "https://ankaralindyhop.org",
-	"logo": "https://ankaralindyhop.org/images/og-image.png",
+	"url": "https://www.ankaralindyhop.org",
+	"logo": "https://www.ankaralindyhop.org/images/og-image.png",
 	"contact": {
 		"email": "ankaralindyhop2018@gmail.com",
-		"url": "https://ankaralindyhop.org/iletisim"
+		"url": "https://www.ankaralindyhop.org/iletisim"
 	},
 	"resources": [
 		{
 			"type": "website",
 			"name": "Ana Sayfa",
-			"url": "https://ankaralindyhop.org",
+			"url": "https://www.ankaralindyhop.org",
 			"description": "Ankara Lindy Hop topluluğunun ana sayfası."
 		},
 		{
 			"type": "website",
 			"name": "Blog",
-			"url": "https://ankaralindyhop.org/blog",
+			"url": "https://www.ankaralindyhop.org/blog",
 			"description": "Lindy Hop ve swing dans tarihi, müzisyen biyografileri ve dans kültürü yazıları."
 		},
 		{
 			"type": "website",
 			"name": "Etkinlikler",
-			"url": "https://ankaralindyhop.org/etkinlikler",
+			"url": "https://www.ankaralindyhop.org/etkinlikler",
 			"description": "Topluluk etkinlikleri, partiler ve dans geceleri."
 		},
 		{
 			"type": "website",
 			"name": "İletişim",
-			"url": "https://ankaralindyhop.org/iletisim",
+			"url": "https://www.ankaralindyhop.org/iletisim",
 			"description": "İletişim formu ile topluluğa ulaşın."
 		},
 		{
 			"type": "llms-txt",
 			"name": "LLMs.txt",
-			"url": "https://ankaralindyhop.org/llms.txt",
+			"url": "https://www.ankaralindyhop.org/llms.txt",
 			"description": "Bu sitenin LLM dostu metin özeti."
 		}
 	],

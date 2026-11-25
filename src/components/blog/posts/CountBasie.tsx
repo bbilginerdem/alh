@@ -1,41 +1,7 @@
 "use client";
 
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-	title: "Count Basie: Swing Kralı ve Caza Damga Vuran Müzikal Dev",
-	description:
-		"Count Basie'nin müzik kariyeri, orkestrasının özgün tarzı, swing'in gelişimindeki rolü ve efsane müzisyenlerle iş birlikleri hakkında detaylı bilgiler.",
-	keywords: [
-		"Count Basie",
-		"swing müzik",
-		"Big Band",
-		"caz efsanesi",
-		"Billie Holiday",
-		"Ella Fitzgerald",
-		"Frank Sinatra",
-		"Jumpin at the Woodside",
-		"One O'Clock Jump",
-		"Jazz tarihi",
-		"Caz tarihi",
-		"1930'lar caz",
-		"stride piano",
-		"comping",
-		"swing dansı",
-		"lindy hop müzik",
-	],
-	openGraph: {
-		title: "Count Basie: Swing Kralı ve Caza Damga Vuran Müzikal Dev",
-		description:
-			"Count Basie'nin müzik kariyeri, orkestrasının özgün tarzı, swing'in gelişimindeki rolü ve efsane müzisyenlerle iş birlikleri hakkında detaylı bilgiler.",
-		url: "https://ankaralindyhop.org/blog/count-basie",
-		siteName: "Ankara Lindy Hop",
-		locale: "tr_TR",
-		type: "article",
-	},
-};
 
 export default function CountBasie() {
 	return (

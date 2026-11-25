@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Gizlilik Politikası | Ankara Lindy Hop",
 		description: "Gizliliğiniz and veri güvenliğiniz hakkında bilgi edinin.",
-		url: "https://ankaralindyhop.org/gizlilik-politikasi",
+		url: "/gizlilik-politikasi",
 	},
 	alternates: {
 		canonical: "/gizlilik-politikasi",

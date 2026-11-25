@@ -110,7 +110,7 @@ const CookieConsent = () => {
 								Web sitemizde deneyiminizi geliştirmek için çerezler kullanıyoruz. Sitemizi
 								kullanmaya devam ederek çerez kullanımını kabul etmiş olursunuz.{" "}
 								<a
-									href="/privacy"
+									href="/gizlilik-politikasi"
 									className="text-orange-300 underline transition-colors hover:text-orange-200"
 								>
 									Gizlilik Politikası

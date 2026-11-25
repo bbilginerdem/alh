@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 import { posts } from "@/lib/data";
+import { absoluteUrl, SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-	const baseUrl = "https://ankaralindyhop.org";
+	const baseUrl = SITE_URL;
 
 	const staticPages = [
 		"",
@@ -19,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		lastModified: new Date(),
 		changeFrequency: "weekly" as const,
 		priority: route === "" ? 1 : 0.8,
-		images: route === "" ? ["https://ankaralindyhop.org/images/og-image.png"] : undefined,
+		images: route === "" ? [absoluteUrl("/images/og-image.png")] : undefined,
 	}));
 
 	const blogRoutes = posts.map((post) => ({

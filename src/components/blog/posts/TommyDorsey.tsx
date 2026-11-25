@@ -1,35 +1,7 @@
 "use client";
 
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-	title: "Tommy Dorsey: Swing Döneminin Trombon Devi",
-	description:
-		"Tommy Dorsey'in müzik kariyeri, Dorsey Brothers Orchestra deneyimi, orkestra liderliği ve swing döneminin unutulmaz ismi olarak bıraktığı izler hakkında detaylı bilgiler.",
-	keywords: [
-		"Tommy Dorsey",
-		"swing müzik",
-		"trombon",
-		"Dorsey Brothers Orchestra",
-		"Jimmy Dorsey",
-		"1930'lar caz",
-		"swing dansı",
-		"Big Band",
-		"lindy hop müzik",
-		"caz tarihi",
-	],
-	openGraph: {
-		title: "Tommy Dorsey: Swing Döneminin Trombon Devi",
-		description:
-			"Tommy Dorsey'in müzik kariyeri, Dorsey Brothers Orchestra deneyimi, orkestra liderliği ve swing döneminin unutulmaz ismi olarak bıraktığı izler hakkında detaylı bilgiler.",
-		url: "https://ankaralindyhop.org/blog/tommy-dorsey",
-		siteName: "Ankara Lindy Hop",
-		locale: "tr_TR",
-		type: "article",
-	},
-};
 
 export default function TommyDorsey() {
 	return (

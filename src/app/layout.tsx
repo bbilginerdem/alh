@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import PWAInstallPrompt from "@/components/PWAInstallPrompt";
 import PWARegistration from "@/components/PWARegistration";
+import { absoluteUrl, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -51,11 +52,11 @@ export const metadata: Metadata = {
 		title: "Ankara Lindy Hop - Lindy Hop Dans Topluluğu",
 		description:
 			"Ankara'nın en aktif Lindy Hop ve swing dans topluluğu. Etkinlikler, partiler ve dans kültürünü keşfedin.",
-		url: "https://ankaralindyhop.org",
+		url: "/",
 		siteName: "Ankara Lindy Hop",
 		images: [
 			{
-				url: "https://ankaralindyhop.org/images/og-image.png",
+				url: absoluteUrl("/images/og-image.png"),
 				width: 942,
 				height: 942,
 				alt: "Ankara Lindy Hop Topluluğu",
@@ -89,7 +90,7 @@ export const metadata: Metadata = {
 		],
 	},
 	manifest: "/manifest.json",
-	metadataBase: new URL("https://ankaralindyhop.org"),
+	metadataBase: new URL(SITE_URL),
 	alternates: { canonical: "/" },
 };
 
@@ -97,8 +98,8 @@ const organizationSchema = {
 	"@context": "https://schema.org",
 	"@type": "Organization",
 	name: "Ankara Lindy Hop",
-	url: "https://ankaralindyhop.org",
-	logo: "https://ankaralindyhop.org/images/og-image.png",
+	url: SITE_URL,
+	logo: absoluteUrl("/images/og-image.png"),
 	sameAs: ["https://www.instagram.com/ankaralindyhop", "https://www.facebook.com/ankaralindyhop"],
 	contactPoint: {
 		"@type": "ContactPoint",

@@ -1,4 +1,4 @@
-const CACHE_VERSION = "alh-v3";
+const CACHE_VERSION = "alh-v4";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
@@ -14,7 +14,6 @@ const PRECACHE_URLS = [
 	"/favicon/favicon.ico",
 	"/images/logo.png",
 	"/manifest.json",
-	"/site.webmanifest",
 ];
 
 const DYNAMIC_CACHE_LIMIT = 50;
@@ -196,12 +195,6 @@ async function trimCache(cacheName, maxItems) {
 		return trimCache(cacheName, maxItems);
 	}
 }
-
-self.addEventListener("sync", (event) => {
-	if (event.tag === "contact-form-sync") {
-		event.waitUntil(syncContactForm());
-	}
-});
 
 self.addEventListener("message", (event) => {
 	if (event.origin !== self.location.origin) {

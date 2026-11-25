@@ -1,38 +1,7 @@
 "use client";
 
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-	title: "Ella Fitzgerald: Cazın First Lady'si ve Sihirli Sesi",
-	description:
-		"Ella Fitzgerald'ın zorlu çocukluğu, Apollo Tiyatrosu'ndaki kaderi, Chick Webb ile iş birliği, scat şarkı söylemedeki ustalığı ve efsanevi kariyeri hakkında detaylı bilgiler.",
-	keywords: [
-		"Ella Fitzgerald",
-		"caz efsanesi",
-		"First Lady of Song",
-		"scat şarkı söyleme",
-		"Chick Webb",
-		"A-Tisket A-Tasket",
-		"Dizzy Gillespie",
-		"Oscar Peterson",
-		"bebop",
-		"jazz tarihi",
-		"caz tarihi",
-		"Apollo Tiyatrosu",
-		"Savoy Balo Salonu",
-	],
-	openGraph: {
-		title: "Ella Fitzgerald: Cazın First Lady'si ve Sihirli Sesi",
-		description:
-			"Ella Fitzgerald'ın zorlu çocukluğu, Apollo Tiyatrosu'ndaki kaderi, Chick Webb ile iş birliği, scat şarkı söylemedeki ustalığı ve efsanevi kariyeri hakkında detaylı bilgiler.",
-		url: "https://ankaralindyhop.org/blog/ella-fitzgerald",
-		siteName: "Ankara Lindy Hop",
-		locale: "tr_TR",
-		type: "article",
-	},
-};
 
 export default function EllaFitzgerald() {
 	return (

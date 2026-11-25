@@ -9,7 +9,10 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "İletişim | Ankara Lindy Hop",
 		description: "Bize ulaşın, sorularınızı yanıtlayalım.",
-		url: "https://ankaralindyhop.org/iletisim",
+		url: "/iletisim",
+	},
+	alternates: {
+		canonical: "/iletisim",
 	},
 };
 

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Gönüllü Ol | Ankara Lindy Hop",
 		description: "Yeteneklerinle topluluğumuza katkı sağla. Gönüllü ekibimize katıl!",
-		url: "https://ankaralindyhop.org/gonullu-ol",
+		url: "/gonullu-ol",
 	},
 	alternates: {
 		canonical: "/gonullu-ol",

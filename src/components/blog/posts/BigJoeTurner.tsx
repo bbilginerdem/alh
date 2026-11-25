@@ -1,37 +1,6 @@
 "use client";
 
-import type { Metadata } from "next";
 import Image from "next/image";
-
-export const metadata: Metadata = {
-	title: "Big Joe Turner: Blues’un Kükreyen Sesi ve Rock’n Roll’un Babası",
-	description:
-		"Big Joe Turner’ın Kansas City barlarından Carnegie Hall’a, 'Shake, Rattle and Roll' ile Rock’n Roll tarihine damga vurana kadar olan hayat hikayesi.",
-	keywords: [
-		"Big Joe Turner",
-		"Blues Shouter",
-		"Shake Rattle and Roll",
-		"Rock and Roll Hall of Fame",
-		"Pete Johnson",
-		"Boogie-Woogie",
-		"Kansas City Blues",
-		"Atlantic Records",
-		"Jump Blues",
-		"Blues tarihi",
-		"Rock'n Roll kökleri",
-		"Count Basie",
-		"Ankara Lindy Hop",
-	],
-	openGraph: {
-		title: "Big Joe Turner: Blues’un Kükreyen Sesi ve Rock’n Roll’un Babası",
-		description:
-			"Big Joe Turner’ın Kansas City barlarından Carnegie Hall’a, 'Shake, Rattle and Roll' ile Rock’n Roll tarihine damga vurana kadar olan hayat hikayesi.",
-		url: "https://ankaralindyhop.org/blog/big-joe-turner",
-		siteName: "Ankara Lindy Hop",
-		locale: "tr_TR",
-		type: "article",
-	},
-};
 
 export default function BigJoeTurner() {
 	return (

@@ -8,13 +8,13 @@ Ankara Lindy Hop, Ankara'da Lindy Hop ve swing dansını sevdirmek, yaymak ve da
 
 ## Sayfalar
 
-- [Ana Sayfa](https://ankaralindyhop.org): Topluluk hakkında genel bilgi, öne çıkan içerikler ve iletişim.
-- [Blog](https://ankaralindyhop.org/blog): Lindy Hop ve swing dans tarihi, müzisyen biyografileri ve dans kültürü yazıları.
-- [Etkinlikler](https://ankaralindyhop.org/etkinlikler): Topluluk etkinlikleri, partiler ve dans geceleri.
-- [İletişim](https://ankaralindyhop.org/iletisim): İletişim formu ile bize ulaşın.
-- [Gönüllü Ol](https://ankaralindyhop.org/gonullu-ol): Topluluğa gönüllü olarak katkıda bulunun.
-- [Topluluk İlkeleri](https://ankaralindyhop.org/topluluk-ilkeleri): Topluluk kuralları ve davranış ilkeleri.
-- [Gizlilik Politikası](https://ankaralindyhop.org/gizlilik-politikasi): Kişisel verilerin korunması ve gizlilik politikası.
+- [Ana Sayfa](https://www.ankaralindyhop.org): Topluluk hakkında genel bilgi, öne çıkan içerikler ve iletişim.
+- [Blog](https://www.ankaralindyhop.org/blog): Lindy Hop ve swing dans tarihi, müzisyen biyografileri ve dans kültürü yazıları.
+- [Etkinlikler](https://www.ankaralindyhop.org/etkinlikler): Topluluk etkinlikleri, partiler ve dans geceleri.
+- [İletişim](https://www.ankaralindyhop.org/iletisim): İletişim formu ile bize ulaşın.
+- [Gönüllü Ol](https://www.ankaralindyhop.org/gonullu-ol): Topluluğa gönüllü olarak katkıda bulunun.
+- [Topluluk İlkeleri](https://www.ankaralindyhop.org/topluluk-ilkeleri): Topluluk kuralları ve davranış ilkeleri.
+- [Gizlilik Politikası](https://www.ankaralindyhop.org/gizlilik-politikasi): Kişisel verilerin korunması ve gizlilik politikası.
 
 ## Blog İçerikleri
 
@@ -33,7 +33,7 @@ Blog bölümünde Lindy Hop ve swing dans tarihine ilişkin derinlemesine yazıl
 
 ## İletişim
 
-- Web: https://ankaralindyhop.org
+- Web: https://www.ankaralindyhop.org
 - E-posta: ankaralindyhop2018@gmail.com
 - Instagram: https://www.instagram.com/ankaralindyhop
 - Facebook: https://www.facebook.com/ankaralindyhop

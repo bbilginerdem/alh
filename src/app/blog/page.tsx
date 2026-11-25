@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Blog Yazıları | Ankara Lindy Hop",
 		description: "Swing dansı, caz müziği ve dans kültürünü derinlemesine inceleyen makalelerimiz.",
-		url: "https://ankaralindyhop.org/blog",
+		url: "/blog",
 		type: "website",
 	},
 	alternates: {

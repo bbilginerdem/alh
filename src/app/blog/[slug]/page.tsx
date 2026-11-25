@@ -5,6 +5,11 @@ import { BlogWrapper } from "@/components/blog/BlogWrapper";
 import { RelatedPosts } from "@/components/blog/RelatedPosts";
 import { generateBlogStructuredData } from "@/lib/blog-utils";
 import { posts } from "@/lib/data";
+import { absoluteUrl, SITE_URL } from "@/lib/site";
+
+export function generateStaticParams() {
+	return posts.map((post) => ({ slug: post.slug }));
+}
 
 export async function generateMetadata({
 	params,
@@ -31,13 +36,11 @@ export async function generateMetadata({
 			title: post.title,
 			description: post.seo.metaDescription,
 			type: "article",
-			url: post.seo.canonicalUrl || `https://ankaralindyhop.org/blog/${post.slug}`,
+			url: post.seo.canonicalUrl || `${SITE_URL}/blog/${post.slug}`,
 			images: post.image
 				? [
 						{
-							url: post.image.startsWith("http")
-								? post.image
-								: `https://ankaralindyhop.org${post.image}`,
+							url: absoluteUrl(post.image),
 							alt: post.imageAlt || post.title,
 						},
 					]
@@ -51,9 +54,7 @@ export async function generateMetadata({
 			card: "summary_large_image",
 			title: post.title,
 			description: post.seo.metaDescription,
-			images: post.image
-				? [post.image.startsWith("http") ? post.image : `https://ankaralindyhop.org${post.image}`]
-				: [],
+			images: post.image ? [absoluteUrl(post.image)] : [],
 		},
 	};
 }

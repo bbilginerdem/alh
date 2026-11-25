@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Topluluk İlkeleri | Ankara Lindy Hop",
 		description: "Etik ilkelerimiz ve güvenli dans ortamı politikalarımız hakkında bilgi edinin.",
-		url: "https://ankaralindyhop.org/topluluk-ilkeleri",
+		url: "/topluluk-ilkeleri",
 	},
 	alternates: {
 		canonical: "/topluluk-ilkeleri",

@@ -1,37 +1,6 @@
 "use client";
 
-import type { Metadata } from "next";
 import Image from "next/image";
-
-export const metadata: Metadata = {
-	title:
-		"Duke Ellington ile swing çağına yolculuk: Blanton/Webster Döneminin Dans ve Can Üzerine Etkisi",
-	description:
-		"Duke Ellington'un 1940-42 yılları arasında RCA Victor ile yaptığı legendary albümü, Blanton-Webster dönemi ve Swing döneminin doruk noktası hakkında detaylı analiz.",
-	keywords: [
-		"Duke Ellington",
-		"Never No Lament",
-		"Blanton/Webster Band",
-		"Jazz Standard",
-		"Swing Dönemi",
-		"Jimmy Blanton",
-		"Ben Webster",
-		"Billy Strayhorn",
-		"Caz Tarihi",
-		"Lindy Hop Müzik",
-		"Ankara Lindy Hop",
-	],
-	openGraph: {
-		title:
-			"Duke Ellington ile swing çağına yolculuk: Blanton/Webster Döneminin Dans ve Can Üzerine Etkisi",
-		description:
-			"Duke Ellington'un 1940-42 yılları arasında RCA Victor ile yaptığı legendary albümü, Blanton-Webster dönemi ve Swing döneminin doruk noktası hakkında detaylı analiz.",
-		url: "https://ankaralindyhop.org/blog/duke-ellington-never-no-lament",
-		siteName: "Ankara Lindy Hop",
-		locale: "tr_TR",
-		type: "article",
-	},
-};
 
 export default function DukeEllingtonBlantonWebster() {
 	return (

@@ -1,33 +1,6 @@
 "use client";
 
-import type { Metadata } from "next";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-	title: "Earl Hines: Cazın Yenilikçi Piyano Devi",
-	description:
-		"Earl Hines'in caz tarihindeki yeri, 'trompet tarzı' piyano tekniği, Louis Armstrong ile ortak çalışmaları ve 'Weather Bird' gibi ikonik eserleri hakkında detaylı bilgiler.",
-	keywords: [
-		"Earl Hines",
-		"Fatha Hines",
-		"caz piyanistleri",
-		"Weather Bird",
-		"Louis Armstrong",
-		"Grand Terrace Cafe",
-		"1920'ler caz",
-		"Savoy Ballroom",
-		"jazz piano",
-	],
-	openGraph: {
-		title: "Earl Hines: Cazın Yenilikçi Piyano Devi",
-		description:
-			"Earl Hines'in Louis Armstrong ile ortak çalışmaları, 'trompet tarzı' piyano tekniği ve caz tarihine yaptığı katkılara dair kapsamlı bir inceleme.",
-		url: "https://ankaralindyhop.org/blog/earl-hines",
-		siteName: "Ankara Lindy Hop",
-		locale: "tr_TR",
-		type: "article",
-	},
-};
 
 export default function EarlHines() {
 	return (

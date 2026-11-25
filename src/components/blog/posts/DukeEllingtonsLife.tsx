@@ -1,30 +1,6 @@
 "use client";
 
-import type { Metadata } from "next";
 import Image from "next/image";
-
-export const metadata: Metadata = {
-	title: "Duke Ellington: Cazın Efsanevi Bestecisi ve Lideri",
-	description:
-		"Duke Ellington'ın caz tarihindeki yeri, beraber çalıştığı müzisyenlere özgü solo yazma yaklaşımı ve 'Caravan' gibi klasik eserleri hakkında detaylı bilgiler.",
-	keywords: [
-		"Duke Ellington",
-		"caz tarihi",
-		"Caravan",
-		"Lindy Hop müzik",
-		"caz bestecileri",
-		"swing müzik",
-	],
-	openGraph: {
-		title: "Duke Ellington: Cazın Efsanevi Bestecisi",
-		description:
-			"Duke Ellington'ın caz tarihindeki önemli yeri ve beraber çalıştığı müzisyenlere özgü solo yazma yaklaşımı.",
-		url: "https://ankaralindyhop.org/blog/duke-ellington",
-		siteName: "Ankara Lindy Hop",
-		locale: "tr_TR",
-		type: "article",
-	},
-};
 
 export default function DukeEllington() {
 	return (

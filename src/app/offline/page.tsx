@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata = {
 	title: "Çevrimdışı",
 	description: "İnternet bağlantınız bulunmamaktadır.",
+	robots: { index: false, follow: false },
 };
 
 export default function OfflinePage() {

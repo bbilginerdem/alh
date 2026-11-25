@@ -1,35 +1,7 @@
 "use client";
 
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-	title: "Sammy Davis Jr.: Sınırları Aşan Çok Yönlü Bir İkon",
-	description:
-		"Sammy Davis Jr.'ın Harlem'den Rat Pack'e uzanan hayatı, ırkçılıkla mücadelesi, geçirdiği kaza sonrası dönüşümü, cesur evliliği ve 'The Entertainer' olarak bıraktığı miras hakkında detaylı bilgiler.",
-	keywords: [
-		"Sammy Davis Jr.",
-		"Rat Pack",
-		"Frank Sinatra",
-		"Will Mastin Trio",
-		"Candy Man",
-		"Mr. Bojangles",
-		"Golden Boy",
-		"Irkçılıkla mücadele",
-		"Caz tarihi",
-		"Eğlence dünyası efsaneleri",
-	],
-	openGraph: {
-		title: "Sammy Davis Jr.: Sınırları Aşan Çok Yönlü Bir İkon",
-		description:
-			"Sammy Davis Jr.'ın Harlem'den Rat Pack'e uzanan hayatı, ırkçılıkla mücadelesi ve 'The Entertainer' olarak bıraktığı miras hakkında detaylı bir bakış.",
-		url: "https://ankaralindyhop.org/blog/sammy-davis-jr",
-		siteName: "Ankara Lindy Hop",
-		locale: "tr_TR",
-		type: "article",
-	},
-};
 
 export default function SammyDavisJr() {
 	return (

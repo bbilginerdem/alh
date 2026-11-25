@@ -2,12 +2,12 @@
 	"schema_version": "0.1",
 	"name": "Ankara Lindy Hop",
 	"description": "Ankara'nın en aktif Lindy Hop ve swing dans topluluğu.",
-	"url": "https://ankaralindyhop.org",
+	"url": "https://www.ankaralindyhop.org",
 	"tools": [
 		{
 			"name": "send_contact_email",
 			"description": "İletişim formunu doldurarak Ankara Lindy Hop topluluğuna e-posta gönderin.",
-			"url": "https://ankaralindyhop.org/iletisim",
+			"url": "https://www.ankaralindyhop.org/iletisim",
 			"params": [
 				{
 					"name": "senderEmail",
