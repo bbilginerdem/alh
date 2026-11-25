@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { BlogPageClient } from "@/components/blog/BlogPageClient";
+import { generateBlogIndexStructuredData } from "@/lib/blog-utils";
+import { posts } from "@/lib/data";
 
 export const metadata: Metadata = {
 	title: "Blog Yazıları",
@@ -27,6 +29,13 @@ export const metadata: Metadata = {
 export default function BlogPage() {
 	return (
 		<section className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
+			<script
+				id="blog-index-structured-data"
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify(generateBlogIndexStructuredData(posts)),
+				}}
+			/>
 			<header className="mb-8 text-center">
 				<h1 className="mb-4 text-3xl font-bold text-zinc-100 sm:text-4xl lg:text-5xl">
 					Blog Yazıları

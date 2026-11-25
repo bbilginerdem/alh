@@ -1,7 +1,6 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Almendra_SC, Inter } from "next/font/google";
-import Script from "next/script";
 import { Toaster } from "react-hot-toast";
 import CookieConsent from "@/components/CookieConsent";
 import Footer from "@/components/Footer";
@@ -94,18 +93,36 @@ export const metadata: Metadata = {
 	alternates: { canonical: "/" },
 };
 
-const organizationSchema = {
+const siteSchema = {
 	"@context": "https://schema.org",
-	"@type": "Organization",
-	name: "Ankara Lindy Hop",
-	url: SITE_URL,
-	logo: absoluteUrl("/images/og-image.png"),
-	sameAs: ["https://www.instagram.com/ankaralindyhop", "https://www.facebook.com/ankaralindyhop"],
-	contactPoint: {
-		"@type": "ContactPoint",
-		email: "iletisim@ankaralindyhop.org",
-		contactType: "customer support",
-	},
+	"@graph": [
+		{
+			"@type": "Organization",
+			"@id": `${SITE_URL}/#organization`,
+			name: "Ankara Lindy Hop",
+			url: SITE_URL,
+			logo: absoluteUrl("/images/og-image.png"),
+			sameAs: [
+				"https://www.instagram.com/ankaralindyhop",
+				"https://www.facebook.com/ankaralindyhop",
+			],
+			contactPoint: {
+				"@type": "ContactPoint",
+				email: "iletisim@ankaralindyhop.org",
+				contactType: "customer support",
+			},
+		},
+		{
+			"@type": "WebSite",
+			"@id": `${SITE_URL}/#website`,
+			url: SITE_URL,
+			name: "Ankara Lindy Hop",
+			description:
+				"Ankara'nın en aktif Lindy Hop ve swing dans topluluğu. Etkinlikler, partiler, eğitimler ve dans kültürü.",
+			inLanguage: "tr-TR",
+			publisher: { "@id": `${SITE_URL}/#organization` },
+		},
+	],
 };
 
 export default function RootLayout({
@@ -116,11 +133,11 @@ export default function RootLayout({
 	return (
 		<html lang="tr" data-scroll-behavior="smooth">
 			<body className={`${inter.variable} ${almendraSC.variable} antialiased`}>
-				<Script
+				<script
 					id="organization-ld-json"
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{
-						__html: JSON.stringify(organizationSchema),
+						__html: JSON.stringify(siteSchema),
 					}}
 				/>
 				<main className="min-h-screen w-full overflow-x-hidden">

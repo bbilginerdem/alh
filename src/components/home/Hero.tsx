@@ -83,6 +83,7 @@ const Hero = () => {
 
 	return (
 		<div className="relative h-dvh w-screen overflow-x-hidden">
+			<h1 className="sr-only">Ankara Lindy Hop — Lindy Hop ve swing dans topluluğu</h1>
 			<div
 				ref={videoFrameRef}
 				className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-zinc-50"
@@ -103,18 +104,23 @@ const Hero = () => {
 					/>
 				</div>
 
-				<h1
+				<div
 					ref={lindyTextRef}
+					aria-hidden="true"
 					className="hero-heading font-almendra-sc absolute right-5 bottom-5 z-30 text-zinc-950"
 				>
 					LINDY HOP
-				</h1>
+				</div>
 
 				<div className="absolute top-0 left-0 z-30 size-full">
 					<div className="mt-24 px-5 sm:px-10">
-						<h1 ref={ankaraTextRef} className="hero-heading font-almendra-sc text-zinc-950">
+						<div
+							ref={ankaraTextRef}
+							aria-hidden="true"
+							className="hero-heading font-almendra-sc text-zinc-950"
+						>
 							ANKARA
-						</h1>
+						</div>
 
 						<div className="relative my-3 max-w-fit rounded-md bg-black/40 px-3 py-2 shadow-inner backdrop-blur-xs">
 							<p className="text-base text-zinc-100">
@@ -136,9 +142,12 @@ const Hero = () => {
 				</div>
 			</div>
 
-			<h1 className="hero-heading font-almendra-sc absolute right-5 bottom-5 text-zinc-950">
+			<div
+				aria-hidden="true"
+				className="hero-heading font-almendra-sc absolute right-5 bottom-5 text-zinc-950"
+			>
 				LINDY HOP
-			</h1>
+			</div>
 		</div>
 	);
 };

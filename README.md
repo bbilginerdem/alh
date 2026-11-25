@@ -134,12 +134,27 @@ Yeni bir blog yazısı eklemek için:
 - [ ] **Service worker'ı Serwist'e taşıma**: `public/sw.js` elle yönetiliyor; her içerik değişiminde `CACHE_VERSION`'ı elle artırmak gerekiyor.
 - [ ] **Erişilebilirlik denetimi**: axe-core ile otomatik a11y taraması (Biome'ın a11y kuralları zaten açık).
 
+### SEO — kalan işler
+
+- [ ] **1200×630 Open Graph görseli**: Mevcut `og-image.png` 942×942 (kare, 558 KB). Paylaşım platformları 1.91:1 bekliyor; kare görsel kırpılıyor. Next.js'in `app/opengraph-image.tsx` (`ImageResponse`) desteğiyle rota bazlı OG görseli derleme sırasında üretilebilir. `manifest.json` içindeki `form_factor: "wide"` beyanı da kare görselle çelişiyor.
+- [ ] **`data.ts`'e güncel etkinlik eklemek**: Yazılı tarihe sahip tüm etkinlikler geçmişte kaldı; sayfa yalnızca otomatik üretilen haftalık buluşmayı gösteriyor. Etkinlik rich result'ının değeri yaklaşan etkinliklere bağlı.
+- [ ] **DanceEvent alanlarını zenginleştirmek**: `offers` (fiyat/para birimi/erişilebilirlik), `endDate` ve `performer` eklenirse Google etkinlik zengin sonucu uygunluğu artar. Gerçek veri gerektirdiği için otomatik üretilmedi.
+- [ ] **RSS/Atom akışı**: `app/feed.xml/route.ts` ile blog akışı; keşif ve geri bağlantı için.
+- [ ] **Google Search Console doğrulaması**: `metadata.verification` alanına site doğrulama token'ı ve sitemap gönderimi.
+- [ ] **Hero video ağırlığı**: `public/videos/` altında 4 dosya toplam ~22 MB. `preload="none"` ve poster mevcut (iyi), ancak mobil ağda LCP'yi daha da düşürmek için sıkıştırma veya ilk kare için statik görsel düşünülebilir.
+
 ### Tamamlandı
 
 - [x] **PWA Desteği**: Manifest, service worker, çevrimdışı sayfa ve kurulum istemi.
 - [x] **Tüm rotalarda self-referencing canonical** ve kanonik adresin `www` üzerinde birleştirilmesi.
+- [x] **Sayfa başına tek `<h1>`**: Ana sayfa 8 adet `<h1>` üretiyordu, `/iletisim` hiç üretmiyordu, `/etkinlikler` 2 adet üretiyordu. Başlık hiyerarşisi tüm rotalarda düzeltildi.
+- [x] **Yapılandırılmış veri sunucu HTML'ine taşındı**: Organization şeması `next/script` ile istemci tarafında enjekte ediliyordu ve JS çalıştırmayan tarayıcılar için görünmezdi; düz `<script>` ile değiştirildi.
+- [x] **`DanceEvent` şeması**: `/etkinlikler` için, saatlik ISR (`revalidate = 3600`) ile yaklaşan/geçmiş ayrımı bayatlamadan.
+- [x] **`WebSite`, `CollectionPage` + `ItemList`, `BreadcrumbList`** şemaları.
 - [x] **Blog yazılarının SSG olarak önceden derlenmesi** (`generateStaticParams`).
 - [x] **JSON-LD yapısal veride mutlak URL kullanımı** (Schema.org gereksinimi).
+- [x] **Kararlı sitemap `lastmod`**: Statik sayfalar her derlemede `new Date()` yazdığı için tüm sitemap her deploy'da değişiyordu.
+- [x] **404 sayfası başlığı**: `not-found.tsx` client component olduğu için metadata üretemiyor ve ana sayfa başlığını devralıyordu.
 - [x] **LLM/ajan keşif dosyaları**: `llms.txt`, `ai-catalog.json`, `.well-known/webmcp.json`.
 
 ## 🤝 Katkıda Bulunma

@@ -7,17 +7,9 @@ import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { NewBadge } from "@/components/ui/NewBadge";
 import { isNewContent } from "@/lib/blog-utils";
+import { type DanceEvent, generateWeeklyEvent } from "@/lib/events";
 
 gsap.registerPlugin(ScrollTrigger);
-
-interface DanceEvent {
-	id: string;
-	title: string;
-	date: string;
-	location: string;
-	description: string;
-	imageUrl?: string;
-}
 
 interface EventsListProps {
 	events: DanceEvent[];
@@ -25,28 +17,6 @@ interface EventsListProps {
 
 const INITIAL_BATCH_COUNT = 4;
 const BATCH_SIZE = 3;
-
-function generateWeeklyEvent(): DanceEvent {
-	const nextWednesday = new Date();
-	nextWednesday.setDate(nextWednesday.getDate() + ((3 - nextWednesday.getDay() + 7) % 7));
-	nextWednesday.setHours(20, 0, 0, 0);
-
-	const now = new Date();
-	if (now.getDay() === 3 && now.getHours() >= 20) {
-		nextWednesday.setDate(nextWednesday.getDate() + 7);
-	}
-
-	return {
-		id: `weekly-${nextWednesday.getTime()}`,
-		title: "Ankara Lindy Hop - Pratik & Parti",
-		date: nextWednesday.toISOString(),
-		location:
-			"Rasa Brasserie, Meşrutiyet, Selanik Caddesi, Raymar Hotel No:74, 06420 Çankaya/Ankara",
-		description:
-			"Ankara Lindy Hop haftalık dans buluşması. Yeni başlayanlar ve tüm seviyeler davetlidir!",
-		imageUrl: "/images/events/weekly-event.webp",
-	};
-}
 
 export function EventsList({ events }: Readonly<EventsListProps>) {
 	const containerRef = useRef<HTMLDivElement>(null);
@@ -361,9 +331,9 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 				</div>
 			)}
 			<div className="flex-1 p-4 sm:p-6">
-				<h2 className="mb-2 text-xl font-bold tracking-tight text-zinc-100 transition-colors duration-300 group-hover:text-orange-300 sm:text-2xl">
+				<h3 className="mb-2 text-xl font-bold tracking-tight text-zinc-100 transition-colors duration-300 group-hover:text-orange-300 sm:text-2xl">
 					{event.title}
-				</h2>
+				</h3>
 				<p className="mb-2 font-medium text-zinc-300">
 					<strong className="text-orange-300">Tarih:</strong> {formatEventDate(event.date)}
 				</p>
@@ -383,10 +353,11 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 
 	return (
 		<div className="mx-auto max-w-4xl px-4 py-8" ref={containerRef}>
+			<h1 className="sr-only">Etkinlikler</h1>
 			<div className="mb-8 overflow-hidden">
-				<h1 className="events-header text-center text-3xl font-bold tracking-tighter text-zinc-100 uppercase sm:text-4xl">
+				<h2 className="events-header text-center text-3xl font-bold tracking-tighter text-zinc-100 uppercase sm:text-4xl">
 					Yaklaşan Etkinlikler
-				</h1>
+				</h2>
 			</div>
 
 			<ul className="future-events-list space-y-6">
@@ -452,9 +423,9 @@ export function EventsList({ events }: Readonly<EventsListProps>) {
 			{sortedPastEvents.length > 0 && (
 				<section className="mt-16">
 					<div className="mb-8 overflow-hidden">
-						<h1 className="events-header text-center text-3xl font-bold tracking-tighter text-zinc-100 uppercase sm:text-4xl">
+						<h2 className="events-header text-center text-3xl font-bold tracking-tighter text-zinc-100 uppercase sm:text-4xl">
 							Geçmiş Etkinlikler
-						</h1>
+						</h2>
 					</div>
 					<ul className="past-events-list space-y-6">
 						{visiblePastEvents.map((event) => renderEventItem(event, true))}

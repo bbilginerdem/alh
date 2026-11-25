@@ -94,9 +94,9 @@ export const BentoCard: React.FC<BentoCardProps> = ({
 			/>
 			<div className="relative z-10 flex size-full flex-col justify-between p-8 text-zinc-50">
 				<div className="flex flex-col gap-3">
-					<h1 className="bento-title translate-y-4 text-3xl leading-none font-bold tracking-tight uppercase opacity-0">
+					<h3 className="bento-title translate-y-4 text-3xl leading-none font-bold tracking-tight uppercase opacity-0">
 						{title}
-					</h1>
+					</h3>
 					{description && (
 						<div className="bento-description relative max-w-fit translate-y-4 rounded-xl bg-black/40 px-3 py-2 opacity-0 shadow-inner backdrop-blur-sm">
 							<p className="max-w-64 text-xs leading-relaxed font-medium text-zinc-200 md:text-sm">
@@ -210,10 +210,9 @@ const Features = () => {
 		<section className="bg-black" ref={containerRef}>
 			<div className="container mx-auto px-3 md:px-10">
 				<div className="feature-text-container flex flex-col gap-6 px-5 py-32">
-					<h2 className="sr-only">Ankara Lindy Hop Features</h2>
-					<p className="feature-header-text text-2xl font-bold tracking-tight text-zinc-50 md:text-4xl">
+					<h2 className="feature-header-text text-2xl font-bold tracking-tight text-zinc-50 md:text-4xl">
 						Ankara Lindy Hop kimdir?
-					</p>
+					</h2>
 					<p className="feature-header-text text-lg leading-relaxed font-light text-zinc-400 md:max-w-3xl">
 						Evet, Ankara’nın sokakları denize çıkmaz; ama Ankara’da sokaklar Ankara Lindy Hop’a
 						çıkar. Ankara Lindy Hop, Ankara’nın sokaklarında, parklarında ve bahçelerinde ortaya

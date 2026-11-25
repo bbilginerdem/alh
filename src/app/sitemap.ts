@@ -17,7 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
 	const routes = staticPages.map((route) => ({
 		url: route ? `${baseUrl}/${route}` : baseUrl,
-		lastModified: new Date(),
 		changeFrequency: "weekly" as const,
 		priority: route === "" ? 1 : 0.8,
 		images: route === "" ? [absoluteUrl("/images/og-image.png")] : undefined,

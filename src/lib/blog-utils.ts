@@ -25,7 +25,6 @@ export function calculateReadingTime(text: string): number {
 
 export function generateBlogStructuredData(metadata: BlogMetadata) {
 	return {
-		"@context": "https://schema.org",
 		"@type": "BlogPosting",
 		headline: metadata.title,
 		description: metadata.seo.metaDescription,
@@ -52,6 +51,51 @@ export function generateBlogStructuredData(metadata: BlogMetadata) {
 		articleSection: metadata.category,
 		wordCount: metadata.readingTime * 200,
 		timeRequired: `PT${metadata.readingTime}M`,
+	};
+}
+
+export function generateBlogIndexStructuredData(allPosts: BlogMetadata[]) {
+	const ordered = allPosts.toSorted(
+		(a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime(),
+	);
+
+	return {
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+				"@type": "CollectionPage",
+				"@id": `${SITE_URL}/blog`,
+				url: `${SITE_URL}/blog`,
+				name: "Blog Yazıları | Ankara Lindy Hop",
+				inLanguage: "tr-TR",
+				isPartOf: { "@id": `${SITE_URL}/#website` },
+			},
+			{
+				"@type": "ItemList",
+				itemListElement: ordered.map((post, index) => ({
+					"@type": "ListItem",
+					position: index + 1,
+					name: post.title,
+					url: post.seo.canonicalUrl || `${SITE_URL}/blog/${post.slug}`,
+				})),
+			},
+		],
+	};
+}
+
+export function generateBreadcrumbStructuredData(metadata: BlogMetadata) {
+	return {
+		"@type": "BreadcrumbList",
+		itemListElement: [
+			{ "@type": "ListItem", position: 1, name: "Ana Sayfa", item: SITE_URL },
+			{ "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+			{
+				"@type": "ListItem",
+				position: 3,
+				name: metadata.title,
+				item: metadata.seo.canonicalUrl || `${SITE_URL}/blog/${metadata.slug}`,
+			},
+		],
 	};
 }
 

@@ -31,7 +31,7 @@ export function ContactForm() {
 
 	return (
 		<div className="w-full max-w-md space-y-8 rounded-xl p-10 sm:max-w-lg md:max-w-2xl">
-			<h2 className="text-center text-3xl font-bold text-gray-100">İletişim</h2>
+			<h1 className="text-center text-3xl font-bold text-gray-100">İletişim</h1>
 
 			<p className="text-center text-gray-300">
 				Form aracılığıyla veya doğrudan{" "}

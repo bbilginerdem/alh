@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 import { BlogWrapper } from "@/components/blog/BlogWrapper";
 import { RelatedPosts } from "@/components/blog/RelatedPosts";
-import { generateBlogStructuredData } from "@/lib/blog-utils";
+import { generateBlogStructuredData, generateBreadcrumbStructuredData } from "@/lib/blog-utils";
 import { posts } from "@/lib/data";
 import { absoluteUrl, SITE_URL } from "@/lib/site";
 
@@ -72,7 +72,10 @@ export default async function BlogPost({
 	}
 
 	const { Content, ...metadata } = post;
-	const structuredData = generateBlogStructuredData(post);
+	const structuredData = {
+		"@context": "https://schema.org",
+		"@graph": [generateBlogStructuredData(post), generateBreadcrumbStructuredData(post)],
+	};
 
 	return (
 		<>

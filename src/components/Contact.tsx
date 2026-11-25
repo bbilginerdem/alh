@@ -130,9 +130,9 @@ const Contact = () => {
 						<p className="font-general text-sm font-bold tracking-[0.3em] text-orange-400 uppercase drop-shadow-lg">
 							Bize Ulaşın
 						</p>
-						<h1 className="font-zentry mt-4 bg-linear-to-br from-zinc-100 to-zinc-500 bg-clip-text text-6xl leading-[0.85] font-black text-transparent uppercase drop-shadow-2xl md:text-8xl">
+						<h2 className="font-zentry mt-4 bg-linear-to-br from-zinc-100 to-zinc-500 bg-clip-text text-6xl leading-[0.85] font-black text-transparent uppercase drop-shadow-2xl md:text-8xl">
 							Sorunuz <br /> Mu Var?
-						</h1>
+						</h2>
 					</div>
 
 					<div className="contact-text font-circular-web max-w-xl text-lg leading-relaxed font-medium text-zinc-300 drop-shadow-md md:text-2xl">
