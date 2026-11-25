@@ -1,6 +1,6 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import type { BlogMetadata } from "@/types/blog";
+import type { BlogMetadata } from "@/lib/schemas";
 
 interface BlogNavigationProps {
 	currentPost: BlogMetadata;

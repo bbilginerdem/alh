@@ -3,7 +3,7 @@
 import { Search } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useId, useMemo, useState } from "react";
-import type { BlogMetadata } from "@/types/blog";
+import type { BlogMetadata } from "@/lib/schemas";
 
 interface BlogFiltersProps {
 	posts: BlogMetadata[];

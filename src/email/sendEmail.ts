@@ -3,27 +3,26 @@
 import React from "react";
 import { Resend } from "resend";
 
-import { getErrorMessage, validateString } from "@/lib/utils";
+import { contactFormSchema } from "@/lib/schemas";
+import { getErrorMessage } from "@/lib/utils";
 
 import ContactFormEmail from "./ContactFormEmail";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendEmail = async (formData: FormData) => {
-	const senderEmail = formData.get("senderEmail");
-	const message = formData.get("message");
+	const parsedContactForm = contactFormSchema.safeParse({
+		senderEmail: formData.get("senderEmail"),
+		message: formData.get("message"),
+	});
 
-	if (!validateString(senderEmail, 500)) {
+	if (!parsedContactForm.success) {
 		return {
-			error: "Invalid sender email",
+			error: parsedContactForm.error.issues[0]?.message ?? "Form verisi geçersiz.",
 		};
 	}
 
-	if (!validateString(message, 5000)) {
-		return {
-			error: "Invalid message",
-		};
-	}
+	const { senderEmail, message } = parsedContactForm.data;
 
 	let data: object;
 	try {
@@ -31,10 +30,10 @@ export const sendEmail = async (formData: FormData) => {
 			from: "Ankara Lindy Hop <iletisim@ankaralindyhop.org>",
 			to: "ankaralindyhop2018@gmail.com",
 			subject: "Web İletişim Formu",
-			replyTo: senderEmail as string,
+			replyTo: senderEmail,
 			react: React.createElement(ContactFormEmail, {
-				message: message as string,
-				senderEmail: senderEmail as string,
+				message,
+				senderEmail,
 			}),
 		});
 	} catch (error: unknown) {

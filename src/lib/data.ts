@@ -9,7 +9,7 @@ import LindyHopHistory from "@/components/blog/posts/LindyHopHistory";
 import NormaMiller from "@/components/blog/posts/NormaMiller";
 import SammyDavisJr from "@/components/blog/posts/SammyDavisJr";
 import TommyDorsey from "@/components/blog/posts/TommyDorsey";
-import type { BlogMetadata } from "@/types/blog";
+import type { BlogMetadata } from "@/lib/schemas";
 
 export const posts: BlogMetadata[] = [
 	{

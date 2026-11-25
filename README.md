@@ -24,6 +24,7 @@ Ankara'nın en aktif Lindy Hop ve swing dans topluluğu olan **Ankara Lindy Hop*
 | Animasyon        | [GSAP](https://gsap.com/) & [@gsap/react](https://github.com/greensock/react) | 3.15  |
 | İkonlar          | [Lucide React](https://lucide.dev/)                                           | 1.74  |
 | E-posta          | [Resend](https://resend.com/) + [React Email](https://react.email/)           | 6.38  |
+| Doğrulama        | [Zod](https://zod.dev/)                                                       | 4.6   |
 | Fontlar          | Next Font (Inter & Almendra SC)                                               | —     |
 | Lint/Format      | [Biome](https://biomejs.dev/)                                                 | 2.6   |
 | Paket Yöneticisi | [pnpm](https://pnpm.io/)                                                      | 12    |
@@ -87,8 +88,7 @@ Ankara'nın en aktif Lindy Hop ve swing dans topluluğu olan **Ankara Lindy Hop*
     ├── components/         # UI ve layout bileşenleri
     │   └── blog/posts/     # Blog yazısı gövdeleri (yalnızca render, metadata içermez)
     ├── email/              # React Email şablonu ve "use server" gönderim aksiyonu
-    ├── lib/                # Yardımcılar: site.ts (SITE_URL), data.ts (blog metadata), utils.ts
-    └── types/              # TypeScript tip tanımlamaları
+    └── lib/                # Yardımcılar: site.ts (SITE_URL), schemas.ts (Zod), data.ts (blog metadata), utils.ts
 ```
 
 ### Blog Yazısı Ekleme
@@ -105,7 +105,6 @@ Yeni bir blog yazısı eklemek için:
 
 ### Öncelik 1 — Mevcut mimarinin tamamlanması
 
-- [ ] **Zod v4 ile şema doğrulama**: `sendEmail` server action'ı şu an elle yazılmış `validateString` kullanıyor. Zod'a geçiş hem form hem `data.ts` blog metadata'sını tek şemada doğrular.
 - [ ] **İletişim formuna rate limiting**: Server action'da throttle veya honeypot yok; döngüye sokan biri Resend kotasını tüketebilir. Upstash Ratelimit (Redis, ücretsiz katman) veya Vercel WAF.
 - [ ] **`useActionState` + `useFormStatus`**: `ContactForm` hâlâ elle `useState` + `try/catch` ile pending durumu yönetiyor. React 19'un form primitive'leri bunu gereksiz hale getiriyor.
 - [ ] **Tip güvenli ortam değişkenleri**: `@t3-oss/env-nextjs` ile `RESEND_API_KEY` eksikken build'in başında patlamak (sessiz çalışma yerine).
@@ -145,6 +144,7 @@ Yeni bir blog yazısı eklemek için:
 
 ### Tamamlandı
 
+- [x] **Zod v4 ile şema doğrulama**: `sendEmail` server action'ı elle yazılmış `validateString` yerine `src/lib/schemas.ts` içindeki `contactFormSchema` ile doğrulanıyor ve Türkçe hata mesajı döndürüyor. `BlogMetadata` / `SerializableBlogMetadata` tipleri de aynı dosyadaki `blogPostSchema`'dan türetiliyor (`src/types/blog.ts` kaldırıldı), böylece `data.ts` blog metadata'sı derleme sırasında şemaya karşı doğrulanıyor. `data.ts` istemci bileşenleri tarafından da import edildiği için şema yalnızca sunucuda çalışır; istemci bundle'ına Zod sızmaz.
 - [x] **PWA Desteği**: Manifest, service worker, çevrimdışı sayfa ve kurulum istemi.
 - [x] **Tüm rotalarda self-referencing canonical** ve kanonik adresin `www` üzerinde birleştirilmesi.
 - [x] **Sayfa başına tek `<h1>`**: Ana sayfa 8 adet `<h1>` üretiyordu, `/iletisim` hiç üretmiyordu, `/etkinlikler` 2 adet üretiyordu. Başlık hiyerarşisi tüm rotalarda düzeltildi.

@@ -1,5 +1,5 @@
+import type { BlogMetadata } from "@/lib/schemas";
 import { absoluteUrl, SITE_URL } from "@/lib/site";
-import type { BlogMetadata } from "@/types/blog";
 
 export function formatDate(dateString: string): string {
 	const date = new Date(dateString);

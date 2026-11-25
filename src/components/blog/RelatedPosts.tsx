@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { formatDate, formatReadingTime } from "@/lib/blog-utils";
-import type { BlogMetadata } from "@/types/blog";
+import type { BlogMetadata } from "@/lib/schemas";
 
 interface RelatedPostsProps {
 	posts: BlogMetadata[];

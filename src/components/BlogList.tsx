@@ -12,7 +12,7 @@ import { CornerDownLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { NewBadge } from "@/components/ui/NewBadge";
 import { formatDate, isNewContent } from "@/lib/blog-utils";
-import type { BlogMetadata } from "@/types/blog";
+import type { BlogMetadata } from "@/lib/schemas";
 
 interface BlogListProps {
 	posts: BlogMetadata[];
