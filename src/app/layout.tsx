@@ -1,8 +1,9 @@
-import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Almendra_SC, Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
+import AnalyticsGate from "@/components/AnalyticsGate";
 import CookieConsent from "@/components/CookieConsent";
+import { CookieConsentProvider } from "@/components/CookieConsentProvider";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import PWAInstallPrompt from "@/components/PWAInstallPrompt";
@@ -141,24 +142,26 @@ export default function RootLayout({
 					}}
 				/>
 				<main className="min-h-screen w-full overflow-x-hidden">
-					<Navbar />
-					{children}
-					<Footer />
-					<Analytics />
-					<Toaster
-						position="top-center"
-						toastOptions={{
-							style: { background: "#fdba74", color: "#18181b" },
-							success: {
+					<CookieConsentProvider>
+						<Navbar />
+						{children}
+						<Footer />
+						<AnalyticsGate />
+						<Toaster
+							position="top-center"
+							toastOptions={{
 								style: { background: "#fdba74", color: "#18181b" },
-								iconTheme: { primary: "#18181b", secondary: "#fdba74" },
-							},
-							error: {
-								style: { background: "#f87171", color: "#18181b" },
-							},
-						}}
-					/>
-					<CookieConsent />
+								success: {
+									style: { background: "#fdba74", color: "#18181b" },
+									iconTheme: { primary: "#18181b", secondary: "#fdba74" },
+								},
+								error: {
+									style: { background: "#f87171", color: "#18181b" },
+								},
+							}}
+						/>
+						<CookieConsent />
+					</CookieConsentProvider>
 					<PWARegistration />
 					<PWAInstallPrompt />
 				</main>

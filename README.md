@@ -128,7 +128,7 @@ Yeni bir blog yazısı eklemek için:
 
 ### Öncelik 4 — Ölçümleme ve uyum
 
-- [ ] **Çerezsiz analitik (Plausible veya Umami)**: Vercel Analytics şu an çerez onayından bağımsız yükleniyor ve "Reddet" seçeneği hiçbir şeyi değiştirmiyor. Çerezsiz bir servise geçmek bu uyum açığını (KVKK/ePrivacy) kökten çözer.
+- [ ] **Analitik sağlayıcısını çerezsiz servise taşıma (opsiyonel)**: Vercel Analytics artık çerez onayına tam bağlı (aşağıdaki "Tamamlandı" maddesine bakınız); uyum açığı kapanmıştır. İstenirse sunucu tarafı/çerezsiz bir servise (Plausible, Umami) geçiş bağımsız script yükünü de kaldırır.
 - [ ] **Sentry veya Vercel Speed Insights**: İstemci tarafı hatalar şu an tamamen sessiz (`PWARegistration` içindeki boş `catch {}` dahil).
 - [ ] **Service worker'ı Serwist'e taşıma**: `public/sw.js` elle yönetiliyor; her içerik değişiminde `CACHE_VERSION`'ı elle artırmak gerekiyor.
 - [ ] **Erişilebilirlik denetimi**: axe-core ile otomatik a11y taraması (Biome'ın a11y kuralları zaten açık).
@@ -156,6 +156,7 @@ Yeni bir blog yazısı eklemek için:
 - [x] **Kararlı sitemap `lastmod`**: Statik sayfalar her derlemede `new Date()` yazdığı için tüm sitemap her deploy'da değişiyordu.
 - [x] **404 sayfası başlığı**: `not-found.tsx` client component olduğu için metadata üretemiyor ve ana sayfa başlığını devralıyordu.
 - [x] **LLM/ajan keşif dosyaları**: `llms.txt`, `ai-catalog.json`, `.well-known/webmcp.json`.
+- [x] **Çerez onayı gerçekten çalışıyor (KVKK/ePrivacy)**: Vercel Analytics artık `CookieConsentProvider` (React context) arkasına alındı; `<Analytics>` bileşeni **yalnızca** onay verildiğinde mount edilir, yani "Reddet" hiçbir script/cookie/ağ isteği bırakmaz (`beforeSend` ile ikinci bir savunma katmanı). Karar tek noktadan `src/lib/consent.ts` içindeki birinci-taraf `cookie_consent` çerezine (localStorage aynası ve eski `cookieConsent` değeriyle geri uyumlu) yazılır ve `storage`/özel event ile sekmeler arası senkronize edilir. Banner artık ayrıştırılmış tercih paneli içerir (Zorunlu her zaman açık, Analitik anahtarı), `Tümünü Reddet` / `Seçilenleri Kaydet` / `Tümünü Kabul Et` aksiyonları ve Footer'daki **Çerez Tercihleri** bağlantısıyla geri çekilebilir. `prefers-reduced-motion`, `Escape` ile kapatma, `role="switch"`/`aria` erişilebilirliği ve tıklamayı geçiren (`pointer-events-none`) non-modal yerleşim sağlandı; tüm bunlar root layout client'a taşınmadan, SSG korunarak yapıldı.
 
 ## 🤝 Katkıda Bulunma
 

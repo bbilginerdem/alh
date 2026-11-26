@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import CookiePreferencesButton from "./CookiePreferencesButton";
 import Facebook from "./social/facebook";
 import Instagram from "./social/instagram";
 import Youtube from "./social/youtube";
@@ -34,6 +35,7 @@ const Footer = () => {
 					>
 						Gizlilik Politikası
 					</Link>
+					<CookiePreferencesButton />
 				</div>
 
 				<div className="flex justify-center gap-6 md:justify-start">
