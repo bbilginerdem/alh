@@ -106,7 +106,6 @@ Yeni bir blog yazısı eklemek için:
 ### Öncelik 1 — Mevcut mimarinin tamamlanması
 
 - [ ] **İletişim formuna rate limiting**: Server action'da throttle veya honeypot yok; döngüye sokan biri Resend kotasını tüketebilir. Upstash Ratelimit (Redis, ücretsiz katman) veya Vercel WAF.
-- [ ] **`useActionState` + `useFormStatus`**: `ContactForm` hâlâ elle `useState` + `try/catch` ile pending durumu yönetiyor. React 19'un form primitive'leri bunu gereksiz hale getiriyor.
 - [ ] **Tip güvenli ortam değişkenleri**: `@t3-oss/env-nextjs` ile `RESEND_API_KEY` eksikken build'in başında patlamak (sessiz çalışma yerine).
 - [ ] **Test altyapısı**: Projede hiç test yok. Vitest (unit: `blog-utils`, `utils`) + Playwright (iletişim formu, blog navigasyonu).
 
@@ -144,6 +143,7 @@ Yeni bir blog yazısı eklemek için:
 
 ### Tamamlandı
 
+- [x] **`useActionState` + `useFormStatus`**: `ContactForm` artık form sonucunu `useActionState` ile, gönderim sırasındaki pending durumunu ise form içindeki `SubmitButton` üzerinden `useFormStatus` ile yönetiyor. Elle pending state'i ve `finally` temizliği kaldırıldı; gönderim sırasında buton devre dışı bırakılıyor ve başarı/hata bildirimleri toast olarak gösteriliyor.
 - [x] **Zod v4 ile şema doğrulama**: `sendEmail` server action'ı elle yazılmış `validateString` yerine `src/lib/schemas.ts` içindeki `contactFormSchema` ile doğrulanıyor ve Türkçe hata mesajı döndürüyor. `BlogMetadata` / `SerializableBlogMetadata` tipleri de aynı dosyadaki `blogPostSchema`'dan türetiliyor (`src/types/blog.ts` kaldırıldı), böylece `data.ts` blog metadata'sı derleme sırasında şemaya karşı doğrulanıyor. `data.ts` istemci bileşenleri tarafından da import edildiği için şema yalnızca sunucuda çalışır; istemci bundle'ına Zod sızmaz.
 - [x] **PWA Desteği**: Manifest, service worker, çevrimdışı sayfa ve kurulum istemi.
 - [x] **Tüm rotalarda self-referencing canonical** ve kanonik adresin `www` üzerinde birleştirilmesi.

@@ -8,6 +8,7 @@ interface ButtonProps {
 	containerClass: string;
 	type?: "button" | "submit" | "reset";
 	onClick?: () => void;
+	disabled?: boolean;
 }
 
 const Button = ({
@@ -18,6 +19,7 @@ const Button = ({
 	containerClass,
 	type = "button",
 	onClick,
+	disabled,
 }: ButtonProps) => {
 	return (
 		<button
@@ -28,6 +30,7 @@ const Button = ({
 			)}
 			type={type}
 			onClick={onClick}
+			disabled={disabled}
 		>
 			{leftIcon}
 
