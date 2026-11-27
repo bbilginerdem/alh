@@ -2,7 +2,7 @@
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useRef } from "react";
 import AnimatedTitle from "./AnimatedTitle";
@@ -56,7 +56,6 @@ const About = () => {
 						alt="ALH parti sonu"
 						fill
 						quality={85}
-						priority
 						sizes="(max-width: 768px) 80vw, (max-width: 1024px) 90vw, 100vw"
 						className="absolute top-0 left-0"
 						style={{
